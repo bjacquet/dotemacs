@@ -1,0 +1,20 @@
+#!/bin/sh
+## Title:
+## Description: 
+## Author:Thierry Volpiatto<thierry dot volpiatto FROM gmail DOT com>
+## Commentary:
+# Use this bookmarklet:
+# javascript:location.href='browsew3m://' + location.href
+
+if [ -z "$1" ]; then
+    echo "$0: Error: no arguments given!" 1>&2
+    exit 1
+fi
+
+# To test uncomment following line
+#echo $1 $(date) >> /tmp/browsew3m.out
+
+# if you use stumpwm uncomment
+#stumpish eval "(stumpwm::emacs)"
+
+emacsclient --eval "(progn (firefox-browse-url-w3m \"$1\" ) nil)"

@@ -1,0 +1,25 @@
+#!/bin/sh
+## Title:
+## Description: 
+## Author:Thierry Volpiatto<thierry dot volpiatto FROM gmail DOT com>
+## Commentary:
+
+if [ -z "$1" ]; then
+    echo "$0: Error: no arguments given!" 1>&2
+    exit 1
+fi
+
+# To test uncomment following line
+# echo $1 $(date) >> /tmp/bmkext.out
+
+# if you use stumpwm uncomment
+# stumpish eval "(stumpwm::emacs)"
+
+# if you use gnome uncomment (wmctrl needed)
+# wmctrl -xa emacs
+
+emacsclient --eval "(progn (bmkext-get-firefox-bmk \"$1\" ) nil)"
+
+# if you use gnome uncomment
+# sleep 2
+# wmctrl -xa firefox
