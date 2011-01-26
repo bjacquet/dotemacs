@@ -53,7 +53,7 @@
     (color-theme-bharadwaj)
     (color-theme-bharadwaj-slate)
     (color-theme-billw)
-    (color-theme-black-on-gray)
+					; (color-theme-black-on-gray)
     (color-theme-blippblopp)
     (color-theme-simple-1)
 					; (color-theme-blue-erc)
