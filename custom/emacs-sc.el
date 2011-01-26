@@ -1,3 +1,30 @@
+
+(defun fancy-splash-head ()
+ "Insert the head part of the splash screen into the current buffer."
+ (let* ((image-file (format "%s/custom/siscog-symbol.xpm" (getenv "SISCOG_EMACS_DIR_LOCAL")))
+        (img (create-image image-file))
+        (image-width (and img (car (image-size img))))
+        (window-width (window-width (selected-window))))
+   (when img
+     (when (> window-width image-width)
+       (insert "\n\n")
+       ;; Center the image in the window.
+       (insert (propertize " " 'display
+                           `(space :align-to (+ center (-0.5 . ,img)))))
+
+       ;; Change the color of the XPM version of the splash image
+       ;; so that it is visible with a dark frame background.
+       (when (and (memq 'xpm img)
+                  (eq (frame-parameter nil 'background-mode) 'dark))
+         (setq img (append img '(:color-symbols (("#000000" . "gray30"))))))
+       (insert-image img)
+       (insert "\n\n")))))
+
+(switch-to-buffer "*scratch*")
+(goto-char (point-min))
+(fancy-splash-head)
+
+
 (set-default-font "DejaVu Sans Mono-10")
 (defvar *use-slime* t)
 
@@ -69,5 +96,3 @@ If keep-list has buffers don't kill them."
 ;;       "x:/siscog/sc-emacs"))
 
 (setf vc-handled-backends nil)
-
-

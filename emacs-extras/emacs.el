@@ -200,6 +200,13 @@ or to \[buffer-name if it has no file"
 
 
 ;;; ---------------------------------------------------------------------
+;;; Magit
+;;;
+(add-to-list 'load-path (concat emacs-extras-d "/magit-0.8.2"))
+(require 'magit)
+
+
+;;; ---------------------------------------------------------------------
 ;;; Stuff
 ;;;
 (defun dos-unix ()
