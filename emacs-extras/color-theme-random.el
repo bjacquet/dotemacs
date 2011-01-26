@@ -122,7 +122,7 @@
 					; (color-theme-sitaramv-nt)
     (color-theme-sitaramv-solaris)
 					; (color-theme-snow)
-    (color-theme-snowish)
+					; (color-theme-snowish)
 					; (color-theme-standard-ediff)
 					; (color-theme-standard)
 					; (color-theme-emacs-21)

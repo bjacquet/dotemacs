@@ -1,0 +1,18 @@
+;;;; -*- lisp -*-
+;;;;
+;;;; Custom SLIME/SC-EMACS settings.
+;;;;
+;;;; Instructions:
+;;;;   1. Customize settings below
+;;;;   2. Save as %HOME/.swank.lisp
+
+(cl:in-package #:cl-user)
+
+;; Set to T to have the debugger bypass hotspots automatically.
+;(setq *sc-emacs-bypass-hotspot* t)
+
+;; Set to NIL to disable the SLIME inspector and use Allegro's instead.
+;(setq *sc-emacs-inspect-in-emacs* nil)
+
+;; Set to NIL to use Allegro's debugger.
+;(setq swank:*global-debugger* nil)
