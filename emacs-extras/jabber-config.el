@@ -48,14 +48,6 @@
     (jabber-connect-all)))
 
 
-(global-set-key (kbd "C-z")
-		(defun my-minimize-window ()
-		  (interactive)
-		  (bury-buffer)
-		  (switch-to-buffer "*Messages*")
-		  (suspend-frame)))
-
-
 (defun gtalk-groupchat ()
   (interactive)
   (let ((group (apply 'format "private-chat-%x%x%x%x%x%x%x%x-%x%x%x%x-%x%x%x%x-%x%x%x%x-%x%x%x%x%x%x%x%x%x%x%x%x@groupchat.google.com"

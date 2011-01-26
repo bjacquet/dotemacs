@@ -3004,7 +3004,7 @@ Wheat on black.  Includes faces for font-lock, gnus, paren."
     (gnus-summary-normal-ticked-face ((t (:foreground "pink"))))
     (gnus-summary-normal-unread-face ((t (nil))))
     (gnus-summary-selected-face ((t (:underline t))))
-    (highlight ((t (:background "black" :foreground "black"))))
+    (highlight ((t (:background "Red3" :foreground "black"))))
     (italic ((t (:italic t :foreground "yellow3"))))
     (message-cited-text-face ((t (:foreground "red"))))
     (message-header-cc-face ((t (:bold t :foreground "green4"))))

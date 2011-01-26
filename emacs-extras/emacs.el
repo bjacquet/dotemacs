@@ -83,6 +83,9 @@
 
 (iswitchb-mode t) ;intelligent buffer switcher (in minibuffer)
 
+(load-file (expand-file-name (concat emacs-extras-d "/sql-indent.el")))
+(eval-after-load "sql"
+  '(require 'sql-indent))
 
 ;; Emacs title bar to reflect file name
 (defun title-set-title ()
@@ -120,12 +123,13 @@ or to \[buffer-name if it has no file"
  '(default-input-method "portuguese-prefix")
  '(desktop-menu-directory "~/Documents/diary/desktop/")
  '(global-font-lock-mode t nil (font-lock))
+ '(org-agenda-files (quote ("y:/Documents/diary/remember.org" "y:/Documents/diary/TSS.org" "y:/Documents/diary/siscog.org")))
  '(pc-select-meta-moves-sexps t)
  '(pc-selection-mode t nil (pc-select))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t)
- '(user-full-name "Bruno Jacquet")
  '(user-mail-address "bruno.jacquet@gmail.com")
+ '(user-full-name "Bruno Jacquet")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
@@ -150,14 +154,14 @@ or to \[buffer-name if it has no file"
 ;;; ---------------------------------------------------------------------
 ;;; Org & Remember
 ;;;
-(unless (string-equal host "SETUBAL") ; SISCOG
+(unless (string-equal host "SETUBAL")
   (load-file (expand-file-name (concat emacs-extras-d "/sc-org/sc-org.el"))))
 
 
 ;;; ---------------------------------------------------------------------
 ;;; YaSnippet
 ;;;
-(unless (string-equal host "SETUBAL") ; SISCOG
+(unless (string-equal host "SETUBAL")
   (add-to-list 'load-path (concat emacs-extras-d "/yasnippet-0.6.1c"))
   (require 'yasnippet)
   ;; Initialize Yasnippet
@@ -172,7 +176,7 @@ or to \[buffer-name if it has no file"
 ;;; ---------------------------------------------------------------------
 ;;; reStruturedText
 ;;;
-(unless (string-equal host "SETUBAL") ; SISCOG
+(unless (string-equal host "SETUBAL")
   (load-file (expand-file-name (concat emacs-extras-d "/rst.el")))
   (require 'rst))
 
@@ -193,57 +197,6 @@ or to \[buffer-name if it has no file"
 (global-auto-complete-mode t)
 (setq ac-auto-start 3)
 (setq ac-dwim t)
-
-
-;;; ---------------------------------------------------------------------
-;;; GNUS
-;;;
-(setq gnus-select-method '(nntp "news.gmane.org"))
-(setq gnus-read-newsrc-file nil)
-(add-hook 'gnus-summary-mode-hook 'my-setup-hl-line)
-(add-hook 'gnus-group-mode-hook 'my-setup-hl-line)
-
-(defun my-setup-hl-line ()
- (hl-line-mode 1)
- (setq cursor-type nil))
-
-;; http://groups.google.com/group/gnu.emacs.gnus/browse_thread/thread/a673a74356e7141f
-(when window-system
- (setq gnus-sum-thread-tree-indent "  ")
- (setq gnus-sum-thread-tree-root "● ")
- (setq gnus-sum-thread-tree-false-root "◯ ")
- (setq gnus-sum-thread-tree-single-indent "◎ ")
- (setq gnus-sum-thread-tree-vertical        "│")
- (setq gnus-sum-thread-tree-leaf-with-other "├─► ")
- (setq gnus-sum-thread-tree-single-leaf     "╰─► ")
- (setq gnus-user-date-format-alist '(;; ((gnus-seconds-today)
-                                     ;;  . "%k:%M")
-                                     ;; (604800 . "%a %k:%M")
-                                     ;; ((gnus-seconds-month)
-                                     ;;  . "%a %d")
-                                     ((gnus-seconds-year)
-                                      . "%d %b '%y")
-                                     (t . "%d %b '%y"))))
-(setq gnus-summary-line-format
-     (concat
-      "%0{%U%R%z%}"
-      "%3{│%}" "%1{%&user-date;%}" "%3{│%}" ;; date
-      "  "
-      "%4{%-15,15f%}"               ;; name
-      "  "
-      "%3{│%}"
-      " "
-      "%1{%B%}"
-      "%s\n"))
-(setq gnus-summary-display-arrow t)
-(gnus-add-configuration
- '(summary
-   (vertical 1.0
-	       (horizontal 0.25
-			   [group 0.30]
-			   [summary 1.0 point])
-	       (vertical 1.0
-			 [article 1.0]))))
 
 
 ;;; ---------------------------------------------------------------------
@@ -277,6 +230,20 @@ or to \[buffer-name if it has no file"
   (find-file (expand-file-name "~/flash_drive/notes/note.org"))
   (find-file (expand-file-name "~/flash_drive/notes/london.org"))
   (find-file (expand-file-name "~/flash_drive/notes/remember.org")))
+
+(lexical-let ((idx 0)
+	      (options (list 'flyspell-mode ; turns on
+			     'flyspell-prog-mode
+			     'flyspell-buffer
+			     'flyspell-mode ; turns off
+			     )))
+  (setf (cdr (last options)) options)
+  (defun flyspell-mode-cycle ()
+    (interactive)
+    (let ((option (elt options idx)))
+      (setf idx (1+ idx))
+      (message "%s" option)
+      (funcall option))))
 
 (setq
  auto-mode-alist
@@ -333,13 +300,13 @@ or to \[buffer-name if it has no file"
 (global-set-key [home]      'beginning-of-line)
 (global-set-key [end]       'end-of-line)
 
-(global-set-key "\C-cc"     'comment-region)
-(global-set-key "\C-cu"     'uncomment-region)
-(global-set-key "\C-cl"     'goto-line)
-(global-set-key "\C-ci"     'indent-region)
-
+(global-set-key [f5]    'comment-region)
+(global-set-key [S-f5]  'uncomment-region)
+(global-set-key [f7]    'flyspell-mode-cycle)
+(global-set-key [f8]    'find-file-at-point)
+(global-set-key "\C-cl" 'goto-line)
+(global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-xO" 'previous-multiframe-window)
-
 (global-set-key "\C-cr" 'remember)
 
 ;; Pager
@@ -361,8 +328,8 @@ or to \[buffer-name if it has no file"
 
 
 ;; Pabbrev
-(load-file (expand-file-name (concat emacs-extras-d "/pabbrev.el")))
-;(require 'pabbrev)
+;; (load-file (expand-file-name (concat emacs-extras-d "/pabbrev.el")))
+;; (require 'pabbrev)
 
 (provide 'bjacquet-init)
 ;; .emacs EOF
