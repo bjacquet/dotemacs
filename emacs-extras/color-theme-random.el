@@ -76,7 +76,7 @@
     (color-theme-deep-blue)
     (color-theme-digital-ofs1)
     (color-theme-euphoria)
-    (color-theme-feng-shui)
+					; (color-theme-feng-shui)
     (color-theme-fischmeister)
 					; (color-theme-gnome)
     (color-theme-gnome2)
