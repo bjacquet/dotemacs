@@ -88,7 +88,7 @@
 					; (color-theme-high-contrast)
     (color-theme-hober)
     (color-theme-infodoc)
-    (color-theme-jb-simple)
+					; (color-theme-jb-simple)
     (color-theme-jedit-grey)
     (color-theme-jonadabian)
     (color-theme-jonadabian-slate)
