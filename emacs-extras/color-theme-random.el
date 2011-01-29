@@ -124,7 +124,7 @@
 					; (color-theme-snow)
     (color-theme-snowish)
 					; (color-theme-standard-ediff)
-    (color-theme-standard)
+					; (color-theme-standard)
 					; (color-theme-emacs-21)
 					; (color-theme-emacs-nw)
 					; (color-theme-xemacs)
