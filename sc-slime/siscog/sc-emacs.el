@@ -498,10 +498,6 @@ ARG lines.  No arg means split equally."
 ;; ------------------------------------------------------------------------------
 ;;                                KEYS AND OTHER
 ;; ------------------------------------------------------------------------------
-;; Isto e' para manter a marcacao das areas seleccionadas
-(transient-mark-mode nil)
-;; Para alterar caracteristicas da regiao de texto seleccionado
-(set-face-background 'region "pink")
 
 ;; We use latin 1, aka iso-8559-1
 ;; (if (>= emacs-major-version 22)

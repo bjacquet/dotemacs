@@ -145,7 +145,7 @@ THING can be a symbol, an fspec, or their string representation."
 
 (defun create.pms.resolution ()
   (interactive)
-  (let ((today.date (format-time-string "%d/%M/%Y"))
+  (let ((today.date (format-time-string "%d/%m/%Y"))
 	(system)
 	(author)
 	(modspatches)
