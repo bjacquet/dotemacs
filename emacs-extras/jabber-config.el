@@ -1,7 +1,11 @@
-;;;; jabber.el
+;;; ---------------------------------------------------------------------
+;;; Emacs Jabber
+;;; Windows setup only
+(add-to-list 'load-path "~/emacs/emacs-extras/emacs-jabber/")
+(require 'jabber-autoloads)
 
 (setenv "PATH" (format "c:\\cygwin\\bin;c:\\cygwin\\usr\\bin;%s"
-		       (getenv "PATH")))
+		       (getenv "PATH"))))
 
 (eval-after-load 'jabber
   `(progn

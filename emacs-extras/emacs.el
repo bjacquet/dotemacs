@@ -123,7 +123,9 @@ or to \[buffer-name if it has no file"
  '(default-input-method "portuguese-prefix")
  '(desktop-menu-directory "~/Documents/diary/desktop/")
  '(global-font-lock-mode t nil (font-lock))
- '(org-agenda-files (quote ("y:/Documents/diary/remember.org" "y:/Documents/diary/TSS.org" "y:/Documents/diary/siscog.org")))
+ '(org-agenda-files (quote ("y:/Documents/diary/remember.org"
+			    "y:/Documents/diary/TSS.org"
+			    "y:/Documents/diary/siscog.org")))
  '(pc-select-meta-moves-sexps t)
  '(pc-selection-mode t nil (pc-select))
  '(show-paren-mode t nil (paren))
@@ -255,7 +257,6 @@ or to \[buffer-name if it has no file"
 (lexical-let ((idx 0)
 	      (options (list 'flyspell-mode ; turns on
 			     'flyspell-prog-mode
-			     'flyspell-buffer
 			     'flyspell-mode ; turns off
 			     )))
   (setf (cdr (last options)) options)
@@ -324,6 +325,7 @@ or to \[buffer-name if it has no file"
 (global-set-key [f5]    'comment-region)
 (global-set-key [S-f5]  'uncomment-region)
 (global-set-key [f7]    'flyspell-mode-cycle)
+(global-set-key [S-f7]  'flyspell-buffer)
 (global-set-key [f8]    'find-file-at-point)
 (global-set-key "\C-cl" 'goto-line)
 (global-set-key "\C-ci" 'indent-region)
