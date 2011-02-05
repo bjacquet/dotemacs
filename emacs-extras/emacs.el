@@ -83,6 +83,9 @@
 
 (iswitchb-mode t) ;intelligent buffer switcher (in minibuffer)
 
+(load-file (expand-file-name (concat emacs-extras-d "/sql-indent.el")))
+(eval-after-load "sql"
+  '(require 'sql-indent))
 
 ;; Emacs title bar to reflect file name
 (defun title-set-title ()
@@ -120,12 +123,13 @@ or to \[buffer-name if it has no file"
  '(default-input-method "portuguese-prefix")
  '(desktop-menu-directory "~/Documents/diary/desktop/")
  '(global-font-lock-mode t nil (font-lock))
+ '(org-agenda-files (quote ("y:/Documents/diary/remember.org" "y:/Documents/diary/TSS.org" "y:/Documents/diary/siscog.org")))
  '(pc-select-meta-moves-sexps t)
  '(pc-selection-mode t nil (pc-select))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t)
- '(user-full-name "Bruno Jacquet")
  '(user-mail-address "bruno.jacquet@gmail.com")
+ '(user-full-name "Bruno Jacquet")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
@@ -201,6 +205,14 @@ or to \[buffer-name if it has no file"
 (unless (string-equal host "SETUBAL") ; SISCOG
   (load-file (expand-file-name (concat emacs-extras-d "/w3m.el"))))
 
+
+;;; ---------------------------------------------------------------------
+;;; Magit
+;;;
+(add-to-list 'load-path (concat emacs-extras-d "/magit-0.8.2"))
+(require 'magit)
+
+
 ;;; ---------------------------------------------------------------------
 ;;; GNUS
 ;;;
@@ -239,6 +251,20 @@ or to \[buffer-name if it has no file"
   (find-file (expand-file-name "~/flash_drive/notes/note.org"))
   (find-file (expand-file-name "~/flash_drive/notes/london.org"))
   (find-file (expand-file-name "~/flash_drive/notes/remember.org")))
+
+(lexical-let ((idx 0)
+	      (options (list 'flyspell-mode ; turns on
+			     'flyspell-prog-mode
+			     'flyspell-buffer
+			     'flyspell-mode ; turns off
+			     )))
+  (setf (cdr (last options)) options)
+  (defun flyspell-mode-cycle ()
+    (interactive)
+    (let ((option (elt options idx)))
+      (setf idx (1+ idx))
+      (message "%s" option)
+      (funcall option))))
 
 (setq
  auto-mode-alist
@@ -295,13 +321,13 @@ or to \[buffer-name if it has no file"
 (global-set-key [home]      'beginning-of-line)
 (global-set-key [end]       'end-of-line)
 
-(global-set-key "\C-cc"     'comment-region)
-(global-set-key "\C-cu"     'uncomment-region)
-(global-set-key "\C-cl"     'goto-line)
-(global-set-key "\C-ci"     'indent-region)
-
+(global-set-key [f5]    'comment-region)
+(global-set-key [S-f5]  'uncomment-region)
+(global-set-key [f7]    'flyspell-mode-cycle)
+(global-set-key [f8]    'find-file-at-point)
+(global-set-key "\C-cl" 'goto-line)
+(global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-xO" 'previous-multiframe-window)
-
 (global-set-key "\C-cr" 'remember)
 
 ;; Pager
@@ -323,8 +349,8 @@ or to \[buffer-name if it has no file"
 
 
 ;; Pabbrev
-(load-file (expand-file-name (concat emacs-extras-d "/pabbrev.el")))
-;(require 'pabbrev)
+;; (load-file (expand-file-name (concat emacs-extras-d "/pabbrev.el")))
+;; (require 'pabbrev)
 
 (provide 'bjacquet-init)
 ;; .emacs EOF
