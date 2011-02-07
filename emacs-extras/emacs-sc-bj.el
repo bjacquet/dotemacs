@@ -1,4 +1,4 @@
-(set-default-font "DejaVu Sans Mono-10")
+(set-default-font "DejaVu Sans Mono-11")
 (scroll-bar-mode nil)
 
 (eval-after-load
