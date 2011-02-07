@@ -36,10 +36,11 @@ Additional Modes
 - Color Theme
 - Color Theme Random
 - Desktop Menu
-- Emacs Jabber
+- Emacs Jabber (when in Windows)
 - Emacs W3M
+- Magit
 - Pager
-- Pabbrev
+- Pabbrev (in standby)
 - RST
 - Windpoint
 - YaSnippet
