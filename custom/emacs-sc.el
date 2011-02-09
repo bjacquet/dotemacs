@@ -20,13 +20,10 @@
        (insert-image img)
        (insert "\n\n")))))
 
-(switch-to-buffer "*scratch*")
-(goto-char (point-min))
-(fancy-splash-head)
 
-
-(set-default-font "DejaVu Sans Mono-10")
-(defvar *use-slime* t)
+(transient-mark-mode t)
+(set-default-font "DejaVu Sans Mono-11")
+(defvar *use-slime* nil)
 
 
 (defun kill-most-buffers (&optional keep-list)
@@ -96,3 +93,8 @@ If keep-list has buffers don't kill them."
 ;;       "x:/siscog/sc-emacs"))
 
 (setf vc-handled-backends nil)
+
+
+(switch-to-buffer "*scratch*")
+(goto-char (point-min))
+(fancy-splash-head)

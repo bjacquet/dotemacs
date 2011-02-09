@@ -971,8 +971,9 @@
 (sc-define-system "CREWS-LUL"
 		  "CREWS"
 		  "lul"
-		  '("v0-0-1" "v1-0-0")
-		  '(("lul010database" "DB029iCRW"))
+		  '("v1-0-0" "v2-0-0")
+		  '(("lul010database" "DB029iCRW")
+		    ("lul011database" "DB0511gCRW"))
 		  '("data-manager" "scheduler" "roster" 
 		    "data-manager-st" "scheduler-st" 
 		    "application-controller-db")
