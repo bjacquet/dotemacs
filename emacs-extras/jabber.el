@@ -5,7 +5,7 @@
 (require 'jabber-autoloads)
 
 (setenv "PATH" (format "c:\\cygwin\\bin;c:\\cygwin\\usr\\bin;%s"
-		       (getenv "PATH"))))
+		       (getenv "PATH")))
 
 (eval-after-load 'jabber
   `(progn

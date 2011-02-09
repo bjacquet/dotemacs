@@ -2,10 +2,11 @@
 (scroll-bar-mode nil)
 
 (eval-after-load "bjacquet-init"
-  (load-file (expand-file-name (concat emacs-extras-d "/sc-org/sc-org.el")))
-  (load-file (expand-file-name (concat emacs-extras-d "/w3m.el")))
-  (load-file (expand-file-name (concat emacs-extras-d "/jabber.el")))
-  (load-file (expand-file-name (concat emacs-extras-d "/gnus.el"))))
+  (progn 
+    (load-file (expand-file-name (concat emacs-extras-d "/sc-org/sc-org.el")))
+    (load-file (expand-file-name (concat emacs-extras-d "/w3m.el")))
+    (load-file (expand-file-name (concat emacs-extras-d "/jabber.el")))
+    (load-file (expand-file-name (concat emacs-extras-d "/gnus.el")))))
 
 
 (defun start.up ()
