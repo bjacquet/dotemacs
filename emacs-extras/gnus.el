@@ -42,8 +42,8 @@
 (gnus-add-configuration
  '(summary
    (vertical 1.0
-	       (horizontal 0.25
-			   [group 0.30]
-			   [summary 1.0 point])
-	       (vertical 1.0
-			 [article 1.0]))))
+	     (horizontal 0.25
+			 [group 0.30]
+			 [summary 1.0 point])
+	     (vertical 1.0
+		       [article 1.0]))))

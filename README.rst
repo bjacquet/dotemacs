@@ -40,7 +40,7 @@ Additional Modes
 - Emacs W3M
 - Magit
 - Pager
-- Pabbrev
+- Pabbrev (in standby)
 - RST
 - Windpoint
 - YaSnippet
