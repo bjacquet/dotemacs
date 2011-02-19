@@ -202,13 +202,6 @@ or to \[buffer-name if it has no file"
 
 
 ;;; ---------------------------------------------------------------------
-;;; W3M
-;;;
-(unless (string-equal host "SETUBAL") ; SISCOG
-  (load-file (expand-file-name (concat emacs-extras-d "/w3m.el"))))
-
-
-;;; ---------------------------------------------------------------------
 ;;; Magit
 ;;;
 (add-to-list 'load-path (concat emacs-extras-d "/magit-0.8.2"))

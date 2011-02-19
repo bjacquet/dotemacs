@@ -1,3 +1,10 @@
+;; -*- coding: utf-8; -*-
+;;; .emacs - SISCOG specific to code
+;;;
+(transient-mark-mode t)
+(set-default-font "DejaVu Sans Mono-11")
+(defvar *use-slime* t)
+
 
 (defun fancy-splash-head ()
  "Insert the head part of the splash screen into the current buffer."
@@ -19,11 +26,6 @@
          (setq img (append img '(:color-symbols (("#000000" . "gray30"))))))
        (insert-image img)
        (insert "\n\n")))))
-
-
-(transient-mark-mode t)
-(set-default-font "DejaVu Sans Mono-11")
-(defvar *use-slime* nil)
 
 
 (defun kill-most-buffers (&optional keep-list)
