@@ -1,3 +1,10 @@
+;; -*- coding: utf-8; -*-
+;;; .emacs - SISCOG specific to code
+;;;
+(transient-mark-mode t)
+(set-default-font "DejaVu Sans Mono-11")
+(defvar *use-slime* t)
+
 
 (defun fancy-splash-head ()
  "Insert the head part of the splash screen into the current buffer."
@@ -19,10 +26,6 @@
          (setq img (append img '(:color-symbols (("#000000" . "gray30"))))))
        (insert-image img)
        (insert "\n\n")))))
-
-
-(transient-mark-mode t)
-(set-default-font "DejaVu Sans Mono-11")
 
 
 (defun kill-most-buffers (&optional keep-list)
@@ -69,13 +72,6 @@ If keep-list has buffers don't kill them."
 
 
 ;;; ---------------------------------------------------------------------
-;;; SC-Slime
-;;;
-(defvar *use-slime* t)
-
-;; see ~/.swank.lisp
-
-;;; ---------------------------------------------------------------------
 ;;; SC-Emacs
 ;;;
 (load (format "%s/custom/sc-before.el"
@@ -99,6 +95,7 @@ If keep-list has buffers don't kill them."
 ;;       "x:/siscog/sc-emacs"))
 
 (setf vc-handled-backends nil)
+
 
 (switch-to-buffer "*scratch*")
 (goto-char (point-min))

@@ -1,4 +1,6 @@
-
+;; -*- coding: utf-8; -*-
+;;; .emacs - SISCOG specific to organize
+;;;
 (set-default-font "DejaVu Sans Mono-11")
 (scroll-bar-mode nil)
 
