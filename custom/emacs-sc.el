@@ -1,7 +1,7 @@
 
 (defun fancy-splash-head ()
  "Insert the head part of the splash screen into the current buffer."
- (let* ((image-file (format "%s/custom/siscog-symbol.xpm" (getenv "SISCOG_EMACS_DIR_LOCAL")))
+ (let* ((image-file (format "%s/custom/lisplogo-alien.xpm" (getenv "SISCOG_EMACS_DIR_LOCAL")))
         (img (create-image image-file))
         (image-width (and img (car (image-size img))))
         (window-width (window-width (selected-window))))
@@ -23,7 +23,6 @@
 
 (transient-mark-mode t)
 (set-default-font "DejaVu Sans Mono-11")
-(defvar *use-slime* nil)
 
 
 (defun kill-most-buffers (&optional keep-list)
@@ -70,6 +69,13 @@ If keep-list has buffers don't kill them."
 
 
 ;;; ---------------------------------------------------------------------
+;;; SC-Slime
+;;;
+(defvar *use-slime* t)
+
+;; see ~/.swank.lisp
+
+;;; ---------------------------------------------------------------------
 ;;; SC-Emacs
 ;;;
 (load (format "%s/custom/sc-before.el"
@@ -94,7 +100,7 @@ If keep-list has buffers don't kill them."
 
 (setf vc-handled-backends nil)
 
-
 (switch-to-buffer "*scratch*")
 (goto-char (point-min))
 (fancy-splash-head)
+(goto-char (point-max))

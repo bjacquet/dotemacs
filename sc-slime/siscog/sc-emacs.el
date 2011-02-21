@@ -511,46 +511,46 @@ ARG lines.  No arg means split equally."
 ;; Using 'set-language-environment' corrects that problem.
 ;; This problem was found only after using ELI 8.1 in Emacs 21.3.
 ;; In any case, as stated in emacs documentation, 'standard-display-european' is obsolete.
-(set-language-environment "Latin-1")
+;; (set-language-environment "Latin-1")
 
 
-(define-key global-map [down-mouse-1] 'x-sc-mouse-drag-region)
+;; (define-key global-map [down-mouse-1] 'x-sc-mouse-drag-region)
 
 ;; (global-set-key [mouse-1]        'x-sc-set-point)
 ;; (global-set-key [double-mouse-1] 'x-sc-set-point)
 ;; (global-set-key [triple-mouse-1] 'x-sc-set-point)
 ;; (global-set-key [S-mouse-1]      'x-sc-set-mark)
-(global-set-key [S-mouse-1]      'x-sc-ignore)
+;; (global-set-key [S-mouse-1]      'x-sc-ignore)
 
-(global-set-key [mouse-2]        'x-sc-mark-sexp)
-(global-set-key [double-mouse-2] 'x-sc-mark-sexp)
-(global-set-key [triple-mouse-2] 'x-sc-mark-sexp)
+;; (global-set-key [mouse-2]        'x-sc-mark-sexp)
+;; (global-set-key [double-mouse-2] 'x-sc-mark-sexp)
+;; (global-set-key [triple-mouse-2] 'x-sc-mark-sexp)
 
 
-(global-set-key [S-mouse-2]      'x-sc-copy-kill-yank)
-(global-set-key [mouse-3]        'x-sc-copy-kill-yank)
-(global-set-key [double-mouse-3] 'x-sc-copy-kill-yank)
-(global-set-key [triple-mouse-3] 'x-sc-copy-kill-yank)
+;; (global-set-key [S-mouse-2]      'x-sc-copy-kill-yank)
+;; (global-set-key [mouse-3]        'x-sc-copy-kill-yank)
+;; (global-set-key [double-mouse-3] 'x-sc-copy-kill-yank)
+;; (global-set-key [triple-mouse-3] 'x-sc-copy-kill-yank)
 
-(global-set-key [C-S-mouse-1] 'buffer-menu)
+;; (global-set-key [C-S-mouse-1] 'buffer-menu)
 
 ;;;(global-set-key [C-down-mouse-3] 'x-sc-ignore)
-(global-set-key [M-mouse-1]      'x-sc-ignore)
-(global-set-key [M-drag-mouse-1] 'x-sc-ignore)
-(global-set-key [M-down-mouse-1] 'x-sc-ignore)
-(global-set-key [M-mouse-3]      'x-sc-ignore)
-(global-set-key [M-mouse-2]      'x-sc-ignore)
+;; (global-set-key [M-mouse-1]      'x-sc-ignore)
+;; (global-set-key [M-drag-mouse-1] 'x-sc-ignore)
+;; (global-set-key [M-down-mouse-1] 'x-sc-ignore)
+;; (global-set-key [M-mouse-3]      'x-sc-ignore)
+;; (global-set-key [M-mouse-2]      'x-sc-ignore)
 
-(define-key global-map "\M-;" 'sc-insert-commas)
-(define-key global-map "\M-:" 'sc-delete-commas)
+;; (define-key global-map "\M-;" 'sc-insert-commas)
+;; (define-key global-map "\M-:" 'sc-delete-commas)
 
-(global-set-key [f2] 'move-to-next-tab)
+;; (global-set-key [f2] 'move-to-next-tab)
 ;;;	09/09/23	P. Madeira	Use `f3-insert-tab'
-(global-set-key [f3] 'f3-insert-tab)
+;; (global-set-key [f3] 'f3-insert-tab)
 ;;;	09/09/23	P. Madeira	Use `f4-insert-tabs'
-(global-set-key [f4] 'f4-insert-tabs)
+;; (global-set-key [f4] 'f4-insert-tabs)
 
-(global-set-key [C-S-down-mouse-3] 'buffer-menu)
+;; (global-set-key [C-S-down-mouse-3] 'buffer-menu)
 (global-set-key [C-S-down-mouse-1] 'select-file-menu)
 (global-set-key [M-down-mouse-1] 'product-applications-menu)
 (global-set-key [S-down-mouse-1] 'select-modif-request-action)

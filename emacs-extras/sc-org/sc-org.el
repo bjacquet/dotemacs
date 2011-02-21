@@ -2,6 +2,7 @@
 ;;; Siscog's Org Mode
 ;;;
 
+(setq org-hide-leading-stars t)
 
 ;; Add extra tweaks when org-mode is started
 (defvar org-extra-installed-p nil)

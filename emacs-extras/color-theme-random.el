@@ -67,7 +67,7 @@
     (color-theme-classic)
     (color-theme-comidia)
     (color-theme-jsc-dark)
-    (color-theme-jsc-light)
+					; (color-theme-jsc-light)
 					; (color-theme-jsc-light2)
     (color-theme-dark-blue)
     (color-theme-dark-blue2)
