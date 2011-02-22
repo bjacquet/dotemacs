@@ -3,7 +3,7 @@
 ;;;
 (transient-mark-mode t)
 (set-default-font "DejaVu Sans Mono-11")
-(defvar *use-slime* t)
+(defvar *use-slime* nil)
 
 
 (defun fancy-splash-head ()
