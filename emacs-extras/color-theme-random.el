@@ -46,7 +46,7 @@
 (defvar my-fav-color-themes
   '((color-theme-aalto-dark)
 					; (color-theme-aalto-light)
-    (color-theme-aliceblue)
+					; (color-theme-aliceblue)
 					; (color-theme-andreas)
     (color-theme-arjen)
 					; (color-theme-beige-diff)
@@ -67,7 +67,7 @@
     (color-theme-classic)
     (color-theme-comidia)
     (color-theme-jsc-dark)
-    (color-theme-jsc-light)
+					; (color-theme-jsc-light)
 					; (color-theme-jsc-light2)
     (color-theme-dark-blue)
     (color-theme-dark-blue2)

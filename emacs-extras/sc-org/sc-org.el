@@ -2,8 +2,7 @@
 ;;; Siscog's Org Mode
 ;;;
 
-;(require 'org)
-
+(setq org-hide-leading-stars t)
 
 ;; Add extra tweaks when org-mode is started
 (defvar org-extra-installed-p nil)
@@ -57,15 +56,19 @@ THING can be a symbol, an fspec, or their string representation."
 (defconst *note.filename*
   (concat diary-d "/TSS.org"))
 
+
 (defconst *note.template.file*
   (concat emacs-extras-d "/sc-org/note_template.txt"))
+
 
 (defconst *clock.template.file*
   (concat emacs-extras-d "/sc-org/clock_template.txt"))
 
+
 (defconst *buffer.sandbox*
   "*sc-org-mode sandbox*"
   "Temporary buffer name for text and keyword replacements.")
+
 
 (defun get.user.input.poa ()
   (let ((number         (read-from-minibuffer "POA number: "))
@@ -75,30 +78,35 @@ THING can be a symbol, an fspec, or their string representation."
 					(expand-file-name *note.filename*))))
     (values number description note.filename)))
 
+
 (defun fill.buffer.sandbox (template.file replacements)
   (set-buffer (get.buffer.sandbox))
   (insert-file-contents template.file)
   (while (not (null replacements))
     (setq keyword (first (first replacements))
-	  value (second (first replacements)))	  
+	  value (second (first replacements)))
     (goto-char (point-min))
     (perform-replace keyword value nil nil nil)
     (setq replacements (rest replacements))))
 
+
 (defun get.buffer.sandbox ()
   (get-buffer-create *buffer.sandbox*))
+
 
 (defun write.buffer (buffer point)
   (set-buffer buffer)
   (goto-char point)
   (insert-buffer-substring (get.buffer.sandbox)))
 
-(defun create.entry (buffer point template replacements)  
+
+(defun create.entry (buffer point template replacements)
   (fill.buffer.sandbox template replacements)
   (write.buffer buffer point)
   (kill-buffer (get.buffer.sandbox)))
 
-(defun create.poa () 
+
+(defun create.poa ()
   (interactive)
   (let ((number)
 	(description)
@@ -106,47 +114,62 @@ THING can be a symbol, an fspec, or their string representation."
 	(clock.filename (buffer-file-name))
 	(replacements))
     (multiple-value-setq (number description note.filename) (get.user.input.poa))
-    (setq replacements (list (list "<number>" number)
-			     (list "<description>" description)
-			     (list "<note_filename>" note.filename)
+    (setq replacements (list (list "<number>"         number)
+			     (list "<description>"    description)
+			     (list "<note_filename>"  note.filename)
 			     (list "<clock_filename>" clock.filename)))
-    (create.entry (find-file clock.filename) 
-    		  (point) 
-    		  *clock.template.file* 
+    (create.entry (find-file clock.filename)
+    		  (point)
+    		  *clock.template.file*
     		  replacements )
-    
     (when note.filename
       (create.entry (find-file note.filename)
-		    0 
+		    0
 		    *note.template.file*
 		    replacements))
    (find-file clock.filename)))
 
-(defconst *pms.resolution.template.file* 	 
+
+(defconst *pms.resolution.template.file*
   (concat emacs-extras-d "/sc-org/pms_resolution_template.txt"))
 
+
 (defun get.user.input.pms.resolution ()
-  (let ((system	     (read-from-minibuffer "System: "))
-	(author	     (read-from-minibuffer "Author: " user-full-name))
-	(modspatches (upcase (read-from-minibuffer "MODS or PATCHES: "))))
+  (let* ((system      (read-from-minibuffer "System: "))
+	 (author      (read-from-minibuffer "Author: " user-full-name))
+	 (modspatches (upcase (read-from-minibuffer "MODS or PATCHES: "))))
     (while (and (not (string= modspatches "MODS"))
 		(not (string= modspatches "PATCHES")))
       (setq modspatches (upcase (read-from-minibuffer "MODS or PATCHES (choose one): "))))
     (values system author modspatches)))
 
+
 (defun create.pms.resolution ()
   (interactive)
-  (let ((today.date (format-time-string "%d/%M/%Y"))
+  (let ((today.date (format-time-string "%d/%m/%Y"))
 	(system)
 	(author)
 	(modspatches)
+	(overscore)
+	(underscore)
+	(slashes)
 	(replacements))
-    (multiple-value-setq (system author modspatches) (get.user.input.poa))
-    (setq replacements (list (list "<system>" system)
-			     (list "<author>" author)
-			     (list "<date>" today.date)
+    (multiple-value-setq (system author modspatches) (get.user.input.pms.resolution))
+    (setq overscore  (make-string (length system) ?_)
+	  underscore (make-string (- 40 (length system) 3) ?_)
+	  slashes    (make-string (- 40 (length author) 17) ?-))
+    (setq replacements (list (list "<overscore>"   overscore)
+			     (list "<system>"      system)
+			     (list "<underscore>"  underscore)
+			     (list "<author>"      author)
+			     (list "<date>"        today.date)
+			     (list "<slashes>"     slashes)
 			     (list "<modspatches>" modspatches)))
-    (create.entry (get-buffer-create *scratch*))))
+    (create.entry (get-buffer-create "*scratch*")
+		  0
+		  *pms.resolution.template.file*
+		  replacements))
+  (switch-to-buffer "*scratch*"))
 
 
 ;;; ---------------------------------------------------------------------
@@ -160,7 +183,7 @@ THING can be a symbol, an fspec, or their string representation."
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
 (setq org-remember-templates
-      '(("Things" ?t "* TODO %?\n  %i\n  %a" "~/Documents/diary/siscog.org" 
+      '(("Things" ?t "* TODO %?\n  %i\n  %a" "~/Documents/diary/siscog.org"
 	 "TODOS")
         ("Remember" ?r "* %^{Title}\n  %i\n  %a" "~/Documents/diary/remember.org"
 	 "Remember")))
