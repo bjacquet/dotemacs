@@ -135,13 +135,11 @@ THING can be a symbol, an fspec, or their string representation."
 
 
 (defun get.user.input.pms.resolution ()
-  (let* ((system      (read-from-minibuffer "System: "))
-	 (author      (read-from-minibuffer "Author: " user-full-name))
-	 (modspatches (upcase (read-from-minibuffer "MODS or PATCHES: "))))
-    (while (and (not (string= modspatches "MODS"))
-		(not (string= modspatches "PATCHES")))
-      (setq modspatches (upcase (read-from-minibuffer "MODS or PATCHES (choose one): "))))
-    (values system author modspatches)))
+  (let* ((system (trim-str (upcase (read-from-minibuffer "System: "))))
+	 (author (read-from-minibuffer "Author: " user-full-name)))
+    (if (string= "VDEV" (substring system -4 nil))
+	(values system author "MODS")
+      (values system author "PATCHES"))))
 
 
 (defun create.pms.resolution ()

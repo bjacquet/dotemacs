@@ -267,6 +267,11 @@ or to \[buffer-name if it has no file"
       (message "%s" option)
       (funcall option))))
 
+(defun trim-str (str)
+  "Trims leading and tailing whitespace from STR."
+  (let ((s (if (symbolp str) (symbol-name str) str)))
+    (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" s)))
+
 (setq
  auto-mode-alist
  (mapcar
