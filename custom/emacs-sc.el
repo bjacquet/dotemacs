@@ -1,6 +1,7 @@
 ;; -*- coding: utf-8; -*-
-;;; .emacs - SISCOG specific to code
+;;; .emacs - SISCOG specific
 ;;;
+
 (transient-mark-mode t)
 (set-default-font "DejaVu Sans Mono-11")
 (defvar *use-slime* nil)
