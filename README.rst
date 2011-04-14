@@ -42,6 +42,7 @@ Additional Modes
 - Pager
 - Pabbrev (in standby)
 - RST
+- Undo Tree
 - Windpoint
 - YaSnippet
 

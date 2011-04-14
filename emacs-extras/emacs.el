@@ -41,16 +41,21 @@
 
 
 ;;; ---------------------------------------------------------------------
-;;; Look & Feel
+;;; Color Theme & Color Theme Random
 ;;;
+(setq kmacro-call-mouse-event nil)
 (add-to-list 'load-path (concat emacs-extras-d "/color-theme-6.6.0"))
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(color-theme-initialize))
-
 (load-file (expand-file-name (concat emacs-extras-d "/color-theme-random.el")))
 (require 'color-theme-random)
 (color-theme-random)
+
+
+;;; ---------------------------------------------------------------------
+;;; Look & Feel
+;;;
 
 (tool-bar-mode nil)
 
@@ -223,6 +228,33 @@ or to \[buffer-name if it has no file"
 
 
 ;;; ---------------------------------------------------------------------
+;;; Undo Tree
+;;;
+(load-file (expand-file-name (concat emacs-extras-d "/undo-tree.el")))
+(require 'undo-tree)
+(setq undo-tree-mode-lighter nil)
+(global-undo-tree-mode)
+
+
+;;; ---------------------------------------------------------------------
+;;; Flyspell
+;;;
+(setq flyspell-mode-line-string nil)
+(lexical-let ((idx 0)
+	      (options (list 'flyspell-mode ; turns on
+			     'flyspell-prog-mode
+			     'flyspell-mode ; turns off
+			     )))
+  (setf (cdr (last options)) options)
+  (defun flyspell-mode-cycle ()
+    (interactive)
+    (let ((option (elt options idx)))
+      (setf idx (1+ idx))
+      (message "%s" option)
+      (funcall option))))
+
+
+;;; ---------------------------------------------------------------------
 ;;; Stuff
 ;;;
 (defun dos-unix ()
@@ -253,19 +285,6 @@ or to \[buffer-name if it has no file"
   (find-file (expand-file-name "~/flash_drive/notes/note.org"))
   (find-file (expand-file-name "~/flash_drive/notes/london.org"))
   (find-file (expand-file-name "~/flash_drive/notes/remember.org")))
-
-(lexical-let ((idx 0)
-	      (options (list 'flyspell-mode ; turns on
-			     'flyspell-prog-mode
-			     'flyspell-mode ; turns off
-			     )))
-  (setf (cdr (last options)) options)
-  (defun flyspell-mode-cycle ()
-    (interactive)
-    (let ((option (elt options idx)))
-      (setf idx (1+ idx))
-      (message "%s" option)
-      (funcall option))))
 
 (defun trim-str (str)
   "Trims leading and tailing whitespace from STR."
@@ -336,6 +355,7 @@ or to \[buffer-name if it has no file"
 (global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-xO" 'previous-multiframe-window)
 (global-set-key "\C-cr" 'remember)
+
 
 ;; Pager
 (load-file (expand-file-name (concat emacs-extras-d "/pager.el")))
