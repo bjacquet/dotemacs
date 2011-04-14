@@ -110,7 +110,7 @@
 					; (color-theme-raspopovic)
     (color-theme-renegade)
     (color-theme-resolve)
-    (color-theme-retro-green)
+					; (color-theme-retro-green)
 					; (color-theme-retro-orange)
     (color-theme-robin-hood)
 					; (color-theme-rotor)
