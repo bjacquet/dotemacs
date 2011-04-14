@@ -135,11 +135,19 @@ THING can be a symbol, an fspec, or their string representation."
 
 
 (defun get.user.input.pms.resolution ()
-  (let* ((system (trim-str (upcase (read-from-minibuffer "System: "))))
-	 (author (read-from-minibuffer "Author: " user-full-name)))
-    (if (string= "VDEV" (substring system -4 nil))
-	(values system author "MODS")
-      (values system author "PATCHES"))))
+  (let* ((system      (trim-str (upcase (read-from-minibuffer "System: "))))
+	 (author      (read-from-minibuffer "Author: " user-full-name))
+	 (modspatches (if (string= "VDEV" (substring system -4 nil))
+			  "MODS"
+			"PATCHES"))
+	 (files       "")
+	 (file        (trim-str (downcase (read-from-minibuffer ": ")))))
+    (while (not (string= file ""))
+      (setq files (concat files " - " file "\n")
+	    file (trim-str (downcase (read-from-minibuffer ": ")))))
+    (if (> (length files) 0)
+	(setq files (substring files 0 -1))) ; to remove that extra '\n'
+    (values system author modspatches files)))
 
 
 (defun create.pms.resolution ()
@@ -151,8 +159,9 @@ THING can be a symbol, an fspec, or their string representation."
 	(overscore)
 	(underscore)
 	(slashes)
-	(replacements))
-    (multiple-value-setq (system author modspatches) (get.user.input.pms.resolution))
+	(replacements)
+	(files))
+    (multiple-value-setq (system author modspatches files) (get.user.input.pms.resolution))
     (setq overscore  (make-string (length system) ?_)
 	  underscore (make-string (- 40 (length system) 3) ?_)
 	  slashes    (make-string (- 40 (length author) 17) ?-))
@@ -162,7 +171,8 @@ THING can be a symbol, an fspec, or their string representation."
 			     (list "<author>"      author)
 			     (list "<date>"        today.date)
 			     (list "<slashes>"     slashes)
-			     (list "<modspatches>" modspatches)))
+			     (list "<modspatches>" modspatches)
+			     (list "<files>"       files)))
     (create.entry (get-buffer-create "*scratch*")
 		  0
 		  *pms.resolution.template.file*
