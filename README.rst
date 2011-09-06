@@ -35,6 +35,7 @@ Additional Modes
 - Auto Complete
 - Color Theme
 - Color Theme Random
+- Column Marker
 - Desktop Menu
 - Emacs Jabber (when in Windows)
 - Emacs W3M

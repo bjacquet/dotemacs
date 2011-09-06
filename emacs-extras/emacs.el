@@ -66,7 +66,6 @@
 (setq inhibit-startup-message t)
 
 (line-number-mode t)
-(column-number-mode t)
 
 (setq scroll-step 1) ; scroll one line past the edge of the screen
 
@@ -86,11 +85,16 @@
 
 (setq abbrev-mode t)
 
-(iswitchb-mode t) ;intelligent buffer switcher (in minibuffer)
+(iswitchb-mode t) ; intelligent buffer switcher (in minibuffer)
 
-(load-file (expand-file-name (concat emacs-extras-d "/sql-indent.el")))
-(eval-after-load "sql"
-  '(require 'sql-indent))
+
+;;; ---------------------------------------------------------------------
+;;; Column Marker
+;;;
+(load-file (expand-file-name (concat emacs-extras-d "/column-marker.el")))
+(require 'column-marker)
+(add-hook 'emacs-lisp-mode-hook (lambda () (interactive) (column-marker-2 80)))
+
 
 ;; Emacs title bar to reflect file name
 (defun title-set-title ()
@@ -145,13 +149,6 @@ or to \[buffer-name if it has no file"
 
 
 ;;; ---------------------------------------------------------------------
-;;; Bookmark-Extensions
-;;;
-(load-file (expand-file-name (concat emacs-extras-d "/emacs-bookmark-extension/bookmark-extensions.el")))
-(require 'bookmark-extensions)
-
-
-;;; ---------------------------------------------------------------------
 ;;; Desktop-Menu
 ;;;
 (load-file (expand-file-name (concat emacs-extras-d "/desktop-menu.el")))
@@ -159,7 +156,7 @@ or to \[buffer-name if it has no file"
 
 
 ;;; ---------------------------------------------------------------------
-;;; Org & Remember
+;;; Org
 ;;;
 (unless (string-equal host "SETUBAL") ; SISCOG
   (load-file (expand-file-name (concat emacs-extras-d "/sc-org/sc-org.el"))))
@@ -211,13 +208,6 @@ or to \[buffer-name if it has no file"
 ;;;
 (add-to-list 'load-path (concat emacs-extras-d "/magit-0.8.2"))
 (require 'magit)
-
-
-;;; ---------------------------------------------------------------------
-;;; GNUS
-;;;
-(unless (string-equal host "SETUBAL") ; SISCOG
-  (load-file (expand-file-name (concat emacs-extras-d "/gnus.el"))))
 
 
 ;;; ---------------------------------------------------------------------
@@ -354,7 +344,6 @@ or to \[buffer-name if it has no file"
 (global-set-key "\C-cl" 'goto-line)
 (global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-xO" 'previous-multiframe-window)
-(global-set-key "\C-cr" 'remember)
 
 
 ;; Pager

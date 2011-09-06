@@ -178,20 +178,3 @@ THING can be a symbol, an fspec, or their string representation."
 		  *pms.resolution.template.file*
 		  replacements))
   (switch-to-buffer "*scratch*"))
-
-
-;;; ---------------------------------------------------------------------
-;;; Org & Remember
-;;;
-(add-to-list 'load-path (concat emacs-extras-d "/remember"))
-(require 'remember)
-(setq org-directory diary-d)
-(setq org-default-notes-file (concat diary-d "/remember.org"))
-(setq remember-annotation-functions '(org-remember-annotation))
-(setq remember-handler-functions '(org-remember-handler))
-(add-hook 'remember-mode-hook 'org-remember-apply-template)
-(setq org-remember-templates
-      '(("Things" ?t "* TODO %?\n  %i\n  %a" "~/Documents/diary/siscog.org"
-	 "TODOS")
-        ("Remember" ?r "* %^{Title}\n  %i\n  %a" "~/Documents/diary/remember.org"
-	 "Remember")))
