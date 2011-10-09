@@ -26,7 +26,7 @@ modify it and share alike.
 Most of its setup is towards Lisp and Orgmode files. A random colour theme is
 used in each run, mostly dark themes (non-white backgrounds).
 
-I'm running this setup in both Linux and Windows environments without any
+I'm running this setup in both Linux, OSX and Windows environments without any
 obscure tweaks. Should work in other environments too.
 
 Additional Modes
@@ -41,7 +41,7 @@ Additional Modes
 - Emacs W3M
 - Magit
 - Pager
-- Pabbrev (in standby)
+- Pabbrev
 - Undo Tree
 - Windpoint
 - YaSnippet
@@ -49,4 +49,25 @@ Additional Modes
 Installation
 ------------
 
-TODO
+Download the code through Git::
+
+  $ git clone git://github.com/bjacquet/dotemacs .emacs
+
+Create a symlink [1]_ for the **.emacs** file::
+
+  $ ln -s dotemacs/emacs-extras/load-path/dotemacs.el
+
+Launch emacs::
+
+  $ emacs
+
+Load additional modes with the command (example with ``magit``)::
+
+  M-x load-library magit
+
+  M-x magit-status
+
+.. [1] Windows handles symlinks different. One must create a **.emacs** file
+   with the following contents::
+
+    (load-file (expand-file-name "~/dotemacs/emacs-extras/load-path/doteamcs.el""))

@@ -1,15 +1,28 @@
 ;; -*- coding: utf-8; -*-
-;;; .emacs - SISCOG specific to organize
+;;; .emacs - SISCOG specific
 ;;;
 (set-default-font "DejaVu Sans Mono-11")
 (scroll-bar-mode nil)
 
+
+;;; ---------------------------------------------------------------------
+;;; Modes loaded on request
+;;;
+(add-to-list 'load-path (concat emacs-extras-d "/load-later"))
+
+
+;;; ---------------------------------------------------------------------
+;;; Extra Utilities
+;;;
+(unless (featurep 'bjacquet-init)
+  (load-library "bjacquet-init.el"))
+
+
 (eval-after-load "bjacquet-init"
-  (progn 
+  '(progn
     (load-file (expand-file-name (concat emacs-extras-d "/sc-org/sc-org.el")))
     (load-file (expand-file-name (concat emacs-extras-d "/w3m.el")))
-    (load-file (expand-file-name (concat emacs-extras-d "/jabber.el")))
-    (load-file (expand-file-name (concat emacs-extras-d "/gnus.el")))))
+    (load-file (expand-file-name (concat emacs-extras-d "/jabber.el")))))
 
 
 (defun start.up ()
