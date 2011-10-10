@@ -213,6 +213,22 @@ or to \[buffer-name if it has no file"
 
 
 ;;; ---------------------------------------------------------------------
+;;; Column Marker
+;;;
+(load-file (expand-file-name (concat emacs-extras-d "/column-marker.el")))
+(require 'column-marker)
+(defface column-marker-bj '((t (:background "red" :foreground "white")))
+  "Face used for a column marker.  Usually a background color."
+  :group 'faces)
+(defvar column-marker-bj-face 'column-marker-bj
+    "Face used for a column marker.  Usually a background color.
+Changing this directly affects only new markers.")
+(column-marker-create column-marker-bj column-marker-bj-face)
+(add-hook 'emacs-lisp-mode-hook (lambda () (interactive) (column-marker-bj 80)))
+(add-hook 'lisp-mode-hook (lambda () (interactive) (column-marker-bj 80)))
+
+
+;;; ---------------------------------------------------------------------
 ;;; Keys
 ;;;
 (global-set-key [home]  'beginning-of-line)
