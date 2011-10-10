@@ -24,7 +24,9 @@
     (load-file (expand-file-name (concat emacs-extras-d "/w3m.el")))
     (load-file (expand-file-name (concat emacs-extras-d "/jabber.el")))))
 
-
+(setq org-agenda-files (quote ("~/My Documents/diary/remember.org"
+			       "~/My Documents/diary/TSS.org"
+			       "~/My Documents/diary/siscog.org")))
 (defun start.up ()
   "default setup"
   (interactive)
