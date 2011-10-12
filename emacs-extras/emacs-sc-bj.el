@@ -26,14 +26,16 @@
 
 (setq org-agenda-files (quote ("~/My Documents/diary/remember.org"
 			       "~/My Documents/diary/TSS.org"
-			       "~/My Documents/diary/siscog.org")))
+			       "~/My Documents/diary/siscog.org"))
+      desktop-menu-directory "~/My Documents/diary/desktop/")
+
 (defun start.up ()
   "default setup"
   (interactive)
   (org-agenda-list 1)
   (eshell)
-  (find-file "~/Documents/diary/TSS.org")
-  (find-file "~/Documents/diary/siscog.org")
+  (find-file "~/My Documents/diary/TSS.org")
+  (find-file "~/My Documents/diary/siscog.org")
   (delete-other-windows)
   (split-window-vertically)
   (split-window-horizontally)

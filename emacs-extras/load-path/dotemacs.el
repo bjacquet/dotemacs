@@ -32,13 +32,13 @@
 
 (defvar notes-d
   (if at-siscog-p
-      "~/Documents/notes"
+      "~/My Documents/notes"
     "~/flash_drive/notes"))
 
 
 (defvar diary-d
   (if at-siscog-p
-      "~/Documents/diary"
+      "~/My Documents/diary"
     "~/flash_drive/diary"))
 
 
