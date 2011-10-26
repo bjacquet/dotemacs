@@ -54,7 +54,7 @@ THING can be a symbol, an fspec, or their string representation."
 
 
 (defconst *note.filename*
-  (concat diary-d "/TSS.org"))
+  (concat diary-d "/tss-notes.org"))
 
 
 (defconst *note.template.file*
