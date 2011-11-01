@@ -142,6 +142,7 @@
     (color-theme-xp)
     (color-theme-tango)
     (color-theme-tangotango)
+    (color-theme-solorized-dark)
     (give-other-themes-a-chance)
     ))
 
