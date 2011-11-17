@@ -202,8 +202,26 @@ or to \[buffer-name if it has no file"
       (setf idx (1+ idx))
       (message "%s" option)
       (funcall option))))
-(global-set-key [f7]    'flyspell-mode-cycle)
-(global-set-key [S-f7]  'flyspell-buffer)
+
+
+;;; ---------------------------------------------------------------------
+;;; Last Closed Files
+;;;
+(defvar closed-files (list))
+(defun track-closed-file ()
+  (message buffer-file-name)
+  (and buffer-file-name
+       (add-to-list 'closed-files buffer-file-name)))
+(defun track-closed-file ()
+  (and buffer-file-name
+       (message buffer-file-name)
+       (or (delete buffer-file-name closed-files)
+	   t)
+       (add-to-list 'closed-files buffer-file-name)))
+(defun last-closed-files ()
+  (interactive)
+  (find-file (completing-read "Last closed: " closed-files)))
+(add-hook 'kill-buffer-hook 'track-closed-file)
 
 
 ;;; ---------------------------------------------------------------------
@@ -235,7 +253,10 @@ Changing this directly affects only new markers.")
 (global-set-key [end]   'end-of-line)
 (global-set-key [f5]    'comment-region)
 (global-set-key [S-f5]  'uncomment-region)
+(global-set-key [f7]    'flyspell-mode-cycle)
+(global-set-key [S-f7]  'flyspell-buffer)
 (global-set-key [f8]    'find-file-at-point)
+(global-set-key [f9]    'last-closed-files)
 (global-set-key "\C-cl" 'goto-line)
 (global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-xO" 'previous-multiframe-window)
