@@ -105,7 +105,10 @@ or to \[buffer-name if it has no file"
  '(next-line-extends-end-of-buffer nil)
  '(auto-save-default nil)
  '(make-backup-files nil)
- '(iswitchb-mode t)         ; intelligent buffer switcher (in minibuffer)
+ ;'(iswitchb-mode t)         ; intelligent buffer switcher (in minibuffer)
+ '(ido-enable-flex-matching t)
+ '(ide-everywhere t)
+ '(ido-mode t)
  '(setq kmacro-call-mouse-event nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
@@ -116,7 +119,6 @@ or to \[buffer-name if it has no file"
 ;;; ---------------------------------------------------------------------
 ;;; Color Theme & Color Theme Random
 ;;;
-
 (add-to-list 'load-path (concat emacs-extras-d "/color-theme-6.6.0"))
 (autoload 'color-theme (expand-file-name (concat emacs-extras-d "/color-theme-6.6.0")))
 (eval-after-load "color-theme"
@@ -228,6 +230,7 @@ or to \[buffer-name if it has no file"
 ;;; Magit
 ;;;
 (add-to-list 'load-path (expand-file-name (concat emacs-extras-d "/magit-0.8.2")))
+(autoload 'magit-status "magit" "Loads magit-mode" t)
 
 
 ;;; ---------------------------------------------------------------------

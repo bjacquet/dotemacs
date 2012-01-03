@@ -8,7 +8,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; Modes loaded on request
 ;;;
-(add-to-list 'load-path (concat emacs-extras-d "/load-later"))
+(add-to-list 'load-path (concat emacs-extras-d "/load-path"))
 
 
 ;;; ---------------------------------------------------------------------
@@ -31,6 +31,7 @@
 			       "~/My Documents/diary/siscog-clock.org"
 			       "~/My Documents/diary/clock-tables.org"))
       desktop-menu-directory "~/My Documents/diary/desktop/")
+
 
 (defun start.up ()
   "default setup"
@@ -60,3 +61,5 @@
 		  (suspend-frame)))
 
 (define-key global-map [f6] 'start.up)
+(define-key global-map [f8] 'find-file-at-point)
+(define-key global-map [f9] 'last-closed-files)
