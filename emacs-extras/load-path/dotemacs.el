@@ -84,8 +84,6 @@ or to \[buffer-name if it has no file"
  '(debug-on-error t)
  '(default-input-method "portuguese-prefix")
  '(global-font-lock-mode t nil (font-lock))
- '(pc-select-meta-moves-sexps t)
- '(pc-selection-mode t nil (pc-select))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t)
  '(user-mail-address "bruno.jacquet@gmail.com")
