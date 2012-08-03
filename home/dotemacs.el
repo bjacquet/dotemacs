@@ -3,17 +3,24 @@
 
 (setq debug-on-error t)
 
-(defvar packages-d "~/dotemacs/packages/"
+(defvar packages-directory "~/dotemacs/packages/"
   "The packages directory.")
 
+(defvar configuration-directory "~/dotemacs/home/"
+  "The directory of this configuration.")
+
 (defmacro concat-package-dir (package-name)
-  "(concat packages-d package-name)"
-  (list 'concat packages-d package-name))
+  "(concat packages-directory package-name)"
+  (list 'concat packages-directory package-name))
 
 (defmacro expand-package (package-name)
   "(expand-file-name (concat-package-dir package-name))"
   (list 'expand-file-name (list 'concat-package-dir package-name)))
 
+(defmacro load-configuration (config-file-name)
+  `(load-file (expand-file-name (concat configuration-directory ,config-file-name))))
+
+(add-to-list 'load-path packages-directory)
 
 (defun title-set-title ()
   "Set title to current`s buffer \[buffer-file-name] name
@@ -81,62 +88,31 @@ or to \[buffer-name if it has no file"
 
 
 ;;; ---------------------------------------------------------------------
-;;; Color Theme & Color Theme Random
+;;; Package's Configurations
 ;;;
-(add-to-list 'load-path (concat-package-dir "color-theme"))
-(autoload 'color-theme (expand-package "color-theme"))
-(eval-after-load "color-theme"
-  '(color-theme-initialize))
-(load-file (expand-package "color-theme-random.el"))
-(autoload 'color-theme-random (expand-package "color-theme-random.el"))
-(color-theme-random)
+(load-configuration "color-theme.el")
+(load-configuration "windpoint.el")
+(load-configuration "undo-tree.el")
+(load-configuration "flyspell.el")
+(load-configuration "magit.el")
+(load-configuration "last-closed-files.el")
+(load-configuration "auto-complete.el")
 
 
 ;;; ---------------------------------------------------------------------
-;;; Winpoint
+;;; Keys
 ;;;
-(load-file (expand-package "winpoint.el"))
-(winpoint-mode t)
-
-
-;;; ---------------------------------------------------------------------
-;;; Undo Tree
-;;;
-(load-file (expand-package "undo-tree.el"))
-(setq undo-tree-mode-lighter nil)
-(global-undo-tree-mode)
-
-
-;;; ---------------------------------------------------------------------
-;;; Flyspell
-;;;
-(setq flyspell-mode-line-string nil)
-(lexical-let ((idx 0)
-	      (options (list 'flyspell-mode ; turns on
-			     'flyspell-prog-mode
-			     'flyspell-mode ; turns off
-			     )))
-  (setf (cdr (last options)) options)
-  (defun flyspell-mode-cycle ()
-    (interactive)
-    (let ((option (elt options idx)))
-      (setf idx (1+ idx))
-      (message "%s" option)
-      (funcall option))))
-
-
-;;; ---------------------------------------------------------------------
-;;; Magit
-;;;
-(add-to-list 'load-path (expand-package "magit"))
-(autoload 'magit-status "magit" "Loads magit-mode" t)
-
-
-;;; ---------------------------------------------------------------------
-;;; Last Closed Files
-;;;
-(load-file (expand-package "last-closed-files.el"))
-(global-set-key [f9] 'last-closed-files)
+(global-set-key [home]  'beginning-of-line)
+(global-set-key [end]   'end-of-line)
+(global-set-key [f5]    'comment-region)
+(global-set-key [S-f5]  'uncomment-region)
+(global-set-key [f7]    'flyspell-mode-cycle)
+(global-set-key [S-f7]  'flyspell-buffer)
+(global-set-key [f8]    'find-file-at-point)
+(global-set-key [f9]    'last-closed-files)
+(global-set-key "\C-cl" 'goto-line)
+(global-set-key "\C-ci" 'indent-region)
+(global-set-key "\C-xO" 'previous-multiframe-window)
 
 
 ;; dotemacs.el EOF
