@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8; -*-
-;;; dotemacs.el - Home configuration
+;;; dotemacs.el - SISCOG configuration
 
 
 ;;; ---------------------------------------------------------------------
@@ -15,7 +15,7 @@
  '(global-font-lock-mode t nil (font-lock))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t)
- '(user-mail-address "bruno.jacquet@gmail.com")
+ '(user-mail-address "bjacquet@siscog.pt")
  '(user-full-name "Bruno Jacquet")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(tool-bar-mode nil)
@@ -47,13 +47,18 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name "~/dotemacs/defuns.el"))
+(setq configuration-directory "~/dotemacs/siscog/")
+
 (load-configuration "auto-complete.el")
 (load-configuration "color-theme.el")
+(load-configuration "flyspell.el")
 (load-configuration "magit.el")
+(load-configuration "sc-org/sc-org.el")
 (load-configuration "undo-tree.el")
 (load-configuration "windpoint.el")
 
 (load "last-closed-files")
+
 
 ;;; ---------------------------------------------------------------------
 ;;; Keys
