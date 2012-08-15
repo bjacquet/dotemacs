@@ -51,9 +51,9 @@
 (load-configuration "color-theme.el")
 (load-configuration "magit.el")
 (load-configuration "undo-tree.el")
-(load-configuration "windpoint.el")
-
+(load-configuration "winpoint.el")
 (load "last-closed-files")
+
 
 ;;; ---------------------------------------------------------------------
 ;;; Keys

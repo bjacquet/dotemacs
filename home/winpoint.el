@@ -1,6 +1,6 @@
 ;;; ---------------------------------------------------------------------
 ;;; Winpoint
 ;;;
-(load "winpoint.el")
-(winpoint-mode t)
+(require 'winpoint)
+(window-point-remember-mode 1)
 
