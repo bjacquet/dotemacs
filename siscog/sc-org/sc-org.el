@@ -58,11 +58,11 @@ THING can be a symbol, an fspec, or their string representation."
 
 
 (defconst *note.template.file*
-  (concat emacs-extras-d "/sc-org/note_template.txt"))
+  "note_template.txt")
 
 
 (defconst *clock.template.file*
-  (concat emacs-extras-d "/sc-org/clock_template.txt"))
+  "clock_template.txt")
 
 
 (defconst *buffer.sandbox*
@@ -113,11 +113,12 @@ THING can be a symbol, an fspec, or their string representation."
 	(note.filename)
 	(clock.filename (buffer-file-name))
 	(replacements))
-    (multiple-value-setq (number description note.filename) (get.user.input.poa))
-    (setq replacements (list (list "<number>"         number)
-			     (list "<description>"    description)
-			     (list "<note_filename>"  note.filename)
-			     (list "<clock_filename>" clock.filename)))
+    (multiple-value-setq (number description note.filename)
+      (get.user.input.poa))
+    (setq replacements `(("<number>"         ,number)
+			 ("<description>"    ,description)
+			 ("<note_filename>"  ,note.filename)
+			 ("<clock_filename>" ,clock.filename)))
     (create.entry (find-file clock.filename)
     		  (point)
     		  *clock.template.file*
@@ -131,7 +132,7 @@ THING can be a symbol, an fspec, or their string representation."
 
 
 (defconst *pms.resolution.template.file*
-  (concat emacs-extras-d "/sc-org/pms_resolution_template.txt"))
+  "pms_resolution_template.txt")
 
 
 (defun get.user.input.pms.resolution ()
@@ -161,20 +162,23 @@ THING can be a symbol, an fspec, or their string representation."
 	(slashes)
 	(replacements)
 	(files))
-    (multiple-value-setq (system author modspatches files) (get.user.input.pms.resolution))
+    (multiple-value-setq (system author modspatches files)
+      (get.user.input.pms.resolution))
     (setq overscore  (make-string (length system) ?_)
 	  underscore (make-string (- 40 (length system) 3) ?_)
 	  slashes    (make-string (- 40 (length author) 17) ?-))
-    (setq replacements (list (list "<overscore>"   overscore)
-			     (list "<system>"      system)
-			     (list "<underscore>"  underscore)
-			     (list "<author>"      author)
-			     (list "<date>"        today.date)
-			     (list "<slashes>"     slashes)
-			     (list "<modspatches>" modspatches)
-			     (list "<files>"       files)))
+    (setq replacements `(("<overscore>"   ,overscore)
+			 ("<system>"      ,system)
+			 ("<underscore>"  ,underscore)
+			 ("<author>"      ,author)
+			 ("<date>"        ,today.date)
+			 ("<slashes>"     ,slashes)
+			 ("<modspatches>" ,modspatches)
+			 ("<files>"       ,files)))
     (create.entry (get-buffer-create "*scratch*")
 		  0
 		  *pms.resolution.template.file*
 		  replacements))
   (switch-to-buffer "*scratch*"))
+
+;; sc-org.el ends here

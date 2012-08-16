@@ -55,7 +55,7 @@
 (load-configuration "magit.el")
 (load-configuration "sc-org/sc-org.el")
 (load-configuration "undo-tree.el")
-(load-configuration "windpoint.el")
+(load-configuration "winpoint.el")
 
 (load "last-closed-files")
 

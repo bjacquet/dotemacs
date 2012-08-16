@@ -52,4 +52,11 @@ or to \[buffer-name if it has no file"
 	  (lambda ()
 	    (title-set-title)))
 
+
+(defun trim-str (str)
+  "Trims leading and tailing whitespace from `str'."
+  (let ((s (if (symbolp str) (symbol-name str) str)))
+    (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" s)))
+
+
 ;;; defuns.el ends here
