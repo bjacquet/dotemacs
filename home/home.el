@@ -46,12 +46,12 @@
 ;;; ---------------------------------------------------------------------
 ;;; Package's Configurations
 ;;;
-(load-file (expand-file-name "~/dotemacs/defuns.el"))
-(load-configuration "auto-complete.el")
-(load-configuration "color-theme.el")
-(load-configuration "magit.el")
-(load-configuration "undo-tree.el")
-(load-configuration "winpoint.el")
+(load-file (expand-file-name "~/dotemacs/pkg-config.el"))
+(load-pkg-loader "auto-complete.el")
+(load-pkg-loader "color-theme.el")
+(load-pkg-loader "magit.el")
+(load-pkg-loader "undo-tree.el")
+(load-pkg-loader "winpoint.el")
 (load "last-closed-files")
 
 
@@ -62,13 +62,13 @@
 (global-set-key [end]   'end-of-line)
 (global-set-key [f5]    'comment-region)
 (global-set-key [S-f5]  'uncomment-region)
-(global-set-key [f7]    'flyspell-mode-cycle)
-(global-set-key [S-f7]  'flyspell-buffer)
 (global-set-key [f8]    'find-file-at-point)
 (global-set-key [f9]    'last-closed-files)
 (global-set-key "\C-cl" 'goto-line)
 (global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-xO" 'previous-multiframe-window)
 
+
+(load-file (expand-file-name "~/dotemacs/defuns.el"))
 
 ;;; dotemacs.el ends here
