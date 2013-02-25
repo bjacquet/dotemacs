@@ -2,7 +2,7 @@
 ;;; Siscog's Org Mode
 ;;;
 
-
+(require 'org)
 (setq org-hide-leading-stars t)
 
 ;; Add extra tweaks when org-mode is started
