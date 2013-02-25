@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8; -*-
-;;; dotemacs.el - Home configuration
+;;; home.el - Home configuration
 
 
 ;;; ---------------------------------------------------------------------
@@ -73,4 +73,4 @@
 
 (load-file (expand-file-name "~/dotemacs/defuns.el"))
 
-;;; dotemacs.el ends here
+;;; home.el ends here
