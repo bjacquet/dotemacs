@@ -3,6 +3,12 @@
 
 
 ;;; ---------------------------------------------------------------------
+;;; Load all things SISCOG
+;;;
+(load "~/dotemacs/custom/emacs-sc.el")
+
+
+;;; ---------------------------------------------------------------------
 ;;; Look & Feel
 ;;;
 (custom-set-variables
@@ -16,7 +22,7 @@
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t)
  '(user-mail-address "bjacquet@siscog.pt")
- '(user-full-name "Bruno Jacquet")
+ '(user-full-name "B Jacquet")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(tool-bar-mode nil)
  '(set-default-font "DejaVu Sans Mono-11")
