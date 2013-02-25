@@ -2,6 +2,7 @@
 ;;; Siscog's Org Mode
 ;;;
 
+
 (setq org-hide-leading-stars t)
 
 ;; Add extra tweaks when org-mode is started
@@ -54,7 +55,8 @@ THING can be a symbol, an fspec, or their string representation."
 
 
 (defconst *note.filename*
-  (concat diary-d "/tss-notes.org"))
+  "TODO: Correct this when merging at SISCOG!"
+  "/tss-notes.org")
 
 
 (defconst *note.template.file*

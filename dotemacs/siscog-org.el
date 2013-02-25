@@ -1,5 +1,5 @@
 ;; -*- coding: utf-8; -*-
-;;; dotemacs.el - SISCOG configuration
+;;; siscog-org.el - SISCOG Org configuration
 
 
 ;;; ---------------------------------------------------------------------
@@ -16,7 +16,7 @@
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t)
  '(user-mail-address "bjacquet@siscog.pt")
- '(user-full-name "Bruno Jacquet")
+ '(user-full-name "B Jacquet")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(tool-bar-mode nil)
  '(set-default-font "DejaVu Sans Mono-11")
@@ -46,18 +46,44 @@
 ;;; ---------------------------------------------------------------------
 ;;; Package's Configurations
 ;;;
-(load-file (expand-file-name "~/dotemacs/defuns.el"))
-(setq configuration-directory "~/dotemacs/siscog/")
-
-(load-configuration "auto-complete.el")
-(load-configuration "color-theme.el")
-(load-configuration "flyspell.el")
-(load-configuration "magit.el")
-(load-configuration "sc-org/sc-org.el")
-(load-configuration "undo-tree.el")
-(load-configuration "winpoint.el")
-
+(load-file (expand-file-name "~/dotemacs/pkg-config.el"))
+(load-pkg-loader "auto-complete.el")
+(load-pkg-loader "color-theme.el")
+(load-pkg-loader "magit.el")
+(load-pkg-loader "sc-org.el")
+(load-pkg-loader "undo-tree.el")
+(load-pkg-loader "winpoint.el")
 (load "last-closed-files")
+
+
+;; (setq org-agenda-files (quote ("~/My Documents/diary/remember.org"
+;; 			       "~/My Documents/diary/tss-notes.org"
+;; 			       "~/My Documents/diary/tss-clock.org"
+;; 			       "~/My Documents/diary/siscog-notes.org"
+;; 			       "~/My Documents/diary/siscog-clock.org"
+;; 			       "~/My Documents/diary/clock-tables.org"))
+;;       desktop-menu-directory "~/My Documents/diary/desktop/")
+
+
+(defun start.up ()
+  "TODO: Correct this when merging at SISCOG!
+default setup"
+  (interactive)
+  (org-agenda-list 1)
+  (eshell)
+  (delete-other-windows)
+  (split-window-vertically)
+  (previous-multiframe-window)
+  (split-window-horizontally)
+  (other-window 2)
+  (switch-to-buffer "*eshell*")
+  (other-window 1)
+  (switch-to-buffer "*Messages*")
+  (other-window 1)
+  (switch-to-buffer "*Org Agenda*")
+  (other-window 1))
+
+(add-hook 'after-init-hook (start.up))
 
 
 ;;; ---------------------------------------------------------------------
@@ -67,6 +93,7 @@
 (global-set-key [end]   'end-of-line)
 (global-set-key [f5]    'comment-region)
 (global-set-key [S-f5]  'uncomment-region)
+(global-set-key [f6]    'start.up)
 (global-set-key [f7]    'flyspell-mode-cycle)
 (global-set-key [S-f7]  'flyspell-buffer)
 (global-set-key [f8]    'find-file-at-point)
@@ -74,6 +101,12 @@
 (global-set-key "\C-cl" 'goto-line)
 (global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-xO" 'previous-multiframe-window)
+(global-set-key "\C-z"  (lambda ()
+			  (interactive)
+			  (start.up)
+			  (suspend-frame)))
 
 
-;;; dotemacs.el ends here
+(load-file (expand-file-name "~/dotemacs/defuns.el"))
+
+;;; siscog-org.el ends here
