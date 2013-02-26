@@ -56,11 +56,11 @@
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "magit.el")
+(load-pkg-loader "pager.el")
 (load-pkg-loader "sc-org.el")
 (load-pkg-loader "undo-tree.el")
-(load-pkg-loader "winpoint.el")
 (load-pkg-loader "w3m.el")
-(load-pkg-loader "pager.el")
+(load-pkg-loader "winpoint.el")
 (load "last-closed-files")
 
 

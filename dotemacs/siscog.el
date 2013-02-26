@@ -2,10 +2,14 @@
 ;;; siscog.el - SISCOG configuration
 
 
+(defvar emacs-dir
+  "~/.emacs.d/")
+
+
 ;;; ---------------------------------------------------------------------
 ;;; Load all things SISCOG
 ;;;
-(load "~/dotemacs/custom/emacs-sc.el")
+(load (concat emacs-dir "custom/emacs-sc.el"))
 
 
 ;;; ---------------------------------------------------------------------
@@ -25,7 +29,6 @@
  '(user-full-name "B Jacquet")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(tool-bar-mode nil)
- '(set-default-font "DejaVu Sans Mono-11")
  '(visible-bell t)
  '(inhibit-startup-message t)
  '(line-number-mode t)
@@ -38,25 +41,28 @@
  '(next-line-extends-end-of-buffer nil)
  '(auto-save-default nil)
  '(make-backup-files nil)
- ;'(iswitchb-mode t)         ; intelligent buffer switcher (in minibuffer)
- '(ido-enable-flex-matching t)
- '(ide-everywhere t)
- '(ido-mode t)
+ '(iswitchb-mode t)         ; intelligent buffer switcher (in minibuffer)
+ ;; '(ido-enable-flex-matching t)
+ ;; '(ide-everywhere t)
+ ;; '(ido-mode t)
  '(setq kmacro-call-mouse-event nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
  )
 
+(set-default-font "DejaVu Sans Mono-11")
+
 
 ;;; ---------------------------------------------------------------------
 ;;; Package's Configurations
 ;;;
-(load-file (expand-file-name "~/dotemacs/pkg-config.el"))
+(load-file (expand-file-name (concat emacs-dir "pkg-config.el")))
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "flyspell.el")
 (load-pkg-loader "magit.el")
+(load-pkg-loader "pager.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
 (load "last-closed-files")
@@ -78,7 +84,7 @@
 (global-set-key "\C-xO" 'previous-multiframe-window)
 
 
-(load-file (expand-file-name "~/dotemacs/defuns.el"))
+(load-file (expand-file-name (concat emacs-dir "defuns.el")))
 
 
 ;;; siscog.el ends here

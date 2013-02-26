@@ -3,19 +3,19 @@
 ;;;
 
 (require 'org)
-(setq org-hide-leading-stars t)
-(setq org-footnote-define-inline t)
-(setq org-export-html-preamble nil)
-(setq org-export-html-postamble nil)
-(setq org-export-html-style-include-default nil)
-(setq org-columns-default-format "%45ITEM %10TODO %LastAction %LastActionDate")
+(setq org-hide-leading-stars t
+      org-footnote-define-inline t
+      org-export-html-preamble nil
+      org-export-html-postamble nil
+      org-export-html-style-include-default nil
+      org-columns-default-format "%45ITEM %10TODO %LastAction %LastActionDate"
+      org-clock-into-drawer "CLOCK")
 
 
 ;; Add extra tweaks when org-mode is started
 (defvar org-extra-installed-p nil)
 (add-hook 'org-mode-hook 'org-extra-install)
 (add-hook 'org-agenda-mode-hook 'org-extra-install)
-(setq org-clock-into-drawer "CLOCK")
 
 
 (defun org-extra-install ()

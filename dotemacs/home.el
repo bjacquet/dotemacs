@@ -2,6 +2,10 @@
 ;;; home.el - Home configuration
 
 
+(defvar emacs-dir
+  "~/.emacs.d/")
+
+
 ;;; ---------------------------------------------------------------------
 ;;; Look & Feel
 ;;;
@@ -46,10 +50,11 @@
 ;;; ---------------------------------------------------------------------
 ;;; Package's Configurations
 ;;;
-(load-file (expand-file-name "~/dotemacs/pkg-config.el"))
+(load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "magit.el")
+(load-pkg-loader "pager.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
 (load "last-closed-files")
@@ -71,6 +76,6 @@
 (global-set-key "\C-xO" 'previous-multiframe-window)
 
 
-(load-file (expand-file-name "~/dotemacs/defuns.el"))
+(load-file (expand-file-name (concat emacs-dir "/defuns.el")))
 
 ;;; home.el ends here
