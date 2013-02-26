@@ -1,12 +1,11 @@
 ;;; ---------------------------------------------------------------------
 ;;; W3M
 ;;;
-(add-to-list 'load-path (concat-package-dir "w3m"))
-(autoload 'w3m (expand-package "w3m"))
-(eval-after-load "w3m"
-  (require 'w3m-load))
+(add-to-list 'load-path (concat-package-dir "emacs-w3m"))
+(require 'w3m-load)
 (setq w3m-use-cookies t)
-
+(setq w3m-home-page "http://intranet")
+(setq w3m-bookmark-file "~/My Documents/bookmarks/w3m.bmk")
 (global-set-key (kbd "C-c g") 'w3m-search) ; google search
 
 (defun my-dictionary-lookup (word)

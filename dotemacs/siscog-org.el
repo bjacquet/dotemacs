@@ -2,6 +2,10 @@
 ;;; siscog-org.el - SISCOG Org configuration
 
 
+(defvar emacs-dir
+  "~/.emacs.d/")
+
+
 ;;; ---------------------------------------------------------------------
 ;;; Look & Feel
 ;;;
@@ -19,7 +23,7 @@
  '(user-full-name "B Jacquet")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(tool-bar-mode nil)
- '(set-default-font "DejaVu Sans Mono-11")
+ '(scroll-bar-mode nil)
  '(visible-bell t)
  '(inhibit-startup-message t)
  '(line-number-mode t)
@@ -32,53 +36,61 @@
  '(next-line-extends-end-of-buffer nil)
  '(auto-save-default nil)
  '(make-backup-files nil)
- ;'(iswitchb-mode t)         ; intelligent buffer switcher (in minibuffer)
- '(ido-enable-flex-matching t)
- '(ide-everywhere t)
- '(ido-mode t)
+ '(iswitchb-mode t)         ; intelligent buffer switcher (in minibuffer)
+ ;; '(ido-enable-flex-matching t)
+ ;; '(ide-everywhere t)
+ ;; '(ido-mode t)
  '(setq kmacro-call-mouse-event nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
  )
 
+(set-default-font "DejaVu Sans Mono-11")
+
 
 ;;; ---------------------------------------------------------------------
 ;;; Package's Configurations
 ;;;
-(load-file (expand-file-name "~/dotemacs/pkg-config.el"))
+(load-file (expand-file-name (concat emacs-dir "pkg-config.el")))
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "magit.el")
 (load-pkg-loader "sc-org.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
+(load-pkg-loader "w3m.el")
 (load "last-closed-files")
 
 
-;; (setq org-agenda-files (quote ("~/My Documents/diary/remember.org"
-;; 			       "~/My Documents/diary/tss-notes.org"
-;; 			       "~/My Documents/diary/tss-clock.org"
-;; 			       "~/My Documents/diary/siscog-notes.org"
-;; 			       "~/My Documents/diary/siscog-clock.org"
-;; 			       "~/My Documents/diary/clock-tables.org"))
-;;       desktop-menu-directory "~/My Documents/diary/desktop/")
+(setq org-agenda-files (quote ("~/My Documents/diary/remember.org"
+			       "~/My Documents/diary/tpo-notes.org"
+			       "~/My Documents/diary/tpo-clock.org"
+			       "~/My Documents/diary/tss-notes.org"
+			       "~/My Documents/diary/tss-clock.org"
+			       "~/My Documents/diary/vip-notes.org"
+			       "~/My Documents/diary/vip-clock.org"
+			       "~/My Documents/diary/siscog-notes.org"
+			       "~/My Documents/diary/siscog-clock.org"
+			       "~/My Documents/diary/clock-tables.org"))
+      desktop-menu-directory "~/My Documents/diary/desktop/")
 
 
 (defun start.up ()
-  "TODO: Correct this when merging at SISCOG!
-default setup"
+  "Default setup at SISCOG for Emacs Org."
   (interactive)
   (org-agenda-list 1)
   (eshell)
+  (find-file "~/My Documents/diary/tpo-clock.org")
+  (find-file "~/My Documents/diary/tpo-notes.org")
   (delete-other-windows)
   (split-window-vertically)
   (previous-multiframe-window)
   (split-window-horizontally)
   (other-window 2)
-  (switch-to-buffer "*eshell*")
+  (switch-to-buffer "tpo-notes.org")
   (other-window 1)
-  (switch-to-buffer "*Messages*")
+  (switch-to-buffer "tpo-clock.org")
   (other-window 1)
   (switch-to-buffer "*Org Agenda*")
   (other-window 1))
@@ -107,6 +119,6 @@ default setup"
 			  (suspend-frame)))
 
 
-(load-file (expand-file-name "~/dotemacs/defuns.el"))
+(load-file (expand-file-name (concat emacs-dir "defuns.el")))
 
 ;;; siscog-org.el ends here
