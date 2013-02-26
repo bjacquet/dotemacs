@@ -4,6 +4,12 @@
 
 (require 'org)
 (setq org-hide-leading-stars t)
+(setq org-footnote-define-inline t)
+(setq org-export-html-preamble nil)
+(setq org-export-html-postamble nil)
+(setq org-export-html-style-include-default nil)
+(setq org-columns-default-format "%45ITEM %10TODO %LastAction %LastActionDate")
+
 
 ;; Add extra tweaks when org-mode is started
 (defvar org-extra-installed-p nil)

@@ -2,11 +2,11 @@
 ;;; pkg-config.el - Top level definitions.
 
 
-(defvar packages-directory "~/dotemacs/packages/"
+(defvar packages-directory (concat emacs-dir "packages/")
   "The packages directory.")
 
 
-(defvar configuration-directory "~/dotemacs/pkg-loaders/"
+(defvar configuration-directory (concat emacs-dir "pkg-loaders/")
   "The directory of package loading configuration.")
 
 
