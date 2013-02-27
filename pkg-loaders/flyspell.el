@@ -14,3 +14,6 @@
       (setf idx (1+ idx))
       (message "%s" option)
       (funcall option))))
+
+(global-set-key [f7]   'flyspell-mode-cycle)
+(global-set-key [S-f7] 'flyspell-buffer)

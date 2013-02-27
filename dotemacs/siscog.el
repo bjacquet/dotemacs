@@ -75,8 +75,6 @@
 (global-set-key [end]   'end-of-line)
 (global-set-key [f5]    'comment-region)
 (global-set-key [S-f5]  'uncomment-region)
-(global-set-key [f7]    'flyspell-mode-cycle)
-(global-set-key [S-f7]  'flyspell-buffer)
 (global-set-key [f8]    'find-file-at-point)
 (global-set-key [f9]    'last-closed-files)
 (global-set-key "\C-cl" 'goto-line)
