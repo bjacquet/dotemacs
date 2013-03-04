@@ -17,6 +17,8 @@
  '(debug-on-error t)
  '(default-input-method "portuguese-prefix")
  '(global-font-lock-mode t nil (font-lock))
+ '(pc-select-meta-moves-sexps t)
+ '(pc-selection-mode t nil (pc-select))
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t)
  '(user-mail-address "bjacquet@siscog.pt")
@@ -40,7 +42,8 @@
  ;; '(ido-enable-flex-matching t)
  ;; '(ide-everywhere t)
  ;; '(ido-mode t)
- '(setq kmacro-call-mouse-event nil))
+ '(setq kmacro-call-mouse-event nil)
+ '(fill-column 80))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
@@ -55,12 +58,13 @@
 (load-file (expand-file-name (concat emacs-dir "pkg-config.el")))
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
-(load-pkg-loader "magit.el")
+(load-pkg-loader "flyspell.el")
 (load-pkg-loader "pager.el")
 (load-pkg-loader "sc-org.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "w3m.el")
 (load-pkg-loader "winpoint.el")
+(load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
 
 
