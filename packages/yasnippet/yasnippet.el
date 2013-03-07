@@ -2050,7 +2050,9 @@ static in the menu."
 
 
 (defun yas--show-menu-p (mode)
-  (cond ((eq yas-use-menu 'abbreviate)
+  (cond ((eq mode 'sc-mode)
+	 t)
+	((eq yas-use-menu 'abbreviate)
          (find mode
                (mapcar #'(lambda (table)
                            (yas--table-mode table))

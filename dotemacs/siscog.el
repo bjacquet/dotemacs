@@ -65,6 +65,7 @@
 (load-pkg-loader "pager.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
+(load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
 
 

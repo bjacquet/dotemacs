@@ -7,7 +7,10 @@
   ;; Don't map TAB to yasnippet
   ;; In fact, set it to something we'll never use because
   ;; we'll only ever trigger it indirectly.
-  '(progn 
-    (setq yas/trigger-key (kbd "C-c <kp-multiply>"))
-    (yas/initialize)
-    (yas/load-directory (expand-package "yasnippet/snippets"))))
+  '(progn
+     (require 'yasnippet)
+     (setq yas-snippet-dirs (expand-package "yasnippet/snippets/"))
+     (yas/global-mode 1)
+     (yas--load-directory-1 (concat yas-snippet-dirs "sc-mode/")
+			    'sc-mode
+			    nil)))
