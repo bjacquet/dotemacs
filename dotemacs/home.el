@@ -74,6 +74,7 @@
 (global-set-key "\C-xO" 'previous-multiframe-window)
 
 
-(load-file (expand-file-name (concat emacs-dir "/defuns.el")))
+(load-file (expand-file-name (concat emacs-dir "defuns.el")))
+
 
 ;;; home.el ends here
