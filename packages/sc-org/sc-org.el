@@ -8,7 +8,7 @@
       org-export-html-preamble nil
       org-export-html-postamble nil
       org-export-html-style-include-default nil
-      org-columns-default-format "%45ITEM %10TODO %LastAction %LastActionDate"
+      org-columns-default-format "%10TODO %45ITEM %LastAction %LastActionDate %NextAction"
       org-clock-into-drawer "CLOCK")
 
 
