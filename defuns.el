@@ -55,4 +55,8 @@ or to \[buffer-name if it has no file"
     (while (re-search-forward "[ \t][ \t]*$" nil t)
       (delete-region (match-beginning 0) (point)))))
 
+(defun open-user-init-file ()
+  (interactive)
+  (find-file user-init-file))
+
 ;;; defuns.el ends here
