@@ -4,7 +4,7 @@
 # --
 [ERROR REPRODUCTION TEST #$1]: ${2:{<REPRODUCED> | <FAILED TO REPRODUCE>}$$(yas/choose-value '("REPRODUCED" "FAILED TO REPRODUCE"))}
 
-This test was executed on ${3:<test-date>$(eshell/date)} by ${4:`user`} on ${5:`host`}.
+This test was executed on ${3:<test-date>$(eshell/date)} by ${4:`user-full-name`} on ${5:`system-name`}.
 Tested with: CREWS-${6:X-VY-Y-Y} ${7:application1, application2, applicationN}
 Problem: ${8:<dataset-path-name>}
 Reality: ${9:<reality>}
@@ -13,7 +13,7 @@ Year period: ${13:TTY-start-date - TTY-end-date}
 ${14:Loaded period: "LP-start-date - LP-end-date"}
 ${15:Loading criteria: "Short description of the used criteria | Name of used criteria"}
 
-${16:APPLICATION}
+$7
 
 [s1] $0
 [s2] 
