@@ -24,10 +24,16 @@
   `(load-file (expand-file-name (concat configuration-directory ,config-file-name))))
 
 
+(defun available-configurations ()
+  (directory-files configuration-directory nil ".el$"))
+
+
 (defun load-configuration ()
-  "Queries for a package and loads its pkg-loader."
+  "Queries for a pkg-loader and loads it."
   (interactive)
-  (load-pkg-loader (concat (read-from-minibuffer "Package: ") ".el")))
+  (let ((configuration (completing-read "Package: " (available-configurations))))
+    (load-pkg-loader configuration)
+    (load-library configuration)))
 
 
 (add-to-list 'load-path packages-directory)
