@@ -55,8 +55,32 @@ or to \[buffer-name if it has no file"
     (while (re-search-forward "[ \t][ \t]*$" nil t)
       (delete-region (match-beginning 0) (point)))))
 
+
 (defun open-user-init-file ()
   (interactive)
   (find-file user-init-file))
+
+
+(defun kill-most-buffers (&optional keep-list)
+  "Kill all buffers silently if unmodified, otherwise ask.
+If keep-list has buffers don't kill them."
+  (interactive)
+  (setq list (buffer-list))
+  (dolist (el keep-list)
+    (setq list (delq el list)))
+  (while list
+    (let* ((buffer (car list))
+	   (name (buffer-name buffer)))
+      (and (not (string-equal name ""))
+	   (not (string-equal name "*Messages*"))
+	   (not (string-equal name "*Shell Command Output*"))
+	   (not (string-equal name "*scratch*"))
+	   (/= (aref name 0) ? )
+	   (if (buffer-modified-p buffer)
+	       (if (yes-or-no-p
+		    (format "Buffer %s has been edited. Kill? " name))
+		   (kill-buffer buffer))
+	     (kill-buffer buffer))))
+    (setq list (cdr list))))
 
 ;;; defuns.el ends here
