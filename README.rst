@@ -35,13 +35,11 @@ Additional Modes
 - Auto Complete
 - Color Theme
 - Color Theme Random
-- Column Marker
-- Desktop Menu
-- Emacs Jabber (when in Windows)
 - Emacs W3M
+- Flyspell
 - Magit
-- Pager
 - Pabbrev
+- Pager
 - Undo Tree
 - Windpoint
 - YaSnippet
@@ -51,23 +49,21 @@ Installation
 
 Download the code through Git::
 
-  $ git clone git://github.com/bjacquet/dotemacs .emacs
+  $ git clone git://github.com/bjacquet/dotemacs ~/.emacs.d
 
 Create a symlink [1]_ for the **.emacs** file::
 
-  $ ln -s dotemacs/emacs-extras/load-path/dotemacs.el
+  $ ln -s ~/.emacs.d/dotemacs/home.el ~/.emacs
 
 Launch emacs::
 
   $ emacs
 
-Load additional modes with the command (example with ``magit``)::
+Load additional modes with the following command (example with ``flyspell``)::
 
-  M-x load-library magit
-
-  M-x magit-status
+  M-x load-configuration flyspell
 
 .. [1] Windows handles symlinks different. One must create a **.emacs** file
    with the following contents::
 
-    (load-file (expand-file-name "~/dotemacs/emacs-extras/load-path/doteamcs.el""))
+    (load-file (expand-file-name "~/.emacs.d/dotemacs/home.el"))
