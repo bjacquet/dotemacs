@@ -118,6 +118,3 @@
 ;;;-----------------------------------------------------------------------------
 (setq *grepfc-top-dir* "z:/siscog")
 (setq *grepfc-names* '("crews" "cp" "ns" "dsb" "nsb" "lul" "vr" "ml" "stog"))
-(global-set-key [f2] 'grepfc-goto-line)
-(global-set-key [C-f2] 'grepfc-goto-patch-log)
-(global-set-key [M-f2] 'grepfc-goto-patch-data)

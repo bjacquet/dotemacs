@@ -24,8 +24,6 @@
 ;; Load other user specific customization.
 (load (format "%s/custom/sc-after.el" (getenv "SISCOG_EMACS_DIR_LOCAL")))
 
-(setf vc-handled-backends nil)
-
 
 (transient-mark-mode t)
 (set-default-font "DejaVu Sans Mono-11")
@@ -34,9 +32,18 @@
 ;;; ---------------------------------------------------------------------
 ;;; Personal Stuff
 ;;;
+(defun random-elem (list)
+  (nth (random (length list)) list))
+
 (defun fancy-splash-head ()
  "Insert the head part of the splash screen into the current buffer."
- (let* ((image-file (format "%s/custom/lisplogo-alien.xpm" (getenv "SISCOG_EMACS_DIR_LOCAL")))
+ (let* ((logo (random-elem (list "lisplogo-alien.xpm"
+				 "siscog-symbol.xpm"
+				 "lisplogo-flag.xpm"
+				 "glider.xpm")))
+	(image-file (format "%s/custom/%s"
+			    (getenv "SISCOG_EMACS_DIR_LOCAL")
+			    logo))
         (img (create-image image-file))
         (image-width (and img (car (image-size img))))
         (window-width (window-width (selected-window))))
