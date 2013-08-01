@@ -63,10 +63,6 @@
        (insert "\n\n")))))
 
 
-(global-set-key [f8]   'find-file-at-point)
-(global-set-key [f9]   'last-closed-files)
-
-
 (switch-to-buffer "*scratch*")
 (goto-char (point-min))
 (fancy-splash-head)

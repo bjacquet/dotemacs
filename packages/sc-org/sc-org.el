@@ -3,13 +3,23 @@
 ;;;
 
 (require 'org)
-(setq org-hide-leading-stars t
+
+(setq org-todo-keywords '((sequence "TODO(t)" "MAYBE(m)" "WAITING(w)" "|" "DONE(d)")
+			  (sequence "|" "CANCELLED(c)")
+			  (sequence "OPEN(o)" "WIP(i)" "REVIEW(v)" "|" "SEP(s)" "RESOLVED(r)"))
+      org-todo-keyword-faces '(("CANCELLED" . shadow)
+			       ("WAITING" . (:foreground "gold" :weight bold))
+			       ("MAYBE" . (:foreground "gold" :weight bold))
+			       ("WIP" . (:foreground "orange red" :weight bold)))
+      org-hide-leading-stars t
       org-footnote-define-inline t
       org-export-html-preamble nil
       org-export-html-postamble nil
       org-export-html-style-include-default nil
       org-columns-default-format "%45ITEM %10TODO %LastAction %LastActionDate %NextAction"
-      org-clock-into-drawer "CLOCK")
+      org-clock-into-drawer "CLOCK"
+      org-agenda-start-with-log-mode t
+      org-agenda-start-with-clockreport-mode t)
 
 
 ;; Add extra tweaks when org-mode is started

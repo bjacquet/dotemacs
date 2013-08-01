@@ -69,6 +69,8 @@
 
 
 (setq org-agenda-files (quote ("~/My Documents/diary/remember.org"
+			       "~/My Documents/diary/tk-notes.org"
+			       "~/My Documents/diary/tk-clock.org"
 			       "~/My Documents/diary/tpo-notes.org"
 			       "~/My Documents/diary/tpo-clock.org"
 			       "~/My Documents/diary/tss-notes.org"
@@ -86,16 +88,16 @@
   (interactive)
   (org-agenda-list 1)
   (eshell)
-  (find-file "~/My Documents/diary/tpo-clock.org")
-  (find-file "~/My Documents/diary/tpo-notes.org")
+  (find-file "~/My Documents/diary/tk-clock.org")
+  (find-file "~/My Documents/diary/tk-notes.org")
   (delete-other-windows)
   (split-window-vertically)
   (previous-multiframe-window)
   (split-window-horizontally)
   (other-window 2)
-  (switch-to-buffer "tpo-notes.org")
+  (switch-to-buffer "tk-notes.org")
   (other-window 1)
-  (switch-to-buffer "tpo-clock.org")
+  (switch-to-buffer "tk-clock.org")
   (other-window 1)
   (switch-to-buffer "*Org Agenda*")
   (other-window 1))
