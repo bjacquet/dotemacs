@@ -1,0 +1,33 @@
+ -*- mode: snippet -*-
+# contributor: Bruno Jacquet
+# name: emn-reproduction-test
+# --
+[ERROR REPRODUCTION TEST #$1]: ${2:{<REPRODUCED> | <FAILED TO REPRODUCE>}$$(yas/choose-value '("REPRODUCED" "FAILED TO REPRODUCE"))}
+
+This test was executed on ${3:<test-date>$(eshell/date)} by ${4:`user-full-name`} on ${5:`system-name`}.
+Tested with: CREWS-${6:X-VY-Y-Y} ${7:application1, application2, applicationN}
+Problem: ${8:<dataset-path-name>}
+Reality: ${9:<reality>}
+Update level: ${10:<upd-nnn-mod-nnn>} ${11:[+ <patch-xxx.lisp> + <labour-rule-file.lisp>]}
+Year period: ${13:TTY-start-date - TTY-end-date}
+${14:Loaded period: "LP-start-date - LP-end-date"}
+${15:Loading criteria: "Short description of the used criteria | Name of used criteria"}
+
+$7
+
+[s1] $0
+[s2] 
+[s3] 
+[s4]
+
+[sN] "Description of step N"
+[oN] "Description of the output of step N"
+
+[EO]: "Explanation of what should be the expected output."
+
+LEGEND:
+sN - Step N
+oN - Interesting output of step N
+EO - Expected Output
+
+CONCLUSION: <According to expected behaviour> | <Not reproduced> | <any other text>

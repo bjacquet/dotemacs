@@ -17,8 +17,8 @@
  '(debug-on-error t)
  '(default-input-method "portuguese-prefix")
  '(global-font-lock-mode t nil (font-lock))
- '(pc-select-meta-moves-sexps t)
- '(pc-selection-mode t nil (pc-select))
+ ;; '(pc-select-meta-moves-sexps t)         ; marked as obsolete
+ ;; '(pc-selection-mode t nil (pc-select))  ; marked as obsolete
  '(show-paren-mode t nil (paren))
  '(transient-mark-mode t)
  '(user-mail-address "bjacquet@siscog.pt")
