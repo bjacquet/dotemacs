@@ -51,6 +51,12 @@
 
 (set-default-font "DejaVu Sans Mono-11")
 
+;; Slime messes up my frame title.
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+		   (abbreviate-file-name (buffer-file-name))
+		 "%b"))))
+
 
 ;;; ---------------------------------------------------------------------
 ;;; Package's Configurations

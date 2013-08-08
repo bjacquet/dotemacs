@@ -4,28 +4,27 @@
 (setq debug-on-error t)
 
 
-(defun title-set-title ()
-  "Set title to current`s buffer \[buffer-file-name] name
-or to \[buffer-name if it has no file"
-  (let ((name (format "%s"
-                      (cond
-                       ((string-match
-                         (getenv "HOME")
-                         (or (buffer-file-name (current-buffer))
-                             (buffer-name)))
-                        (concat "~"
-                                (substring
-                                 (buffer-file-name
-                                  (current-buffer))
-                                 (match-end 0))))
-                       (t (or
-                           (buffer-file-name (current-buffer))
-                           (buffer-name)))))))
-    (modify-frame-parameters (selected-frame)
-                             (list (cons `name name)))))
-(add-hook `post-command-hook
-	  (lambda ()
-	    (title-set-title)))
+;; (defun title-set-title ()
+;;   "Set title to current`s buffer \[buffer-file-name] name
+;; or to \[buffer-name if it has no file"
+;;   (let ((name (format "%s"
+;;                       (cond
+;;                        ((string-match
+;;                          (getenv "HOME")
+;;                          (or (buffer-file-name (current-buffer))
+;;                              (buffer-name)))
+;;                         (concat "~"
+;;                                 (substring
+;;                                  (buffer-file-name
+;;                                   (current-buffer))
+;;                                  (match-end 0))))
+;;                        (t (or
+;;                            (buffer-file-name (current-buffer))
+;;                            (buffer-name)))))))
+;;     (modify-frame-parameters (selected-frame)
+;;                              (list (cons 'name name)))))
+;; (add-hook 'post-command-hook
+;; 	  'title-set-title)
 
 
 (defun trim-str (str)
