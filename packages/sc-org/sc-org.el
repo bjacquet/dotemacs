@@ -19,7 +19,9 @@
       org-columns-default-format "%45ITEM %10TODO %LastAction %LastActionDate %NextAction"
       org-clock-into-drawer "CLOCK"
       org-agenda-start-with-log-mode t
-      org-agenda-start-with-clockreport-mode t)
+      org-agenda-start-with-clockreport-mode t
+      org-link-search-must-match-exact-headline nil
+      org-agenda-inhibit-startup nil)
 
 
 ;; Add extra tweaks when org-mode is started

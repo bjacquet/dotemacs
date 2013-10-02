@@ -89,7 +89,7 @@
 ;;
 ;; Add following code to your .emacs.
 ;;
-;;     (define-key ac-complete-mode-map "\t" 'ac-complete)
+;;     (define-key ac-complete-mode-map "\t" 'ac-icomplete)
 ;;     (define-key ac-complete-mode-map "\r" nil)
 ;;
 ;;
