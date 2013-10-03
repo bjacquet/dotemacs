@@ -3,10 +3,9 @@
 ;;;
 (setq flyspell-mode-line-string nil)
 (lexical-let ((idx 0)
-	      (options (list 'flyspell-mode ; turns on
+	      (options (list 'flyspell-mode
 			     'flyspell-prog-mode
-			     'flyspell-mode ; turns off
-			     )))
+			     'flyspell-mode-off)))
   (setf (cdr (last options)) options)
   (defun flyspell-mode-cycle ()
     (interactive)
