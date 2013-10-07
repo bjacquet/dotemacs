@@ -40,11 +40,6 @@
 (defvar closed-files (list))
 
 (defun track-closed-file ()
-  (message buffer-file-name)
-  (and buffer-file-name
-       (add-to-list 'closed-files buffer-file-name)))
-
-(defun track-closed-file ()
   (and buffer-file-name
        (message buffer-file-name)
        (or (delete buffer-file-name closed-files)
@@ -53,7 +48,7 @@
 
 (defun last-closed-files ()
   (interactive)
-  (find-file (completing-read "Last closed: " closed-files)))
+  (find-file (ido-completing-read "Last closed: " closed-files)))
 
 (add-hook 'kill-buffer-hook 'track-closed-file)
 
