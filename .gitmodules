@@ -6,4 +6,4 @@
 	url = https://github.com/capitaomorte/yasnippet.git
 [submodule "packages/git-modes"]
 	path = packages/git-modes
-	url = https://github.com/magit/git-modes.git
+	url = git://github.com/magit/git-modes
