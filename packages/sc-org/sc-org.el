@@ -4,9 +4,9 @@
 
 (require 'org)
 
-(setq org-todo-keywords '((sequence "TODO(t)" "MAYBE(m)" "WAITING(w)" "|" "DONE(d)")
+(setq org-todo-keywords '((sequence "TODO(t)" "MAYBE(m)" "WAITING(w)" "|")
 			  (sequence "|" "CANCELLED(c)")
-			  (sequence "OPEN(o)" "WIP(i)" "REVIEW(v)" "|" "SEP(s)" "RESOLVED(r)"))
+			  (sequence "OPEN(o)" "WIP(i)" "REVIEW(v)" "|" "SEP(s)" "DONE(d)" "RESOLVED(r)"))
       org-todo-keyword-faces '(("CANCELLED" . shadow)
 			       ("WAITING" . (:foreground "gold" :weight bold))
 			       ("MAYBE" . (:foreground "gold" :weight bold))

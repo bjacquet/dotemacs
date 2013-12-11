@@ -77,17 +77,18 @@
 
 
 (setq org-agenda-files (quote ("~/My Documents/diary/remember.org"
-			       "~/My Documents/diary/tk-notes.org"
+;			       "~/My Documents/diary/tk-notes.org"
 			       "~/My Documents/diary/tk-clock.org"
-			       "~/My Documents/diary/tpo-notes.org"
+;			       "~/My Documents/diary/tpo-notes.org"
 			       "~/My Documents/diary/tpo-clock.org"
-			       "~/My Documents/diary/tss-notes.org"
+;			       "~/My Documents/diary/tss-notes.org"
 			       "~/My Documents/diary/tss-clock.org"
-			       "~/My Documents/diary/vip-notes.org"
+;			       "~/My Documents/diary/vip-notes.org"
 			       "~/My Documents/diary/vip-clock.org"
-			       "~/My Documents/diary/siscog-notes.org"
+;			       "~/My Documents/diary/siscog-notes.org"
 			       "~/My Documents/diary/siscog-clock.org"
-			       "~/My Documents/diary/clock-tables.org"))
+;			       "~/My Documents/diary/clock-tables.org"
+			       "~/My Documents/diary/wm-clock.org"))
       desktop-menu-directory "~/My Documents/diary/desktop/")
 
 
