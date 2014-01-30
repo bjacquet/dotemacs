@@ -1,4 +1,5 @@
-** [[file:<note_filename>::POA%20<number>][POA <number>]] <description>
+** POA <number> <description>
+  [[POA:<number>][PMS POA]]  [[TASK:POA.<number>][PMS Task]]  [[file:<note_filename>::POA%20<number>][Org note]]
 *** External Communication
 *** PMS & Wiki Update
 *** Implementation
