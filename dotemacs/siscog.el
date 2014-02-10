@@ -68,6 +68,7 @@
 (load-file (expand-file-name (concat emacs-dir "pkg-config.el")))
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
+(load-pkg-loader "discover.el")
 (load-pkg-loader "flyspell.el")
 (load-pkg-loader "magit.el")
 (load-pkg-loader "pager.el")

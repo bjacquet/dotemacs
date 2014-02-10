@@ -7,3 +7,9 @@
 [submodule "packages/git-modes"]
 	path = packages/git-modes
 	url = git://github.com/magit/git-modes
+[submodule "packages/discover.el"]
+	path = packages/discover.el
+	url = git://github.com/mickeynp/discover.el
+[submodule "packages/makey"]
+	path = packages/makey
+	url = git://github.com/mickeynp/makey
