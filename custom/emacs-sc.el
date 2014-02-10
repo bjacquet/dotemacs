@@ -14,6 +14,8 @@
 ;; Tells SC-EMACS to use new SISCOG's ODBC names
 (defvar *new-odbc-names* t)
 
+(setq sc-legacy-mode nil)
+
 ;; Load SC-EMACS
 (load (format "%s/init.el" (getenv "SISCOG_EMACS_DIR")))
 
