@@ -58,13 +58,13 @@ added the mode hook, `org-mode-hook'"
 (defun org-extra-link-abbrev-poa (poa)
   "Returns a link to a POA"
   (apply 'format
-         "http://pms.siscog.com:8080/main_frame_link.asp?module=defects&category=poa&id=%s&life=%s"
+         "https://pms.siscog/main_frame_link.asp?module=defects&category=poa&id=%s&life=%s"
          (org-extra-split-poa poa)))
 
 
 (defun org-extra-link-abbrev-task (task)
   "Returns a link to a task"
-  (format "http://pms.siscog.com:8080/main_frame_link.asp?module=tasks&category=defect&id=%s" task))
+  (format "https://pms.siscog/main_frame_link.asp?module=tasks&category=defect&id=%s" task))
 
 
 (defun org-extra-link-def (thing)
