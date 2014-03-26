@@ -4,18 +4,24 @@
 # --
 [ERROR REPRODUCTION TEST #$1]: ${2:{<REPRODUCED> | <FAILED TO REPRODUCE>}$$(yas/choose-value '("REPRODUCED" "FAILED TO REPRODUCE"))}
 
-This test was executed on ${3:<test-date>$(eshell/date)} by ${4:`user-full-name`} on ${5:`system-name`}.
-Tested with: CREWS-${6:X-VY-Y-Y} ${7:application1, application2, applicationN}
-Problem: ${8:<dataset-path-name>}
-Reality: ${9:<reality>}
-Update level: ${10:<upd-nnn-mod-nnn>} ${11:[+ <patch-xxx.lisp> + <labour-rule-file.lisp>]}
+Goal:
+  - $3
+
+This test was executed on ${4:<test-date>$(eshell/date)} by ${5:`user-full-name`} on ${6:`system-name`}.
+Tested with: CREWS-${7:X-VY-Y-Y} ${8:application1, application2, applicationN}
+Problem: ${9:<dataset-path-name>}
+Reality: ${10:<reality>}
+Update level: ${11:<upd-nnn-mod-nnn>} ${12:[+ <patch-xxx.lisp> + <labour-rule-file.lisp>]}
 Year period: ${13:TTY-start-date - TTY-end-date}
 ${14:Loaded period: "LP-start-date - LP-end-date"}
 ${15:Loading criteria: "Short description of the used criteria | Name of used criteria"}
 
-$7
+$8
 
-[s1] $0
+Presets:
+  - $0
+
+[s1] 
 [s2] 
 [s3] 
 [s4]
