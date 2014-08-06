@@ -5,12 +5,12 @@
 (require 'org)
 
 (setq org-todo-keywords '((sequence "TODO(t)" "MAYBE(m)" "WAITING(w)" "|")
-			  (sequence "|" "CANCELLED(c)")
+			  (sequence "|" "SUSPENDED(s)")
 			  (sequence "OPEN(o)" "WIP(i)" "REVIEW(v)" "|" "SEP(s)" "DONE(d)" "RESOLVED(r)"))
-      org-todo-keyword-faces '(("CANCELLED" . shadow)
-			       ("WAITING" . (:foreground "gold" :weight bold))
-			       ("MAYBE" . (:foreground "gold" :weight bold))
-			       ("WIP" . (:foreground "orange red" :weight bold)))
+      org-todo-keyword-faces '(("MAYBE"     . (:foreground "gold" :weight bold))
+			       ("SUSPENDED" . shadow)
+			       ("WAITING"   . (:foreground "gold" :weight bold))
+			       ("WIP"       . (:foreground "orange red" :weight bold)))
       org-hide-leading-stars t
       org-footnote-define-inline t
       org-export-html-preamble nil

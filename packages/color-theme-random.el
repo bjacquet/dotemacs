@@ -36,7 +36,7 @@
 
 (setq color-theme-history-max-length 10)
 
-(defun color-theme-current-theme()
+(defun color-theme-current-theme ()
   (interactive)
   (message (format "Current theme is: %s" 
 		   (symbol-name (car (car color-theme-history))))))
@@ -143,13 +143,14 @@
     (color-theme-tango)
     (color-theme-tangotango)
     (color-theme-solarized-dark)
-    (give-other-themes-a-chance)
+    (color-theme-solarized-ligh)
+					; (give-other-themes-a-chance)
     ))
 
-(defun give-other-themes-a-chance()
+(defun give-other-themes-a-chance ()
   (funcall (car (nth ( random (length color-themes)) color-themes))))
 
-(defun color-theme-random()
+(defun color-theme-random ()
   (interactive)
   (unless color-theme-random-init (random t))
   (setq color-theme-random-init t)
@@ -162,7 +163,6 @@
       (setq weight-so-far (+ weight-so-far weight)))
     (if selected-theme
 	(funcall selected-theme))
-    (message (format "Random color theme: %s" (symbol-name selected-theme)))
-    ))
+    (message (format "Random color theme: %s" (symbol-name selected-theme)))))
 
 (provide 'color-theme-random)
