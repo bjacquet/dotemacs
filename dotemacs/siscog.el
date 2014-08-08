@@ -48,7 +48,7 @@
  ;; '(ido-mode t)
  '(setq kmacro-call-mouse-event nil)
  '(recentf-mode t)
- '(recentf-max-saved-items nil))
+ '(recentf-max-saved-items 100))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
@@ -59,8 +59,15 @@
 ;; Slime messes up my frame title.
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
-		   (abbreviate-file-name (buffer-file-name))
+		   (concatenate 'string
+				(abbreviate-file-name (buffer-file-name))
+				(if (and (boundp 'slime-mode) slime-mode)
+				    (concatenate 'string
+						 " «"
+						 (slime-connection-name)
+						 "»")))
 		 "%b"))))
+
 
 ;;; ---------------------------------------------------------------------
 ;;; Package's Configurations
