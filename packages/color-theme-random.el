@@ -144,6 +144,12 @@
     (color-theme-tangotango)
     (color-theme-solarized-dark)
     (color-theme-solarized-ligh)
+    (jazz)
+    (color-theme-cobalt)
+    (color-theme-almost-monokai)
+    (tron)
+    (Amelie)
+    (sunburst)
 					; (give-other-themes-a-chance)
     ))
 
