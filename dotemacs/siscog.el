@@ -61,11 +61,11 @@
       '((:eval (if (buffer-file-name)
 		   (concatenate 'string
 				(abbreviate-file-name (buffer-file-name))
-				(if (and (boundp 'slime-mode) slime-mode)
+				(if (and (boundp 'slime-mode) slime-mode (slime-current-connection))
 				    (concatenate 'string
-						 " «"
+						 " *"
 						 (slime-connection-name)
-						 "»")))
+						 "*")))
 		 "%b"))))
 
 
