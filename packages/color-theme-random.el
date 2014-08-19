@@ -101,7 +101,7 @@
 					; (color-theme-matrix)
     (color-theme-marquardt)
     (color-theme-midnight)
-    (color-theme-mistyday)
+					; (color-theme-mistyday)
 					; (color-theme-montz)
     (color-theme-oswald)
     (color-theme-parus)
