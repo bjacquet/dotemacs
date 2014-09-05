@@ -144,7 +144,6 @@
     (color-theme-tangotango)
     (color-theme-solarized-dark)
     (color-theme-solarized-light)
-    (jazz)
     (color-theme-cobalt)
     (color-theme-almost-monokai)
 					; (give-other-themes-a-chance)

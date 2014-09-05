@@ -5,7 +5,7 @@
 (require 'org)
 
 (setq org-todo-keywords '((sequence "TODO(t)" "MAYBE(m)" "WAITING(w)" "|")
-			  (sequence "|" "SUSPENDED(s)")
+			  (sequence "|" "SUSPENDED(S)")
 			  (sequence "OPEN(o)" "WIP(i)" "REVIEW(v)" "|" "SEP(s)" "DONE(d)" "RESOLVED(r)"))
       org-todo-keyword-faces '(("MAYBE"     . (:foreground "gold" :weight bold))
 			       ("SUSPENDED" . shadow)
