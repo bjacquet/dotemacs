@@ -94,7 +94,7 @@
 (setq *default-mod-dir*    "y:/siscog/modifications")
 (setq *modif-request-file* (format "%s/modif-requests" *default-mod-dir*))
 (setq *actions-log-file*   (format "%s/.big-brother-file" *default-mod-dir*)) ;; NIL para nao informar o BIG-BROTHER...
-(setq *modifs-mail-dir*    "y:/modifs-mail")
+(setq *modifs-mail-dir*    "y:/siscog/modifications/emails")
 (setq *modif-mail-from*    "bjacquet@siscog.pt")
 (setq *modif-mail-name*    "modif-request-mail")
 (setf *digest-mail-name*   "y:/mail/modifs")

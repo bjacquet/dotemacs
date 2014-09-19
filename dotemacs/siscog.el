@@ -54,7 +54,7 @@
   ;; Your init file should contain only one such instance.
  )
 
-(set-default-font "DejaVu Sans Mono-11")
+(set-default-font "Consolas-12")
 
 ;; Slime messes up my frame title.
 (setq frame-title-format

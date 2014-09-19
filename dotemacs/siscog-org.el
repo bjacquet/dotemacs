@@ -51,7 +51,7 @@
   ;; Your init file should contain only one such instance.
  )
 
-(set-default-font "DejaVu Sans Mono-11")
+(set-default-font "Consolas-12")
 
 ;; Slime messes up my frame title.
 (setq frame-title-format
@@ -76,20 +76,20 @@
 (load "last-closed-files")
 
 
-(setq org-agenda-files (quote ("~/My Documents/diary/remember.org"
-			       "~/My Documents/diary/tk-notes.org"
-			       "~/My Documents/diary/tk-clock.org"
-			       "~/My Documents/diary/tpo-notes.org"
-			       "~/My Documents/diary/tpo-clock.org"
-			       "~/My Documents/diary/tss-notes.org"
-			       "~/My Documents/diary/tss-clock.org"
-			       "~/My Documents/diary/vip-notes.org"
-			       "~/My Documents/diary/vip-clock.org"
-			       "~/My Documents/diary/siscog-notes.org"
-			       "~/My Documents/diary/siscog-clock.org"
-			       "~/My Documents/diary/clock-tables.org"
-			       "~/My Documents/diary/wm-clock.org"))
-      desktop-menu-directory "~/My Documents/diary/desktop/")
+(setq org-agenda-files (quote ("~/Documents/diary/remember.org"
+			       "~/Documents/diary/tk-notes.org"
+			       "~/Documents/diary/tk-clock.org"
+			       "~/Documents/diary/tpo-notes.org"
+			       "~/Documents/diary/tpo-clock.org"
+			       "~/Documents/diary/tss-notes.org"
+			       "~/Documents/diary/tss-clock.org"
+			       "~/Documents/diary/vip-notes.org"
+			       "~/Documents/diary/vip-clock.org"
+			       "~/Documents/diary/siscog-notes.org"
+			       "~/Documents/diary/siscog-clock.org"
+			       "~/Documents/diary/clock-tables.org"
+			       "~/Documents/diary/wm-clock.org"))
+      desktop-menu-directory "~/Documents/diary/desktop/")
 
 
 (defun start.up ()
@@ -97,17 +97,17 @@
   (interactive)
   (org-agenda-list 1)
   (eshell)
-  (find-file "~/My Documents/diary/tss-clock.org")
-  (find-file "~/My Documents/diary/tss-notes.org")
+  (find-file "~/Documents/diary/tk-clock.org")
+  (find-file "~/Documents/diary/tk-notes.org")
   (delete-other-windows)
 
   (split-window-vertically)
   (previous-multiframe-window)
   (split-window-horizontally)
   (other-window 2)
-  (switch-to-buffer "tss-notes.org")
+  (switch-to-buffer "tk-notes.org")
   (other-window 1)
-  (switch-to-buffer "tss-clock.org")
+  (switch-to-buffer "tk-clock.org")
   (other-window 1)
   (switch-to-buffer "*Org Agenda*")
   (other-window 1))

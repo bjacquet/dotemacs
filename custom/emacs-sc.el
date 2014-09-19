@@ -28,7 +28,6 @@
 
 
 (transient-mark-mode t)
-(set-default-font "DejaVu Sans Mono-11")
 
 
 ;;; ---------------------------------------------------------------------
