@@ -13,3 +13,12 @@
 [submodule "packages/makey"]
 	path = packages/makey
 	url = git://github.com/mickeynp/makey
+[submodule "packages/sc-sly"]
+	path = packages/sc-sly
+	url = git://gitorious.siscog/development-tools/sc-sly.git
+[submodule "packages/slime"]
+	path = packages/slime
+	url = https://github.com/slime/slime.git
+[submodule "packages/sc-emacs"]
+	path = packages/sc-emacs
+	url = git://gitorious.siscog/crews/sc-emacs.git

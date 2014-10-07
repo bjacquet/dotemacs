@@ -3,31 +3,10 @@
 ;;;
 
 
-;;; ---------------------------------------------------------------------
-;;; SC-Emacs
-;;;
-(defvar *use-slime* t)
-
-(load (format "%s/custom/sc-before.el"
-	      (getenv "SISCOG_EMACS_DIR_LOCAL")))
-
-;; Tells SC-EMACS to use new SISCOG's ODBC names
-(defvar *new-odbc-names* t)
-
-(setq sc-legacy-mode nil)
-
-;; Load SC-EMACS
-(load (format "%s/init.el" (getenv "SISCOG_EMACS_DIR")))
-
-;; Customise SC-EMACS
-(load (format "%s/custom/sc-user-param.el"
-	      (getenv "SISCOG_EMACS_DIR_LOCAL")))
-
-;; Load other user specific customization.
-(load (format "%s/custom/sc-after.el" (getenv "SISCOG_EMACS_DIR_LOCAL")))
-
-
-(transient-mark-mode t)
+(load-file (expand-file-name (concat emacs-dir "pkg-config.el")))
+(load-pkg-loader "sc-emacs.el")
+(load-pkg-loader "sc-slime.el")
+(load-pkg-loader "sc-sly.el")
 
 
 ;;; ---------------------------------------------------------------------

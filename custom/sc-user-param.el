@@ -69,7 +69,7 @@
 
 
 ;;;-----------------------------------------------------------------------------
-;;; Local CREWS top directory (ver sc-models.el)
+;;; Local CREWS top directory (see sc-models.el)
 ;;;-----------------------------------------------------------------------------
 (setq *sc-local-repository-dir*  "z:/siscog")
 
@@ -80,12 +80,12 @@
 (setq *sc-binary-repository-dir* "y:/siscog")
 
 ;;;-----------------------------------------------------------------------------
-;;; SISCOG area CREWS top directory (ver sc-models.el)
+;;; SISCOG area CREWS top directory (see sc-models.el)
 ;;;-----------------------------------------------------------------------------
 (setq *sc-central-repository-dir* "x:/siscog")
 
 ;;;-----------------------------------------------------------------------------
-;;; Modifications management (ver sc-mod.el)
+;;; Modifications management (see sc-mod.el)
 ;;;-----------------------------------------------------------------------------
 (setq *default-mod-date*   "09/10/06")
 (setq *default-author*     "B Jacquet")
@@ -93,28 +93,16 @@
 (setq *default-src-dir*    (getenv "SISCOG_DIR"))
 (setq *default-mod-dir*    "y:/siscog/modifications")
 (setq *modif-request-file* (format "%s/modif-requests" *default-mod-dir*))
-(setq *actions-log-file*   (format "%s/.big-brother-file" *default-mod-dir*)) ;; NIL para nao informar o BIG-BROTHER...
+(setq *actions-log-file*   (format "%s/.big-brother-file" *default-mod-dir*))
 (setq *modifs-mail-dir*    "y:/siscog/modifications/emails")
 (setq *modif-mail-from*    "bjacquet@siscog.pt")
 (setq *modif-mail-name*    "modif-request-mail")
 (setf *digest-mail-name*   "y:/mail/modifs")
-
 (setq *emacs-init-file*    (format "%s/init.el" (getenv "SISCOG_EMACS_DIR")))
 (setq *emacs-program*      "emacs")
 
 ;;;-----------------------------------------------------------------------------
-;;; Modifications mail (ver sc-mail.el)
+;;; Modifications mail (see sc-mail.el)
 ;;;-----------------------------------------------------------------------------
 (setq user-full-name "Bruno Jacquet")
 (setq user-mail-address "bjacquet@siscog.pt")
-
-;;;-----------------------------------------------------------------------------
-;;; Lisp Documentation (ver cl-hyperspec/online-doc.el)
-;;;-----------------------------------------------------------------------------
-;(set-lisp-doc-home "file://public/lisp")
-
-;;;-----------------------------------------------------------------------------
-;;; Grepfc (ver sc-grepfc.el)
-;;;-----------------------------------------------------------------------------
-(setq *grepfc-top-dir* "z:/siscog")
-(setq *grepfc-names* '("crews" "cp" "ns" "dsb" "nsb" "lul" "vr" "ml" "stog"))
