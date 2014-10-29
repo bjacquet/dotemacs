@@ -22,3 +22,6 @@
 [submodule "packages/sc-emacs"]
 	path = packages/sc-emacs
 	url = git://gitorious.siscog/crews/sc-emacs.git
+[submodule "powerline"]
+	path = packages/powerline
+	url = https://github.com/Dewdrops/powerline.git

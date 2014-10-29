@@ -64,6 +64,7 @@
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "magit.el")
 (load-pkg-loader "pager.el")
+(load-pkg-loader "powerline.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
 (load "last-closed-files")
