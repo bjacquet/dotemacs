@@ -88,4 +88,10 @@
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
 
 
+;;; ---------------------------------------------------------------------
+;;; Enable disabled commands
+;;;
+(put 'narrow-to-page 'disabled nil)
+
+
 ;;; home.el ends here
