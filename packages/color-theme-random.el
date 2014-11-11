@@ -74,7 +74,7 @@
 					; (color-theme-dark-green)
     (color-theme-dark-laptop)
     (color-theme-deep-blue)
-    (color-theme-digital-ofs1)
+					; (color-theme-digital-ofs1)
     (color-theme-euphoria)
 					; (color-theme-feng-shui)
     (color-theme-fischmeister)
