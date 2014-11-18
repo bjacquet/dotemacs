@@ -25,3 +25,6 @@
 [submodule "powerline"]
 	path = packages/powerline
 	url = https://github.com/Dewdrops/powerline.git
+[submodule "packages/ido-vertical"]
+	path = packages/ido-vertical
+	url = https://github.com/gempesaw/ido-vertical-mode.el.git
