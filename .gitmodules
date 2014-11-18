@@ -28,3 +28,6 @@
 [submodule "packages/ido-vertical"]
 	path = packages/ido-vertical
 	url = https://github.com/gempesaw/ido-vertical-mode.el.git
+[submodule "packages/ace-jump"]
+	path = packages/ace-jump
+	url = https://github.com/winterTTr/ace-jump-mode.git
