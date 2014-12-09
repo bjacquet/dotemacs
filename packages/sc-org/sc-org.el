@@ -91,7 +91,7 @@ THING can be a symbol, an fspec, or their string representation."
 	 (description       (read-from-minibuffer "POA description: "))
 	 (note.filename.aux (replace-in-string (buffer-name) "clock" "notes"))
 	 (note.filename     (read-file-name "Note filename: "
-					    (expand-file-name note.filename.aux)
+					    nil
 					    (expand-file-name note.filename.aux))))
     (values number description note.filename)))
 
