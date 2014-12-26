@@ -70,7 +70,6 @@
 (load-pkg-loader "powerline.el")
 (load-pkg-loader "sc-org.el")
 (load-pkg-loader "undo-tree.el")
-(load-pkg-loader "w3m.el")
 (load-pkg-loader "winpoint.el")
 (load-pkg-loader "yasnippet.el")
 (load "last-closed-files")

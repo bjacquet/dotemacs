@@ -35,7 +35,6 @@ Additional Modes
 - Auto Complete
 - Color Theme
 - Color Theme Random
-- Emacs W3M
 - Flyspell
 - Magit
 - Pabbrev
