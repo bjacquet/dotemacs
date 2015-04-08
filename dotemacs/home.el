@@ -24,6 +24,7 @@
  '(ido-everywhere t)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
+ '(isearch-allow-scroll t)
  '(line-number-mode t)
  '(make-backup-files nil)
  '(next-line-add-newlines nil)

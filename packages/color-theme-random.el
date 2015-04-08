@@ -44,7 +44,7 @@
 (defvar color-theme-random-init nil)
 
 (defvar my-fav-color-themes
-  '((color-theme-aalto-dark)
+  '(					; (color-theme-aalto-dark)
 					; (color-theme-aalto-light)
 					; (color-theme-aliceblue)
 					; (color-theme-andreas)
