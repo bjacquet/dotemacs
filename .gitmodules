@@ -31,3 +31,6 @@
 [submodule "packages/ace-jump"]
 	path = packages/ace-jump
 	url = https://github.com/winterTTr/ace-jump-mode.git
+[submodule "packages/expand-region"]
+	path = packages/expand-region
+	url = https://github.com/magnars/expand-region.el.git

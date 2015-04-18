@@ -65,6 +65,7 @@
 (load-pkg-loader "ace-jump.el")
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
+(load-pkg-loader "expand-region.el")
 (load-pkg-loader "flyspell.el")
 (load-pkg-loader "ido-vertical.el")
 (load-pkg-loader "pager.el")

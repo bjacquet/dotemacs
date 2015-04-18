@@ -2,7 +2,7 @@
 .emacs
 ======
 
-Copyright (C) 2011 Bruno Jacquet <bruno.jacquet@gmail.com>
+Copyright (C) 2011-2015 Bruno Jacquet <bruno.jacquet@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -32,13 +32,16 @@ obscure tweaks. Should work in other environments too.
 Additional Modes
 ----------------
 
+- Ace Jump
 - Auto Complete
 - Color Theme
 - Color Theme Random
+- Expand Region
 - Flyspell
 - Magit
-- Pabbrev
 - Pager
+- Paredit
+- Powerline
 - Undo Tree
 - Windpoint
 - YaSnippet
