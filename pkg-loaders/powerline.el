@@ -1,7 +1,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; Powerline
 ;;;
-(add-to-list 'load-path (expand-package "powerline"))
+(ensure-package 'powerline)
 (require 'powerline)
 
 (defun my-powerline-default-theme ()

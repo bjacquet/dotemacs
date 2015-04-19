@@ -1,6 +1,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; Auto Complete
 ;;;
+(ensure-package 'auto-complete)
 (eval-after-load 'auto-complete
   '(progn
      (global-auto-complete-mode t)

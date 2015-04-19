@@ -68,6 +68,7 @@
 (load-pkg-loader "ido-vertical.el")
 (load-pkg-loader "magit.el")
 (load-pkg-loader "pager.el")
+(load-pkg-loader "paredit.el")
 (load-pkg-loader "powerline.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")

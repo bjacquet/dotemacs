@@ -1,6 +1,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; Flyspell
 ;;;
+(ensure-package 'flyspell)
 (setq flyspell-mode-line-string nil)
 (lexical-let ((idx 0)
 	      (options (list 'flyspell-mode

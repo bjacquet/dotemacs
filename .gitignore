@@ -1,5 +1,17 @@
 auto-save-list/
 eshell/
 ido.last
+packages/*
 server/
 url/
+
+!packages/color-theme
+!packages/color-theme-random.el
+!packages/discover.el
+!packages/last-closed-files.el
+!packages/pabbrev.el
+!packages/sc-emacs
+!packages/sc-org
+!packages/sc-sly
+!packages/slime
+!packages/snippets

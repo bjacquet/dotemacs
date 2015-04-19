@@ -1,6 +1,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; Magit
 ;;;
+(ensure-package 'magit)
 (when (equal system-type 'darwin)
   (add-to-list 'exec-path "/usr/local/git/bin/"))
 
@@ -11,6 +12,6 @@
 (add-hook 'dired-mode-hook
           (lambda ()))
 
-(add-to-list 'load-path (expand-package "git-modes"))
-(add-to-list 'load-path (expand-package "magit"))
 (autoload 'magit-status "magit" "Loads magit-mode" t)
+
+(setq magit-last-seen-setup-instructions "1.4.0")

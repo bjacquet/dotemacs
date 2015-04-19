@@ -1,7 +1,8 @@
 ;;; ---------------------------------------------------------------------
 ;;; YaSnippet
 ;;;
-(add-to-list 'load-path (expand-package "yasnippet"))
+(ensure-package 'yasnippet)
+
 (eval-after-load 'yasnippet
   ;; Initialize Yasnippet
   ;; Don't map TAB to yasnippet
@@ -9,7 +10,7 @@
   ;; we'll only ever trigger it indirectly.
   '(progn
      (require 'yasnippet)
-     (setq yas-snippet-dirs (list (expand-package "yasnippet/snippets/")
+     (setq yas-snippet-dirs (list yas-installed-snippets-dir
 				  (concat emacs-dir "packages/snippets/")))
      (yas-global-mode 1)
      (yas--load-directory-1 (concat emacs-dir "packages/snippets/sc-mode/")
