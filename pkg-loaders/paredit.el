@@ -13,3 +13,9 @@
     '(progn
        (define-key paredit-mode-map (kbd "ESC M-A-C-s-)")
          'paredit-dwim)))
+
+;; have RET automatically do indentation
+(eval-after-load 'paredit
+  '(progn
+     (define-key paredit-mode-map (kbd "RET") nil)
+     (define-key lisp-mode-shared-map (kbd "RET") 'paredit-newline)))
