@@ -84,13 +84,21 @@
 			       "~/Documents/diary/tpo-clock.org"
 			       "~/Documents/diary/tss-notes.org"
 			       "~/Documents/diary/tss-clock.org"
-			       "~/Documents/diary/vip-notes.org"
-			       "~/Documents/diary/vip-clock.org"
 			       "~/Documents/diary/siscog-notes.org"
 			       "~/Documents/diary/siscog-clock.org"
 			       "~/Documents/diary/clock-tables.org"
-			       "~/Documents/diary/wm-clock.org"))
+			       "~/Documents/diary/vrc-notes.org"
+			       "~/Documents/diary/vrc-clock.org"))
       desktop-menu-directory "~/Documents/diary/desktop/")
+
+;; (setq org-trello-files (quote ("~/Documents/diary/todos-os-todos.trello"
+;; 			       ;; "~/Documents/diary/remember.org"
+;; 			       ;; "~/Documents/diary/tk-notes.org"
+;; 			       ;; "~/Documents/diary/tpo-notes.org"
+;; 			       ;; "~/Documents/diary/tss-notes.org"
+;; 			       ;; "~/Documents/diary/siscog-notes.org"
+;; 			       ;; "~/Documents/diary/vrc-notes.org"
+;; 			       )))
 
 
 (defun start.up ()
