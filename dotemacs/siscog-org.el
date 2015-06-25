@@ -68,6 +68,7 @@
 (load-pkg-loader "expand-region.el")
 (load-pkg-loader "flyspell.el")
 (load-pkg-loader "ido-vertical.el")
+(load-pkg-loader "multiple-cursors.el")
 (load-pkg-loader "pager.el")
 (load-pkg-loader "powerline.el")
 (load-pkg-loader "sc-org.el")
@@ -87,8 +88,8 @@
 			       "~/Documents/diary/siscog-notes.org"
 			       "~/Documents/diary/siscog-clock.org"
 			       "~/Documents/diary/clock-tables.org"
-			       "~/Documents/diary/vrc-notes.org"
-			       "~/Documents/diary/vrc-clock.org"))
+			       "~/Documents/diary/npo-notes.org"
+			       "~/Documents/diary/npo-clock.org"))
       desktop-menu-directory "~/Documents/diary/desktop/")
 
 ;; (setq org-trello-files (quote ("~/Documents/diary/todos-os-todos.trello"
