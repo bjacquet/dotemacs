@@ -82,6 +82,7 @@
 (setq org-agenda-files (quote ("~/Documents/diary/remember.org"
 			       "~/Documents/diary/tk-notes.org"
 			       "~/Documents/diary/tk-clock.org"
+			       "~/Documents/diary/tk.trello"
 			       "~/Documents/diary/tpo-notes.org"
 			       "~/Documents/diary/tpo-clock.org"
 			       "~/Documents/diary/tss-notes.org"
@@ -108,17 +109,17 @@
   (interactive)
   (org-agenda-list 1)
   (eshell)
-  (find-file "~/Documents/diary/tpo-clock.org")
-  (find-file "~/Documents/diary/tpo-notes.org")
+  (find-file "~/Documents/diary/npo-clock.org")
+  (find-file "~/Documents/diary/npo-notes.org")
   (delete-other-windows)
 
   (split-window-vertically)
   (previous-multiframe-window)
   (split-window-horizontally)
   (other-window 2)
-  (switch-to-buffer "tpo-notes.org")
+  (switch-to-buffer "npo-notes.org")
   (other-window 1)
-  (switch-to-buffer "tpo-clock.org")
+  (switch-to-buffer "npo-clock.org")
   (other-window 1)
   (switch-to-buffer "*Org Agenda*")
   (other-window 1))
