@@ -29,6 +29,7 @@
  '(make-backup-files nil)
  '(next-line-add-newlines nil)
  '(next-line-extends-end-of-buffer nil)
+ '(org-trello-files '("~/Documents/Castelo/castelo.org"))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
@@ -61,7 +62,7 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
-(load-pkg-loader "ace-jump.el")
+(load-pkg-loader "avy-zap.el")
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "expand-region.el")
