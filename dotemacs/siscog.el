@@ -48,7 +48,9 @@
  '(setq kmacro-call-mouse-event nil)
  '(recentf-mode t)
  '(recentf-max-saved-items 100)
- '(isearch-allow-scroll t))
+ '(isearch-allow-scroll t)
+ '(ediff-split-window-function 'split-window-horizontally)
+ '(ediff-window-setup-function 'ediff-setup-windows-plain))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
