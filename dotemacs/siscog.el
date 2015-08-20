@@ -87,6 +87,7 @@
 (load-pkg-loader "pager.el")
 (load-pkg-loader "paredit.el")
 (load-pkg-loader "powerline.el")
+(load-pkg-loader "shrink-whitespace.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
 (load-pkg-loader "yasnippet.el")
