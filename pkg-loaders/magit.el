@@ -1,7 +1,10 @@
 ;;; ---------------------------------------------------------------------
 ;;; Magit
 ;;;
-(ensure-package 'magit)
+(if (equal system-type 'windows-nt)
+    (add-to-list 'load-path (expand-package "magit-1.4.2"))
+    (ensure-package 'magit))
+
 (when (equal system-type 'darwin)
   (add-to-list 'exec-path "/usr/local/git/bin/"))
 

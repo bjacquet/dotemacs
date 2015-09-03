@@ -19,3 +19,5 @@ ac-comphist.dat
 !packages/sc-sly
 !packages/slime
 !packages/snippets
+
+!packages/magit-1.4.2
