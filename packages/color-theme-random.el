@@ -103,7 +103,7 @@
     (color-theme-midnight)
 					; (color-theme-mistyday)
 					; (color-theme-montz)
-    (color-theme-oswald)
+					; (color-theme-oswald)
     (color-theme-parus)
 					; (color-theme-pierson)
     (color-theme-ramangalahy)
