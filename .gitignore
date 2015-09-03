@@ -10,6 +10,7 @@ url/
 !packages/discover.el
 !packages/last-closed-files.el
 !packages/pabbrev.el
+!packages/scratch.el
 !packages/sc-emacs
 !packages/sc-org
 !packages/sc-sly
