@@ -62,7 +62,7 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
-(load-pkg-loader "avy-zap.el")
+(load-pkg-loader "avy.el")
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "expand-region.el")
