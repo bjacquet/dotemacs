@@ -77,7 +77,7 @@
 					; (color-theme-digital-ofs1)
     (color-theme-euphoria)
 					; (color-theme-feng-shui)
-    (color-theme-fischmeister)
+					; (color-theme-fischmeister)
 					; (color-theme-gnome)
     (color-theme-gnome2)
     (color-theme-gray1)
