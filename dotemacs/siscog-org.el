@@ -71,7 +71,7 @@
 (load-pkg-loader "jabber.el")
 (load-pkg-loader "multiple-cursors.el")
 (load-pkg-loader "pager.el")
-(load-pkg-loader "powerline.el")
+(load-pkg-loader "smart-mode-line.el")
 (load-pkg-loader "sc-org.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
