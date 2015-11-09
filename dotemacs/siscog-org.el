@@ -62,8 +62,8 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name (concat emacs-dir "pkg-config.el")))
-(load-pkg-loader "avy.el")
 (load-pkg-loader "auto-complete.el")
+(load-pkg-loader "avy.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "expand-region.el")
 (load-pkg-loader "flyspell.el")
@@ -71,10 +71,11 @@
 (load-pkg-loader "jabber.el")
 (load-pkg-loader "multiple-cursors.el")
 (load-pkg-loader "pager.el")
-(load-pkg-loader "smart-mode-line.el")
 (load-pkg-loader "sc-org.el")
+(load-pkg-loader "smart-mode-line.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
+(load-pkg-loader "wn.el")
 (load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
 

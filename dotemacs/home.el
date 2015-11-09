@@ -65,8 +65,8 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
-(load-pkg-loader "avy.el")
 (load-pkg-loader "auto-complete.el")
+(load-pkg-loader "avy.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "expand-region.el")
 (load-pkg-loader "ido-vertical.el")
@@ -76,6 +76,7 @@
 (load-pkg-loader "smart-mode-line.el")
 (load-pkg-loader "undo-tree.el")
 (load-pkg-loader "winpoint.el")
+(load-pkg-loader "wn.el")
 (load "last-closed-files")
 
 
