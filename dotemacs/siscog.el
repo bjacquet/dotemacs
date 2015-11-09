@@ -82,6 +82,7 @@
 (load-pkg-loader "expand-region.el")
 (load-pkg-loader "flyspell.el")
 (load-pkg-loader "ido-vertical.el")
+(load-pkg-loader "htmlize.el")
 (load-pkg-loader "magit.el")
 (load-pkg-loader "multiple-cursors.el")
 (load-pkg-loader "pager.el")
