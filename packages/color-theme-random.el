@@ -32,8 +32,6 @@
 ;;
 
 
-(require 'color-theme)
-
 (setq color-theme-history-max-length 10)
 
 (defun color-theme-current-theme ()
@@ -44,109 +42,115 @@
 (defvar color-theme-random-init nil)
 
 (defvar my-fav-color-themes
-  '(					; (color-theme-aalto-dark)
-					; (color-theme-aalto-light)
-					; (color-theme-aliceblue)
-					; (color-theme-andreas)
-    (color-theme-arjen)
-					; (color-theme-beige-diff)
-    (color-theme-bharadwaj)
-    (color-theme-bharadwaj-slate)
-    (color-theme-billw)
-					; (color-theme-black-on-gray)
-					; (color-theme-blippblopp)
-    (color-theme-simple-1)
-					; (color-theme-blue-erc)
-					; (color-theme-blue-gnus)
-    (color-theme-blue-mood)
-					; (color-theme-blue-sea)
-    (color-theme-calm-forest)
-    (color-theme-charcoal-black)
-    (color-theme-goldenrod)
-    (color-theme-clarity)
-    (color-theme-classic)
-    (color-theme-comidia)
-    (color-theme-jsc-dark)
-					; (color-theme-jsc-light)
-					; (color-theme-jsc-light2)
-    (color-theme-dark-blue)
-    (color-theme-dark-blue2)
-					; (color-theme-dark-green)
-    (color-theme-dark-laptop)
-    (color-theme-deep-blue)
-					; (color-theme-digital-ofs1)
-    (color-theme-euphoria)
-					; (color-theme-feng-shui)
-					; (color-theme-fischmeister)
-					; (color-theme-gnome)
-    (color-theme-gnome2)
-    (color-theme-gray1)
-    (color-theme-gray30)
-    (color-theme-kingsajz)
-					; (color-theme-greiner)
-					; (color-theme-gtk-ide)
-					; (color-theme-high-contrast)
-    (color-theme-hober)
-					; (color-theme-infodoc)
-					; (color-theme-jb-simple)
-    (color-theme-jedit-grey)
-    (color-theme-jonadabian)
-    (color-theme-jonadabian-slate)
-					; (color-theme-katester)
-					; (color-theme-late-night)
-    (color-theme-lawrence)
-    (color-theme-lethe)
-    (color-theme-ld-dark)
-    (color-theme-marine)
-					; (color-theme-matrix)
-					; (color-theme-marquardt)
-    (color-theme-midnight)
-					; (color-theme-mistyday)
-					; (color-theme-montz)
-					; (color-theme-oswald)
-    (color-theme-parus)
-					; (color-theme-pierson)
-    (color-theme-ramangalahy)
-					; (color-theme-raspopovic)
-    (color-theme-renegade)
-    (color-theme-resolve)
-					; (color-theme-retro-green)
-					; (color-theme-retro-orange)
-    (color-theme-robin-hood)
-					; (color-theme-rotor)
-    (color-theme-ryerson)
-					; (color-theme-salmon-diff)
-					; (color-theme-salmon-font-lock)
-					; (color-theme-scintilla)
-    (color-theme-shaman)
-					; (color-theme-sitaramv-nt)
-    (color-theme-sitaramv-solaris)
-					; (color-theme-snow)
-					; (color-theme-snowish)
-					; (color-theme-standard-ediff)
-					; (color-theme-standard)
-					; (color-theme-emacs-21)
-					; (color-theme-emacs-nw)
-					; (color-theme-xemacs)
-    (color-theme-subtle-blue)
-    (color-theme-subtle-hacker)
-    (color-theme-taming-mr-arneson)
-    (color-theme-taylor)
-    (color-theme-tty-dark)
-					; (color-theme-vim-colors)
-					; (color-theme-whateveryouwant)
-    (color-theme-wheat)
-    (color-theme-pok-wob)
-    (color-theme-pok-wog)
-    (color-theme-word-perfect)
-					; (color-theme-xp)
-    (color-theme-tango)
-    (color-theme-tangotango)
-    (color-theme-solarized-dark)
-					; (color-theme-solarized-light)
-    (color-theme-cobalt)
-    (color-theme-almost-monokai)
-					; (give-other-themes-a-chance)
+  '(;; aalto-dark
+    ;; aalto-light
+    ;; aliceblue
+    ;; andreas
+    (arjen)
+    ;; beige-diff
+    (beige-eshell)
+    (bharadwaj-slate)
+    (bharadwaj)
+    (billw)
+    ;; black-on-gray
+    ;; blippblopp
+    ;; blue-erc
+    (blue-eshell)
+    ;; blue-gnus
+    (blue-mood)
+    ;; blue-sea
+    (calm-forest)
+    (charcoal-black)
+    (clarity)
+    (classic)
+    (cobalt)
+    (comidia)
+    (dark-blue)
+    (dark-blue2)
+    (dark-erc)
+    (dark-font-lock)
+    (dark-gnus)
+    ;; dark-green
+    (dark-info)
+    (dark-laptop)
+    (deep-blue)
+    (desert)
+    ;; digital-ofs1
+    (emacs-21)
+    (emacs-nw)
+    (euphoria)
+    ;; feng-shui
+    ;; fischmeister
+    ;; gnome
+    (gnome2)
+    (goldenrod)
+    (gray1)
+    (gray30)
+    ;; greiner
+    ;; gtk-ide
+    ;; high-contrast
+    (hober)
+    ;; infodoc
+    ;; jb-simple
+    (jedit-grey)
+    (jonadabian-slate)
+    (jonadabian)
+    (jsc-dark)
+    ;; jsc-light
+    ;; jsc-light2
+    (julie)
+    ;; katester
+    (kingsajz)
+    ;; late-night
+    (lawrence)
+    (ld-dark)
+    (lethe)
+    (marine)
+    ;; marquardt
+    ;; matrix
+    (midnight)
+    ;; mistyday
+    ;; montz
+    ;; oswald
+    (parus)
+    ;; pierson
+    (pok-wob)
+    (pok-wog)
+    (railscast)
+    (ramangalahy)
+    ;; raspopovic
+    (renegade)
+    (resolve)
+    ;; retro-green
+    ;; retro-orange
+    (robin-hood)
+    ;; rotor
+    (ryerson)
+    ;; salmon-diff
+    ;; salmon-font-lock
+    ;; scintilla
+    ;; shaman
+    (simple-1)
+    ;; sitaramv-nt
+    (sitaramv-solaris)
+    ;; snow
+    ;; snowish
+    (solarized)
+    ;; standard-ediff
+    ;; standard
+    (subdued)
+    (subtle-blue)
+    (subtle-hacker)
+    (taming-mr-arneson)
+    (tangotango)
+    (taylor)
+    (tty-dark)
+    ;; vim-colors
+    ;; whateveryouwant
+    (wheat)
+    (word-perfect)
+    ;; xemacs
+    ;; xp
     ))
 
 (defun give-other-themes-a-chance ()
@@ -163,8 +167,11 @@
       (if (>= (random (+ weight weight-so-far)) weight-so-far)
 	  (setq selected-theme (car theme)))
       (setq weight-so-far (+ weight-so-far weight)))
-    (if selected-theme
-	(funcall selected-theme))
+    (when selected-theme
+      (when (eq selected-theme 'solarized)
+	(set-frame-parameter nil 'background-mode 'dark))
+      (load-theme selected-theme t t)
+      (enable-theme selected-theme))
     (message (format "Random color theme: %s" (symbol-name selected-theme)))))
 
 (provide 'color-theme-random)
