@@ -102,7 +102,7 @@
     ;; katester
     (kingsajz)
     ;; late-night
-    (lawrence)
+    ;; lawrence
     (ld-dark)
     (lethe)
     (marine)
@@ -112,7 +112,7 @@
     ;; mistyday
     ;; montz
     ;; oswald
-    (parus)
+    ;; parus
     ;; pierson
     (pok-wob)
     (pok-wog)
