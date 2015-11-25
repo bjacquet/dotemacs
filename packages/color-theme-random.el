@@ -48,14 +48,14 @@
     ;; andreas
     (arjen)
     ;; beige-diff
-    (beige-eshell)
+    ;; beige-eshell
     (bharadwaj-slate)
     (bharadwaj)
     (billw)
-    ;; black-on-gray
+    (black-on-gray)
     ;; blippblopp
     ;; blue-erc
-    (blue-eshell)
+    ;; blue-eshell
     ;; blue-gnus
     (blue-mood)
     ;; blue-sea
@@ -67,17 +67,17 @@
     (comidia)
     (dark-blue)
     (dark-blue2)
-    (dark-erc)
-    (dark-font-lock)
-    (dark-gnus)
+    ;; dark-erc
+    ;; dark-font-lock
+    ;; dark-gnus
     ;; dark-green
-    (dark-info)
+    ;; dark-info
     (dark-laptop)
     (deep-blue)
     (desert)
     ;; digital-ofs1
-    (emacs-21)
-    (emacs-nw)
+    ;; emacs-21
+    ;; emacs-nw
     (euphoria)
     ;; feng-shui
     ;; fischmeister
@@ -92,7 +92,7 @@
     (hober)
     ;; infodoc
     ;; jb-simple
-    (jedit-grey)
+    ;; jedit-grey
     (jonadabian-slate)
     (jonadabian)
     (jsc-dark)
@@ -105,7 +105,7 @@
     ;; lawrence
     (ld-dark)
     (lethe)
-    (marine)
+    ;; marine
     ;; marquardt
     ;; matrix
     (midnight)
@@ -144,10 +144,10 @@
     (taming-mr-arneson)
     (tangotango)
     (taylor)
-    (tty-dark)
+    ;; tty-dark
     ;; vim-colors
     ;; whateveryouwant
-    (wheat)
+    ;; wheat
     (word-perfect)
     ;; xemacs
     ;; xp
