@@ -52,7 +52,7 @@
     (bharadwaj-slate)
     (bharadwaj)
     (billw)
-    (black-on-gray)
+    ;; black-on-gray
     ;; blippblopp
     ;; blue-erc
     ;; blue-eshell
