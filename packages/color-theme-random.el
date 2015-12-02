@@ -125,7 +125,7 @@
     ;; retro-orange
     (robin-hood)
     ;; rotor
-    (ryerson)
+    ;; ryerson
     ;; salmon-diff
     ;; salmon-font-lock
     ;; scintilla
