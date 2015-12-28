@@ -78,7 +78,7 @@
     ;; digital-ofs1
     ;; emacs-21
     ;; emacs-nw
-    (euphoria)
+    ;; euphoria
     ;; feng-shui
     ;; fischmeister
     ;; gnome
