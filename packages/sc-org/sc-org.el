@@ -89,7 +89,7 @@ THING can be a symbol, an fspec, or their string representation."
 (defun get.user.input.poa ()
   (let* ((number            (read-from-minibuffer "POA number: "))
 	 (description       (read-from-minibuffer "POA description: "))
-	 (note.filename.aux (replace-in-string (buffer-name) "clock" "notes"))
+	 (note.filename.aux (replace-regexp-in-string "clock" "notes" (buffer-name)))
 	 (note.filename     (read-file-name "Note filename: "
 					    nil
 					    (expand-file-name note.filename.aux))))
