@@ -50,7 +50,7 @@
     ;; beige-diff
     ;; beige-eshell
     (bharadwaj-slate)
-    (bharadwaj)
+    ;; bharadwaj
     (billw)
     ;; black-on-gray
     ;; blippblopp

@@ -74,6 +74,7 @@
 (load-pkg-loader "sc-org.el")
 (load-pkg-loader "smart-mode-line.el")
 (load-pkg-loader "undo-tree.el")
+(load-pkg-loader "whitespace.el")
 (load-pkg-loader "winpoint.el")
 (load-pkg-loader "wn.el")
 (load-pkg-loader "yasnippet.el")
@@ -81,13 +82,7 @@
 
 
 (setq org-agenda-files (quote ("~/Documents/diary/remember.org"
-			       "~/Documents/diary/tk-notes.org"
-			       "~/Documents/diary/tk-clock.org"
 			       "~/Documents/diary/tk.trello"
-			       "~/Documents/diary/tpo-notes.org"
-			       "~/Documents/diary/tpo-clock.org"
-			       "~/Documents/diary/tss-notes.org"
-			       "~/Documents/diary/tss-clock.org"
 			       "~/Documents/diary/siscog-notes.org"
 			       "~/Documents/diary/siscog-clock.org"
 			       "~/Documents/diary/clock-tables.org"

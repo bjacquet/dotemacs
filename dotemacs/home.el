@@ -75,6 +75,7 @@
 (load-pkg-loader "paredit.el")
 (load-pkg-loader "smart-mode-line.el")
 (load-pkg-loader "undo-tree.el")
+(load-pkg-loader "whitespace.el")
 (load-pkg-loader "winpoint.el")
 (load-pkg-loader "wn.el")
 (load "last-closed-files")
