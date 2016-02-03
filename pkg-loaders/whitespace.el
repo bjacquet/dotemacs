@@ -1,8 +1,6 @@
 ;;; ---------------------------------------------------------------------
 ;;; Whitespace
 ;;;
-(global-whitespace-mode 1)
-
 (setq whitespace-style
       (quote (face
               tabs
@@ -10,5 +8,6 @@
               space-before-tab
               space-after-tab
               trailing)))
+(global-whitespace-mode 1)
 
 (setq-default indicate-empty-lines t)

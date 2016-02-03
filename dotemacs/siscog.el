@@ -9,7 +9,10 @@
 ;;; ---------------------------------------------------------------------
 ;;; Load all things SISCOG
 ;;;
-(load (concat emacs-dir "custom/emacs-sc.el"))
+(load-file (expand-file-name (concat emacs-dir "pkg-config.el")))
+(load-pkg-loader "sc-emacs.el")
+(load-pkg-loader "sc-slime.el")
+(load-pkg-loader "sc-sly.el")
 
 
 ;;; ---------------------------------------------------------------------
@@ -31,7 +34,6 @@
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(tool-bar-mode nil)
  '(visible-bell t)
- '(inhibit-startup-message t)
  '(line-number-mode t)
  '(scroll-step 1)           ; scroll one line past the edge of the screen
  '(global-font-lock-mode t) ; sintax highlight
@@ -61,20 +63,19 @@
 ;; Slime messes up my frame title.
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
-		   (concatenate 'string
-				(abbreviate-file-name (buffer-file-name))
-				(if (and (boundp 'slime-mode) slime-mode (slime-current-connection))
-				    (concatenate 'string
-						 " *"
-						 (slime-connection-name)
-						 "*")))
-		 "%b"))))
+                   (concatenate 'string
+                                (abbreviate-file-name (buffer-file-name))
+                                (if (and (boundp 'slime-mode) slime-mode (slime-current-connection))
+                                    (concatenate 'string
+                                                 " *"
+                                                 (slime-connection-name)
+                                                 "*")))
+                   "%b"))))
 
 
 ;;; ---------------------------------------------------------------------
 ;;; Package's Configurations
 ;;;
-(load-file (expand-file-name (concat emacs-dir "pkg-config.el")))
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "avy.el")
 (load-pkg-loader "color-theme.el")
@@ -95,6 +96,7 @@
 (load-pkg-loader "winpoint.el")
 (load-pkg-loader "wn.el")
 (load-pkg-loader "yasnippet.el")
+(load-pkg-loader "hunspell.el")
 (load "last-closed-files")
 
 
