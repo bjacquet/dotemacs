@@ -15,6 +15,18 @@
 (load-pkg-loader "sc-sly.el")
 
 
+(defun random-elem (list)
+  (nth (random (length list)) list))
+
+(setq fancy-splash-image (format "%s/custom/%s"
+                                 (getenv "SISCOG_EMACS_DIR_LOCAL")
+                                 (random-elem (list "lisplogo-alien.xpm"
+                                                    "siscog-symbol.xpm"
+                                                    "lisplogo-flag.xpm"
+                                                    "glider.xpm"
+                                                    "splash.xpm"))))
+
+
 ;;; ---------------------------------------------------------------------
 ;;; Look & Feel
 ;;;
