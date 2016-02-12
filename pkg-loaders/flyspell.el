@@ -1,12 +1,17 @@
 ;;; ---------------------------------------------------------------------
 ;;; Flyspell
 ;;;
+
+;; Local Variables:
+;; lexical-binding: t
+;; End:
+
 (ensure-package 'flyspell)
 (setq flyspell-mode-line-string nil)
-(lexical-let ((idx 0)
-	      (options (list 'flyspell-mode
-			     'flyspell-prog-mode
-			     'flyspell-mode-off)))
+(let ((idx 0)
+      (options (list 'flyspell-mode
+		     'flyspell-prog-mode
+		     'flyspell-mode-off)))
   (setf (cdr (last options)) options)
   (defun flyspell-mode-cycle ()
     (interactive)

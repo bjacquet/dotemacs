@@ -117,7 +117,7 @@
     (pok-wob)
     (pok-wog)
     (railscast)
-    (ramangalahy)
+    ;; ramangalahy
     ;; raspopovic
     (renegade)
     (resolve)
