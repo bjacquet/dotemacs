@@ -97,6 +97,7 @@
 (setq *modifs-mail-dir*     "y:/siscog/modifications/emails")
 (setq *modif-mail-from*     "bjacquet@siscog.pt")
 (setq *modif-mail-name*     "modif-request-mail")
+(setq *mod-mail-method*     :mine)
 (setf *digest-mail-name*    "y:/mail/modifs")
 (setq *emacs-init-file*     (format "%s/init.el" (getenv "SISCOG_EMACS_DIR")))
 (setq *emacs-program*       "emacs")
