@@ -140,7 +140,7 @@
     ;; standard
     (subdued)
     (subtle-blue)
-    (subtle-hacker)
+    ;; subtle-hacker
     (taming-mr-arneson)
     (tangotango)
     (taylor)
