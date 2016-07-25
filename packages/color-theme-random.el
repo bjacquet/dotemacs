@@ -93,7 +93,7 @@
     ;; infodoc
     ;; jb-simple
     ;; jedit-grey
-    (jonadabian-slate)
+    ;; jonadabian-slate
     (jonadabian)
     (jsc-dark)
     ;; jsc-light
