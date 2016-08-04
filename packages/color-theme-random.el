@@ -148,7 +148,7 @@
     ;; vim-colors
     ;; whateveryouwant
     ;; wheat
-    (word-perfect)
+    ;; word-perfect
     ;; xemacs
     ;; xp
     ))

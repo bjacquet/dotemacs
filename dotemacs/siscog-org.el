@@ -82,6 +82,7 @@
 
 (setq org-agenda-files (quote ("~/Documents/diary/remember.org"
 			       "~/Documents/diary/tk.trello"
+			       "~/Documents/diary/tk-clock.org"
 			       "~/Documents/diary/siscog-notes.org"
 			       "~/Documents/diary/siscog-clock.org"
 			       "~/Documents/diary/clock-tables.org"
