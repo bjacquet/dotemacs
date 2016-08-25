@@ -84,7 +84,7 @@
     ;; gnome
     (gnome2)
     (goldenrod)
-    (gray1)
+    ;; gray1
     (gray30)
     ;; greiner
     ;; gtk-ide
@@ -94,7 +94,7 @@
     ;; jb-simple
     ;; jedit-grey
     ;; jonadabian-slate
-    (jonadabian)
+    ;; jonadabian
     (jsc-dark)
     ;; jsc-light
     ;; jsc-light2
@@ -123,7 +123,7 @@
     (resolve)
     ;; retro-green
     ;; retro-orange
-    (robin-hood)
+    ;; robin-hood
     ;; rotor
     ;; ryerson
     ;; salmon-diff

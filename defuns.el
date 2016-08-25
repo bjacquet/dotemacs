@@ -82,4 +82,12 @@ If keep-list has buffers don't kill them."
 	     (kill-buffer buffer))))
     (setq list (cdr list))))
 
+
+(defun insert-todays-date (arg)
+  "From http://emacswiki.org/emacs/InsertingTodaysDate"
+  (interactive "P")
+  (insert (if arg
+	      (format-time-string "%B %e, %Y")
+	    (format-time-string "%d/%m/%Y"))))
+
 ;;; defuns.el ends here
