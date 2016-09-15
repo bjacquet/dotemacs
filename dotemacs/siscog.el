@@ -92,6 +92,7 @@
 ;;;
 (load-pkg-loader "auto-complete.el")
 (load-pkg-loader "avy.el")
+(load-pkg-loader "bm.el")
 (load-pkg-loader "color-theme.el")
 (load-pkg-loader "discover.el")
 (load-pkg-loader "expand-region.el")
