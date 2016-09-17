@@ -60,4 +60,13 @@ list in the current session")
       (setq *auto-refreshed-packages* t))
     (package-install name)))
 
+
+;; use-package
+
+(ensure-package 'use-package)
+(eval-when-compile
+  (require 'use-package)
+(setq use-package-always-ensure t))
+
+
 ;;; pkg-config.el ends here
