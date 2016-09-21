@@ -81,9 +81,11 @@
                                 (abbreviate-file-name (buffer-file-name))
                                 (if (and (boundp 'slime-mode) slime-mode (slime-current-connection))
                                     (concatenate 'string
-                                                 " *"
+                                                 " ["
+                                                 (slime-current-package)
+                                                 ": "
                                                  (slime-connection-name)
-                                                 "*")))
+                                                 "]")))
                    "%b"))))
 
 
