@@ -27,40 +27,40 @@
 ;; 	  'title-set-title)
 
 
-(defun trim-str (str)
+(defun bj/trim-str (str)
   "Trims leading and tailing whitespace from `str'."
   (let ((s (if (symbolp str) (symbol-name str) str)))
     (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" s)))
 
 
-(defun dos-unix ()
+(defun bj/dos-unix ()
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t)
     (replace-match "")))
 
 
-(defun unix-dos ()
+(defun bj/unix-dos ()
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\n" nil t)
     (replace-match "\r\n")))
 
 
-(defun espacos () (interactive)
-  "Eliminate whitespace at enfs of all lines in the buffer."
+(defun bj/espacos () (interactive)
+  "Eliminate whitespace at end of all lines in the buffer."
   (save-excursion
     (goto-char (point-min))
     (while (re-search-forward "[ \t][ \t]*$" nil t)
       (delete-region (match-beginning 0) (point)))))
 
 
-(defun open-user-init-file ()
+(defun bj/open-user-init-file ()
   (interactive)
   (find-file user-init-file))
 
 
-(defun kill-most-buffers (&optional keep-list)
+(defun bj/kill-most-buffers (&optional keep-list)
   "Kill all buffers silently if unmodified, otherwise ask.
 If keep-list has buffers don't kill them."
   (interactive)
@@ -76,14 +76,14 @@ If keep-list has buffers don't kill them."
 	   (not (string-equal name "*scratch*"))
 	   (/= (aref name 0) ? )
 	   (if (buffer-modified-p buffer)
-	       (if (yes-or-no-p
+	       (if (y-or-n-p
 		    (format "Buffer %s has been edited. Kill? " name))
 		   (kill-buffer buffer))
 	     (kill-buffer buffer))))
     (setq list (cdr list))))
 
 
-(defun insert-todays-date (arg)
+(defun bj/insert-todays-date (arg)
   "From http://emacswiki.org/emacs/InsertingTodaysDate"
   (interactive "P")
   (insert (if arg

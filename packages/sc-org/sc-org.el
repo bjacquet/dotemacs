@@ -73,20 +73,20 @@ THING can be a symbol, an fspec, or their string representation."
   (fi::lisp-find-definition-common thing :other-window))
 
 
-(defconst *note.template.file*
-  (concat-package-dir "sc-org/note_template.txt"))
+(defconst *bj/note.template.file*
+  (bj/concat-package-dir "sc-org/note_template.txt"))
 
 
-(defconst *clock.template.file*
-  (concat-package-dir "sc-org/clock_template.txt"))
+(defconst *bj/clock.template.file*
+  (bj/concat-package-dir "sc-org/clock_template.txt"))
 
 
-(defconst *buffer.sandbox*
+(defconst *bj/buffer.sandbox*
   "*sc-org-mode sandbox*"
   "Temporary buffer name for text and keyword replacements.")
 
 
-(defun get.user.input.poa ()
+(defun bj/get.user.input.poa ()
   (let* ((number            (read-from-minibuffer "POA number: "))
 	 (description       (read-from-minibuffer "POA description: "))
 	 (note.filename.aux (replace-regexp-in-string "clock" "notes" (buffer-name)))
@@ -96,8 +96,8 @@ THING can be a symbol, an fspec, or their string representation."
     (values number description note.filename)))
 
 
-(defun fill.buffer.sandbox (template.file replacements)
-  (set-buffer (get.buffer.sandbox))
+(defun bj/fill.buffer.sandbox (template.file replacements)
+  (set-buffer (bj/get.buffer.sandbox))
   (insert-file-contents template.file)
   (while (not (null replacements))
     (setq keyword (first (first replacements))
@@ -107,51 +107,51 @@ THING can be a symbol, an fspec, or their string representation."
     (setq replacements (rest replacements))))
 
 
-(defun get.buffer.sandbox ()
-  (get-buffer-create *buffer.sandbox*))
+(defun bj/get.buffer.sandbox ()
+  (get-buffer-create *bj/buffer.sandbox*))
 
 
-(defun write.buffer (buffer point)
+(defun bj/write.buffer (buffer point)
   (set-buffer buffer)
   (goto-char point)
-  (insert-buffer-substring (get.buffer.sandbox)))
+  (insert-buffer-substring (bj/get.buffer.sandbox)))
 
 
-(defun create.entry (buffer point template replacements)
-  (fill.buffer.sandbox template replacements)
-  (write.buffer buffer point)
-  (kill-buffer (get.buffer.sandbox)))
+(defun bj/create.entry (buffer point template replacements)
+  (bj/fill.buffer.sandbox template replacements)
+  (bj/write.buffer buffer point)
+  (kill-buffer (bj/get.buffer.sandbox)))
 
 
-(defun create.poa ()
+(defun bj/create.poa ()
   (interactive)
   (let ((number)
 	(description)
 	(note.filename)
 	(clock.filename (buffer-file-name))
 	(replacements))
-    (multiple-value-setq (number description note.filename) (get.user.input.poa))
+    (multiple-value-setq (number description note.filename) (bj/get.user.input.poa))
     (setq replacements (list (list "<number>"         number)
 			     (list "<description>"    description)
 			     (list "<note_filename>"  note.filename)
 			     (list "<clock_filename>" clock.filename)))
-    (create.entry (find-file clock.filename)
+    (bj/create.entry (find-file clock.filename)
     		  (point)
-    		  *clock.template.file*
+    		  *bj/clock.template.file*
     		  replacements )
     (when note.filename
-      (create.entry (find-file note.filename)
+      (bj/create.entry (find-file note.filename)
 		    0
-		    *note.template.file*
+		    *bj/note.template.file*
 		    replacements))
    (find-file clock.filename)))
 
 
 (defconst *pms.resolution.template.file*
-  (concat-package-dir "sc-org/pms_resolution_template.txt"))
+  (bj/concat-package-dir "sc-org/pms_resolution_template.txt"))
 
 
-(defun get.user.input.pms.resolution ()
+(defun bj/get.user.input.pms.resolution ()
   (let* ((system      (trim-str (upcase (read-from-minibuffer "System: "))))
 	 (author      (read-from-minibuffer "Author: " user-full-name))
 	 (modspatches (if (string= "VDEV" (substring system -4 nil))
@@ -167,7 +167,7 @@ THING can be a symbol, an fspec, or their string representation."
     (values system author modspatches files)))
 
 
-(defun create.pms.resolution ()
+(defun bj/create.pms.resolution ()
   (interactive)
   (let ((today.date (format-time-string "%d/%m/%Y"))
 	(system)
@@ -178,7 +178,7 @@ THING can be a symbol, an fspec, or their string representation."
 	(slashes)
 	(replacements)
 	(files))
-    (multiple-value-setq (system author modspatches files) (get.user.input.pms.resolution))
+    (multiple-value-setq (system author modspatches files) (bj/get.user.input.pms.resolution))
     (setq overscore  (make-string (length system) ?_)
 	  underscore (make-string (- 40 (length system) 3) ?_)
 	  slashes    (make-string (- 40 (length author) 17) ?-))
@@ -190,9 +190,9 @@ THING can be a symbol, an fspec, or their string representation."
 			     (list "<slashes>"     slashes)
 			     (list "<modspatches>" modspatches)
 			     (list "<files>"       files)))
-    (create.entry (get-buffer-create "*scratch*")
+    (bj/create.entry (get-buffer-create "*scratch*")
 		  0
-		  *pms.resolution.template.file*
+		  *bj/pms.resolution.template.file*
 		  replacements))
   (switch-to-buffer "*scratch*"))
 

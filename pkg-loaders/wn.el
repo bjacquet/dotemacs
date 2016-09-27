@@ -1,5 +1,5 @@
 ;;; ---------------------------------------------------------------------
 ;;; WN
 ;;;
-(ensure-package 'wn-mode)
+(bj/ensure-package 'wn-mode)
 (wn-mode)
