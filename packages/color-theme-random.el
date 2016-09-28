@@ -132,7 +132,7 @@
     ;; shaman
     (simple-1)
     ;; sitaramv-nt
-    (sitaramv-solaris)
+    ;; sitaramv-solaris
     ;; snow
     ;; snowish
     (solarized)
