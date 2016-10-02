@@ -114,7 +114,7 @@
     ;; oswald
     ;; parus
     ;; pierson
-    (pok-wob)
+    ;; pok-wob
     (pok-wog)
     (railscast)
     ;; ramangalahy
