@@ -32,16 +32,16 @@
 ;;
 
 
-(defvar bj:current-color-theme nil)
+(defvar bj/current-color-theme nil)
 
-(defun bj:color-theme-current-theme ()
+(defun bj/color-theme-current-theme ()
   (interactive)
   (message (format "Current theme is: %s" 
-		   (symbol-name bj:current-color-theme))))
+		   (symbol-name bj/current-color-theme))))
 
-(defvar color-theme-random-init nil)
+(defvar bj/color-theme-random-init nil)
 
-(defvar my-fav-color-themes
+(defvar bj/my-fav-color-themes
   '(;; aalto-dark
     ;; aalto-light
     ;; aliceblue
@@ -153,25 +153,25 @@
     ;; xp
     ))
 
-(defun give-other-themes-a-chance ()
+(defun bj/give-other-themes-a-chance ()
   (funcall (car (nth (random (length color-themes)) color-themes))))
 
-(defun color-theme-random ()
+(defun bj/color-theme-random ()
   (interactive)
-  (unless color-theme-random-init (random t))
-  (setq color-theme-random-init t)
+  (unless bj/color-theme-random-init (random t))
+  (setq bj/color-theme-random-init t)
   (let ((weight-so-far 0) weight)
-    (dolist (theme my-fav-color-themes)
+    (dolist (theme bj/my-fav-color-themes)
       (setq weight (nth 1 theme))
       (unless weight (setq weight 1)) ;; Default 1
       (if (>= (random (+ weight weight-so-far)) weight-so-far)
-	  (setq bj:current-color-theme (car theme)))
+	  (setq bj/current-color-theme (car theme)))
       (setq weight-so-far (+ weight-so-far weight)))
-    (when bj:current-color-theme
-      (when (eq bj:current-color-theme 'solarized)
+    (when bj/current-color-theme
+      (when (eq bj/current-color-theme 'solarized)
 	(set-frame-parameter nil 'background-mode 'dark))
-      (load-theme bj:current-color-theme t t)
-      (enable-theme bj:current-color-theme))
-    (message (format "Random color theme: %s" (symbol-name bj:current-color-theme)))))
+      (load-theme bj/current-color-theme t t)
+      (enable-theme bj/current-color-theme))
+    (message (format "Random color theme: %s" (symbol-name bj/current-color-theme)))))
 
 (provide 'color-theme-random)

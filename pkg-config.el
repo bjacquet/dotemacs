@@ -33,7 +33,7 @@
   (interactive)
   (let ((package (completing-read "Package: " (bj/available-packages))))
     (bj/load-pkg-loader package)
-    (bj/load-library package)))
+    (load-library package)))
 
 
 (add-to-list 'load-path *bj/packages-directory*)
