@@ -1,7 +1,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; Auto Complete
 ;;;
-(bj/ensure-package 'auto-complete)
+(bj:ensure-package 'auto-complete)
 (eval-after-load 'auto-complete
   '(progn
      (global-auto-complete-mode t)

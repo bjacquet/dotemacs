@@ -1,7 +1,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; SC-Slime - Slime for use at SISCOG
 ;;;
-(bj/ensure-package 'slime)
+(bj:ensure-package 'slime)
 (require 'slime-autoloads)
 (slime-setup '(slime-fancy slime-indentation))
 (setq lisp-indent-function 'common-lisp-indent-function)

@@ -1,9 +1,9 @@
 ;;; ---------------------------------------------------------------------
 ;;; Htmlize
 ;;;
-(bj/ensure-package 'htmlize)
+(bj:ensure-package 'htmlize)
 
-(defun bj/export-buffer-to-html ()
+(defun bj:export-buffer-to-html ()
   "Provided by LBO."
   (interactive)
   (let ((themes custom-enabled-themes))
@@ -16,7 +16,7 @@
 	  (kill-buffer))
       (mapc #'enable-theme themes))))
 
-(defun bj/export-region-to-html ()
+(defun bj:export-region-to-html ()
   "Provided by LBO."
   (interactive)
   (let ((themes custom-enabled-themes)

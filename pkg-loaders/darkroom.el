@@ -1,4 +1,4 @@
 ;;; ---------------------------------------------------------------------
 ;;; Darkroom
 ;;;
-(bj/ensure-package 'darkroom)
+(bj:ensure-package 'darkroom)
