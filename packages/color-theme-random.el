@@ -73,6 +73,7 @@
     ;; dark-green
     ;; dark-info
     (dark-laptop)
+    (darktooth)
     (deep-blue)
     (desert)
     ;; digital-ofs1
@@ -158,6 +159,7 @@
 
 (defun bj:color-theme-random ()
   (interactive)
+  (disable-theme bj:current-color-theme)
   (unless bj:color-theme-random-init (random t))
   (setq bj:color-theme-random-init t)
   (let ((weight-so-far 0) weight)
