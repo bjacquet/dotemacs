@@ -6,6 +6,14 @@
   "~/.emacs.d/")
 
 
+(defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
+(when mac-p
+  (setq mac-option-key-is-meta  nil)
+  (setq mac-command-key-is-meta t)
+  (setq mac-command-modifier    'meta)
+  (setq mac-option-modifier     nil))
+
+
 ;;; ---------------------------------------------------------------------
 ;;; Look & Feel
 ;;;
@@ -65,19 +73,19 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
-(bj/load-pkg-loader "auto-complete.el")
-(bj/load-pkg-loader "avy.el")
-(bj/load-pkg-loader "color-theme.el")
-(bj/load-pkg-loader "expand-region.el")
-(bj/load-pkg-loader "ido-vertical.el")
-(bj/load-pkg-loader "magit.el")
-(bj/load-pkg-loader "pager.el")
-(bj/load-pkg-loader "paredit.el")
-(bj/load-pkg-loader "smart-mode-line.el")
-(bj/load-pkg-loader "undo-tree.el")
-;;(bj/load-pkg-loader "whitespace.el")
-(bj/load-pkg-loader "winpoint.el")
-(bj/load-pkg-loader "wn.el")
+(bj:load-pkg-loader "auto-complete.el")
+(bj:load-pkg-loader "avy.el")
+(bj:load-pkg-loader "color-theme.el")
+(bj:load-pkg-loader "expand-region.el")
+(bj:load-pkg-loader "ido-vertical.el")
+(bj:load-pkg-loader "magit.el")
+(bj:load-pkg-loader "pager.el")
+(bj:load-pkg-loader "paredit.el")
+(bj:load-pkg-loader "smart-mode-line.el")
+(bj:load-pkg-loader "undo-tree.el")
+;;(bj:load-pkg-loader "whitespace.el")
+(bj:load-pkg-loader "winpoint.el")
+(bj:load-pkg-loader "wn.el")
 (load "last-closed-files")
 
 

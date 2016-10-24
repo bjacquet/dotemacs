@@ -27,27 +27,27 @@
 ;; 	  'title-set-title)
 
 
-(defun bj/trim-str (str)
+(defun bj:trim-str (str)
   "Trims leading and tailing whitespace from `str'."
   (let ((s (if (symbolp str) (symbol-name str) str)))
     (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" s)))
 
 
-(defun bj/dos-unix ()
+(defun bj:dos-unix ()
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t)
     (replace-match "")))
 
 
-(defun bj/unix-dos ()
+(defun bj:unix-dos ()
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\n" nil t)
     (replace-match "\r\n")))
 
 
-(defun bj/espacos () (interactive)
+(defun bj:espacos () (interactive)
   "Eliminate whitespace at end of all lines in the buffer."
   (save-excursion
     (goto-char (point-min))
@@ -55,12 +55,12 @@
       (delete-region (match-beginning 0) (point)))))
 
 
-(defun bj/open-user-init-file ()
+(defun bj:open-user-init-file ()
   (interactive)
   (find-file user-init-file))
 
 
-(defun bj/kill-most-buffers (&optional keep-list)
+(defun bj:kill-most-buffers (&optional keep-list)
   "Kill all buffers silently if unmodified, otherwise ask.
 If keep-list has buffers don't kill them."
   (interactive)
@@ -83,7 +83,7 @@ If keep-list has buffers don't kill them."
     (setq list (cdr list))))
 
 
-(defun bj/insert-todays-date (arg)
+(defun bj:insert-todays-date (arg)
   "From http://emacswiki.org/emacs/InsertingTodaysDate"
   (interactive "P")
   (insert (if arg

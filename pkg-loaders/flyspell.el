@@ -6,7 +6,7 @@
 ;; lexical-binding: t
 ;; End:
 
-(bj/ensure-package 'flyspell)
+(bj:ensure-package 'flyspell)
 (setq flyspell-mode-line-string nil)
 (let ((idx 0)
       (options (list 'flyspell-mode

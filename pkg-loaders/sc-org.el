@@ -1,8 +1,8 @@
 ;;; ---------------------------------------------------------------------
 ;;; SISCOG Org
 ;;;
-(load-file (bj/expand-package "/sc-org/sc-org.el"))
-(bj/ensure-package 'org-trello)
+(load-file (bj:expand-package "/sc-org/sc-org.el"))
+(bj:ensure-package 'org-trello)
 (require 'org-trello)
 
 ;; org-trello major mode for all .trello files

@@ -1,7 +1,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; Pager
 ;;;
-(bj/ensure-package 'pager)
+(bj:ensure-package 'pager)
 (require 'pager)
 (global-set-key "\C-v" 	   'pager-page-down)
 (global-set-key [next] 	   'pager-page-down)

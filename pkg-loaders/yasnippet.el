@@ -1,7 +1,7 @@
 ;;; ---------------------------------------------------------------------
 ;;; YaSnippet
 ;;;
-(bj/ensure-package 'yasnippet)
+(bj:ensure-package 'yasnippet)
 
 (eval-after-load 'yasnippet
   ;; Initialize Yasnippet
