@@ -116,7 +116,7 @@
     ;; parus
     ;; pierson
     ;; pok-wob
-    (pok-wog)
+    ;; pok-wog
     (railscast)
     ;; ramangalahy
     ;; raspopovic
