@@ -17,6 +17,7 @@ ac-comphist.dat
 !packages/scratch.el
 !packages/sc-emacs
 !packages/sc-org
+!packages/sc-slime
 !packages/sc-sly
 !packages/slime
 !packages/snippets

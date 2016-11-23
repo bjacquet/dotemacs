@@ -34,3 +34,9 @@
 [submodule "packages/expand-region"]
 	path = packages/expand-region
 	url = https://github.com/magnars/expand-region.el.git
+[submodule "sc-slime"]
+	path = sc-slime
+	url = git://gitorious.siscog/development-tools/sc-slime.git
+[submodule "packages/sc-slime"]
+	path = packages/sc-slime
+	url = git://gitorious.siscog/development-tools/sc-slime.git
