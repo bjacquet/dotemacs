@@ -81,23 +81,12 @@
 
 
 (setq org-agenda-files (quote ("~/Documents/diary/remember.org"
-			       "~/Documents/diary/tk.trello"
-			       "~/Documents/diary/tk-clock.org"
 			       "~/Documents/diary/siscog-notes.org"
 			       "~/Documents/diary/siscog-clock.org"
 			       "~/Documents/diary/clock-tables.org"
 			       "~/Documents/diary/npo-notes.org"
 			       "~/Documents/diary/npo-clock.org"))
       desktop-menu-directory "~/Documents/diary/desktop/")
-
-;; (setq org-trello-files (quote ("~/Documents/diary/todos-os-todos.trello"
-;; 			       ;; "~/Documents/diary/remember.org"
-;; 			       ;; "~/Documents/diary/tk-notes.org"
-;; 			       ;; "~/Documents/diary/tpo-notes.org"
-;; 			       ;; "~/Documents/diary/tss-notes.org"
-;; 			       ;; "~/Documents/diary/siscog-notes.org"
-;; 			       ;; "~/Documents/diary/vrc-notes.org"
-;; 			       )))
 
 
 (defun start.up ()
