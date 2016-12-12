@@ -140,7 +140,7 @@
     ;; standard-ediff
     ;; standard
     (subdued)
-    (subtle-blue)
+    ;; subtle-blue
     ;; subtle-hacker
     (taming-mr-arneson)
     (tangotango)
