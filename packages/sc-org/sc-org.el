@@ -147,21 +147,21 @@ THING can be a symbol, an fspec, or their string representation."
    (find-file clock.filename)))
 
 
-(defconst *pms.resolution.template.file*
+(defconst *bj:pms.resolution.template.file*
   (bj:concat-package-dir "sc-org/pms_resolution_template.txt"))
 
 
 (defun bj:get.user.input.pms.resolution ()
-  (let* ((system      (trim-str (upcase (read-from-minibuffer "System: "))))
+  (let* ((system      (bj:trim-str (upcase (read-from-minibuffer "System: "))))
 	 (author      (read-from-minibuffer "Author: " user-full-name))
 	 (modspatches (if (string= "VDEV" (substring system -4 nil))
 			  "MODS"
 			"PATCHES"))
 	 (files       "")
-	 (file        (trim-str (downcase (read-from-minibuffer ": ")))))
+	 (file        (bj:trim-str (downcase (read-from-minibuffer ": ")))))
     (while (not (string= file ""))
       (setq files (concat files " - " file "\n")
-	    file (trim-str (downcase (read-from-minibuffer ": ")))))
+	    file (bj:trim-str (downcase (read-from-minibuffer ": ")))))
     (if (> (length files) 0)
 	(setq files (substring files 0 -1))) ; to remove that extra '\n'
     (values system author modspatches files)))
