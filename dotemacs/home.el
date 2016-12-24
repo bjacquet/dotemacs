@@ -53,7 +53,8 @@
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(user-full-name "Bruno Jacquet")
  '(user-mail-address "bruno.jacquet@gmail.com")
- '(visible-bell t))
+ '(visible-bell t)
+ '(indent-tabs-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

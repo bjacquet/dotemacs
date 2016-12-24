@@ -90,4 +90,23 @@ If keep-list has buffers don't kill them."
 	      (format-time-string "%B %e, %Y")
 	    (format-time-string "%d/%m/%Y"))))
 
+
+(defun bj:reading-time (arg)
+  "Time to read the buffer or region."
+  (interactive "P")
+  (let* ((words.in.buffer      (if (use-region-p)
+                                   (count-words (region-beginning) (region-end))
+                                 (count-words (point-min) (point-max))))
+         (words.per.minute     270)
+         (words.per.second     (/ words.per.minute 60))
+         (reading.time.seconds (/ words.in.buffer words.per.second))
+         (reading.time.minutes (max (round (/ reading.time.seconds 60)) 1)))
+    (if arg
+        (insert (format "%d min read" reading.time.minutes))
+      (save-excursion
+        (message "%d minute%s"
+                 reading.time.minutes
+                 (if (= reading.time.minutes 1) "" "s"))))))
+
+
 ;;; defuns.el ends here
