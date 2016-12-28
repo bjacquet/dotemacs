@@ -1,4 +1,4 @@
 ;;; ---------------------------------------------------------------------
 ;;; Darkroom
 ;;;
-(bj:ensure-package 'darkroom)
+(use-package darkroom :ensure t)
