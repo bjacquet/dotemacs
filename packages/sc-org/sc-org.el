@@ -50,7 +50,7 @@ added the mode hook, `org-mode-hook'"
 
 
 (defun org-extra-split-poa (poa)
-  (multiple-value-bind (poa life)
+  (cl-multiple-value-bind (poa life)
       (split-string poa "\\.")
     (list poa (or life 0))))
 
@@ -93,18 +93,18 @@ THING can be a symbol, an fspec, or their string representation."
 	 (note.filename     (read-file-name "Note filename: "
 					    nil
 					    (expand-file-name note.filename.aux))))
-    (values number description note.filename)))
+    (cl-values number description note.filename)))
 
 
 (defun bj:fill.buffer.sandbox (template.file replacements)
   (set-buffer (bj:get.buffer.sandbox))
   (insert-file-contents template.file)
   (while (not (null replacements))
-    (setq keyword (first (first replacements))
-	  value (second (first replacements)))
+    (setq keyword (cl-first (cl-first replacements))
+	  value (cl-second (cl-first replacements)))
     (goto-char (point-min))
     (perform-replace keyword value nil nil nil)
-    (setq replacements (rest replacements))))
+    (setq replacements (cl-rest replacements))))
 
 
 (defun bj:get.buffer.sandbox ()
@@ -130,7 +130,7 @@ THING can be a symbol, an fspec, or their string representation."
 	(note.filename)
 	(clock.filename (buffer-file-name))
 	(replacements))
-    (multiple-value-setq (number description note.filename) (bj:get.user.input.poa))
+    (cl-multiple-value-setq (number description note.filename) (bj:get.user.input.poa))
     (setq replacements (list (list "<number>"         number)
 			     (list "<description>"    description)
 			     (list "<note_filename>"  note.filename)
@@ -164,7 +164,7 @@ THING can be a symbol, an fspec, or their string representation."
 	    file (bj:trim-str (downcase (read-from-minibuffer ": ")))))
     (if (> (length files) 0)
 	(setq files (substring files 0 -1))) ; to remove that extra '\n'
-    (values system author modspatches files)))
+    (cl-values system author modspatches files)))
 
 
 (defun bj:create.pms.resolution ()
@@ -178,7 +178,7 @@ THING can be a symbol, an fspec, or their string representation."
 	(slashes)
 	(replacements)
 	(files))
-    (multiple-value-setq (system author modspatches files) (bj:get.user.input.pms.resolution))
+    (cl-multiple-value-setq (system author modspatches files) (bj:get.user.input.pms.resolution))
     (setq overscore  (make-string (length system) ?_)
 	  underscore (make-string (- 40 (length system) 3) ?_)
 	  slashes    (make-string (- 40 (length author) 17) ?-))

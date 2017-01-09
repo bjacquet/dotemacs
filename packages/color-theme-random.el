@@ -49,7 +49,7 @@
     (arjen)
     ;; beige-diff
     ;; beige-eshell
-    (bharadwaj-slate)
+    ;; bharadwaj-slate
     ;; bharadwaj
     (billw)
     ;; black-on-gray
