@@ -88,12 +88,12 @@ THING can be a symbol, an fspec, or their string representation."
 
 (defun bj:get.user.input.poa ()
   (let* ((number            (read-from-minibuffer "POA number: "))
-	 (description       (read-from-minibuffer "POA description: "))
+	 (title             (read-from-minibuffer "POA title: "))
 	 (note.filename.aux (replace-regexp-in-string "clock" "notes" (buffer-name)))
 	 (note.filename     (read-file-name "Note filename: "
 					    nil
 					    (expand-file-name note.filename.aux))))
-    (cl-values number description note.filename)))
+    (cl-values number title note.filename)))
 
 
 (defun bj:fill.buffer.sandbox (template.file replacements)
@@ -126,13 +126,13 @@ THING can be a symbol, an fspec, or their string representation."
 (defun bj:create.poa ()
   (interactive)
   (let ((number)
-	(description)
+	(title)
 	(note.filename)
 	(clock.filename (buffer-file-name))
 	(replacements))
-    (cl-multiple-value-setq (number description note.filename) (bj:get.user.input.poa))
+    (cl-multiple-value-setq (number title note.filename) (bj:get.user.input.poa))
     (setq replacements (list (list "<number>"         number)
-			     (list "<description>"    description)
+			     (list "<title>"          title)
 			     (list "<note_filename>"  note.filename)
 			     (list "<clock_filename>" clock.filename)))
     (bj:create.entry (find-file clock.filename)

@@ -1,6 +1,6 @@
-** POA <number> <description>
+* POA <number> <title>
   [[POA:<number>][PMS POA]]  [[TASK:POA.<number>][PMS Task]]  [[file:<note_filename>::POA%20<number>][Org note]]
-*** External Communication
-*** PMS & Wiki Update
-*** Implementation
-*** Reproduction + Analysis
+** External Communication
+** PMS & Wiki Update
+** Implementation
+** Reproduction + Analysis

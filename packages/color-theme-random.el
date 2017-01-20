@@ -101,7 +101,7 @@
     ;; jsc-light2
     (julie)
     ;; katester
-    (kingsajz)
+    ;; kingsajz
     ;; late-night
     ;; lawrence
     (ld-dark)

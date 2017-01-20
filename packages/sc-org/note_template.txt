@@ -1,4 +1,4 @@
-* TODO POA <number> <description>
+* TODO POA <number> <title>
   :PROPERTIES:
   :LastAction: 
   :LastActionDate: 
