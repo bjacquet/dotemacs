@@ -11,7 +11,6 @@ ac-comphist.dat
 
 !packages/color-theme
 !packages/color-theme-random.el
-!packages/discover.el
 !packages/last-closed-files.el
 !packages/pabbrev.el
 !packages/scratch.el

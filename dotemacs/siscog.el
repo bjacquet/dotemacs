@@ -66,7 +66,8 @@
  '(ediff-split-window-function 'split-window-horizontally)
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(indent-tabs-mode nil)
- '(tab-always-indent 'complete))
+ '(tab-always-indent 'complete)
+ '(blink-cursor-blinks 0))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
@@ -96,7 +97,6 @@
 (bj:load-pkg-loader "avy.el")
 (bj:load-pkg-loader "bm.el")
 (bj:load-pkg-loader "color-theme.el")
-(bj:load-pkg-loader "discover.el")
 (bj:load-pkg-loader "expand-region.el")
 (bj:load-pkg-loader "flyspell.el")
 (bj:load-pkg-loader "ido-vertical.el")
