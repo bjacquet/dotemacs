@@ -87,8 +87,8 @@ If keep-list has buffers don't kill them."
   "From http://emacswiki.org/emacs/InsertingTodaysDate"
   (interactive "P")
   (insert (if arg
-	      (format-time-string "%B %e, %Y")
-	    (format-time-string "%d/%m/%Y"))))
+              (format-time-string "%d/%m/%Y")
+              (format-time-string "%B %e, %Y"))))
 
 
 (defun bj:reading-time (arg)

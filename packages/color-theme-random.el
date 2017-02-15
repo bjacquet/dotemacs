@@ -104,7 +104,7 @@
     ;; kingsajz
     ;; late-night
     ;; lawrence
-    (ld-dark)
+    ;; ld-dark
     (lethe)
     ;; marine
     ;; marquardt

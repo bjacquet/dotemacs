@@ -3,7 +3,7 @@
 ;;;
 (bj:ensure-package 'htmlize)
 
-(defun bj:export-buffer-to-html ()
+(defun lbo:export-buffer-to-html ()
   "Provided by LBO."
   (interactive)
   (let ((themes custom-enabled-themes))
@@ -16,7 +16,7 @@
 	  (kill-buffer))
       (mapc #'enable-theme themes))))
 
-(defun bj:export-region-to-html ()
+(defun lbo:export-region-to-html ()
   "Provided by LBO."
   (interactive)
   (let ((themes custom-enabled-themes)
