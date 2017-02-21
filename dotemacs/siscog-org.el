@@ -98,7 +98,6 @@
   (find-file "~/Documents/diary/npo-clock.org")
   (find-file "~/Documents/diary/npo-notes.org")
   (delete-other-windows)
-
   (split-window-vertically)
   (previous-multiframe-window)
   (split-window-horizontally)
@@ -113,28 +112,13 @@
 (add-hook 'after-init-hook (start.up))
 
 
-;;; ---------------------------------------------------------------------
-;;; Keys
-;;;
-(global-set-key [home]  'beginning-of-line)
-(global-set-key [end]   'end-of-line)
-(global-set-key [f5]    'comment-region)
-(global-set-key [S-f5]  'uncomment-region)
-(global-set-key [f6]    'start.up)
-(global-set-key [f8]    'find-file-at-point)
-(global-set-key [f9]    'last-closed-files)
-(global-set-key [S-f9]  'recentf-open-files)
-(global-set-key "\C-cl" 'goto-line)
-(global-set-key "\C-ci" 'indent-region)
-(global-set-key "\C-xO" 'previous-multiframe-window)
-(global-set-key "\C-z"  (lambda ()
-			  (interactive)
-			  (start.up)
-			  (suspend-frame)))
-
-
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
-
+(load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
+(global-set-key      [f6]    'start.up)
+(global-key-bindings "\C-z"  (lambda ()
+                               (interactive)
+                               (start.up)
+                               (suspend-frame)))
 
 ;;; ---------------------------------------------------------------------
 ;;; Enable disabled commands
