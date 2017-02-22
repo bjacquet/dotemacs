@@ -114,11 +114,11 @@
 
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
-(global-set-key      [f6]    'start.up)
-(global-key-bindings "\C-z"  (lambda ()
-                               (interactive)
-                               (start.up)
-                               (suspend-frame)))
+(global-set-key [f6]   'start.up)
+(global-set-key "\C-z" (lambda ()
+			 (interactive)
+			 (start.up)
+			 (suspend-frame)))
 
 ;;; ---------------------------------------------------------------------
 ;;; Enable disabled commands
