@@ -65,7 +65,7 @@
     ;; classic
     (cobalt)
     (comidia)
-    (dark-blue)
+    ;; dark-blue
     (dark-blue2)
     ;; dark-erc
     ;; dark-font-lock
@@ -105,7 +105,7 @@
     ;; late-night
     ;; lawrence
     ;; ld-dark
-    (lethe)
+    ;; lethe
     ;; marine
     ;; marquardt
     ;; matrix

@@ -109,4 +109,18 @@ If keep-list has buffers don't kill them."
                  (if (= reading.time.minutes 1) "" "s"))))))
 
 
+(defun bj:split-window-vertically ()
+  "Split window and move cursor."
+  (interactive)
+  (split-window-vertically)
+  (other-window 1))
+
+
+(defun bj:split-window-horizontally ()
+  "Split window and move cursor."
+  (interactive)
+  (split-window-horizontally)
+  (other-window 1))
+
+
 ;;; defuns.el ends here
