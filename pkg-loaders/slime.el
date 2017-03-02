@@ -13,3 +13,5 @@
 (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
 
 (setq common-lisp-hyperspec-root "~/Documents/References/HyperSpec/")
+
+(global-set-key "\C-cs" 'slime-selector)
