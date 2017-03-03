@@ -113,7 +113,9 @@ If keep-list has buffers don't kill them."
   "Split window and move cursor."
   (interactive)
   (split-window-vertically)
-  (other-window 1))
+  (recenter)
+  (other-window 1)
+  (recenter))
 
 
 (defun bj:split-window-horizontally ()
@@ -121,6 +123,33 @@ If keep-list has buffers don't kill them."
   (interactive)
   (split-window-horizontally)
   (other-window 1))
+
+
+(defun bj:toggle-window-split ()
+  "From https://www.emacswiki.org/emacs/ToggleWindowSplit
+Switch window split from horizontally to vertically, or vice versa.
+
+i.e. change right window to bottom, or change bottom window to right."
+  (interactive)
+  (let ((done))
+    (dolist (dirs '((right . down) (down . right)))
+      (unless done
+        (let* ((win (selected-window))
+               (nextdir (car dirs))
+               (neighbour-dir (cdr dirs))
+               (next-win (windmove-find-other-window nextdir win))
+               (neighbour1 (windmove-find-other-window neighbour-dir win))
+               (neighbour2 (if next-win (with-selected-window next-win
+                                          (windmove-find-other-window neighbour-dir next-win)))))
+          (setq done (and (eq neighbour1 neighbour2)
+                          (not (eq (minibuffer-window) next-win))))
+          (if done
+              (let* ((other-buf (window-buffer next-win)))
+                (delete-window next-win)
+                (if (eq nextdir 'right)
+                    (split-window-vertically)
+                  (split-window-horizontally))
+                (set-window-buffer (windmove-find-other-window neighbour-dir) other-buf))))))))
 
 
 ;;; defuns.el ends here

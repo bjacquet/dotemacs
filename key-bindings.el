@@ -14,6 +14,6 @@
 (global-set-key "\C-xO" 'previous-multiframe-window)
 (global-set-key "\C-x2" 'bj:split-window-vertically)
 (global-set-key "\C-x3" 'bj:split-window-horizontally)
-
+(global-set-key "\C-c|" 'bj:toggle-window-split)
 
 ;;; key-bindings.el ends here
