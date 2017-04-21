@@ -55,7 +55,8 @@
  '(user-mail-address "bruno.jacquet@gmail.com")
  '(visible-bell t)
  '(indent-tabs-mode nil)
- '(blink-cursor-blinks 0))
+ '(blink-cursor-blinks 0)
+ '(org-hide-leading-stars t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
