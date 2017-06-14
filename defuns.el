@@ -175,12 +175,14 @@ i.e. change right window to bottom, or change bottom window to right."
                 (other-window 1)))))))))
 
 
-(defun bj:save-rot13 ()
+(defun bj:save-rot13 (arg)
   "Super-duper cryptic save."
-  (interactive)
+  (interactive "P")
   (rot13-region (point-min) (point-max))
   (save-buffer)
-  (rot13-region (point-min) (point-max)))
+  (if arg
+      (kill-buffer)
+    (rot13-region (point-min) (point-max))))
 
 
 ;;; defuns.el ends here
