@@ -87,8 +87,8 @@
 			       "~/Documents/diary/siscog-clock.org"
 			       "~/Documents/diary/clock-tables.org"
 			       "~/Documents/diary/npo-notes.org"
-			       "~/Documents/diary/npo-clock.org"))
-      desktop-menu-directory "~/Documents/diary/desktop/")
+			       "~/Documents/diary/npo-clock.org"
+			       "~/Documents/diary/diary.org")))
 
 
 (defun start.up ()
