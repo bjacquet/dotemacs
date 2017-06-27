@@ -45,7 +45,8 @@
  '(recentf-max-saved-items 100)
  '(isearch-allow-scroll t)
  '(blink-cursor-blinks 0)
- '(calendar-week-start-day 1))
+ '(calendar-week-start-day 1)
+ '(dired-dnd-protocol-alist nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
