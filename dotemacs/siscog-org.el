@@ -92,26 +92,36 @@
 			       "~/Documents/diary/diary.org")))
 
 
-(defun start.up ()
+(defun bj:rot13 (object &optional start end)
+  "Return ROT13 encryption of OBJECT, a buffer or string."
+  (if (bufferp object)
+      (with-current-buffer object
+	(rot13-region (or start (point-min)) (or end (point-max))))
+    (rot13-string object)))
+
+
+(defun start.up (&optional decrypt)
   "Default setup at SISCOG for Emacs Org."
   (interactive)
   (org-agenda-list 1)
-  (eshell)
   (find-file "~/Documents/diary/npo-clock.org")
-  (find-file "~/Documents/diary/npo-notes.org")
+  (find-file "~/Documents/diary/diary.org")
+  (when decrypt
+    (bj:rot13 (get-buffer "clock-tables.org"))
+    (bj:rot13 (get-buffer "diary.org")))
   (delete-other-windows)
   (split-window-vertically)
   (previous-multiframe-window)
   (split-window-horizontally)
   (other-window 2)
-  (switch-to-buffer "npo-notes.org")
-  (other-window 1)
   (switch-to-buffer "npo-clock.org")
+  (other-window 1)
+  (switch-to-buffer "diary.org")
   (other-window 1)
   (switch-to-buffer "*Org Agenda*")
   (other-window 1))
 
-(add-hook 'after-init-hook (start.up))
+(add-hook 'after-init-hook (start.up t))
 
 
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
