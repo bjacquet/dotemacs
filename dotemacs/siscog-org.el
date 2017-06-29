@@ -103,12 +103,11 @@
 (defun start.up (&optional decrypt)
   "Default setup at SISCOG for Emacs Org."
   (interactive)
-  (org-agenda-list 1)
-  (find-file "~/Documents/diary/npo-clock.org")
-  (find-file "~/Documents/diary/diary.org")
   (when decrypt
-    (bj:rot13 (get-buffer "clock-tables.org"))
-    (bj:rot13 (get-buffer "diary.org")))
+    (mapcar (lambda (file)
+	    (bj:rot13 (find-file file)))
+	    org-agenda-files))
+  (org-agenda-list 1)
   (delete-other-windows)
   (split-window-vertically)
   (previous-multiframe-window)
