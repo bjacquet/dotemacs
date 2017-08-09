@@ -88,7 +88,7 @@ If keep-list has buffers don't kill them."
   (interactive "P")
   (insert (if arg
               (format-time-string "%d/%m/%Y")
-              (format-time-string "%B %d, %Y"))))
+              (format-time-string "%B %-d, %Y"))))
 
 
 (defun bj:reading-time (arg)
