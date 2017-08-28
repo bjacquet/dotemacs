@@ -44,6 +44,7 @@
  '(user-mail-address "bjacquet@siscog.pt")
  '(user-full-name "B Jacquet")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
+ '(menu-bar-mode nil)
  '(tool-bar-mode nil)
  '(visible-bell t)
  '(line-number-mode t)
