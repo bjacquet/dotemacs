@@ -1,13 +1,13 @@
 ;;; ---------------------------------------------------------------------
 ;;; Magit
 ;;;
-(if (equal system-type 'windows-nt)
-    (add-to-list 'load-path (bj:expand-package "magit-1.4.2"))
-    (bj:ensure-package 'magit))
+(bj:ensure-package 'magit)
+
+(when (equal system-type 'windows-nt)
+  (add-to-list 'exec-path "d:/tmp/Git/bin/"))
 
 (when (equal system-type 'darwin)
   (add-to-list 'exec-path "/usr/local/git/bin/"))
-
 
 (add-hook 'dired-load-hook
           (lambda ()
@@ -16,5 +16,3 @@
           (lambda ()))
 
 (autoload 'magit-status "magit" "Loads magit-mode" t)
-
-(setq magit-last-seen-setup-instructions "1.4.0")
