@@ -52,6 +52,7 @@
     ;; bharadwaj-slate
     ;; bharadwaj
     (billw)
+    (birds-of-paradise-plus-theme)
     ;; black-on-gray
     ;; blippblopp
     ;; blue-erc
@@ -112,6 +113,7 @@
     (midnight)
     ;; mistyday
     ;; montz
+    (naquadah-theme)
     ;; oswald
     ;; parus
     ;; pierson
@@ -143,6 +145,7 @@
     ;; subtle-blue
     ;; subtle-hacker
     (taming-mr-arneson)
+    (tango-2)
     (tangotango)
     (taylor)
     ;; tty-dark
