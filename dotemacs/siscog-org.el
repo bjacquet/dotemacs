@@ -84,13 +84,13 @@
 (load "last-closed-files")
 
 
-(setq org-agenda-files (quote ("~/Documents/diary/remember.org"
-			       "~/Documents/diary/siscog-notes.org"
-			       "~/Documents/diary/siscog-clock.org"
-			       "~/Documents/diary/clock-tables.org"
-			       "~/Documents/diary/npo-notes.org"
-			       "~/Documents/diary/npo-clock.org"
-			       "~/Documents/diary/diary.org")))
+(setq org-agenda-files (quote ("w:/Documents/diary/remember.org"
+                               "w:/Documents/diary/siscog-notes.org"
+                               "w:/Documents/diary/siscog-clock.org"
+                               "w:/Documents/diary/clock-tables.org"
+                               "w:/Documents/diary/npo-notes.org"
+                               "w:/Documents/diary/npo-clock.org"
+                               "w:/Documents/diary/diary.org")))
 
 
 (defun bj:rot13 (object &optional start end)
