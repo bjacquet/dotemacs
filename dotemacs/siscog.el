@@ -19,7 +19,7 @@
   (nth (random (length list)) list))
 
 (setq fancy-splash-image (format "%s/custom/%s"
-                                 (getenv "SISCOG_EMACS_DIR_LOCAL")
+                                 emacs-dir
                                  (random-elem (list "lisplogo-alien.xpm"
                                                     "siscog-symbol.xpm"
                                                     "lisplogo-flag.xpm"
