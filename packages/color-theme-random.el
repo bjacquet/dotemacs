@@ -52,7 +52,7 @@
     ;; bharadwaj-slate
     ;; bharadwaj
     (billw)
-    (birds-of-paradise-plus-theme)
+    (birds-of-paradise-plus)
     ;; black-on-gray
     ;; blippblopp
     ;; blue-erc
@@ -113,7 +113,7 @@
     (midnight)
     ;; mistyday
     ;; montz
-    (naquadah-theme)
+    (naquadah)
     ;; oswald
     ;; parus
     ;; pierson
