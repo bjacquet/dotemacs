@@ -23,6 +23,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-save-default nil)
+ '(blink-cursor-blinks 0)
  '(case-fold-search t)
  '(current-language-environment "UTF-8")
  '(custom-safe-themes
@@ -30,17 +31,23 @@
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(debug-on-error t)
  '(default-input-method "portuguese-prefix")
+ '(dired-dnd-protocol-alist nil)
  '(global-font-lock-mode t nil (font-lock))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(ido-mode t nil (ido))
+ '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(isearch-allow-scroll t)
  '(line-number-mode t)
  '(make-backup-files nil)
  '(next-line-add-newlines nil)
  '(next-line-extends-end-of-buffer nil)
+ '(org-hide-leading-stars t)
  '(org-trello-files (quote ("~/Documents/Castelo/castelo.org")))
+ '(package-selected-packages
+   (quote
+    (wn-mode winpoint use-package undo-tree tangotango-theme smart-mode-line paredit pager markdown-mode magit ido-vertical-mode git-rebase-mode git-commit-mode expand-region darktooth-theme color-theme-solarized color-theme-modern avy auto-complete)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
@@ -53,11 +60,7 @@
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(user-full-name "Bruno Jacquet")
  '(user-mail-address "bruno.jacquet@gmail.com")
- '(visible-bell t)
- '(indent-tabs-mode nil)
- '(blink-cursor-blinks 0)
- '(org-hide-leading-stars t)
- '(dired-dnd-protocol-alist nil))
+ '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
