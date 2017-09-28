@@ -41,6 +41,9 @@
 
 ;; package.el
 
+
+(setq package--init-file-ensured t)
+
 (require 'package)
 (setq package-user-dir (expand-file-name *bj:packages-directory*))
 (add-to-list 'package-archives

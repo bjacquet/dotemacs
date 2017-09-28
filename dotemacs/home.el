@@ -47,7 +47,7 @@
  '(org-trello-files (quote ("~/Documents/Castelo/castelo.org")))
  '(package-selected-packages
    (quote
-    (wn-mode winpoint use-package undo-tree tangotango-theme smart-mode-line paredit pager markdown-mode magit ido-vertical-mode git-rebase-mode git-commit-mode expand-region darktooth-theme color-theme-solarized color-theme-modern avy auto-complete)))
+    (wn-mode winpoint use-package undo-tree tangotango-theme smart-mode-line paredit pager markdown-mode magit ido-vertical-mode expand-region darktooth-theme color-theme-solarized color-theme-modern avy auto-complete)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
