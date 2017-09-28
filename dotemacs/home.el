@@ -52,7 +52,6 @@
  '(recentf-mode t)
  '(require-final-newline t)
  '(scroll-step 1)
- '(set-default-font "DejaVu Sans Mono-11")
  '(setq kmacro-call-mouse-event)
  '(show-paren-mode t nil (paren))
  '(tool-bar-mode nil)
@@ -94,6 +93,7 @@
 (bj:load-pkg-loader "winpoint.el")
 (bj:load-pkg-loader "wn.el")
 (load "last-closed-files")
+(load "random-font")
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 

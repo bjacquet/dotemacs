@@ -13,6 +13,7 @@ ac-comphist.dat
 !packages/color-theme-random.el
 !packages/last-closed-files.el
 !packages/pabbrev.el
+!packages/random-font.el
 !packages/scratch.el
 !packages/sc-emacs
 !packages/sc-org
