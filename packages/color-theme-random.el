@@ -122,7 +122,7 @@
     (railscast)
     ;; ramangalahy
     ;; raspopovic
-    (renegade)
+    ;; renegade
     (resolve)
     ;; retro-green
     ;; retro-orange

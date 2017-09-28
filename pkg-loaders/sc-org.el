@@ -18,3 +18,7 @@
 ;; Overrides saving to use my super-duper cryptic save.
 (add-hook 'org-mode-hook
 	  '(lambda () (local-set-key (kbd "C-x C-s") 'bj:save-rot13)))
+
+(use-package org-bullets
+  :ensure t)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
