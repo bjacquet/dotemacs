@@ -1,9 +1,9 @@
 ;; -*- coding: utf-8; -*-
 ;;; siscog-org.el - SISCOG Org configuration
 
-
-(defvar emacs-dir
-  "~/.emacs.d/")
+(defvar emacs-dir "~/.emacs.d/")
+(load-file (expand-file-name (concat emacs-dir "defuns.el")))
+(setq sc-org-p t)
 
 
 ;;; ---------------------------------------------------------------------
@@ -93,14 +93,6 @@
                                "w:/Documents/diary/diary.org")))
 
 
-(defun bj:rot13 (object &optional start end)
-  "Return ROT13 encryption of OBJECT, a buffer or string."
-  (if (bufferp object)
-      (with-current-buffer object
-	(rot13-region (or start (point-min)) (or end (point-max))))
-    (rot13-string object)))
-
-
 (defun start.up (&optional decrypt)
   "Default setup at SISCOG for Emacs Org."
   (interactive)
@@ -124,7 +116,6 @@
 (add-hook 'after-init-hook (start.up t))
 
 
-(load-file (expand-file-name (concat emacs-dir "defuns.el")))
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 (global-set-key [f6]   'start.up)
 (global-set-key "\C-z" (lambda ()

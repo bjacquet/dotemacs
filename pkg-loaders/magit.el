@@ -3,12 +3,13 @@
 ;;;
 (bj:ensure-package 'magit)
 
-(when (equal system-type 'windows-nt)
+(cond
+ ((or sc-org-p sc-dev-p)
   (add-to-list 'exec-path "d:/tmp/Git/bin/")
-  (setenv "SSH_ASKPASS" "git-gui--askpass"))
-
-(when (equal system-type 'darwin)
-  (add-to-list 'exec-path "/usr/local/git/bin/"))
+  ;; (setenv "SSH_ASKPASS" "git-gui--askpass")
+  )
+ (mac-p
+  (add-to-list 'exec-path "/usr/local/git/bin/")))
 
 (add-hook 'dired-load-hook
           (lambda ()

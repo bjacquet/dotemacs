@@ -5,9 +5,11 @@
 (let ((fonts (list "Lucida Console-13"))
       font)
   (cond
-   ((equal system-type 'windows-nt)
-    (setq fonts (append fonts (list "Consolas-14" "Consolas-12"))))
-   ((equal system-type 'darwin)
+   (sc-org-p
+    (setq fonts (append fonts (list "Consolas-14"))))
+   (sc-dev-p
+    (setq fonts (append fonts (list "Consolas-12"))))
+   (mac-p
     (setq fonts (list "DejaVu Sans Mono-14"
 		      "NovaMono-14"
 		      "Monaco-14"

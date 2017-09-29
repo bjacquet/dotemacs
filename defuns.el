@@ -3,6 +3,10 @@
 
 (setq debug-on-error t)
 
+(defvar sc-org-p nil "Am I using SC-EMACS-ORG?")
+(defvar sc-dev-p nil "Am I using SC-EMACS?")
+(defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
+
 
 ;; (defun title-set-title ()
 ;;   "Set title to current`s buffer \[buffer-file-name] name
@@ -173,6 +177,14 @@ i.e. change right window to bottom, or change bottom window to right."
                   (split-window-horizontally))
                 (set-window-buffer (windmove-find-other-window neighbour-dir) other-buf)
                 (other-window 1)))))))))
+
+
+(defun bj:rot13 (object &optional start end)
+  "Return ROT13 encryption of OBJECT, a buffer or string."
+  (if (bufferp object)
+      (with-current-buffer object
+	(rot13-region (or start (point-min)) (or end (point-max))))
+    (rot13-string object)))
 
 
 (defun bj:save-rot13 (arg)

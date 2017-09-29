@@ -1,9 +1,9 @@
 ;; -*- coding: utf-8; -*-
 ;;; siscog.el - SISCOG configuration
 
-
-(defvar emacs-dir
-  "~/.emacs.d/")
+(defvar emacs-dir "~/.emacs.d/")
+(load-file (expand-file-name (concat emacs-dir "defuns.el")))
+(setq sc-dev-p t)
 
 
 ;;; ---------------------------------------------------------------------
@@ -117,7 +117,6 @@
 (bj:load-pkg-loader "hunspell.el")
 (load "last-closed-files")
 (load "random-font")
-(load-file (expand-file-name (concat emacs-dir "defuns.el")))
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
 

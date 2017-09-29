@@ -1,12 +1,9 @@
 ;; -*- coding: utf-8; -*-
 ;;; home.el - Home configuration
 
+(defvar emacs-dir "~/.emacs.d/")
+(load-file (expand-file-name (concat emacs-dir "defuns.el")))
 
-(defvar emacs-dir
-  "~/.emacs.d/")
-
-
-(defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
 (when mac-p
   (setq mac-option-key-is-meta  nil)
   (setq mac-command-key-is-meta t)
@@ -94,7 +91,6 @@
 (bj:load-pkg-loader "wn.el")
 (load "last-closed-files")
 (load "random-font")
-(load-file (expand-file-name (concat emacs-dir "defuns.el")))
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
 
