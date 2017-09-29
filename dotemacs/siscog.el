@@ -75,7 +75,6 @@
   ;; Your init file should contain only one such instance.
  )
 
-(set-default-font "Consolas-12")
 
 ;; Slime messes up my frame title.
 (setq frame-title-format
@@ -117,6 +116,7 @@
 (bj:load-pkg-loader "yasnippet.el")
 (bj:load-pkg-loader "hunspell.el")
 (load "last-closed-files")
+(load "random-font")
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 

@@ -54,9 +54,6 @@
  )
 
 
-(set-default-font "Lucida Console-15")
-
-
 ;; Slime messes up my frame title.
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
@@ -84,6 +81,7 @@
 (bj:load-pkg-loader "wn.el")
 (bj:load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
+(load "random-font")
 
 
 (setq org-agenda-files (quote ("w:/Documents/diary/remember.org"
