@@ -73,7 +73,7 @@
 (bj:load-pkg-loader "ido-vertical.el")
 (bj:load-pkg-loader "multiple-cursors.el")
 (bj:load-pkg-loader "pager.el")
-(bj:load-pkg-loader "sc-org.el")
+(bj:load-pkg-loader "org.el")
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "undo-tree.el")
 ;;(bj:load-pkg-loader "whitespace.el")

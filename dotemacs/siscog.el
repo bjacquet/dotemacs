@@ -104,6 +104,7 @@
 (bj:load-pkg-loader "htmlize.el")
 (bj:load-pkg-loader "magit.el")
 (bj:load-pkg-loader "multiple-cursors.el")
+(bj:load-pkg-loader "org.el")
 (bj:load-pkg-loader "pager.el")
 (bj:load-pkg-loader "paredit.el")
 (bj:load-pkg-loader "scratch.el")
