@@ -11,8 +11,9 @@
     (setq fonts (append fonts (list "Consolas-12"))))
    (mac-p
     (setq fonts (list "DejaVu Sans Mono-14"
-		      "NovaMono-14"
+                      "Melno Regular-14"
 		      "Monaco-14"
+		      "NovaMono-14"
 		      "Share Tech Mono-15"
 		      "Ubuntu Mono-16")))
    (t
