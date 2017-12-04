@@ -123,7 +123,7 @@
     ;; ramangalahy
     ;; raspopovic
     ;; renegade
-    (resolve)
+    ;; resolve
     ;; retro-green
     ;; retro-orange
     ;; robin-hood
@@ -144,7 +144,7 @@
     (subdued)
     ;; subtle-blue
     ;; subtle-hacker
-    (taming-mr-arneson)
+    ;; taming-mr-arneson
     (tango-2)
     (tangotango)
     (taylor)
