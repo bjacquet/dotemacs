@@ -60,7 +60,7 @@
     ;; blue-gnus
     (blue-mood)
     ;; blue-sea
-    (calm-forest)
+    ;; calm-forest
     (charcoal-black)
     (clarity)
     ;; classic
