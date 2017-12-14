@@ -116,6 +116,7 @@
 (bj:load-pkg-loader "wn.el")
 (bj:load-pkg-loader "yasnippet.el")
 (bj:load-pkg-loader "hunspell.el")
+(bj:load-pkg-loader "multi-magit.el")
 (load "last-closed-files")
 (load "random-font")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
