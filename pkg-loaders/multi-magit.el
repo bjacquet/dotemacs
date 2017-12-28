@@ -10,7 +10,16 @@
       '("z:/siscog/siscog-util-vdev"
         "z:/siscog/scs-vdev"
         "z:/siscog/scs-viarail-vdev"
-        "z:/siscog/sc-emacs"
-        "~/.emacs.d"))
+        ;; "z:/siscog/sc-emacs"
+        ;; "~/.emacs.d"
+        ))
 
 (global-set-key (kbd "C-x G") 'multi-magit-status)
+
+
+(setq magit-repository-directories
+      '("z:/siscog/siscog-util-vdev"
+        "z:/siscog/scs-vdev"
+        "z:/siscog/scs-viarail-vdev"
+        "z:/siscog/sc-emacs"
+        "~/.emacs.d"))
