@@ -7,19 +7,11 @@
                         nil t)
 
 (setq multi-magit-selected-repositories
-      '("z:/siscog/siscog-util-vdev"
-        "z:/siscog/scs-vdev"
-        "z:/siscog/scs-viarail-vdev"
-        ;; "z:/siscog/sc-emacs"
-        ;; "~/.emacs.d"
+      '(;; "~/.emacs.d"
         ))
 
 (global-set-key (kbd "C-x G") 'multi-magit-status)
 
 
 (setq magit-repository-directories
-      '("z:/siscog/siscog-util-vdev"
-        "z:/siscog/scs-vdev"
-        "z:/siscog/scs-viarail-vdev"
-        "z:/siscog/sc-emacs"
-        "~/.emacs.d"))
+      '("~/.emacs.d"))

@@ -1,7 +1,0 @@
-* TODO POA <number> <title>
-  :PROPERTIES:
-  :LastAction: 
-  :LastActionDate: 
-  :NextAction: 
-  :END:
-  [[POA:<number>][PMS POA]]  [[TASK:POA.<number>][PMS Task]]  [[file:<clock_filename>::POA%20<number>][Org clock]]

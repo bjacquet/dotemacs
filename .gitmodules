@@ -1,9 +1,3 @@
-[submodule "packages/sc-sly"]
-	path = packages/sc-sly
-	url = git://gitorious.siscog/development-tools/sc-sly.git
 [submodule "packages/sc-emacs"]
 	path = packages/sc-emacs
 	url = git://gitorious.siscog/crews/sc-emacs.git
-[submodule "packages/sc-slime"]
-	path = packages/sc-slime
-	url = git://gitorious.siscog/development-tools/sc-slime.git

@@ -1,7 +1,0 @@
-  <overscore>
-_/<system>\<underscore>
---<slashes>(<author> <date>)--
-<modspatches>:
-<files>
-________________________________________
-

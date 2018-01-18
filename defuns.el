@@ -3,8 +3,6 @@
 
 (setq debug-on-error t)
 
-(defvar sc-org-p nil "Am I using SC-EMACS-ORG?")
-(defvar sc-dev-p nil "Am I using SC-EMACS?")
 (defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
 
 

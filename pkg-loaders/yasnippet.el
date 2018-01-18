@@ -11,9 +11,5 @@
   '(progn
      (require 'yasnippet)
      (setq yas-snippet-dirs (list yas-installed-snippets-dir
-				  (concat emacs-dir "packages/snippets/")))
-     (yas-global-mode 1)
-     (yas--load-directory-1 (concat emacs-dir "packages/snippets/sc-mode/")
-      			    'text-mode)
-     (yas--load-directory-1 (concat emacs-dir "packages/snippets/sc-mode/")
-			    'fundamental-mode)))
+                                  (concat emacs-dir "packages/snippets/")))
+     (yas-global-mode 1)))
