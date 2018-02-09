@@ -46,7 +46,7 @@
     ;; aalto-light
     ;; aliceblue
     ;; andreas
-    (arjen)
+    ;; arjen
     ;; beige-diff
     ;; beige-eshell
     ;; bharadwaj-slate
