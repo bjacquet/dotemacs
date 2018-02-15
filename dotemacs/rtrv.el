@@ -1,14 +1,8 @@
 ;; -*- coding: utf-8; -*-
-;;; home.el - Home configuration
+;;; rtrv.el - Runtime Revolution configuration
 
 (defvar emacs-dir "~/.emacs.d/")
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
-
-(when mac-p
-  (setq mac-option-key-is-meta  nil)
-  (setq mac-command-key-is-meta t)
-  (setq mac-command-modifier    'meta)
-  (setq mac-option-modifier     nil))
 
 
 ;;; ---------------------------------------------------------------------
@@ -43,7 +37,6 @@
  '(next-line-add-newlines nil)
  '(next-line-extends-end-of-buffer nil)
  '(org-hide-leading-stars t)
- '(org-trello-files (quote ("~/Documents/Castelo/castelo.org")))
  '(package-selected-packages
    (quote
     (enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-solarized color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
@@ -58,7 +51,7 @@
  '(transient-mark-mode t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(user-full-name "Bruno Jacquet")
- '(user-mail-address "bruno.jacquet@gmail.com")
+ '(user-mail-address "b.jacquet@runtime-revolution.com")
  '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -99,6 +92,13 @@
 (load "random-font")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
+;; For RoR development
+(bj:load-pkg-loader "auto-complete.el")
+
+;; auto-complete configuration
+(setq ac-ignore-case nil)
+(add-to-list 'ac-modes 'enh-ruby-mode)
+(add-to-list 'ac-modes 'web-mode)
 
 ;;; ---------------------------------------------------------------------
 ;;; Enable disabled commands
@@ -106,4 +106,4 @@
 (put 'narrow-to-page 'disabled nil)
 
 
-;;; home.el ends here
+;;; rtrv.el ends here
