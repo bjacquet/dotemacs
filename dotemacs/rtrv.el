@@ -4,6 +4,10 @@
 (defvar emacs-dir "~/.emacs.d/")
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
 
+(setq mac-option-key-is-meta  nil)
+(setq mac-command-key-is-meta t)
+(setq mac-command-modifier    'meta)
+(setq mac-option-modifier     nil)
 
 ;;; ---------------------------------------------------------------------
 ;;; Look & Feel
@@ -93,9 +97,7 @@
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
 ;; For RoR development
-(bj:load-pkg-loader "auto-complete.el")
-
-;; auto-complete configuration
+;;; auto-complete configuration
 (setq ac-ignore-case nil)
 (add-to-list 'ac-modes 'enh-ruby-mode)
 (add-to-list 'ac-modes 'web-mode)
