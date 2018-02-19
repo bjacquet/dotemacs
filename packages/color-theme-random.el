@@ -147,7 +147,7 @@
     ;; taming-mr-arneson
     (tango-2)
     (tangotango)
-    (taylor)
+    ;; taylor
     ;; tty-dark
     ;; vim-colors
     ;; whateveryouwant

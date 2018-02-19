@@ -43,7 +43,7 @@
  '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
-    (enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-solarized color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
+    (yasnippet-snippets enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-solarized color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
@@ -101,6 +101,10 @@
 (setq ac-ignore-case nil)
 (add-to-list 'ac-modes 'enh-ruby-mode)
 (add-to-list 'ac-modes 'web-mode)
+
+(use-package enh-ruby-mode :ensure t)
+(use-package robe :ensure t)
+(use-package smartparens :ensure t)
 
 ;;; ---------------------------------------------------------------------
 ;;; Enable disabled commands
