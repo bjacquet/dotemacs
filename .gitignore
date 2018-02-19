@@ -8,6 +8,7 @@ url/
 
 .mc-lists.el
 ac-comphist.dat
+network-security.data
 
 !packages/color-theme
 !packages/color-theme-random.el
