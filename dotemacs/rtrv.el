@@ -43,13 +43,14 @@
  '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
-    (yasnippet-snippets enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-solarized color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
+    (sr-speedbar yasnippet-snippets enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-solarized color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
  '(scroll-step 1)
  '(setq kmacro-call-mouse-event)
  '(show-paren-mode t)
+ '(smartparens-global-mode t)
  '(tab-always-indent (quote complete))
  '(tool-bar-mode nil)
  '(transient-mark-mode t)
@@ -104,7 +105,7 @@
 
 (use-package enh-ruby-mode :ensure t)
 (use-package robe :ensure t)
-(use-package smartparens :ensure t)
+(use-package smartparens :ensure t )
 
 ;;; ---------------------------------------------------------------------
 ;;; Enable disabled commands
