@@ -4,6 +4,8 @@
 (defvar emacs-dir "~/.emacs.d/")
 (load-file (expand-file-name (concat emacs-dir "defuns.el")))
 
+(defconst rtrvp t)
+
 (setq mac-option-key-is-meta  nil)
 (setq mac-command-key-is-meta t)
 (setq mac-command-modifier    'meta)
@@ -85,10 +87,11 @@
 (bj:load-pkg-loader "magit.el")
 (bj:load-pkg-loader "multiple-cursors.el")
 (bj:load-pkg-loader "pager.el")
-(bj:load-pkg-loader "org.el")
+(bj:load-pkg-loader "org-rtrv.el")
 (bj:load-pkg-loader "paredit.el")
 (bj:load-pkg-loader "shrink-whitespace.el")
 (bj:load-pkg-loader "smart-mode-line.el")
+(bj:load-pkg-loader "spellings.el")
 (bj:load-pkg-loader "undo-tree.el")
 (bj:load-pkg-loader "whitespace.el")
 (bj:load-pkg-loader "winpoint.el")
@@ -97,7 +100,10 @@
 (load "random-font")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
-;; For RoR development
+
+;;; ---------------------------------------------------------------------
+;;; For RoR development
+
 ;;; auto-complete configuration
 (setq ac-ignore-case nil)
 (add-to-list 'ac-modes 'enh-ruby-mode)
@@ -106,6 +112,7 @@
 (use-package enh-ruby-mode :ensure t)
 (use-package robe :ensure t)
 (use-package smartparens :ensure t )
+
 
 ;;; ---------------------------------------------------------------------
 ;;; Enable disabled commands
