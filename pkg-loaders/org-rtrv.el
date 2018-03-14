@@ -1,5 +1,5 @@
 ;;; ---------------------------------------------------------------------
-;;; Org-mode
+;;; Org-mode at Runtime Revolution
 ;;;
 
 (bj:load-pkg-loader "org.el")
