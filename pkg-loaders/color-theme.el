@@ -1,13 +1,14 @@
 ;;; ---------------------------------------------------------------------
 ;;; Color Theme & Color Theme Random
 ;;;
-(bj:ensure-package 'color-theme-modern)
-(bj:ensure-package 'tangotango-theme)
-(bj:ensure-package 'darktooth-theme)
-(bj:ensure-package 'color-theme-solarized)
-(bj:ensure-package 'naquadah-theme)
-(bj:ensure-package 'birds-of-paradise-plus-theme)
-(bj:ensure-package 'tango-2-theme)
+(use-package birds-of-paradise-plus-theme :ensure t)
+(use-package color-theme-modern           :ensure t)
+(use-package color-theme-solarized        :ensure t)
+(use-package darktooth-theme              :ensure t)
+(use-package naquadah-theme               :ensure t)
+(use-package nord-theme                   :ensure t)
+(use-package tango-2-theme                :ensure t)
+(use-package tangotango-theme             :ensure t)
 (load-file (bj:expand-package "color-theme-random.el"))
 (autoload 'color-theme-random (bj:expand-package "color-theme-random.el"))
 (bj:color-theme-random)

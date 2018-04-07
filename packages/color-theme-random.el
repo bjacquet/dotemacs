@@ -52,7 +52,6 @@
     ;; bharadwaj-slate
     ;; bharadwaj
     (billw)
-    (birds-of-paradise-plus)
     ;; black-on-gray
     ;; blippblopp
     ;; blue-erc
@@ -74,7 +73,6 @@
     ;; dark-green
     ;; dark-info
     (dark-laptop)
-    (darktooth)
     (deep-blue)
     (desert)
     ;; digital-ofs1
@@ -113,7 +111,6 @@
     (midnight)
     ;; mistyday
     ;; montz
-    (naquadah)
     ;; oswald
     ;; parus
     ;; pierson
@@ -145,8 +142,6 @@
     ;; subtle-blue
     ;; subtle-hacker
     ;; taming-mr-arneson
-    (tango-2)
-    (tangotango)
     ;; taylor
     ;; tty-dark
     ;; vim-colors
@@ -155,6 +150,15 @@
     ;; word-perfect
     ;; xemacs
     ;; xp
+
+    ;; My added themes:
+    (birds-of-paradise-plus)
+    (color-theme-solorized)
+    (darktooth)
+    (naquadah)
+    (nord)
+    (tango-2)
+    (tangotango)
     ))
 
 (defun bj:give-other-themes-a-chance ()
