@@ -7,7 +7,7 @@
 (setq org-agenda-files
       '("~/Documents/Blog/"
         "~/Documents/Diary/"))
-(load-file "org-agenda-files.el")
+(bj:load-pkg-loader "./org-agenda-files.el")
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "|" "DONE(d)")

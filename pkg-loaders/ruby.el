@@ -2,6 +2,11 @@
 ;;; For RoR development at Runtime Revolution
 ;;;
 
+;;; auto-complete configuration
+(setq ac-ignore-case nil)
+(add-to-list 'ac-modes 'enh-ruby-mode)
+(add-to-list 'ac-modes 'web-mode)
+
 (use-package enh-ruby-mode
   :ensure t
   :config
@@ -10,6 +15,7 @@
   (add-hook 'enh-ruby-mode-hook 'robe-mode)
   ;; (add-hook 'enh-ruby-mode-hook 'yard-mode)
   (add-hook 'enh-ruby-mode 'smartparens-minor-mode)
+  (add-hook 'enh-ruby-mode 'projectile-rails-mode)
   )
 
 (use-package robe :ensure t)
@@ -32,7 +38,3 @@
 (use-package rinari :ensure t)
 
 (use-package projectile-rails :ensure t)
-
-(setq ac-ignore-case nil)
-(add-to-list 'ac-modes 'enh-ruby-mode)
-(add-to-list 'ac-modes 'web-mode)
