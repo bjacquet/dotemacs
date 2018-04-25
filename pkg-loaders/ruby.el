@@ -35,6 +35,9 @@
   :ensure t
   :config (setq ag-executable "/usr/local/bin/ag"))
 
-(use-package rinari :ensure t)
+;; Either use this or projectile-rails.
+;; (use-package rinari :ensure t)
 
-(use-package projectile-rails :ensure t)
+(use-package projectile-rails
+  :ensure t
+  :config (projectile-rails-global-mode))
