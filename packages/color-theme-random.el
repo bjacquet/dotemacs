@@ -153,7 +153,6 @@
 
     ;; My added themes:
     (birds-of-paradise-plus)
-    (color-theme-solorized)
     (darktooth)
     (naquadah)
     (nord)
