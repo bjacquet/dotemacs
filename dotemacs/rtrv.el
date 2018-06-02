@@ -53,7 +53,6 @@
  '(setq kmacro-call-mouse-event)
  '(show-paren-mode t)
  '(smartparens-global-mode t)
- '(switch-to-buffer-preserve-window-point t)
  '(tab-always-indent (quote complete))
  '(tool-bar-mode nil)
  '(transient-mark-mode t)
