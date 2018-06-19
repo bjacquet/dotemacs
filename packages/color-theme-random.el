@@ -135,7 +135,6 @@
     ;; sitaramv-solaris
     ;; snow
     ;; snowish
-    (solarized)
     ;; standard-ediff
     ;; standard
     (subdued)
