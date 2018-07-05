@@ -31,6 +31,7 @@
  '(dired-dnd-protocol-alist nil)
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
+ '(fill-column 80)
  '(global-font-lock-mode t nil (font-lock))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
