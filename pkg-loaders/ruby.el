@@ -16,7 +16,7 @@
   ;; (add-hook 'enh-ruby-mode-hook 'yard-mode)
   (add-hook 'enh-ruby-mode 'smartparens-minor-mode)
   (add-hook 'enh-ruby-mode 'projectile-rails-mode)
-  )
+  (setq enh-ruby-add-encoding-comment-on-save nil))
 
 (use-package robe :ensure t)
 
