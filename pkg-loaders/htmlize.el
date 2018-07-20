@@ -1,7 +1,8 @@
 ;;; ---------------------------------------------------------------------
 ;;; Htmlize
 ;;;
-(bj:ensure-package 'htmlize)
+(use-package htmlize
+  :ensure t)
 
 (defun lbo:export-buffer-to-html ()
   "Provided by LBO."
@@ -9,11 +10,11 @@
   (let ((themes custom-enabled-themes))
     (mapc #'disable-theme themes)
     (unwind-protect
-	(with-current-buffer (htmlize-buffer)
-	  (let ((file (make-temp-file "htmlized-buffer-" nil ".html")))
-	    (write-file file)
-	    (browse-url file))
-	  (kill-buffer))
+        (with-current-buffer (htmlize-buffer)
+          (let ((file (make-temp-file "htmlized-buffer-" nil ".html")))
+            (write-file file)
+            (browse-url file))
+          (kill-buffer))
       (mapc #'enable-theme themes))))
 
 (defun lbo:export-region-to-html ()
