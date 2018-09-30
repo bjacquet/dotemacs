@@ -32,8 +32,7 @@
   "Queries for a pkg-loader and loads it."
   (interactive)
   (let ((package (completing-read "Package: " (bj:available-packages))))
-    (bj:load-pkg-loader package)
-    (load-library package)))
+    (bj:load-pkg-loader package)))
 
 
 (add-to-list 'load-path *bj:packages-directory*)
@@ -47,7 +46,7 @@
 (require 'package)
 (setq package-user-dir (expand-file-name *bj:packages-directory*))
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 
