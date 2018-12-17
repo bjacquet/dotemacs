@@ -64,7 +64,7 @@
     (clarity)
     ;; classic
     (cobalt)
-    (comidia)
+    ;; comidia
     ;; dark-blue
     (dark-blue2)
     ;; dark-erc
