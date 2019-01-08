@@ -4,9 +4,6 @@
 
 (bj:load-pkg-loader "org.el")
 
-(setq org-agenda-files
-      '("~/Documents/Blog/"
-        "~/Documents/Diary/"))
 (bj:load-pkg-loader "./org-agenda-files.el")
 
 (setq org-todo-keywords
