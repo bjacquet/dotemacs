@@ -57,7 +57,7 @@
     ;; blue-erc
     ;; blue-eshell
     ;; blue-gnus
-    (blue-mood)
+    ;; blue-mood
     ;; blue-sea
     ;; calm-forest
     (charcoal-black)

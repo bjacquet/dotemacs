@@ -6,6 +6,7 @@
       font)
   (if mac-p
       (setq fonts (list "DejaVu Sans Mono-14"
+                        "iA Writer Mono S-15"
                         "Menlo-14"
                         "Monaco-14"
                         "NovaMono-14"
