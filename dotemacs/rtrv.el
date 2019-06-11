@@ -46,7 +46,7 @@
  '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
-    (json-mode treemacs-magit treemacs-icons-dired treemacs-projectile treemacs detour golden-ratio org-pomodoro htmlize flycheck flychek rjsx-mode jsx-mode darkroom flyspell-popup projectile-rails projectile rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar yasnippet-snippets enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
+    (goto-last-change json-mode treemacs-magit treemacs-icons-dired treemacs-projectile treemacs detour golden-ratio org-pomodoro htmlize flycheck flychek rjsx-mode jsx-mode darkroom flyspell-popup projectile-rails projectile rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar yasnippet-snippets enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
@@ -85,6 +85,7 @@
 (bj:load-pkg-loader "bm.el")
 (bj:load-pkg-loader "color-theme.el")
 (bj:load-pkg-loader "expand-region.el")
+(bj:load-pkg-loader "goto-last-change.el")
 (bj:load-pkg-loader "htmlize.el")
 (bj:load-pkg-loader "ido-vertical.el")
 (bj:load-pkg-loader "javascript.el")

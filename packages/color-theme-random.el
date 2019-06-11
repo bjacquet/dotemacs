@@ -73,7 +73,7 @@
     ;; dark-green
     ;; dark-info
     (dark-laptop)
-    (deep-blue)
+    ;; deep-blue
     (desert)
     ;; digital-ofs1
     ;; emacs-21
