@@ -46,7 +46,7 @@
  '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
-    (deft goto-last-change json-mode treemacs-magit treemacs-icons-dired treemacs-projectile treemacs detour golden-ratio org-pomodoro htmlize flycheck flychek rjsx-mode jsx-mode darkroom flyspell-popup projectile-rails projectile rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar yasnippet-snippets enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
+    (treemacs-magit treemacs-icons-dired treemacs-projectile treemacs deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar enh-ruby-mode robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
@@ -97,6 +97,7 @@
 (bj:load-pkg-loader "shrink-whitespace.el")
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "spellings.el")
+(bj:load-pkg-loader "treemacs.el")
 (bj:load-pkg-loader "undo-tree.el")
 (bj:load-pkg-loader "whitespace.el")
 (bj:load-pkg-loader "wn.el")

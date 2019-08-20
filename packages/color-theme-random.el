@@ -154,7 +154,6 @@
     (birds-of-paradise-plus)
     (darktooth)
     (naquadah)
-    (nord)
     (tango-2)
     (tangotango)
     ))
