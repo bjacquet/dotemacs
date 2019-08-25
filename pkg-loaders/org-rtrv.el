@@ -8,7 +8,7 @@
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "|" "DONE(d)")
-        (sequence "WIP(w)" "AWAITING(a)" "BLOCKED(b)" "|"  "IN-REVIEW(r)" "FIXED(f)" "SEP(s)")
+        (sequence "WIP(w)" "HOLD(h)" "BLOCKED(b)"  "IN-REVIEW(r)" "|" "FIXED(f)" "SEP(s)")
         (sequence "|" "CANCELED(c)")))
 
 (setq org-todo-keyword-faces

@@ -46,7 +46,7 @@
  '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
-    (treemacs-magit treemacs-icons-dired treemacs-projectile treemacs deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar enh-ruby-mode robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
+    (forge ranger treemacs-magit treemacs-icons-dired treemacs-projectile treemacs deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar enh-ruby-mode robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
@@ -85,6 +85,7 @@
 (bj:load-pkg-loader "bm.el")
 (bj:load-pkg-loader "color-theme.el")
 (bj:load-pkg-loader "expand-region.el")
+(bj:load-pkg-loader "goto-last-change.el")
 (bj:load-pkg-loader "htmlize.el")
 (bj:load-pkg-loader "ido-vertical.el")
 (bj:load-pkg-loader "javascript.el")

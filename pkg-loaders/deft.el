@@ -2,6 +2,7 @@
 ;;; Deft
 ;;;
 (use-package deft
+  :ensure t
   :bind ("<f6>" . deft)
   :commands (deft)
   :config (setq deft-directory "~/Documents/Diary"

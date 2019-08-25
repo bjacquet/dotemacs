@@ -27,18 +27,25 @@
 (use-package flyspell
   :ensure t
   :delight
-  :hook ((text-mode
-          git-commit-mode
-          org-mode) . turn-on-flyspell)
+  :init
+  ;; (dolist (mode-hook '(text-mode git-commit-mode org-mode))
+  ;;   (add-hook mode-hook  #'turn-on-flyspell))
+
+  (dolist (mode-hook '(emacs-lisp-mode-hook
+                       inferior-lisp-mode-hook
+                       ruby-mode-hook
+                       js-mode-hook))
+    (add-hook mode-hook #'flyspell-prog-mode))
+
   :config
-  (progn
-    (setq ispell-program-name "/usr/local/Cellar/aspell/0.60.6.1_1/bin/aspell"
-           ;; ispell-local-dictionary "en_US"
-           ;; ispell-current-dictionary "en_US"
-          )
-    (use-package flyspell-popup
-      :ensure t
-      :commands (flyspell-popup-correct)
-      :bind (:map flyspell-mode-map
-             ("C-;" . flyspell-popup-correct))
-      )))
+  (setq ispell-program-name "/usr/local/Cellar/aspell/0.60.6.1_1/bin/aspell"
+        ;; ispell-local-dictionary "en_US"
+        ;; ispell-current-dictionary "en_US"
+        ))
+
+(use-package flyspell-popup
+  :after flyspell
+  :ensure t
+  :commands (flyspell-popup-correct)
+  :bind (:map flyspell-mode-map
+              ("C-;" . flyspell-popup-correct)))
