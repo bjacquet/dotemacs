@@ -47,7 +47,7 @@
  '(org-trello-files (quote ("~/Documents/Castelo/castelo.org")))
  '(package-selected-packages
    (quote
-    (projectile-rails ag flycheck rjsx-mode js2-mode enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-solarized color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
+    (org-fancy-priorities projectile-rails ag flycheck rjsx-mode js2-mode enh-ruby-mode robe smartparens shrink-whitespace org-bullets yasnippet wn-mode winpoint use-package undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode magit ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-solarized color-theme-modern chess bm birds-of-paradise-plus-theme avy auto-complete arbitools)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)

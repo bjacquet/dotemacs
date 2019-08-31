@@ -15,5 +15,8 @@
 (global-set-key "\C-x2" 'bj:split-window-vertically)
 (global-set-key "\C-x3" 'bj:split-window-horizontally)
 (global-set-key "\C-c|" 'bj:toggle-window-split)
+(global-set-key "\M-c"  'capitalize-dwim)
+(global-set-key "\M-l"  'downcase-dwim)
+(global-set-key "\M-u"  'upcase-dwim)
 
 ;;; key-bindings.el ends here
