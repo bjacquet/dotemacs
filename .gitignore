@@ -24,3 +24,4 @@ network-security.data
 !packages/snippets
 
 !packages/magit-1.4.2
+/pkg-loaders/org-agenda-files.el

@@ -11,3 +11,7 @@
 (use-package forge
   :ensure t
   :after magit)
+
+(use-package magit-todos
+  :ensure t
+  :after magit)

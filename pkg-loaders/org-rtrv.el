@@ -4,8 +4,6 @@
 
 (bj:load-pkg-loader "org.el")
 
-(bj:load-pkg-loader "./org-agenda-files.el")
-
 (setq org-todo-keywords
       '((sequence "TODO(t)" "|" "DONE(d)")
         (sequence "WIP(w)" "HOLD(h)" "BLOCKED(b)"  "IN-REVIEW(r)" "|" "FIXED(f)" "SEP(s)")
