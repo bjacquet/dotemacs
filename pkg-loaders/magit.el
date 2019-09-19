@@ -13,5 +13,4 @@
   :after magit)
 
 (use-package magit-todos
-  :ensure t
-  :after magit)
+  :ensure t)

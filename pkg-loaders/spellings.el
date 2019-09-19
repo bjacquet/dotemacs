@@ -38,7 +38,7 @@
     (add-hook mode-hook #'flyspell-prog-mode))
 
   :config
-  (setq ispell-program-name "/usr/local/Cellar/aspell/0.60.6.1_1/bin/aspell"
+  (setq ispell-program-name "/usr/local/Cellar/aspell/0.60.7/bin/aspell"
         ;; ispell-local-dictionary "en_US"
         ;; ispell-current-dictionary "en_US"
         ))

@@ -16,12 +16,11 @@
   :hook
   (org-mode . org-fancy-priorities-mode)
   :config
-  (setq org-fancy-priorities-list '("❢" "⬆" "⬇")))
+  (setq org-fancy-priorities-list '("⚡" "★" "⬇")))
 
 
 (use-package magit-org-todos
   :ensure t
-  :after org-mode
   :config
   (magit-org-todos-autoinsert))
 
