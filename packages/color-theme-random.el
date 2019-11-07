@@ -63,7 +63,7 @@
     (charcoal-black)
     (clarity)
     ;; classic
-    (cobalt)
+    ;; cobalt
     ;; comidia
     ;; dark-blue
     (dark-blue2)
