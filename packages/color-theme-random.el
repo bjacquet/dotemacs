@@ -66,7 +66,7 @@
     ;; cobalt
     ;; comidia
     ;; dark-blue
-    (dark-blue2)
+    ;; dark-blue2
     ;; dark-erc
     ;; dark-font-lock
     ;; dark-gnus
