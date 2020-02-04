@@ -14,4 +14,8 @@
 
 (use-package magit-todos
   :ensure t
-  :after magit)
+  :after magit
+  :init
+  (setq magit-todos-exclude-globs '("vendor/*"))
+  :config
+  (add-hook 'magit-status-mode-hook 'magit-todos-mode))
