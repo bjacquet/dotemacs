@@ -85,6 +85,7 @@
 (bj:load-pkg-loader "bm.el")
 (bj:load-pkg-loader "color-theme.el")
 (bj:load-pkg-loader "deft.el")
+(bj:load-pkg-loader "email.el")
 (bj:load-pkg-loader "expand-region.el")
 (bj:load-pkg-loader "goto-last-change.el")
 (bj:load-pkg-loader "htmlize.el")
