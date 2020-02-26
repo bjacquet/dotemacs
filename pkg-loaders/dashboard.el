@@ -8,7 +8,7 @@
   (add-to-list 'dashboard-items '(agenda) t)
   (setq show-week-agenda-p t)
   (setq dashboard-items '((agenda . 5)
-                          (projects . 15)
+                          (projects . 5)
                           (recents  . 5)
                           (bookmarks . 5)
                           (registers . 5)))
