@@ -32,9 +32,11 @@
   ;;   (add-hook mode-hook  #'turn-on-flyspell))
 
   (dolist (mode-hook '(emacs-lisp-mode-hook
+                       enh-ruby-mode-hook
                        inferior-lisp-mode-hook
+                       js-mode-hook
                        ruby-mode-hook
-                       js-mode-hook))
+                       rjsx-mode))
     (add-hook mode-hook #'flyspell-prog-mode))
 
   :config

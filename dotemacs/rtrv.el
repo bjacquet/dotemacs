@@ -46,7 +46,7 @@
  '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
-    (yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme auto-complete arbitools)))
+    (all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme auto-complete arbitools)))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(require-final-newline t)
@@ -80,10 +80,12 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
+(bj:load-pkg-loader "all-the-icons.el")
 (bj:load-pkg-loader "auto-complete.el")
 (bj:load-pkg-loader "avy.el")
 (bj:load-pkg-loader "bm.el")
 (bj:load-pkg-loader "color-theme.el")
+(bj:load-pkg-loader "dashboard.el")
 (bj:load-pkg-loader "deft.el")
 (bj:load-pkg-loader "email.el")
 (bj:load-pkg-loader "expand-region.el")
@@ -94,6 +96,7 @@
 (bj:load-pkg-loader "magit.el")
 (bj:load-pkg-loader "multiple-cursors.el")
 (bj:load-pkg-loader "pager.el")
+(bj:load-pkg-loader "projectile.el")
 (bj:load-pkg-loader "org-rtrv.el")
 (bj:load-pkg-loader "paredit.el")
 (bj:load-pkg-loader "ruby.el")
@@ -104,6 +107,7 @@
 (bj:load-pkg-loader "undo-tree.el")
 (bj:load-pkg-loader "whitespace.el")
 (bj:load-pkg-loader "wn.el")
+(bj:load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
 (load "random-font")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))

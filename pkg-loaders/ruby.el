@@ -47,4 +47,3 @@
 (use-package rvm
   :ensure t
   :config (rvm-use-default))
-
