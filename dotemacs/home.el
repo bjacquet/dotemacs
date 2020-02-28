@@ -58,7 +58,7 @@
  '(transient-mark-mode t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(user-full-name "Bruno Jacquet")
- '(user-mail-address "bruno.jacquet@gmail.com")
+ '(user-mail-address "brunjact@protonmail.com")
  '(visible-bell t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
