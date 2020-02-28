@@ -119,4 +119,9 @@
 (put 'narrow-to-page 'disabled nil)
 
 
+;;; ---------------------------------------------------------------------
+;;; Open Dashboard
+;;;
+(bj:open-dashboard)
+
 ;;; rtrv.el ends here
