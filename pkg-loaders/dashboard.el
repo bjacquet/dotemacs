@@ -1,6 +1,21 @@
 ;;; ---------------------------------------------------------------------
 ;;; Dashboard
 ;;;
+(defun bj:random-dashboard-startup-banner ()
+  "Selects a random banner for dashboard."
+  (bj:random-elem
+   (append (list 'official 'logo 1 2 3)
+           (mapcar #'(lambda (file)
+                        (format "%scustom/%s" emacs-dir file))
+                    (list "lisplogo-alien.xpm"
+                          "rtrv-symbol.xpm"
+                          "lisplogo-flag.xpm"
+                          "glider.xpm"
+                          "splash.xpm")))))
+
+(defun bj:random-elem (list)
+  (nth (random (length list)) list))
+
 (use-package dashboard
   :ensure t
   :config
@@ -13,7 +28,8 @@
                           (bookmarks . 5)
                           (registers . 5)))
   (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t))
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-startup-banner (bj:random-dashboard-startup-banner)))
 
 (defun bj:open-dashboard ()
    "Open the *dashboard* buffer and jump to the first widget."
