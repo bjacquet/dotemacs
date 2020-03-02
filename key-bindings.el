@@ -6,6 +6,7 @@
 (global-set-key [f5]    'comment-region)
 (global-set-key [S-f5]  'uncomment-region)
 (global-set-key [f6]    'bj:open-dashboard)
+(global-set-key [S-f6]  'mu4e)
 (global-set-key [f8]    'find-file-at-point)
 (global-set-key [f9]    'last-closed-files)
 (global-set-key [S-f9]  'recentf-open-files)
