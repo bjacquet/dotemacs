@@ -24,7 +24,7 @@
   :ensure t
   :config
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
-  (js2r-add-keybindings-with-prefix "C-c C-m"))
+  (js2r-add-keybindings-with-prefix "C-c C-r"))
 
 (use-package company
   :ensure t)
@@ -39,6 +39,11 @@
   ;; Disable completion keybindings, as we use xref-js2 instead
   (define-key tern-mode-keymap (kbd "M-.") nil)
   (define-key tern-mode-keymap (kbd "M-,") nil))
+
+(use-package indium
+  :ensure t
+  :config
+  (add-hook 'js-mode-hook #'indium-interaction-mode))
 
 ;; (use-package rjsx-mode
 ;;   :ensure t
