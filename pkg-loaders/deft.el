@@ -3,9 +3,9 @@
 ;;;
 (use-package deft
   :ensure t
-  :bind ("<f6>" . deft)
   :commands (deft)
-  :config (setq deft-directory "~/Documents/Diary"
-                deft-extensions '("md" "org")
-                deft-use-filename-as-title t
-                deft-current-sort-method 'title))
+  :config
+  (setq deft-directory "~/Documents/Notes"
+        deft-extensions '("md" "org")
+        deft-use-filename-as-title t
+        deft-current-sort-method 'title))
