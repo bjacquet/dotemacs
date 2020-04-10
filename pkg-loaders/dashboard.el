@@ -7,11 +7,14 @@
    (append (list 'official 'logo 1 2 3)
            (mapcar #'(lambda (file)
                         (format "%scustom/%s" emacs-dir file))
-                    (list "lisplogo-alien.xpm"
-                          "rtrv-symbol.xpm"
-                          "lisplogo-flag.xpm"
-                          "glider.xpm"
-                          "splash.xpm")))))
+                   (list "glider.xpm"
+                         "lisplogo-alien.xpm"
+                         "lisplogo-flag.xpm"
+                         "rtrv-symbol.xpm"
+                         "ruby.xpm"
+                         "sourcerer.xpm"
+                         "splash.xpm"
+                         "t-rex.xpm")))))
 
 (defun bj:random-elem (list)
   (nth (random (length list)) list))
