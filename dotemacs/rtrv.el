@@ -99,6 +99,7 @@
 (bj:load-pkg-loader "projectile.el")
 (bj:load-pkg-loader "org-rtrv.el")
 (bj:load-pkg-loader "paredit.el")
+(bj:load-pkg-loader "rg.el")
 (bj:load-pkg-loader "ruby.el")
 (bj:load-pkg-loader "shrink-whitespace.el")
 (bj:load-pkg-loader "smart-mode-line.el")
