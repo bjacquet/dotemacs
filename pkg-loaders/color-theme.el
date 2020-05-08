@@ -4,6 +4,7 @@
 (use-package birds-of-paradise-plus-theme :ensure t)
 (use-package color-theme-modern           :ensure t)
 (use-package darktooth-theme              :ensure t)
+(use-package dracula-theme                :ensure t)
 (use-package naquadah-theme               :ensure t)
 (use-package tango-2-theme                :ensure t)
 (use-package tangotango-theme             :ensure t)

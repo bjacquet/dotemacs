@@ -153,6 +153,7 @@
     ;; My added themes:
     (birds-of-paradise-plus)
     (darktooth)
+    (dracula)
     (naquadah)
     (tango-2)
     (tangotango)

@@ -47,3 +47,6 @@
 (use-package rvm
   :ensure t
   :config (rvm-use-default))
+
+(use-package feature-mode
+  :ensure t)
