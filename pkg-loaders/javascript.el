@@ -28,17 +28,20 @@
 
 (use-package company
   :ensure t)
-(use-package company-tern
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-tern)
-  (add-hook 'js2-mode-hook (lambda ()
-                             (tern-mode)
-                             (company-mode)))
 
-  ;; Disable completion keybindings, as we use xref-js2 instead
-  (define-key tern-mode-keymap (kbd "M-.") nil)
-  (define-key tern-mode-keymap (kbd "M-,") nil))
+;; May 20, 2020: Company-tern has been removed from cyberspace.
+
+;; (use-package company-tern
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'company-tern)
+;;   (add-hook 'js2-mode-hook (lambda ()
+;;                              (tern-mode)
+;;                              (company-mode)))
+
+;;   ;; Disable completion keybindings, as we use xref-js2 instead
+;;   (define-key tern-mode-keymap (kbd "M-.") nil)
+;;   (define-key tern-mode-keymap (kbd "M-,") nil))
 
 (use-package indium
   :ensure t
