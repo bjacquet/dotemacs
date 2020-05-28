@@ -114,6 +114,11 @@
 (load "random-font")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
+(run-at-time "09:58" (* 60 60 24) 'bj:color-theme-random)
+(run-at-time "12:00" (* 60 60 24) 'bj:color-theme-random)
+(run-at-time "14:28" (* 60 60 24) 'bj:color-theme-random)
+(run-at-time "18:00" (* 60 60 24) 'bj:color-theme-random)
+
 
 ;;; ---------------------------------------------------------------------
 ;;; Enable disabled commands
