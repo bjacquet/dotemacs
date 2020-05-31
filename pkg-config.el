@@ -45,10 +45,8 @@
 
 (require 'package)
 (setq package-user-dir (expand-file-name *bj:packages-directory*))
-;; (add-to-list 'package-archives
-;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(setq package-archives
-             '(("melpa" . "http://melpa.milkbox.net/packages/")))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (package-initialize)
 

@@ -3,10 +3,15 @@
 #+STARTUP: showeverything
 #+TOC: true
 
-This is my personal config. My Emacs configuration used to span across multiple
-files, one per major mode. My goal on this literate programming attempt is to
-make the configuration more easier to search, and change; remove unecessary
-logic; cleanup unused packages; and speedup loading time.
+# inspiration:
+# - https://github.com/munen/emacs.d/blob/master/configuration.org
+# - https://github.com/jamiecollinson/dotfiles/blob/master/config.org/
+# - http://pages.sachachua.com/.emacs.d/Sacha.html
+
+My Emacs configuration used to span across multiple files, one per major
+mode. My goal on this literate programming attempt is to make the configuration
+more easier to search, and change; remove unecessary logic; cleanup unused
+packages; speedup loading time; and follow the steps of the great Donald Knuth.
 
 * Setup
 
@@ -16,7 +21,30 @@ logic; cleanup unused packages; and speedup loading time.
 
 List all packages to install regardless of the system we are at. Additional package configuration is defined further down in this file.
 
-# inspiration:
-# - https://github.com/munen/emacs.d/blob/master/configuration.org
-# - https://github.com/jamiecollinson/dotfiles/blob/master/config.org/
-# - http://pages.sachachua.com/.emacs.d/Sacha.html
+* System information
+
+Configurations change depending on which system I am at.
+
+* Default Settings
+
+Configurations for built-in Emacs features.
+
+* General configuration
+
+Package configuration common to all systems.
+
+* Programming
+
+Configuration specific to programming.
+
+* Appearance
+
+Look ~and feel~ configurations.
+
+* Email
+
+I'm trying to use Emacs as email client. The configuration is far from complete as I yet can't send emails.
+
+* Runtime Revolution
+
+Configurations specific to the workplace.
