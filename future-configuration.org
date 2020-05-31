@@ -1,0 +1,146 @@
+#+TITLE: Bruno Jacquet's Emacs configuration
+#+AUTHOR: Bruno Jacquet
+#+STARTUP: showeverything
+#+TOC: true
+
+# inspiration:
+# - https://github.com/munen/emacs.d/blob/master/configuration.org
+# - https://github.com/jamiecollinson/dotfiles/blob/master/config.org/
+# - http://pages.sachachua.com/.emacs.d/Sacha.html
+
+My Emacs configuration used to span across multiple files, one per major
+mode. My goal on this literate programming attempt is to make the configuration
+more easier to search, and change; remove unecessary logic; cleanup unused
+packages; speedup loading time; and follow the steps of the great Donald Knuth.
+
+* Setup
+
+** Package sources
+
+The repositories from which we'll download packages and where packages are stored.
+
+#+BEGIN_SRC emacs-lisp
+(setq package-user-dir (expand-file-name "~/.emacs.d/future-packages/")
+      package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("org" . "http://orgmode.org/elpa/")))
+#+END_SRC
+
+If ~use-package~ isn't installed, install it.
+
+#+BEGIN_SRC emacs-lisp
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(setq use-package-verbose t
+      use-package-always-ensure t)
+#+END_SRC
+
+Some packages don't come through `use-pacakge`.
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-packages/"))
+#+END_SRC
+
+** Packages to be installed
+
+List all packages to install regardless of the system we are at. Additional package configuration is defined further down in this file.
+
+#+BEGIN_SRC emacs-lisp
+(defvar my-packages '(ag
+                      all-the-icons
+                      all-the-icons-dired
+                      auto-complete
+                      birds-of-paradise-plus-theme
+                      bm
+                      color-theme-modern
+                      darkroom
+                      darktooth-theme
+                      dashboard
+                      deft
+                      detour
+                      expand-region
+                      flychek
+                      flyspell-popup
+                      golden-ratio
+                      goto-last-change
+                      handlebars-mode
+                      handlebars-sgml-mode
+                      haskell-mode
+                      htmlize
+                      ido-vertical-mode
+                      js-react-redux-yasnippets
+                      json-mode
+                      jsx-mode
+                      markdown-mode
+                      multiple-cursors
+                      naquadah-theme
+                      org-pomodoro
+                      pager
+                      panda-theme
+                      paredit
+                      ranger
+                      react-snippets
+                      rinari
+                      robe
+                      rust-mode
+                      shrink-whitespace
+                      slim-mode
+                      smart-mode-line
+                      sr-speedbar
+                      tango-2-theme
+                      tangotango-theme
+                      treemacs-icons-dired
+                      treemacs-magit
+                      treemacs-projectile
+                      undo-tree
+                      winpoint
+                      wn-mode
+                      yasnippet
+                      yasnippet-snippets
+))
+#+END_SRC
+
+* System information
+
+Configurations change depending on which system I am at.
+
+* Default Settings
+
+Configurations for built-in Emacs features.
+
+* General configuration
+
+Package configuration common to all systems.
+
+** Auto-complete
+
+** BM (visual bookmarks)
+
+** Darkroom
+
+** Deft
+
+** Detour
+
+** Expand Region
+
+** Flyspell
+
+
+
+* Programming
+
+Configuration specific to programming.
+
+* Appearance
+
+Look ~and feel~ configurations.
+
+* Email
+
+I'm trying to use Emacs as email client. The configuration is far from complete as I yet can't send emails.
+
+* Runtime Revolution
+
+Configurations specific to the workplace.
