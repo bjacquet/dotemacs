@@ -79,7 +79,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       jsx-mode
                       markdown-mode
                       multiple-cursors
-                      naquadah-theme
                       org-pomodoro
                       pager
                       panda-theme

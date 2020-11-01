@@ -154,7 +154,6 @@
     (birds-of-paradise-plus)
     (darktooth)
     (dracula)
-    (naquadah)
     ))
 
 (defun bj:give-other-themes-a-chance ()
@@ -170,11 +169,11 @@
       (setq weight (nth 1 theme))
       (unless weight (setq weight 1)) ;; Default 1
       (if (>= (random (+ weight weight-so-far)) weight-so-far)
-	  (setq bj:current-color-theme (car theme)))
+          (setq bj:current-color-theme (car theme)))
       (setq weight-so-far (+ weight-so-far weight)))
     (when bj:current-color-theme
       (when (eq bj:current-color-theme 'solarized)
-	(set-frame-parameter nil 'background-mode 'dark))
+        (set-frame-parameter nil 'background-mode 'dark))
       (load-theme bj:current-color-theme t t)
       (enable-theme bj:current-color-theme))
     (message (format "Random color theme: %s" (symbol-name bj:current-color-theme)))))
