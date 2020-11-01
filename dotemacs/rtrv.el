@@ -19,19 +19,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auto-save-default nil)
- '(blink-cursor-blinks 0)
  '(case-fold-search t)
- '(current-language-environment "UTF-8")
  '(custom-safe-themes
-   (quote
-    ("ff8c6c2eb94e776c9eed9299a49e07e70e1b6a6f926dec429b99cf5d1ddca62a" "a11043406c7c4233bfd66498e83600f4109c83420714a2bd0cd131f81cbbacea" "780c67d3b58b524aa485a146ad9e837051918b722fd32fd1b7e50ec36d413e70" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
- '(debug-on-error t)
- '(default-input-method "portuguese-prefix")
+   '("ff8c6c2eb94e776c9eed9299a49e07e70e1b6a6f926dec429b99cf5d1ddca62a" "a11043406c7c4233bfd66498e83600f4109c83420714a2bd0cd131f81cbbacea" "780c67d3b58b524aa485a146ad9e837051918b722fd32fd1b7e50ec36d413e70" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
  '(dired-dnd-protocol-alist nil)
- '(ediff-split-window-function (quote split-window-horizontally))
- '(ediff-window-setup-function (quote ediff-setup-windows-plain))
- '(fill-column 80)
+ '(ediff-split-window-function 'split-window-horizontally)
+ '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(global-font-lock-mode t nil (font-lock))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
@@ -39,41 +32,26 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(isearch-allow-scroll t)
- '(line-number-mode t)
- '(make-backup-files nil)
  '(next-line-add-newlines nil)
  '(next-line-extends-end-of-buffer nil)
  '(org-hide-leading-stars t)
  '(package-selected-packages
-   (quote
-    (all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme auto-complete arbitools)))
+   '(all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint undo-tree smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme auto-complete arbitools))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
- '(require-final-newline t)
  '(scroll-step 1)
  '(setq kmacro-call-mouse-event)
  '(show-paren-mode t)
  '(smartparens-global-mode t)
- '(tab-always-indent (quote complete))
- '(tool-bar-mode nil)
+ '(tab-always-indent 'complete)
  '(transient-mark-mode t)
- '(uniquify-buffer-name-style (quote forward) nil (uniquify))
- '(user-full-name "Bruno Jacquet")
- '(user-mail-address "b.jacquet@runtime-revolution.com")
- '(visible-bell t))
+ '(uniquify-buffer-name-style 'forward nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-
-;; Slime messes up my frame title.
-(setq frame-title-format
-      '((:eval (if (buffer-file-name)
-		   (abbreviate-file-name (buffer-file-name))
-		 "%b"))))
 
 
 ;;; ---------------------------------------------------------------------
@@ -119,12 +97,6 @@
 (run-at-time "14:25" (* 60 60 24) 'bj:color-theme-random)
 (run-at-time "16:10" (* 60 60 24) 'bj:color-theme-random)
 (run-at-time "17:30" (* 60 60 24) 'bj:color-theme-random)
-
-
-;;; ---------------------------------------------------------------------
-;;; Enable disabled commands
-;;;
-(put 'narrow-to-page 'disabled nil)
 
 
 ;;; ---------------------------------------------------------------------

@@ -5,13 +5,14 @@
 (let ((fonts (list "Lucida Console-13"))
       font)
   (if mac-p
-      (setq fonts (list "DejaVu Sans Mono-14"
-                        "iA Writer Mono S-15"
+      (setq fonts (list "iA Writer Mono S-15"
                         "Menlo-14"
                         "Monaco-14"
-                        "NovaMono-14"
-                        "Share Tech Mono-15"
-                        "Ubuntu Mono-16"))
+                        "NovaMono-15"
+                        "Anonymous Pro-16"
+                        "CozetteVector-15"
+                        "Victor Mono-15:light"
+                        ))
     (setq fonts (list "NovaMono-12"
                       "Share Tech Mono-12"
                       "Ubuntu Mono-12")))

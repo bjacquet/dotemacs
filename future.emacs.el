@@ -13,4 +13,7 @@
 
 (load-config)
 
+
+(load-file (expand-file-name "~/.emacs.d/dotemacs/rtrv.el"))
+
 ;;; init.el ends here

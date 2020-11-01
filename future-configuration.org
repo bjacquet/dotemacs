@@ -20,10 +20,11 @@ packages; speedup loading time; and follow the steps of the great Donald Knuth.
 The repositories from which we'll download packages and where packages are stored.
 
 #+BEGIN_SRC emacs-lisp
+(require 'package)
 (setq package-user-dir (expand-file-name "~/.emacs.d/future-packages/")
       package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("org" . "http://orgmode.org/elpa/")))
+                         ("melpa" . "http://melpa.org/packages/")))
+(package-initialize)
 #+END_SRC
 
 If ~use-package~ isn't installed, install it.
@@ -32,8 +33,12 @@ If ~use-package~ isn't installed, install it.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
 (setq use-package-verbose t
       use-package-always-ensure t)
+
+(eval-when-compile
+  (require 'use-package))
 #+END_SRC
 
 Some packages don't come through `use-pacakge`.
@@ -88,8 +93,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       slim-mode
                       smart-mode-line
                       sr-speedbar
-                      tango-2-theme
-                      tangotango-theme
                       treemacs-icons-dired
                       treemacs-magit
                       treemacs-projectile
@@ -105,9 +108,157 @@ List all packages to install regardless of the system we are at. Additional pack
 
 Configurations change depending on which system I am at.
 
+#+begin_src emacs-lisp
+(defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
+(defvar icapital (and mac-p (string-match (system-name) "sagittarius.local")))
+#+end_src
+
+Change macOS modifier keys — to avoid muscle memory loss.
+
+#+begin_src emacs-lisp
+(when mac-p
+  (setq mac-option-key-is-meta  nil)
+  (setq mac-command-key-is-meta t)
+  (setq mac-command-modifier    'meta)
+  (setq mac-option-modifier     nil))
+#+end_src
+
 * Default Settings
 
 Configurations for built-in Emacs features.
+
+** Do not auto save files
+
+#+begin_src emacs-lisp
+(setq auto-save-default nil)
+#+end_src
+
+** Blink cursor forever
+
+#+begin_src emacs-lisp
+(setq blink-cursor-blinks 0)
+#+end_src
+
+** Use UTF as coding system
+
+#+begin_src emacs-lisp
+(setq current-language-environment "UTF-8")
+#+end_src
+
+** Pop-up backtrace buffer on error
+
+#+begin_src emacs-lisp
+(setq debug-on-error t)
+#+end_src
+
+
+** Set input method
+
+#+begin_src emacs-lisp
+(setq default-input-method "portuguese-prefix")
+#+end_src
+
+*** Wrap columns on 80 characters
+
+#+begin_src emacs-lisp
+(setq fill-column 80)
+#+end_src
+
+
+** Show line number in modeline
+
+#+begin_src emacs-lisp
+(setq line-number-mode t)
+#+end_src
+
+*** Do not make backup files
+
+#+begin_src emacs-lisp
+(setq make-backup-files nil)
+#+end_src
+
+** End files with new line
+
+#+begin_src emacs-lisp
+(setq require-final-newline t)
+#+end_src
+
+** Replace audible bell with visible bell
+
+#+begin_src emacs-lisp
+(setq ring-bell-function 'ignore)
+(setq visible-bell t)
+#+end_src
+
+** Do not show the tool bar
+
+#+begin_src emacs-lisp
+(tool-bar-mode -1)
+#+end_src
+
+** User information
+
+#+begin_src emacs-lisp
+(setq user-full-name "Bruno Jacquet")
+(setq user-mail-address (or (and icapital
+                                 (rot13-string "o.wnpdhrg@ehagvzr-eribyhgvba.pbz"))
+                            (rot13-string "oehawnpg@cebgbaznvy.pbz")))
+#+end_src
+
+** Frame title
+
+Set the frame tile to filename and path or buffer name.
+
+#+begin_src emacs-lisp
+(setq frame-title-format '((:eval (if (buffer-file-name)
+                                      (abbreviate-file-name (buffer-file-name))
+                                      "%b"))))
+#+end_src
+
+** Ask y/n instead of yes/no
+
+This is a favorable shorthand.
+
+#+begin_src emacs-lisp
+(fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+** Enable Narrow To Region
+
+Enable narrow-to-region (~C-x n n~ / ~C-x n w~).
+
+#+begin_src emacs-lisp
+(put 'narrow-to-region 'disabled nil)
+#+end_src
+
+** Enable Upcase Region
+
+Enable upcase-region (~C-x C-u~).
+
+#+begin_src emacs-lisp
+(put 'upcase-region 'disabled nil)
+#+end_src
+
+** Enable Downcase Region
+
+Enable downcase-region (~C-x C-l~)
+#+begin_src emacs-lisp
+(put 'downcase-region 'disabled nil)
+#+end_src
+
+** ~dired-mode~
+
+Ability to use ~a~ to visit a new directory or file in dired instead of using ~RET~. ~RET~ works just fine, but it will create a new buffer for every interaction whereas ~a~ reuses the current buffer.
+
+#+begin_src emacs-lisp
+(put 'dired-find-alternate-file 'disabled nil)
+#+end_src
+
+Human readable units
+
+#+begin_src emacs-lisp
+(setq-default dired-listing-switches "-alh")
+#+end_src
 
 * General configuration
 

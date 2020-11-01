@@ -155,8 +155,6 @@
     (darktooth)
     (dracula)
     (naquadah)
-    (tango-2)
-    (tangotango)
     ))
 
 (defun bj:give-other-themes-a-chance ()
