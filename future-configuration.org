@@ -230,6 +230,14 @@ Enable narrow-to-region (~C-x n n~ / ~C-x n w~).
 (put 'narrow-to-region 'disabled nil)
 #+end_src
 
+** Enable Narrow To Page
+
+Enable narrow-to-page (~C-x n p~).
+
+#+begin_src emacs-lisp
+(put 'narrow-to-page 'disabled nil)
+#+end_src
+
 ** Enable Upcase Region
 
 Enable upcase-region (~C-x C-u~).
