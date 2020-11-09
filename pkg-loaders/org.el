@@ -24,4 +24,7 @@
   :config
   (magit-org-todos-autoinsert))
 
+(use-package org-pomodoro
+  :ensure t)
+
 (bj:load-pkg-loader "./org-agenda-files.el")
