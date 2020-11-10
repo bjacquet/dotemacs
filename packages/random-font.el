@@ -13,7 +13,7 @@
                           "Monaco-14"
                           "NovaMono-15"
                           "Anonymous Pro-16"
-                          "CozetteVector-17"
+                          "CozetteVector-19"
                           "Victor Mono-15"
                           ))
       (setq fonts (list "NovaMono-12"
