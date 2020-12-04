@@ -65,7 +65,7 @@ List all packages to install regardless of the system we are at. Additional pack
                       deft
                       detour
                       expand-region
-                      flychek
+                      flycheck
                       flyspell-popup
                       golden-ratio
                       goto-last-change
@@ -76,7 +76,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       ido-vertical-mode
                       js-react-redux-yasnippets
                       json-mode
-                      jsx-mode
                       markdown-mode
                       multiple-cursors
                       org-pomodoro
@@ -86,6 +85,7 @@ List all packages to install regardless of the system we are at. Additional pack
                       ranger
                       react-snippets
                       rinari
+                      rjsx-mode
                       robe
                       rust-mode
                       shrink-whitespace
@@ -99,8 +99,17 @@ List all packages to install regardless of the system we are at. Additional pack
                       winpoint
                       wn-mode
                       yasnippet
-                      yasnippet-snippets
-))
+                      yasnippet-snippets))
+#+END_SRC
+
+** Install packages
+
+#+BEGIN_SRC emacs-lisp
+(dolist (p my-packages)
+  (unless (package-installed-p p)
+    (package-refresh-contents)
+    (package-install p))
+  (add-to-list 'package-selected-packages p))
 #+END_SRC
 
 * System information
@@ -248,7 +257,8 @@ Enable upcase-region (~C-x C-u~).
 
 ** Enable Downcase Region
 
-Enable downcase-region (~C-x C-l~)
+Enable downcase-region (~C-x C-l~).
+
 #+begin_src emacs-lisp
 (put 'downcase-region 'disabled nil)
 #+end_src
@@ -285,7 +295,20 @@ Package configuration common to all systems.
 
 ** Flyspell
 
+** Undo Tree
 
+Show undo history in a tree structure (~C-x u~).
+
+Don't display the lighter in mode line.
+#+BEGIN_SRC emacs-lisp
+(setq undo-tree-mode-lighter nil)
+#+END_SRC
+
+Enable Undo Tree globally.
+
+#+BEGIN_SRC emacs-lisp
+(global-undo-tree-mode)
+#+END_SRC
 
 * Programming
 
@@ -294,6 +317,30 @@ Configuration specific to programming.
 * Appearance
 
 Look ~and feel~ configurations.
+
+** Pulse
+
+~pulse.el~ is an internal library which provides functions to flash a region of text.
+
+Flash the current line…
+
+#+BEGIN_SRC emacs-lisp
+(defun pulse-line (&rest _)
+      "Pulse the current line."
+      (pulse-momentary-highlight-one-line (point)))
+#+END_SRC
+
+after any of thsese commands is executed.
+
+#+BEGIN_SRC emacs-lisp
+(dolist (command '(scroll-up-command
+                   scroll-down-command
+                   recenter-top-bottom
+                   other-window))
+  (advice-add command :after #'pulse-line))
+#+END_SRC
+
+Reference: https://karthinks.com/software/batteries-included-with-emacs/
 
 * Email
 

@@ -83,7 +83,6 @@
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "spellings.el")
 (bj:load-pkg-loader "treemacs.el")
-(bj:load-pkg-loader "undo-tree.el")
 (bj:load-pkg-loader "whitespace.el")
 (bj:load-pkg-loader "wn.el")
 (bj:load-pkg-loader "yaml.el")
