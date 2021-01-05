@@ -91,16 +91,6 @@
 (load "random-font")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
-(load-theme 'emacs-21 t t)
-(run-at-time "10:00" (* 60 60 24) 'bj:color-theme-random)
-(run-at-time "11:50" (* 60 60 24) 'enable-theme 'emacs-21)
-(run-at-time "13:00" (* 60 60 24) 'bj:color-theme-random)
-(run-at-time "14:25" (* 60 60 24) 'enable-theme 'emacs-21)
-(run-at-time "14:40" (* 60 60 24) 'bj:color-theme-random)
-(run-at-time "16:10" (* 60 60 24) 'bj:color-theme-random)
-(run-at-time "17:30" (* 60 60 24) 'enable-theme 'emacs-21)
-(run-at-time "18:20" (* 60 60 24) 'bj:color-theme-random)
-
 
 ;;; ---------------------------------------------------------------------
 ;;; Open Dashboard
