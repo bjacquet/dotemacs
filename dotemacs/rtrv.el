@@ -88,7 +88,6 @@
 (bj:load-pkg-loader "yaml.el")
 (bj:load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
-(load "random-font")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
 

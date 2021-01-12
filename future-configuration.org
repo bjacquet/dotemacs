@@ -118,7 +118,7 @@ Configurations change depending on which system I am at.
 
 #+begin_src emacs-lisp
 (defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
-(defvar icapital (and mac-p (string-match (system-name) "sagittarius.local")))
+(defvar icapital (and mac-p (zerop (string-match (system-name) "ICN-5A92-BUET"))))
 #+end_src
 
 Change macOS modifier keys — to avoid muscle memory loss.
@@ -317,6 +317,42 @@ Configuration specific to programming.
 * Appearance
 
 Look ~and feel~ configurations.
+
+** Fonts
+
+I feel that using a different font every day prevents boredom.
+
+#+BEGIN_SRC emacs-lisp
+(defun bj:font-random ()
+  "Changes the current session font with a random one."
+  (interactive)
+
+  (let ((fonts (list "Lucida Console-13"))
+        font)
+    (if mac-p
+        (setq fonts (list "Anonymous Pro-16"
+                          "Comic Mono-14"
+                          "CozetteVector-19"
+                          "Menlo-14"
+                          "Monaco-14"
+                          "NovaMono-15"
+                          "Victor Mono-15"
+                          "iA Writer Mono S-15"
+                          ))
+      (setq fonts (list "NovaMono-12"
+                        "Share Tech Mono-12"
+                        "Ubuntu Mono-12")))
+    (setq font (nth (random (length fonts)) fonts))
+    (set-frame-font font)
+    (message (format "Random font: %s" font))))
+#+END_SRC
+
+Chose a random font at the start of the session.
+
+#+BEGIN_SRC emacs-lisp
+(bj:font-random)
+#+END_SRC
+
 
 ** Pulse
 
