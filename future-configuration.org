@@ -64,6 +64,7 @@ List all packages to install regardless of the system we are at. Additional pack
                       dashboard
                       deft
                       detour
+                      dracula-theme
                       expand-region
                       flycheck
                       flyspell-popup
@@ -353,6 +354,88 @@ Chose a random font at the start of the session.
 (bj:font-random)
 #+END_SRC
 
+** Color Theme
+
+I feel that using a different theme every day prevents boredom.
+
+Most of this functionality was taken from Chaoji Li's package ~color-theme-random.el~.
+
+*** Third party themes
+
+Themes I like to use that aren't part of Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package birds-of-paradise-plus-theme :ensure t)
+(use-package color-theme-modern           :ensure t)
+(use-package darktooth-theme              :ensure t)
+(use-package dracula-theme                :ensure t)
+(use-package panda-theme                  :ensure t)
+#+END_SRC
+
+*** Favourite themes
+
+All themes I like to use.
+
+#+BEGIN_SRC emacs-lisp
+(defvar bj:favourite-color-themes
+  '((billw)
+    (charcoal-black)
+    (clarity)
+    (dark-laptop)
+    (desert)
+    (goldenrod)
+    (gray30)
+    (hober)
+    (jsc-dark)
+    (railscast)
+    (simple-1)
+    (subdued)
+    ;; My added themes:
+    (birds-of-paradise-plus)
+    (darktooth)
+    (dracula)
+    (panda)))
+#+END_SRC
+
+*** Current color theme
+
+~M-x bj:current-color-theme~ tells me what is the color theme in session.
+
+#+BEGIN_SRC emacs-lisp
+(defvar bj:current-color-theme nil)
+
+(defun bj:current-color-theme ()
+  (interactive)
+  (message (format "Current theme is: %s"
+                   (symbol-name bj:current-color-theme))))
+#+END_SRC
+
+*** Change color theme at random
+
+~M-x bj:color-theme-random~ chooses a color theme at random from ~bj:favourite-color-themes~.
+
+#+BEGIN_SRC emacs-lisp
+(defun bj:color-theme-random ()
+  "Chooses a color theme at random from bj:favourite-color-themes."
+  (interactive)
+  (disable-theme bj:current-color-theme)
+  (let ((weight-so-far 0) weight)
+    (dolist (theme bj:favourite-color-themes)
+      (setq weight (nth 1 theme))
+      (unless weight (setq weight 1))
+      (if (>= (random (+ weight weight-so-far)) weight-so-far)
+          (setq bj:current-color-theme (car theme)))
+      (setq weight-so-far (+ weight-so-far weight)))
+    (when bj:current-color-theme
+      (load-theme bj:current-color-theme t t)
+      (enable-theme bj:current-color-theme))
+    (message (format "Random color theme: %s" (symbol-name bj:current-color-theme)))))
+#+END_SRC
+
+*** Chose a random theme at startup.
+#+BEGIN_SRC emacs-lisp
+(bj:color-theme-random)
+#+END_SRC
 
 ** Pulse
 

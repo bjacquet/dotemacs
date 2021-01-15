@@ -62,7 +62,6 @@
 (bj:load-pkg-loader "auto-complete.el")
 (bj:load-pkg-loader "avy.el")
 (bj:load-pkg-loader "bm.el")
-(bj:load-pkg-loader "color-theme.el")
 (bj:load-pkg-loader "dashboard.el")
 (bj:load-pkg-loader "deft.el")
 (bj:load-pkg-loader "email.el")

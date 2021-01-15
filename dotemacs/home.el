@@ -69,7 +69,6 @@
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
 (bj:load-pkg-loader "auto-complete.el")
 (bj:load-pkg-loader "avy.el")
-(bj:load-pkg-loader "color-theme.el")
 (bj:load-pkg-loader "expand-region.el")
 (bj:load-pkg-loader "ido-vertical.el")
 (bj:load-pkg-loader "magit.el")
