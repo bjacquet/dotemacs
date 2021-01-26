@@ -4,6 +4,8 @@
 
 (bj:load-pkg-loader "org.el")
 
+(require 'org-tempo)
+
 (setq org-todo-keywords
       '((sequence "TODO(t)" "|" "DONE(d)")
         (sequence "WIP(w)" "HOLD(h)" "BLOCKED(b)"  "IN-REVIEW(r)" "QA(q)" "RTD" "preRTD" "|" "FIXED(f)" "SEP(s)")

@@ -31,9 +31,6 @@
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#452E2E")
  '(global-font-lock-mode t nil (font-lock))
- '(ido-enable-flex-matching t)
- '(ido-everywhere t)
- '(ido-mode t nil (ido))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(isearch-allow-scroll t)
@@ -42,7 +39,7 @@
  '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
-    (auto-compile all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode ido-vertical-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme auto-complete arbitools)))
+    (auto-compile all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio org-pomodoro htmlize flychek jsx-mode darkroom flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme auto-complete arbitools)))
  '(pdf-view-midnight-colors (quote ("#FDF4C1" . "#282828")))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
@@ -70,7 +67,6 @@
 (bj:load-pkg-loader "auto-complete.el")
 (bj:load-pkg-loader "avy.el")
 (bj:load-pkg-loader "expand-region.el")
-(bj:load-pkg-loader "ido-vertical.el")
 (bj:load-pkg-loader "magit.el")
 (bj:load-pkg-loader "multiple-cursors.el")
 (bj:load-pkg-loader "pager.el")

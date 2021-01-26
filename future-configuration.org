@@ -74,9 +74,9 @@ List all packages to install regardless of the system we are at. Additional pack
                       handlebars-sgml-mode
                       haskell-mode
                       htmlize
-                      ido-vertical-mode
                       js-react-redux-yasnippets
                       json-mode
+                      marginalia
                       markdown-mode
                       multiple-cursors
                       org-pomodoro
@@ -89,6 +89,8 @@ List all packages to install regardless of the system we are at. Additional pack
                       rjsx-mode
                       robe
                       rust-mode
+                      selectrum
+                      selectrum-prescient
                       shrink-whitespace
                       slim-mode
                       smart-mode-line
@@ -285,6 +287,42 @@ Package configuration common to all systems.
 ** Auto-complete
 
 ** BM (visual bookmarks)
+
+** Candidate Selection
+
+I used to use IDO, and Ivy before that, and Emacs before that! Now, I'm trying out Selectrum.
+
+*** Selectrum
+
+Selectrum proposes to be a better solution for incremental narrowing in Emacs, replacing Helm, Ivy, and IDO.
+
+#+begin_src emacs-lisp
+(use-package selectrum
+  :ensure t
+  :config (selectrum-mode 1))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package selectrum-prescient
+  :ensure t
+  :config
+  (progn
+    (selectrum-prescient-mode 1)
+    (prescient-persist-mode 1)))
+#+end_src
+
+*** Marginalia
+
+Marginalia enriches the candidates list, in the minibuffer, with key binding and documentation information. Marginalia calls it /annotations/.
+
+#+begin_src emacs-lisp
+(use-package marginalia
+  :ensure t
+  :config
+  (progn
+    (marginalia-mode)
+    (marginalia-cycle)))
+#+end_src
 
 ** Darkroom
 
