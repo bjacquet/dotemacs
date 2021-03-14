@@ -55,7 +55,6 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
-(bj:load-pkg-loader "all-the-icons.el")
 (bj:load-pkg-loader "auto-complete.el")
 (bj:load-pkg-loader "avy.el")
 (bj:load-pkg-loader "bm.el")

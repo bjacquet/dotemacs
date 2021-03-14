@@ -115,6 +115,7 @@ List all packages to install regardless of the system we are at. Additional pack
   (add-to-list 'package-selected-packages p))
 #+END_SRC
 
+
 * System information
 
 Configurations change depending on which system I am at.
@@ -133,6 +134,7 @@ Change macOS modifier keys — to avoid muscle memory loss.
   (setq mac-command-modifier    'meta)
   (setq mac-option-modifier     nil))
 #+end_src
+
 
 * Default Settings
 
@@ -280,6 +282,7 @@ Human readable units
 (setq-default dired-listing-switches "-alh")
 #+end_src
 
+
 * General configuration
 
 Package configuration common to all systems.
@@ -324,6 +327,7 @@ Marginalia enriches the candidates list, in the minibuffer, with key binding and
     (marginalia-cycle)))
 #+end_src
 
+
 ** Darkroom
 
 ** Deft
@@ -349,9 +353,11 @@ Enable Undo Tree globally.
 (global-undo-tree-mode)
 #+END_SRC
 
+
 * Programming
 
 Configuration specific to programming.
+
 
 * Appearance
 
@@ -471,6 +477,7 @@ All themes I like to use.
 #+END_SRC
 
 *** Chose a random theme at startup.
+
 #+BEGIN_SRC emacs-lisp
 (bj:color-theme-random)
 #+END_SRC
@@ -499,9 +506,37 @@ after any of thsese commands is executed.
 
 Reference: https://karthinks.com/software/batteries-included-with-emacs/
 
+** Icons
+
+*** All the icons
+
+This is an utility package to collect various Icon Fonts and propertize them within Emacs. It's mostly a dependency from *Treemacs* and *NeoTree* to have a more fancy appearance.
+
+#+begin_src emacs-lisp
+(use-package all-the-icons  :ensure t)
+#+end_src
+
+This won't work out of the box. One needs to install fonts.
+
+#+begin_src emacs-lisp
+M-x all-the-icons-install-fonts
+#+end_src
+
+**** All the icons dired
+
+*Dired* support to *All-the-icons*.
+
+#+begin_src emacs-lisp
+(use-package all-the-icons-dired
+  :ensure t
+  :config
+  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+#+end_src
+
 * Email
 
 I'm trying to use Emacs as email client. The configuration is far from complete as I yet can't send emails.
+
 
 * Runtime Revolution
 
