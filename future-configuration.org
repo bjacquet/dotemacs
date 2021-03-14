@@ -79,6 +79,7 @@ List all packages to install regardless of the system we are at. Additional pack
                       marginalia
                       markdown-mode
                       multiple-cursors
+                      neotree
                       org-pomodoro
                       pager
                       panda-theme
@@ -337,6 +338,48 @@ Marginalia enriches the candidates list, in the minibuffer, with key binding and
 ** Expand Region
 
 ** Flyspell
+
+** NeoTree
+
+I mostly use Treemacs but sometimes I want to access a tree-like structure without having to define a new project.
+
+#+begin_src emacs-lisp
+(use-package neotree :ensure t)
+#+end_src
+
+*** Show or hide keybiding
+
+Show or hide NeoTree (~C-c n~).
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-c n") 'neotree-toggle)
+#+end_src
+
+*** Theme
+
+Display fancy icons. Requires the ~all-the-icons~ package.
+
+#+begin_src emacs-lisp
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+#+end_src
+
+*** Default keybindings
+
+Only in Neotree Buffer:
+
+- ~n~ next line, ~p~ previous line。
+- ~SPC~ or ~RET~ or ~TAB~ Open current item if it is a file. Fold/Unfold current item if it is a directory.
+- ~U~ Go up a directory
+- ~g~ Refresh
+- ~A~ Maximize/Minimize the NeoTree Window
+- ~H~ Toggle display hidden files
+- ~O~ Recursively open a directory
+- ~C-c C-n~ Create a file or create a directory if filename ends with a ~/~
+- ~C-c C-d~ Delete a file or a directory.
+- ~C-c C-r~ Rename a file or a directory.
+- ~C-c C-c~ Change the root directory.
+- ~C-c C-p~ Copy a file or a directory.
+
 
 ** Undo Tree
 
