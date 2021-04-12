@@ -5,6 +5,7 @@ packages/*
 request/
 server/
 url/
+var/
 
 .mc-lists.el
 ac-comphist.dat
