@@ -43,7 +43,7 @@
   (and buffer-file-name
        (message buffer-file-name)
        (or (delete buffer-file-name closed-files)
-	   t)
+           t)
        (add-to-list 'closed-files buffer-file-name)))
 
 (defun last-closed-files ()

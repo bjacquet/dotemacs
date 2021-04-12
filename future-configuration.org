@@ -74,6 +74,7 @@ List all packages to install regardless of the system we are at. Additional pack
                       handlebars-sgml-mode
                       haskell-mode
                       htmlize
+                      ido-vertical-mode
                       js-react-redux-yasnippets
                       json-mode
                       marginalia
@@ -295,7 +296,39 @@ Package configuration common to all systems.
 
 ** Candidate Selection
 
-I used to use IDO, and Ivy before that, and Emacs before that! Now, I'm trying out Selectrum.
+I used to use Ido, and Ivy before that, and Emacs before that! Tried out Selectrum for a couple of months and realized how much I missed Ido's recursive directory search.
+
+/Now/ I believe this configuration is how I can get Ido to work with ~C-x C-f~ and Selectrum with ~M-x~.
+
+*** Ido
+
+[Ido](https://www.gnu.org/software/emacs/manual/html_node/ido/index.html) is a package for interactive selection that is included in Emacs by default. It's the best package for file finding recursively across sub-directories.
+
+#+begin_src emacs-lisp
+(setq ido-enable-flex-matching nil)
+(ido-mode 1)
+#+end_src
+
+*** Ido Vertical
+
+[ido-vertical-mode](https://github.com/creichert/ido-vertical-mode.el) makes Ido display candidates vertically instead of horizontally.
+
+#+begin_src emacs-lisp
+(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  (setq ido-use-faces t)
+  (set-face-attribute 'ido-vertical-first-match-face nil
+                      :background nil
+                      :foreground "orange")
+  (set-face-attribute 'ido-vertical-only-match-face nil
+                      :background nil
+                      :foreground nil)
+  (set-face-attribute 'ido-vertical-match-face nil
+                      :foreground nil)
+  (ido-vertical-mode 1))
+#+end_src
 
 *** Selectrum
 
@@ -313,7 +346,9 @@ Selectrum proposes to be a better solution for incremental narrowing in Emacs, r
   :config
   (progn
     (selectrum-prescient-mode 1)
-    (prescient-persist-mode 1)))
+    (prescient-persist-mode 1)
+    (setq prescient-filter-method '(fuzzy))
+    (setq prescient-sort-full-matches-first t)))
 #+end_src
 
 *** Marginalia
