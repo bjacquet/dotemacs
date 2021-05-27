@@ -65,6 +65,7 @@ List all packages to install regardless of the system we are at. Additional pack
                       deft
                       detour
                       dracula-theme
+		      elixir-mode
                       expand-region
                       flycheck
                       flyspell-popup
@@ -167,7 +168,6 @@ Configurations for built-in Emacs features.
 (setq debug-on-error t)
 #+end_src
 
-
 ** Set input method
 
 #+begin_src emacs-lisp
@@ -179,7 +179,6 @@ Configurations for built-in Emacs features.
 #+begin_src emacs-lisp
 (setq fill-column 80)
 #+end_src
-
 
 ** Show line number in modeline
 
@@ -305,7 +304,7 @@ I used to use Ido, and Ivy before that, and Emacs before that! Tried out Selectr
 [Ido](https://www.gnu.org/software/emacs/manual/html_node/ido/index.html) is a package for interactive selection that is included in Emacs by default. It's the best package for file finding recursively across sub-directories.
 
 #+begin_src emacs-lisp
-(setq ido-enable-flex-matching nil)
+(setq ido-enable-flex-matching t)
 (ido-mode 1)
 #+end_src
 
@@ -437,6 +436,41 @@ Enable Undo Tree globally.
 
 Configuration specific to programming.
 
+** Elixir
+
+*** Flycheck-Credo
+
+[Flycheck-credo](https://github.com/aaronjensen/flycheck-credo)  adds support for [credo](https://github.com/rrrene/credo) to flycheck.
+
+Credo is a static code analysis tool for the Elixir language.
+
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck-credo
+  :requires flycheck
+  :config
+  (flycheck-credo-setup))
+#+END_SRC
+
+*** Elixir-Mode
+
+[elixir-mode](https://github.com/elixir-editors/emacs-elixir) provides font-locking and indentation for Elixir.
+
+#+BEGIN_SRC emacs-lisp
+(use-package elixir-mode
+  :ensure t
+  :config
+  (add-hook 'elixir-mode-hook 'flycheck-mode))
+#+END_SRC
+
+*** Mix.el
+
+[mix.el](https://github.com/ayrat555/mix.el) is Emacs Minor Mode for Mix, a build tool that ships with Elixir.
+
+#+BEGIN_SRC emacs-lisp
+(use-package mix
+  :config
+  (add-hook 'elixir-mode-hook 'mix-minor-mode))
+#+END_SRC
 
 * Appearance
 
@@ -476,6 +510,7 @@ Chose a random font at the start of the session.
 #+BEGIN_SRC emacs-lisp
 (bj:font-random)
 #+END_SRC
+
 
 ** Color Theme
 
@@ -563,6 +598,7 @@ All themes I like to use.
 (bj:color-theme-random)
 #+END_SRC
 
+
 ** Pulse
 
 ~pulse.el~ is an internal library which provides functions to flash a region of text.
@@ -587,6 +623,7 @@ after any of thsese commands is executed.
 
 Reference: https://karthinks.com/software/batteries-included-with-emacs/
 
+
 ** Icons
 
 *** All the icons
@@ -609,6 +646,7 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 #+end_src
+
 
 * Email
 
