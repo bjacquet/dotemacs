@@ -122,6 +122,22 @@ List all packages to install regardless of the system we are at. Additional pack
 #+END_SRC
 
 
+** Global variables
+
+#+BEGIN_SRC emacs-lisp
+(defvar *emacs-dir* "~/.emacs.d/"
+  "The Emacs directory.")
+#+END_SRC
+
+
+** Helper functions
+
+#+BEGIN_SRC emacs-lisp
+(defmacro bj:load-file (file-name)
+  `(load-file (expand-file-name (concat *emacs-dir* ,file-name))))
+#+END_SRC
+
+
 * System information
 
 Configurations change depending on which system I am at.
