@@ -47,6 +47,7 @@ Some packages don't come through `use-pacakge`.
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/my-packages/"))
 #+END_SRC
 
+
 ** Packages to be installed
 
 List all packages to install regardless of the system we are at. Additional package configuration is defined further down in this file.
@@ -108,6 +109,7 @@ List all packages to install regardless of the system we are at. Additional pack
                       yasnippet
                       yasnippet-snippets))
 #+END_SRC
+
 
 ** Install packages
 
@@ -291,7 +293,9 @@ Package configuration common to all systems.
 
 ** Auto-complete
 
+
 ** BM (visual bookmarks)
+
 
 ** Candidate Selection
 
@@ -366,13 +370,18 @@ Marginalia enriches the candidates list, in the minibuffer, with key binding and
 
 ** Darkroom
 
+
 ** Deft
+
 
 ** Detour
 
+
 ** Expand Region
 
+
 ** Flyspell
+
 
 ** NeoTree
 
@@ -414,6 +423,53 @@ Only in Neotree Buffer:
 - ~C-c C-r~ Rename a file or a directory.
 - ~C-c C-c~ Change the root directory.
 - ~C-c C-p~ Copy a file or a directory.
+
+
+
+** RG (RipGrep)
+
+To use [ripgrep](https://github.com/BurntSushi/ripgrep) in Emacs. Ripgrep is a replacement for both grep like (search one file) and ag like (search many files) tools. It's fast and versatile and written in Rust.
+
+This configuration was taken from https://gitlab.com/protesilaos/dotfiles/.
+
+#+BEGIN_SRC emacs-lisp
+(use-package rg
+  :ensure t
+  :config
+  (setq rg-group-result t)
+  (setq rg-hide-command t)
+  (setq rg-show-columns nil)
+  (setq rg-show-header t)
+  (setq rg-custom-type-aliases nil)
+  (setq rg-default-alias-fallback "all")
+
+  (rg-define-search prot/grep-vc-or-dir
+    :query ask
+    :format regexp
+    :files "everything"
+    :dir (let ((vc (vc-root-dir)))
+           (if vc
+               vc                         ; search root project dir
+             default-directory))          ; or from the current dir
+    :confirm prefix
+    :flags ("--hidden -g !.git"))
+
+  (defun prot/rg-save-search-as-name ()
+    "Save `rg' buffer, naming it after the current search query.
+
+This function is meant to be mapped to a key in `rg-mode-map'."
+    (interactive)
+    (let ((pattern (car rg-pattern-history)))
+      (rg-save-search-as-name (concat "«" pattern "»"))))
+
+  :bind (("C-c g" . prot/grep-vc-or-dir)
+         :map rg-mode-map
+         ("s" . prot/rg-save-search-as-name)
+         ("C-n" . next-line)
+         ("C-p" . previous-line)
+         ("M-n" . rg-next-file)
+         ("M-p" . rg-prev-file)))
+#+END_SRC
 
 
 ** Undo Tree
@@ -471,6 +527,7 @@ Credo is a static code analysis tool for the Elixir language.
   :config
   (add-hook 'elixir-mode-hook 'mix-minor-mode))
 #+END_SRC
+
 
 * Appearance
 

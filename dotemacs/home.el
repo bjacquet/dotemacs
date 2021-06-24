@@ -72,7 +72,6 @@
 (bj:load-pkg-loader "pager.el")
 (bj:load-pkg-loader "org.el")
 (bj:load-pkg-loader "paredit.el")
-(bj:load-pkg-loader "rg.el")
 (bj:load-pkg-loader "shrink-whitespace.el")
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "undo-tree.el")
