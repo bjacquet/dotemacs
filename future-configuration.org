@@ -758,7 +758,6 @@ Configurations specific to the workplace.
                    (list "glider.xpm"
                          "lisplogo-alien.xpm"
                          "lisplogo-flag.xpm"
-                         "rtrv-symbol.xpm"
                          "ruby.xpm"
                          "sourcerer.xpm"
                          "splash.xpm"
