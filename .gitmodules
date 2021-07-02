@@ -1,3 +1,0 @@
-[submodule "packages/sc-emacs"]
-	path = packages/sc-emacs
-	url = git://gitorious.siscog/crews/sc-emacs.git
