@@ -144,7 +144,8 @@ Configurations change depending on which system I am at.
 
 #+begin_src emacs-lisp
 (defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
-(defvar icapital (and mac-p (zerop (string-match (system-name) "ICN-5A92-BUET"))))
+(defvar milvus (zerop (or (string-match (system-name) "milvus") 1)))
+(defvar onfido (and (not mac-p) (not milvus)))
 #+end_src
 
 Change macOS modifier keys — to avoid muscle memory loss.
@@ -233,9 +234,10 @@ Configurations for built-in Emacs features.
 
 #+begin_src emacs-lisp
 (setq user-full-name "Bruno Jacquet")
-(setq user-mail-address (or (and icapital
-                                 (rot13-string "o.wnpdhrg@ehagvzr-eribyhgvba.pbz"))
+(setq user-mail-address (or (and onfido
+                                 (rot13-string "oehab.wnpdhrg@basvqb.pbz"))
                             (rot13-string "oehawnpg@cebgbaznvy.pbz")))
+
 #+end_src
 
 ** Frame title
@@ -726,6 +728,64 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
 I'm trying to use Emacs as email client. The configuration is far from complete as I yet can't send emails.
 
 
-* Runtime Revolution
+* Onfido
 
 Configurations specific to the workplace.
+
+** Dashboard
+
+#+BEGIN_SRC emacs-lisp
+(defun bj:random-dashboard-startup-banner ()
+  "Selects a random banner for dashboard."
+  (bj:random-elem
+   (append (list 'official 'logo 1 2 3)
+           (mapcar #'(lambda (file)
+                        (format "%scustom/%s" *emacs-dir* file))
+                   (list "glider.xpm"
+                         "lisplogo-alien.xpm"
+                         "lisplogo-flag.xpm"
+                         "rtrv-symbol.xpm"
+                         "ruby.xpm"
+                         "sourcerer.xpm"
+                         "splash.xpm"
+                         "t-rex.xpm")))))
+
+(defun bj:random-elem (list)
+  (nth (random (length list)) list))
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (add-to-list 'dashboard-items '(agenda) t)
+  (setq show-week-agenda-p t)
+  (setq dashboard-items '((agenda . 10)
+                          (projects . 5)
+                          (recents  . 5)
+                          (bookmarks . 5)
+                          (registers . 5)))
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-startup-banner (bj:random-dashboard-startup-banner)))
+
+(defun bj:open-dashboard ()
+   "Open the *dashboard* buffer and jump to the first widget."
+  (interactive)
+  (delete-other-windows)
+  ;; Refresh dashboard buffer
+  (if (get-buffer dashboard-buffer-name)
+      (kill-buffer dashboard-buffer-name))
+  (dashboard-insert-startupify-lists)
+  (switch-to-buffer dashboard-buffer-name)
+  ;; Jump to the first section
+  (goto-char (point-min))
+  (bj:dashboard-goto-agenda))
+
+(defun bj:dashboard-goto-agenda ()
+  "Go to agenda."
+  (interactive)
+  (if (local-key-binding "a")
+    (funcall (local-key-binding "a"))))
+#+END_SRC
+
+
