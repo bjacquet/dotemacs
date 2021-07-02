@@ -443,6 +443,20 @@ Only in Neotree Buffer:
 - ~C-c C-p~ Copy a file or a directory.
 
 
+** Org
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets
+  :ensure t
+  :config
+  (setq org-clock-into-drawer t)
+  (setq org-priority-faces '())
+  :init
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (add-hook 'org-mode-hook 'visual-line-mode)
+  (add-hook 'org-mode-hook (lambda () (text-scale-increase 2))))
+#+END_SRC
+
 
 ** RG (RipGrep)
 
@@ -789,3 +803,50 @@ Configurations specific to the workplace.
 #+END_SRC
 
 
+** Org
+
+#+BGIN_SRC emacs-lisp
+(use-package org-fancy-priorities
+  :ensure t
+  :hook
+  (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '("⚡" "⚠ " "⬇")))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-pomodoro
+  :ensure t)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(bj:load-file "secret/org-agenda-files.el")
+#+END_SRC
+
+
+#+BEGIN_SRC emacs-lisp
+(require 'org-tempo)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(d)")
+        (sequence "WIP(w)" "HOLD(h)" "BLOCKED(b)"  "IN-REVIEW(r)" "QA(q)" "RTD" "preRTD" "|" "FIXED(f)" "SEP(s)")
+        (sequence "|" "CANCELED(c)")))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(setq org-todo-keyword-faces
+      '(("TODO"      . (:foreground "black" :background "red2"))
+        ("WIP"       . (:foreground "black" :background "yellow" :weigth bold))
+        ("BLOCKED"   . (:foreground "white" :background "firebrick" :weight bold))
+        ("IN-REVIEW" . (:foreground "black" :background "goldenrod1"))
+        ("CANCELED"  . (:foreground "green" :background "black" :weight bold))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-switchb)
+#+END_SRC
