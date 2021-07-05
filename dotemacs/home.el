@@ -2,13 +2,11 @@
 ;;; home.el - Home configuration
 
 (defvar emacs-dir "~/.emacs.d/")
-(load-file (expand-file-name (concat emacs-dir "defuns.el")))
 
-(when mac-p
-  (setq mac-option-key-is-meta  nil)
-  (setq mac-command-key-is-meta t)
-  (setq mac-command-modifier    'meta)
-  (setq mac-option-modifier     nil))
+(setq mac-option-key-is-meta  nil)
+(setq mac-command-key-is-meta t)
+(setq mac-command-modifier    'meta)
+(setq mac-option-modifier     nil))
 
 
 ;;; ---------------------------------------------------------------------

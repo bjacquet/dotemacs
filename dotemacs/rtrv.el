@@ -4,7 +4,6 @@
 (load-file (expand-file-name "~/.emacs.d/future.emacs.el"))
 
 (defvar emacs-dir "~/.emacs.d/")
-(load-file (expand-file-name (concat emacs-dir "defuns.el")))
 
 (defconst rtrvp t)
 
