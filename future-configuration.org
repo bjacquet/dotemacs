@@ -541,11 +541,7 @@ Human readable units
 Package configuration common to all systems.
 
 ** Auto-complete
-
-
 ** BM (visual bookmarks)
-
-
 ** Candidate Selection
 
 I used to use Ido, and Ivy before that, and Emacs before that! Tried out Selectrum for a couple of months and realized how much I missed Ido's recursive directory search.
@@ -616,22 +612,11 @@ Marginalia enriches the candidates list, in the minibuffer, with key binding and
     (marginalia-cycle)))
 #+end_src
 
-
 ** Darkroom
-
-
 ** Deft
-
-
 ** Detour
-
-
 ** Expand Region
-
-
 ** Flyspell
-
-
 ** NeoTree
 
 I mostly use Treemacs but sometimes I want to access a tree-like structure without having to define a new project.
@@ -673,8 +658,21 @@ Only in Neotree Buffer:
 - ~C-c C-c~ Change the root directory.
 - ~C-c C-p~ Copy a file or a directory.
 
+** Org-mode
 
-** Org
+*** org-adapt-indentation
+
+I don't like the content (text) verically aligned with the headline text. I prefer to see my content aligned at column zero.
+
+#+begin_src emacs-lisp
+(setq org-adapt-indentation 'headline-data)
+#+end_src
+
+*** org-bullets
+
+Show heading bullets with nicer characters.
+
+Has I write this I'm reading its documentation and know about its discontinuation. I'll look into replacing this with [[https://github.com/integral-dw/org-superstar-mode][org-superstar-mode]].
 
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets
@@ -687,7 +685,6 @@ Only in Neotree Buffer:
   (add-hook 'org-mode-hook 'visual-line-mode)
   (add-hook 'org-mode-hook (lambda () (text-scale-increase 2))))
 #+END_SRC
-
 
 ** RG (RipGrep)
 
@@ -733,7 +730,6 @@ This function is meant to be mapped to a key in `rg-mode-map'."
          ("M-n" . rg-next-file)
          ("M-p" . rg-prev-file)))
 #+END_SRC
-
 
 ** Undo Tree
 
@@ -990,12 +986,13 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
 (global-set-key "\M-u"  'upcase-dwim)
 #+end_src
 
+
 * Email
 
 I'm trying to use Emacs as email client. The configuration is far from complete as I yet can't send emails.
 
 
-* Onfido
+* @Work
 
 Configurations specific to the workplace.
 
@@ -1054,10 +1051,13 @@ Configurations specific to the workplace.
     (funcall (local-key-binding "a"))))
 #+END_SRC
 
+** Org-mode
 
-** Org
+*** org-fancy-priorities
 
-#+BGIN_SRC emacs-lisp
+~[#A]~, and ~[#B]~, and friends are super ugly, but *org-fancy-priorities* can make them look better.
+
+#+BEGIN_SRC emacs-lisp
 (use-package org-fancy-priorities
   :ensure t
   :hook
@@ -1066,19 +1066,49 @@ Configurations specific to the workplace.
   (setq org-fancy-priorities-list '("⚡" "⚠ " "⬇")))
 #+END_SRC
 
+*** org-pomodoro
+
+Used to use this extensively at SISCOG, where I had to clock my work time per issue. This would automatically start/end a clock.
+
 #+BEGIN_SRC emacs-lisp
 (use-package org-pomodoro
   :ensure t)
 #+END_SRC
 
+*** Load files outsite source control
+
 #+BEGIN_SRC emacs-lisp
 (bj:load-file "secret/org-agenda-files.el")
 #+END_SRC
 
+*** org-tempo
+
+The easiest way to create blocks.
 
 #+BEGIN_SRC emacs-lisp
 (require 'org-tempo)
 #+END_SRC
+
+Typing ~<~ ~s~ ~TAB~ expands it to a /src/ block structure.
+
+| Letter Code | Expanded block structure                |
+|-------------+-----------------------------------------|
+| a           | ~#+BEGIN_EXPORT ascii’ … ~#+END_EXPORT’ |
+| c           | ~#+BEGIN_CENTER’ … ~#+END_CENTER’       |
+| C           | ~#+BEGIN_COMMENT’ … ~#+END_COMMENT’     |
+| e           | ~#+BEGIN_EXAMPLE’ … ~#+END_EXAMPLE’     |
+| E           | ~#+BEGIN_EXPORT’ … ~#+END_EXPORT’       |
+| h           | ~#+BEGIN_EXPORT html’ … ~#+END_EXPORT’  |
+| l           | ~#+BEGIN_EXPORT latex’ … ~#+END_EXPORT’ |
+| q           | ~#+BEGIN_QUOTE’ … ~#+END_QUOTE’         |
+| s           | ~#+BEGIN_SRC’ … ~#+END_SRC’             |
+| v           | ~#+BEGIN_VERSE’ … ~#+END_VERSE’         |
+
+Alternatively, ~C-c C-,~ will prompt for a type of block structure and insert the block at point.
+
+*** org-todo-keywords
+
+~C-c C-t~ sets a todo keyword to a heading.
 
 #+BEGIN_SRC emacs-lisp
 (setq org-todo-keywords
@@ -1086,6 +1116,8 @@ Configurations specific to the workplace.
         (sequence "WIP(w)" "HOLD(h)" "BLOCKED(b)"  "IN-REVIEW(r)" "QA(q)" "RTD" "preRTD" "|" "FIXED(f)" "SEP(s)")
         (sequence "|" "CANCELED(c)")))
 #+END_SRC
+
+Setting the colours of each keyword.
 
 #+BEGIN_SRC emacs-lisp
 (setq org-todo-keyword-faces
@@ -1096,9 +1128,21 @@ Configurations specific to the workplace.
         ("CANCELED"  . (:foreground "green" :background "black" :weight bold))))
 #+END_SRC
 
+*** Key-bindings
+
+The following key-binginds are available globally.
+
 #+BEGIN_SRC emacs-lisp
-(global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+(global-set-key "\C-cl" 'org-store-link)
 #+END_SRC
+
+~C-c a~ opens the agenda.
+
+~C-c c~ launches the capture template. I thought it might be useful but don't remember ever using this.
+
+~C-c b~ open an existing org buffer.
+
+~C-c l~ stores the current file path and point position and makes it accessible when inserting links in a org file with ~C-c C-l~.
