@@ -376,7 +376,7 @@ Configurations change depending on which system I am at.
 #+begin_src emacs-lisp
 (defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
 (defvar milvus (zerop (or (string-match (system-name) "milvus") 1)))
-(defvar onfido (and (not mac-p) (not milvus)))
+(defvar onfido (and mac-p (not milvus)))
 #+end_src
 
 Change macOS modifier keys — to avoid muscle memory loss.
@@ -665,7 +665,15 @@ Only in Neotree Buffer:
 I don't like the content (text) verically aligned with the headline text. I prefer to see my content aligned at column zero.
 
 #+begin_src emacs-lisp
-(setq org-adapt-indentation 'headline-data)
+(setq org-adapt-indentation nil)
+#+end_src
+
+*** org-src-preserve-indentation
+
+Can't believe why this is ~nil~ by default! Whenever I changed code in a source block it automatically adds two leading whitespace characters. I want my source block to have the characters /I/ put in.
+
+#+begin_src emacs-lisp
+(setq org-src-preserve-indentation t)
 #+end_src
 
 *** org-bullets
@@ -1198,3 +1206,12 @@ The following key-binginds are available globally.
 ~C-c b~ open an existing org buffer.
 
 ~C-c l~ stores the current file path and point position and makes it accessible when inserting links in a org file with ~C-c C-l~.
+
+
+* Launch something after loading?
+
+Load the dashboard at work.
+
+#+begin_src emacs-lisp
+(and onfido (bj:open-dashboard))
+#+end_src
