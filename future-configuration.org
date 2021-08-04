@@ -244,6 +244,7 @@ Super-duper cryptic save.
     (rot13-region (point-min) (point-max))))
 #+end_src
 
+
 * Setup
 
 ** Package sources
@@ -763,7 +764,7 @@ Configuration specific to programming.
 
 *** Flycheck-Credo
 
-[Flycheck-credo](https://github.com/aaronjensen/flycheck-credo)  adds support for [credo](https://github.com/rrrene/credo) to flycheck.
+[Flycheck-credo](https://github.com/aaronjensen/flycheck-credo) adds support for [credo](https://github.com/rrrene/credo) to flycheck.
 
 Credo is a static code analysis tool for the Elixir language.
 
@@ -983,8 +984,8 @@ Flash the current line…
 
 #+BEGIN_SRC emacs-lisp
 (defun pulse-line (&rest _)
-      "Pulse the current line."
-      (pulse-momentary-highlight-one-line (point)))
+  "Pulse the current line."
+  (pulse-momentary-highlight-one-line (point)))
 #+END_SRC
 
 after any of thsese commands is executed.
@@ -1063,15 +1064,15 @@ Configurations specific to the workplace.
   "Selects a random banner for dashboard."
   (bj:random-elem
    (append (list 'official 'logo 1 2 3)
-           (mapcar #'(lambda (file)
-                        (format "%scustom/%s" *emacs-dir* file))
-                   (list "glider.xpm"
-                         "lisplogo-alien.xpm"
-                         "lisplogo-flag.xpm"
-                         "ruby.xpm"
-                         "sourcerer.xpm"
-                         "splash.xpm"
-                         "t-rex.xpm")))))
+	   (mapcar #'(lambda (file)
+		       (format "%scustom/%s" *emacs-dir* file))
+		   (list "glider.xpm"
+			 "lisplogo-alien.xpm"
+			 "lisplogo-flag.xpm"
+			 "ruby.xpm"
+			 "sourcerer.xpm"
+			 "splash.xpm"
+			 "t-rex.xpm")))))
 
 (defun bj:random-elem (list)
   (nth (random (length list)) list))
@@ -1083,16 +1084,16 @@ Configurations specific to the workplace.
   (add-to-list 'dashboard-items '(agenda) t)
   (setq show-week-agenda-p t)
   (setq dashboard-items '((agenda . 10)
-                          (projects . 5)
-                          (recents  . 5)
-                          (bookmarks . 5)
-                          (registers . 5)))
+			  (projects . 5)
+			  (recents  . 5)
+			  (bookmarks . 5)
+			  (registers . 5)))
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-startup-banner (bj:random-dashboard-startup-banner)))
 
 (defun bj:open-dashboard ()
-   "Open the *dashboard* buffer and jump to the first widget."
+  "Open the *dashboard* buffer and jump to the first widget."
   (interactive)
   (delete-other-windows)
   ;; Refresh dashboard buffer
@@ -1108,8 +1109,9 @@ Configurations specific to the workplace.
   "Go to agenda."
   (interactive)
   (if (local-key-binding "a")
-    (funcall (local-key-binding "a"))))
+      (funcall (local-key-binding "a"))))
 #+END_SRC
+
 
 ** Org-mode
 
