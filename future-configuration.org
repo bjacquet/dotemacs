@@ -705,6 +705,18 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   (add-hook 'org-mode-hook (lambda () (text-scale-increase 2))))
 #+END_SRC
 
+
+** Projectile
+
+#+begin_src emacs-lisp
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode +1)
+  (setq projectile-completion-system 'ido))
+#+end_src
+
+
 ** RG (RipGrep)
 
 To use [ripgrep](https://github.com/BurntSushi/ripgrep) in Emacs. Ripgrep is a replacement for both grep like (search one file) and ag like (search many files) tools. It's fast and versatile and written in Rust.
