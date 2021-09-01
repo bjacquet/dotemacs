@@ -1153,18 +1153,18 @@ The easiest way to create blocks.
 
 Typing ~<~ ~s~ ~TAB~ expands it to a /src/ block structure.
 
-| Letter Code | Expanded block structure                |
-|-------------+-----------------------------------------|
-| a           | ~#+BEGIN_EXPORT ascii’ … ~#+END_EXPORT’ |
-| c           | ~#+BEGIN_CENTER’ … ~#+END_CENTER’       |
-| C           | ~#+BEGIN_COMMENT’ … ~#+END_COMMENT’     |
-| e           | ~#+BEGIN_EXAMPLE’ … ~#+END_EXAMPLE’     |
-| E           | ~#+BEGIN_EXPORT’ … ~#+END_EXPORT’       |
-| h           | ~#+BEGIN_EXPORT html’ … ~#+END_EXPORT’  |
-| l           | ~#+BEGIN_EXPORT latex’ … ~#+END_EXPORT’ |
-| q           | ~#+BEGIN_QUOTE’ … ~#+END_QUOTE’         |
-| s           | ~#+BEGIN_SRC’ … ~#+END_SRC’             |
-| v           | ~#+BEGIN_VERSE’ … ~#+END_VERSE’         |
+| Letter Code | Expanded block structure                 |
+|-------------+------------------------------------------|
+| a           | ~#+BEGIN_EXPORT ascii’ … ~#+END_EXPORT’  |
+| c           | ~#+BEGIN_CENTER’       … ~#+END_CENTER’  |
+| C           | ~#+BEGIN_COMMENT’      … ~#+END_COMMENT’ |
+| e           | ~#+BEGIN_EXAMPLE’      … ~#+END_EXAMPLE’ |
+| E           | ~#+BEGIN_EXPORT’       … ~#+END_EXPORT’  |
+| h           | ~#+BEGIN_EXPORT html’  … ~#+END_EXPORT’  |
+| l           | ~#+BEGIN_EXPORT latex’ … ~#+END_EXPORT’  |
+| q           | ~#+BEGIN_QUOTE’        … ~#+END_QUOTE’   |
+| s           | ~#+BEGIN_SRC’          … ~#+END_SRC’     |
+| v           | ~#+BEGIN_VERSE’        … ~#+END_VERSE’   |
 
 Alternatively, ~C-c C-,~ will prompt for a type of block structure and insert the block at point.
 
