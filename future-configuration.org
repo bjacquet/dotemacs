@@ -819,6 +819,89 @@ Credo is a static code analysis tool for the Elixir language.
 #+END_SRC
 
 
+** Ruby
+
+#+begin_src emacs-lisp
+;;; auto-complete configuration
+(setq ac-ignore-case nil)
+(add-to-list 'ac-modes 'enh-ruby-mode)
+(add-to-list 'ac-modes 'web-mode)
+#+end_src
+
+*** Enhanced Ruby Mode
+
+#+begin_src emacs-lisp
+(use-package enh-ruby-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist
+               '("\\(?:\\.rb\\|arb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+  (add-hook 'enh-ruby-mode-hook 'robe-mode)
+  ;; (add-hook 'enh-ruby-mode-hook 'yard-mode)
+  (add-hook 'enh-ruby-mode 'smartparens-minor-mode)
+  (add-hook 'enh-ruby-mode 'projectile-rails-mode)
+  (setq enh-ruby-add-encoding-comment-on-save nil))
+#+end_src
+
+*** Robe
+
+#+begin_src emacs-lisp
+(use-package robe :ensure t)
+#+end_src
+
+*** Smartparens
+
+#+begin_src emacs-lisp
+(use-package smartparens
+  :ensure t
+  :config
+  (require 'smartparens-config)
+  (require 'smartparens-ruby)
+  (smartparens-global-mode)
+  (show-smartparens-global-mode t)
+  (sp-with-modes '(rhtml-mode)
+                  (sp-local-pair "<" ">")
+                  (sp-local-pair "<%" "%>")))
+#+end_src
+
+*** AG
+
+#+begin_src emacs-lisp
+(use-package ag
+  :ensure t
+  :config (setq ag-executable "/usr/local/bin/ag"))
+#+end_src
+
+*** Projectile Rails
+
+#+begin_src emacs-lisp
+;; Either use this or projectile-rails.
+;; (use-package rinari :ensure t)
+
+(use-package projectile-rails
+  :ensure t
+  :config
+  (projectile-rails-global-mode)
+  (define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map))
+#+end_src
+
+*** RVM
+
+Since I'm using *asdf* I'm not sure if I still need this.
+
+#+begin_src emacs-lisp
+(use-package rvm
+  :ensure t
+  :config (rvm-use-default))
+#+end_src
+
+*** Feature Mode
+
+#+begin_src emacs-lisp
+(use-package feature-mode :ensure t)
+#+end_src
+
+
 ** TypeScript
 
 *** TIDE
