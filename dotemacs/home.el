@@ -73,7 +73,6 @@
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "undo-tree.el")
 (bj:load-pkg-loader "whitespace.el")
-(bj:load-pkg-loader "wn.el")
 (bj:load-pkg-loader "yaml.el")
 (load "last-closed-files")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))

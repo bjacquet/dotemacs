@@ -74,7 +74,6 @@
 (bj:load-pkg-loader "spellings.el")
 (bj:load-pkg-loader "treemacs.el")
 (bj:load-pkg-loader "whitespace.el")
-(bj:load-pkg-loader "wn.el")
 (bj:load-pkg-loader "yaml.el")
 (bj:load-pkg-loader "yasnippet.el")
 (load "last-closed-files")

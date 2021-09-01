@@ -616,6 +616,7 @@ Marginalia enriches the candidates list, in the minibuffer, with key binding and
 ** Darkroom
 ** Deft
 ** Detour
+
 ** Expand Region
 
 Expand selection to the enclosed region with ~C-=~.
@@ -776,6 +777,15 @@ Enable Undo Tree globally.
 #+BEGIN_SRC emacs-lisp
 (global-undo-tree-mode)
 #+END_SRC
+
+
+** Window Switching
+
+Moves the cursor to the windown number /#/ with ~M-#~.
+
+#+begin_src emacs-lisp
+(wn-mode)
+#+end_src
 
 
 * Programming
@@ -953,6 +963,7 @@ Recomended configuration for **TSX** files:
 ;; enable typescript-tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
 #+end_src
+
 
 * Appearance
 
