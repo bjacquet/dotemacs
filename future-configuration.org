@@ -288,7 +288,6 @@ List all packages to install regardless of the system we are at. Additional pack
 (defvar my-packages '(ag
                       all-the-icons
                       all-the-icons-dired
-                      auto-complete
                       birds-of-paradise-plus-theme
                       bm
                       color-theme-modern
@@ -542,6 +541,21 @@ Human readable units
 Package configuration common to all systems.
 
 ** Auto-complete
+
+#+begin_src emacs-lisp
+(use-package auto-complete
+  :ensure t
+  ;; :bind (("\t"   . ac-complete)
+  ;;        ("\r"   . nil)
+  ;;        ("\C-n" . ac-next)
+  ;;        ("\C-p" . ac-previous))
+  :init
+  (setq ac-auto-start 3)
+  (setq ac-dwim t)
+  (global-auto-complete-mode t))
+#+end_src
+
+
 ** BM (visual bookmarks)
 ** Candidate Selection
 
