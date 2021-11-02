@@ -312,7 +312,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       json-mode
                       marginalia
                       markdown-mode
-                      multiple-cursors
                       neotree
                       nord-theme
                       org-pomodoro
@@ -549,6 +548,7 @@ Screens are getting wider and wider and comparing changes side by side is a bett
 (setq-default ediff-split-window-function 'split-window-horizontally)
 #+end_src
 
+
 * General configuration
 
 Package configuration common to all systems.
@@ -656,6 +656,18 @@ Expand selection to the enclosed region with ~C-=~.
 
 
 ** Flyspell
+** Multiple Cursors
+
+#+begin_src emacs-lisp
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C->"           . mc/mark-next-like-this)
+         ("C-<"           . mc/mark-previous-like-this)
+         ("C-c C-<"       . mc/mark-all-like-this)
+         ("C-S-c C-S-c"   . mc/edit-lines)
+         ("C-S-<mouse-1>" . mc/add-cursor-on-click)))
+#+end_src
+
 ** NeoTree
 
 I mostly use Treemacs but sometimes I want to access a tree-like structure without having to define a new project.
