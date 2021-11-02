@@ -1164,9 +1164,76 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
 #+end_src
 
 
-* Email
+* RSS
 
-I'm trying to use Emacs as email client. The configuration is far from complete as I yet can't send emails.
+I'm trying to use Emacs as a RSS reader.
+[Elfeed](https://github.com/skeeto/elfeed) seems to be the package for it.
+
+Elfeed is launched with this keybingind ~C-x w~, or with ~M-x elfeed~.
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-x w") 'elfeed)
+#+end_src
+
+From the search buffer there are a number of ways to interact with entries. You can select an single entry with the point, or multiple entries at once with a region, and interact with them.
+
+- ~+~: add a specific tag to selected entries
+- ~-~: remove a specific tag from selected entries
+- ~G~: fetch feed updates from the servers
+- ~b~: visit the selected entries in a browser
+- ~c~: clear the search filter
+- ~g~: refresh view of the feed listing
+- ~r~: mark selected entries as read
+- ~s~: update the search filter (see tags)
+- ~u~: mark selected entries as unread
+- ~y~: copy the selected entry URL to the clipboard
+- ~RET~: view selected entry in a buffer
+
+** Feeds
+
+I'll load my feeds from another file.
+
+#+BEGIN_SRC emacs-lisp
+(bj:load-file "secret/rss-feeds.el")
+#+END_SRC
+
+** Auxiliaries
+
+*** Open links in the background
+
+This function, taken from [Álvaro Ramírez](https://xenodium.com/open-emacs-elfeed-links-in-background/),
+will load links in the browser without loosing focus on Emacs.
+
+#+begin_src emacs-lisp
+(defun bj:elfeed-search-browse-background-url ()
+  "Open current `elfeed' entry (or region entries) in browser without losing focus."
+  (interactive)
+  (let ((entries (elfeed-search-selected)))
+    (mapc (lambda (entry)
+            (assert (memq system-type '(darwin)) t "open command is macOS only")
+            (start-process (concat "open " (elfeed-entry-link entry))
+                           nil "open" "--background" (elfeed-entry-link entry))
+            (elfeed-untag entry 'unread)
+            (elfeed-search-update-entry entry))
+          entries)
+    (unless (or elfeed-search-remain-on-entry (use-region-p))
+      (forward-line))))
+#+end_src
+
+This only works on macOS.
+
+** Elfeed config
+
+#+begin_src emacs-lisp
+(use-package elfeed
+  :ensure t
+  :bind (:map elfeed-search-mode-map
+              ("B" . bj:elfeed-search-browse-background-url))
+  :config
+  (setq elfeed-search-filter "@7-days-ago +unread")
+  :init
+  (add-hook 'elfeed-show-mode-hook (lambda () (text-scale-increase 2))))
+#+end_src
 
 
 * @Work
