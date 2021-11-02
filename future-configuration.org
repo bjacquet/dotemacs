@@ -535,6 +535,19 @@ Human readable units
 (setq-default dired-listing-switches "-alh")
 #+end_src
 
+** Ediff
+
+I dislike pop-up windows and so I prefer that Ediff uses the same frame.
+
+#+begin_src emacs-lisp
+(setq-default ediff-window-setup-function 'ediff-setup-windows-plain)
+#+end_src
+
+Screens are getting wider and wider and comparing changes side by side is a better experience.
+
+#+begin_src emacs-lisp
+(setq-default ediff-split-window-function 'split-window-horizontally)
+#+end_src
 
 * General configuration
 
