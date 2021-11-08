@@ -1208,9 +1208,15 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
 I'm trying to use Emacs as a RSS reader.
 [Elfeed](https://github.com/skeeto/elfeed) seems to be the package for it.
 
-Elfeed is launched with this keybingind ~C-x w~, or with ~M-x elfeed~.
+Elfeed is launched with this keybingind ~C-x w~, or with ~M-x bj:elfeed~.
 
 #+begin_src emacs-lisp
+(defun bj:elfeed ()
+  "Open Elfeed and increate the text size."
+  (interactive)
+  (elfeed)
+  (text-scale-increase 2))
+
 (global-set-key (kbd "C-x w") 'elfeed)
 #+end_src
 
