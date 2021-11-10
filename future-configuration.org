@@ -1,6 +1,6 @@
 #+TITLE: Bruno Jacquet's Emacs configuration
 #+AUTHOR: Bruno Jacquet
-#+STARTUP: showeverything
+#+STARTUP: overview
 #+TOC: true
 
 # inspiration:
@@ -562,6 +562,22 @@ Package configuration common to all systems.
   (setq ac-auto-start 3)
   (setq ac-dwim t)
   (global-auto-complete-mode t))
+#+end_src
+
+** Avy
+
+[[https://github.com/abo-abo/avy][Avy]] is one of the lesser known Emacs features and one which has proven, over time, to be a real [[https://karthinks.com/software/avy-can-do-anything/][powerhouse]].
+
+~C-;~ will call ~avy-goto-char-timer~. I prefer this function over ~avy-goto-char~ since it allows for several chars to be given as input.
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-;") 'avy-goto-char-timer)
+#+end_src
+
+I can also jump to a line with ~C-:~. When a number is given as input it switches to the ~goto-line~ command. Although ~M-g f~ is available by default, it's cumbersome to type.
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-:") 'avy-goto-line)
 #+end_src
 
 ** BM (visual bookmarks)

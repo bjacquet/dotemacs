@@ -55,7 +55,6 @@
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
 (bj:load-pkg-loader "auto-complete.el")
-(bj:load-pkg-loader "avy.el")
 (bj:load-pkg-loader "bm.el")
 (bj:load-pkg-loader "deft.el")
 (bj:load-pkg-loader "email.el")

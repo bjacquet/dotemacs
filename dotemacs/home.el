@@ -59,7 +59,6 @@
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
 (bj:load-pkg-loader "auto-complete.el")
-(bj:load-pkg-loader "avy.el")
 (bj:load-pkg-loader "magit.el")
 (bj:load-pkg-loader "pager.el")
 (bj:load-pkg-loader "org.el")
