@@ -720,13 +720,12 @@ Only in Neotree Buffer:
 - ~C-c C-p~ Copy a file or a directory.
 
 ** Org-mode
-
 *** org-adapt-indentation
 
 I don't like the content (text) verically aligned with the headline text. I prefer to see my content aligned at column zero.
 
 #+begin_src emacs-lisp
-(setq org-adapt-indentation nil)
+(setq org-adapt-indentation 'overview)
 #+end_src
 
 *** org-src-preserve-indentation
@@ -735,6 +734,14 @@ Can't believe why this is ~nil~ by default! Whenever I changed code in a source 
 
 #+begin_src emacs-lisp
 (setq org-src-preserve-indentation t)
+#+end_src
+
+*** org-startup-folded
+
+Open Org files in "overview" mode.
+
+#+begin_src emacs-lisp
+(setq org-startup-folded 'overview)
 #+end_src
 
 *** org-bullets
@@ -1352,7 +1359,6 @@ Configurations specific to the workplace.
 #+END_SRC
 
 ** Org-mode
-
 *** org-fancy-priorities
 
 ~[#A]~, and ~[#B]~, and friends are super ugly, but *org-fancy-priorities* can make them look better.
