@@ -71,7 +71,6 @@
 (bj:load-pkg-loader "spellings.el")
 (bj:load-pkg-loader "treemacs.el")
 (bj:load-pkg-loader "whitespace.el")
-(bj:load-pkg-loader "yaml.el")
 (bj:load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))

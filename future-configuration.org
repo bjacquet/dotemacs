@@ -1002,6 +1002,15 @@ Recomended configuration for **TSX** files:
 (flycheck-add-mode 'typescript-tslint 'web-mode)
 #+end_src
 
+** Yaml
+
+[[https://github.com/yoshiki/yaml-mode][Yaml-mode]] is a major mode for editing [[https://yaml.org/][YAML]] files.
+
+#+begin_src emacs-lisp
+(use-package yaml-mode
+  :ensure t)
+#+end_src
+
 
 * Appearance
 

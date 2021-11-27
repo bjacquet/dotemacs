@@ -33,7 +33,7 @@
  '(next-line-extends-end-of-buffer nil)
  '(org-hide-leading-stars t)
  '(package-selected-packages
-   '(use-package web-mode tide feature-mode rvm projectile-rails smartparens enh-ruby-mode mix flycheck-credo rg org-bullets selectrum-prescient selectrum rjsx-mode nord-theme neotree marginalia ido-vertical-mode flycheck elixir-mode dracula-theme darkroom yaml-mode auto-compile all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio htmlize flychek jsx-mode flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme auto-complete arbitools))
+   '(org-fancy-priorities elfeed use-package web-mode tide feature-mode rvm projectile-rails smartparens enh-ruby-mode mix flycheck-credo rg org-bullets selectrum-prescient selectrum rjsx-mode nord-theme neotree marginalia ido-vertical-mode flycheck elixir-mode dracula-theme darkroom auto-compile all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio htmlize flychek jsx-mode flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint undo-tree tangotango-theme tango-2-theme smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess bm birds-of-paradise-plus-theme auto-complete arbitools))
  '(pdf-view-midnight-colors '("#FDF4C1" . "#282828"))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
@@ -68,7 +68,6 @@
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "undo-tree.el")
 (bj:load-pkg-loader "whitespace.el")
-(bj:load-pkg-loader "yaml.el")
 (load "last-closed-files")
 (load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
