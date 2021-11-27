@@ -255,7 +255,7 @@ The repositories from which we'll download packages and where packages are store
 (require 'package)
 (setq package-user-dir (expand-file-name "~/.emacs.d/future-packages/")
       package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 #+END_SRC
 
@@ -314,7 +314,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       markdown-mode
                       neotree
                       nord-theme
-                      org-pomodoro
                       pager
                       panda-theme
                       paredit
@@ -1365,7 +1364,7 @@ Used to use this extensively at SISCOG, where I had to clock my work time per is
   :ensure t)
 #+END_SRC
 
-*** Load files outsite source control
+*** Load files outside source control
 
 #+BEGIN_SRC emacs-lisp
 (bj:load-file "secret/org-agenda-files.el")
