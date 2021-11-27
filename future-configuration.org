@@ -279,7 +279,6 @@ Some packages don't come through `use-pacakge`.
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/my-packages/"))
 #+END_SRC
 
-
 ** Packages to be installed
 
 List all packages to install regardless of the system we are at. Additional package configuration is defined further down in this file.
@@ -339,7 +338,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       yasnippet-snippets))
 #+END_SRC
 
-
 ** Install packages
 
 #+BEGIN_SRC emacs-lisp
@@ -350,7 +348,6 @@ List all packages to install regardless of the system we are at. Additional pack
   (add-to-list 'package-selected-packages p))
 #+END_SRC
 
-
 ** Global variables
 
 #+BEGIN_SRC emacs-lisp
@@ -358,12 +355,12 @@ List all packages to install regardless of the system we are at. Additional pack
   "The Emacs directory.")
 #+END_SRC
 
-
 ** Helper functions
 
 #+BEGIN_SRC emacs-lisp
 (defmacro bj:load-file (file-name)
-  `(load-file (expand-file-name (concat *emacs-dir* ,file-name))))
+  `(and (file-exists-p ,file-name)
+        (load-file (expand-file-name (concat *emacs-dir* ,file-name)))))
 #+END_SRC
 
 
@@ -373,8 +370,8 @@ Configurations change depending on which system I am at.
 
 #+begin_src emacs-lisp
 (defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
-(defvar milvus (zerop (or (string-match (system-name) "milvus") 1)))
-(defvar onfido (and mac-p (not milvus)))
+(defvar puffin (zerop (or (string-match (system-name) "puffin.home") 1)))
+(defvar onfido (and mac-p (not puffin)))
 #+end_src
 
 Change macOS modifier keys — to avoid muscle memory loss.
@@ -567,7 +564,6 @@ Package configuration common to all systems.
   (global-auto-complete-mode t))
 #+end_src
 
-
 ** BM (visual bookmarks)
 ** Candidate Selection
 
@@ -652,7 +648,6 @@ Expand selection to the enclosed region with ~C-=~.
   :ensure t
   :bind (("C-=" . er/expand-region)))
 #+end_src
-
 
 ** Flyspell
 ** Multiple Cursors
@@ -744,7 +739,6 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   (add-hook 'org-mode-hook (lambda () (text-scale-increase 2))))
 #+END_SRC
 
-
 ** Projectile
 
 #+begin_src emacs-lisp
@@ -754,7 +748,6 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   (projectile-mode +1)
   (setq projectile-completion-system 'ido))
 #+end_src
-
 
 ** RG (RipGrep)
 
@@ -816,7 +809,6 @@ Enable Undo Tree globally.
 (global-undo-tree-mode)
 #+END_SRC
 
-
 ** Window Switching
 
 Moves the cursor to the windown number /#/ with ~M-#~.
@@ -865,7 +857,6 @@ Credo is a static code analysis tool for the Elixir language.
   :config
   (add-hook 'elixir-mode-hook 'mix-minor-mode))
 #+END_SRC
-
 
 ** Ruby
 
@@ -948,7 +939,6 @@ Since I'm using *asdf* I'm not sure if I still need this.
 #+begin_src emacs-lisp
 (use-package feature-mode :ensure t)
 #+end_src
-
 
 ** TypeScript
 
@@ -1051,7 +1041,6 @@ Chose a random font at the start of the session.
 (bj:font-random)
 #+END_SRC
 
-
 ** Color Theme
 
 I feel that using a different theme every day prevents boredom.
@@ -1138,7 +1127,6 @@ All themes I like to use.
 (bj:color-theme-random)
 #+END_SRC
 
-
 ** Pulse
 
 ~pulse.el~ is an internal library which provides functions to flash a region of text.
@@ -1162,7 +1150,6 @@ after any of thsese commands is executed.
 #+END_SRC
 
 Reference: https://karthinks.com/software/batteries-included-with-emacs/
-
 
 ** Icons
 
@@ -1347,7 +1334,6 @@ Configurations specific to the workplace.
   (if (local-key-binding "a")
       (funcall (local-key-binding "a"))))
 #+END_SRC
-
 
 ** Org-mode
 
