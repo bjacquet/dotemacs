@@ -725,7 +725,7 @@ Only in Neotree Buffer:
 I don't like the content (text) verically aligned with the headline text. I prefer to see my content aligned at column zero.
 
 #+begin_src emacs-lisp
-(setq org-adapt-indentation 'overview)
+(setq org-adapt-indentation 'headline-data)
 #+end_src
 
 *** org-src-preserve-indentation
@@ -1252,14 +1252,6 @@ From the search buffer there are a number of ways to interact with entries. You 
 - ~y~: copy the selected entry URL to the clipboard
 - ~RET~: view selected entry in a buffer
 
-** Feeds
-
-I'll load my feeds from another file.
-
-#+BEGIN_SRC emacs-lisp
-(bj:load-file "secret/rss-feeds.el")
-#+END_SRC
-
 ** Auxiliaries
 
 *** Open links in the background
@@ -1297,6 +1289,15 @@ This only works on macOS.
   :init
   (add-hook 'elfeed-show-mode-hook (lambda () (text-scale-increase 2))))
 #+end_src
+
+** Feeds
+
+I'll load my feeds from another file.
+
+#+BEGIN_SRC emacs-lisp
+(bj:load-file "secret/rss-feeds.el")
+#+END_SRC
+
 
 
 * @Work
@@ -1336,7 +1337,8 @@ Configurations specific to the workplace.
 			  (registers . 5)))
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
-  (setq dashboard-startup-banner (bj:random-dashboard-startup-banner)))
+  (setq dashboard-startup-banner (bj:random-dashboard-startup-banner))
+  (setq dashboard-agenda-sort-strategy '(time-up)))
 
 (defun bj:open-dashboard ()
   "Open the *dashboard* buffer and jump to the first widget."
