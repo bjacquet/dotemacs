@@ -1232,10 +1232,11 @@ Elfeed is launched with this keybingind ~C-x w~, or with ~M-x bj:elfeed~.
 (defun bj:elfeed ()
   "Open Elfeed and increate the text size."
   (interactive)
+  (bj:load-rss-feeds)
   (elfeed)
   (text-scale-increase 2))
 
-(global-set-key (kbd "C-x w") 'elfeed)
+(global-set-key (kbd "C-x w") 'bj:elfeed)
 #+end_src
 
 From the search buffer there are a number of ways to interact with entries. You can select an single entry with the point, or multiple entries at once with a region, and interact with them.
@@ -1265,7 +1266,7 @@ will load links in the browser without loosing focus on Emacs.
   (interactive)
   (let ((entries (elfeed-search-selected)))
     (mapc (lambda (entry)
-            (assert (memq system-type '(darwin)) t "open command is macOS only")
+            (cl-assert (memq system-type '(darwin)) t "open command is macOS only")
             (start-process (concat "open " (elfeed-entry-link entry))
                            nil "open" "--background" (elfeed-entry-link entry))
             (elfeed-untag entry 'unread)
@@ -1285,7 +1286,8 @@ This only works on macOS.
   :bind (:map elfeed-search-mode-map
               ("B" . bj:elfeed-search-browse-background-url))
   :config
-  (setq elfeed-search-filter "@7-days-ago +unread")
+  (setq elfeed-search-filter "@7-days-ago +unread"
+	elfeed-show-entry-switch 'display-buffer)
   :init
   (add-hook 'elfeed-show-mode-hook (lambda () (text-scale-increase 2))))
 #+end_src
@@ -1295,7 +1297,8 @@ This only works on macOS.
 I'll load my feeds from another file.
 
 #+BEGIN_SRC emacs-lisp
-(bj:load-file "secret/rss-feeds.el")
+(defun bj:load-rss-feeds ()
+  (bj:load-file "secret/rss-feeds.el"))
 #+END_SRC
 
 
