@@ -359,7 +359,7 @@ List all packages to install regardless of the system we are at. Additional pack
 
 #+BEGIN_SRC emacs-lisp
 (defmacro bj:load-file (file-name)
-  `(and (file-exists-p ,file-name)
+  `(and (file-exists-p (expand-file-name (concat *emacs-dir* ,file-name)))
         (load-file (expand-file-name (concat *emacs-dir* ,file-name)))))
 #+END_SRC
 
@@ -691,7 +691,7 @@ I mostly use Treemacs but sometimes I want to access a tree-like structure witho
 Show or hide NeoTree (~C-c n~).
 
 #+begin_src emacs-lisp
-(global-set-key (kbd "C-c n") 'neotree-toggle)
+(global-set-key (kbd "C-c t") 'neotree-toggle)
 #+end_src
 
 *** Theme
@@ -1332,12 +1332,12 @@ Configurations specific to the workplace.
   :config
   (dashboard-setup-startup-hook)
   (add-to-list 'dashboard-items '(agenda) t)
-  (setq show-week-agenda-p t)
   (setq dashboard-items '((agenda . 10)
 			  (projects . 5)
 			  (recents  . 5)
 			  (bookmarks . 5)
 			  (registers . 5)))
+  (setq dashboard-agenda-prefix-format " %s ")
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-startup-banner (bj:random-dashboard-startup-banner))
@@ -1388,9 +1388,9 @@ Used to use this extensively at SISCOG, where I had to clock my work time per is
 
 *** Load files outside source control
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (bj:load-file "secret/org-agenda-files.el")
-#+END_SRC
+#+end_src
 
 *** org-tempo
 
