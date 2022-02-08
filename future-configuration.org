@@ -1316,7 +1316,8 @@ Configurations specific to the workplace.
    (append (list 'official 'logo 1 2 3)
 	   (mapcar #'(lambda (file)
 		       (format "%scustom/%s" *emacs-dir* file))
-		   (list "glider.xpm"
+		   (list "catppuccin.xpm"
+			 "glider.xpm"
 			 "lisplogo-alien.xpm"
 			 "lisplogo-flag.xpm"
 			 "ruby.xpm"
