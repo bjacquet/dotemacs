@@ -544,6 +544,14 @@ Screens are getting wider and wider and comparing changes side by side is a bett
 (setq-default ediff-split-window-function 'split-window-horizontally)
 #+end_src
 
+** Do not use tabs
+
+Tabs are evil.
+
+#+begin_src emacs-lisp
+(setq-default indent-tabs-mode nil)
+#+end_src
+
 
 * General configuration
 
