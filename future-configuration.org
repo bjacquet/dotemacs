@@ -1328,10 +1328,11 @@ Configurations specific to the workplace.
 			 "glider.xpm"
 			 "lisplogo-alien.xpm"
 			 "lisplogo-flag.xpm"
+                         "police-box.xpm"
+                         "robotnik.xpm"
 			 "ruby.xpm"
 			 "sourcerer.xpm"
-			 "splash.xpm"
-			 "t-rex.xpm")))))
+			 "splash.xpm")))))
 
 (defun bj:random-elem (list)
   (nth (random (length list)) list))
