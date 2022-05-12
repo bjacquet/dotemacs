@@ -770,6 +770,32 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   (add-hook 'org-mode-hook (lambda () (text-scale-increase 2))))
 #+END_SRC
 
+*** org-roam
+
+#+begin_src emacs-lisp
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory (expand-file-name "~/Documents/Diary"))
+  (org-roam-dailies-directory "journal/")
+  (org-roam-completion-everywhere t)
+  :bind (("C-c d l" . org-roam-buffer-toggle)
+         ("C-c d f" . org-roam-node-find)
+         ("C-c d i" . org-roam-node-insert)
+         :map org-mode-map
+         ("C-M-i" . completion-at-point)
+         :map org-roam-dailies-map
+         ("Y" . org-roam-dailies-capture-yesterday)
+         ("T" . org-roam-dailies-capture-tomorrow))
+  :bind-keymap
+  ("C-c d d" . org-roam-dailies-map)
+  :config
+  (require 'org-roam-dailies)
+  (org-roam-db-autosync-mode))
+#+end_src
+
 ** Projectile
 
 #+begin_src emacs-lisp
