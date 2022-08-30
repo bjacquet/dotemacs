@@ -1353,18 +1353,18 @@ Configurations specific to the workplace.
 (defun bj:random-dashboard-startup-banner ()
   "Selects a random banner for dashboard."
   (bj:random-elem
-   (append (list 'official 'logo 1 2 3)
-	   (mapcar #'(lambda (file)
-		       (format "%scustom/%s" *emacs-dir* file))
-		   (list "catppuccin.xpm"
-			 "glider.xpm"
-			 "lisplogo-alien.xpm"
-			 "lisplogo-flag.xpm"
+   (append (list 'official 3)
+           (mapcar #'(lambda (file)
+                       (format "%scustom/%s" *emacs-dir* file))
+                   (list "catppuccin.xpm"
+                         "glider.xpm"
+                         "lisplogo-alien.xpm"
+                         "lisplogo-flag.xpm"
                          "police-box.xpm"
                          "robotnik.xpm"
-			 "ruby.xpm"
-			 "sourcerer.xpm"
-			 "splash.xpm")))))
+                         "ruby.xpm"
+                         "sourcerer.xpm"
+                         "splash.xpm")))))
 
 (defun bj:random-elem (list)
   (nth (random (length list)) list))
@@ -1375,10 +1375,10 @@ Configurations specific to the workplace.
   (dashboard-setup-startup-hook)
   (add-to-list 'dashboard-items '(agenda) t)
   (setq dashboard-items '((agenda . 10)
-			  (projects . 5)
-			  (recents  . 5)
-			  (bookmarks . 5)
-			  (registers . 5)))
+                          (projects . 5)
+                          (recents  . 5)
+                          (bookmarks . 5)
+                          (registers . 5)))
   (setq dashboard-agenda-prefix-format " %s ")
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
