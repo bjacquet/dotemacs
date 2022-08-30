@@ -137,28 +137,34 @@ Time to read the buffer or region.
 
 ** bj:split-window-vertically
 
-Split window vertically and move cursor to new window.
+Split window vertically and move cursor to new window. With `C-u` it
+will split against the root of windows.
 
 #+begin_src emacs-lisp
 (defun bj:split-window-vertically ()
-  "Split window vertically and move cursor to new window."
-  (interactive)
-  (split-window-vertically)
-  (recenter)
+  "Split window vertically, from root with ARG, and move cursor to new window."
+  (interactive "P")
+  (if arg
+      (split-window (frame-root-window) nil 'below nil)
+    (split-window-vertically))
   (other-window 1)
   (recenter))
 #+end_src
 
 ** bj:split-window-horizontally
 
-Split window horizontally and move cursor to new window.
+Split window horizontally and move cursor to new window. With `C-u` it
+will split against the root of windows.
 
 #+begin_src emacs-lisp
 (defun bj:split-window-horizontally ()
-  "Split window horizontally and move cursor to new window."
-  (interactive)
-  (split-window-horizontally)
-  (other-window 1))
+  "Split window horizontally, from root with ARG, and move cursor to new window."
+  (interactive "P")
+  (if arg
+    (split-window (frame-root-window) nil 'right nil)
+    (split-window-horizontally))
+  (other-window 1)
+  (recenter))
 #+end_src
 
 ** bj:toggle-window-split
