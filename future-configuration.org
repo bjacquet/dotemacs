@@ -141,7 +141,7 @@ Split window vertically and move cursor to new window. With `C-u` it
 will split against the root of windows.
 
 #+begin_src emacs-lisp
-(defun bj:split-window-vertically ()
+(defun bj:split-window-vertically (arg)
   "Split window vertically, from root with ARG, and move cursor to new window."
   (interactive "P")
   (if arg
@@ -157,7 +157,7 @@ Split window horizontally and move cursor to new window. With `C-u` it
 will split against the root of windows.
 
 #+begin_src emacs-lisp
-(defun bj:split-window-horizontally ()
+(defun bj:split-window-horizontally (arg)
   "Split window horizontally, from root with ARG, and move cursor to new window."
   (interactive "P")
   (if arg
