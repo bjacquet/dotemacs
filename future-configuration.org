@@ -259,7 +259,7 @@ The repositories from which we'll download packages and where packages are store
 
 #+BEGIN_SRC emacs-lisp
 (require 'package)
-(setq package-user-dir (expand-file-name "~/.emacs.d/future-packages/")
+(setq package-user-dir (expand-file-name "~/.config/emacs/future-packages/")
       package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
@@ -282,7 +282,7 @@ If ~use-package~ isn't installed, install it.
 Some packages don't come through `use-pacakge`.
 
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-packages/"))
+(add-to-list 'load-path (expand-file-name "~/.config/emacs/my-packages/"))
 #+END_SRC
 
 ** Packages to be installed
@@ -357,7 +357,7 @@ List all packages to install regardless of the system we are at. Additional pack
 ** Global variables
 
 #+BEGIN_SRC emacs-lisp
-(defvar *emacs-dir* "~/.emacs.d/"
+(defvar *emacs-dir* "~/.config/emacs/"
   "The Emacs directory.")
 #+END_SRC
 
@@ -376,8 +376,10 @@ Configurations change depending on which system I am at.
 
 #+begin_src emacs-lisp
 (defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
+(defvar linux-p (or (eq window-system 'x)))
 (defvar puffin (zerop (or (string-match (system-name) "puffin.home") 1)))
-(defvar onfido (and mac-p (not puffin)))
+(defvar onfido (or (and mac-p (not puffin))
+                   linux-p))
 #+end_src
 
 Change macOS modifier keys — to avoid muscle memory loss.
@@ -802,6 +804,23 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   (org-roam-db-autosync-mode))
 #+end_src
 
+*** org-log-repeat
+
+When marking repeating tasks as DONE, don't log the state change below the header.
+
+#+begin_src emacs-lisp
+(setq org-log-repeat nil)
+#+end_src
+
+This option can also be set with on a per-file-basis with
+
+#+begin_src
+#+STARTUP: nologrepeat
+#+STARTUP: logrepeat
+#+STARTUP: lognoterepeat
+#+end_src
+
+
 ** Projectile
 
 #+begin_src emacs-lisp
@@ -1084,21 +1103,18 @@ I feel that using a different font every day prevents boredom.
   "Changes the current session font with a random one."
   (interactive)
 
-  (let ((fonts (list "Lucida Console-13"))
+  (let ((fonts (list "Lucida Console-13"
+                     "Anonymous Pro-16"
+                     "Comic Mono-14"
+                     "CozetteVector-19"
+                     "Menlo-14"
+                     "Monaco-14"
+                     "NovaMono-15"
+                     "Victor Mono-15"
+                     "iA Writer Mono S-15"
+                     "Share Tech Mono-12"
+                     "Ubuntu Mono-12"))
         font)
-    (if mac-p
-        (setq fonts (list "Anonymous Pro-16"
-                          "Comic Mono-14"
-                          "CozetteVector-19"
-                          "Menlo-14"
-                          "Monaco-14"
-                          "NovaMono-15"
-                          "Victor Mono-15"
-                          "iA Writer Mono S-15"
-                          ))
-      (setq fonts (list "NovaMono-12"
-                        "Share Tech Mono-12"
-                        "Ubuntu Mono-12")))
     (setq font (nth (random (length fonts)) fonts))
     (set-frame-font font)
     (message (format "Random font: %s" font))))
