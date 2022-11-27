@@ -1,11 +1,7 @@
 ;; -*- coding: utf-8; -*-
 ;;; rtrv.el - Runtime Revolution configuration
 
-(load-file (expand-file-name "~/.emacs.d/future.emacs.el"))
-
 (defvar emacs-dir "~/.emacs.d/")
-
-(defconst rtrvp t)
 
 (setq mac-option-key-is-meta  nil)
 (setq mac-command-key-is-meta t)
@@ -54,7 +50,6 @@
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
 (bj:load-pkg-loader "deft.el")
-(bj:load-pkg-loader "email.el")
 (bj:load-pkg-loader "goto-last-change.el")
 (bj:load-pkg-loader "htmlize.el")
 (bj:load-pkg-loader "javascript.el")
@@ -68,12 +63,5 @@
 (bj:load-pkg-loader "whitespace.el")
 (bj:load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
-(load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
-
-
-;;; ---------------------------------------------------------------------
-;;; Open Dashboard
-;;;
-(bj:open-dashboard)
 
 ;;; rtrv.el ends here

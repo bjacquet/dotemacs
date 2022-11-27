@@ -64,7 +64,6 @@
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "whitespace.el")
 (load "last-closed-files")
-(load-file (expand-file-name (concat emacs-dir "key-bindings.el")))
 
 
 ;;; home.el ends here
