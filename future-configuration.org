@@ -1530,10 +1530,11 @@ Setting the colours of each keyword.
 The following key-binginds are available globally.
 
 #+BEGIN_SRC emacs-lisp
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-switchb)
-(global-set-key "\C-cl" 'org-store-link)
+(when onfido
+  (global-set-key "\C-ca" 'org-agenda)
+  (global-set-key "\C-cb" 'org-switchb)
+  (global-set-key "\C-cl" 'org-store-link)
+  (global-set-key [f6]    'bj:open-dashboard))
 #+END_SRC
 
 ~C-c a~ opens the agenda.
@@ -1544,6 +1545,7 @@ The following key-binginds are available globally.
 
 ~C-c l~ stores the current file path and point position and makes it accessible when inserting links in a org file with ~C-c C-l~.
 
+~F6~ open the Dashboard.
 
 * Launch something after loading?
 
