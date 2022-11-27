@@ -294,7 +294,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       all-the-icons
                       all-the-icons-dired
                       birds-of-paradise-plus-theme
-                      bm
                       color-theme-modern
                       darkroom
                       darktooth-theme
@@ -597,6 +596,31 @@ I can also jump to a line with ~C-:~. When a number is given as input it switche
 #+end_src
 
 ** BM (visual bookmarks)
+
+Don't use this often. Didn't remove it because it may be useful sometime.
+
+It uses the left fringe, and the mouse, to display, navigate, and manipulate (line) bookmarks:
+
+- `mouse-1`, creates or removes the bookmark;
+- `wheel-up`, moves focus to the next bookmark;
+- `wheel-down`, moves forus to the previous bookmark;
+- `mouse-3`, show all bookmarks.
+
+#+begin_src emacs-lisp
+(use-package bm
+  :ensure t
+  :init
+  (setq bm-cycle-all-buffers t)
+  (global-set-key (kbd "<left-fringe> <wheel-up>")   'bm-next-mouse)
+  (global-set-key (kbd "<left-fringe> <wheel-down>") 'bm-previous-mouse)
+  (global-set-key (kbd "<left-fringe> <mouse-1>")    'bm-toggle-mouse)
+  (global-set-key (kbd "<left-fringe> <mouse-3>")    'bm-show-all)
+
+  :bind (("C-c m" . bm-toggle)
+         ("C-c j" . bm-previous)))
+#+end_src
+
+
 ** Candidate Selection
 
 I used to use Ido, and Ivy before that, and Emacs before that! Tried out Selectrum for a couple of months and realized how much I missed Ido's recursive directory search.
@@ -819,7 +843,6 @@ This option can also be set with on a per-file-basis with
 #+STARTUP: logrepeat
 #+STARTUP: lognoterepeat
 #+end_src
-
 
 ** Projectile
 
