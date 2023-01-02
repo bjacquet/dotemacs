@@ -604,7 +604,6 @@ It uses the left fringe, and the mouse, to display, navigate, and manipulate (li
          ("C-c j" . bm-previous)))
 #+end_src
 
-
 ** Candidate Selection
 
 I used to use Ido, and Ivy before that, and Emacs before that! Tried out Selectrum for a couple of months and realized how much I missed Ido's recursive directory search.
@@ -920,6 +919,21 @@ Moves the cursor to the windown number /#/ with ~M-#~.
 (wn-mode)
 #+end_src
 
+** Whitespace
+
+Customisation to the Whitespace mode `M-x whitespace-mode`
+
+#+begin_src emacs-lisp
+(setq whitespace-style
+      (quote (face
+              tabs
+              tab-mark
+              space-before-tab
+              trailing)))
+(global-whitespace-mode 1)
+
+(setq-default indicate-empty-lines t)
+#+end_src
 
 * Programming
 

@@ -61,7 +61,6 @@
 (bj:load-pkg-loader "pager.el")
 (bj:load-pkg-loader "paredit.el")
 (bj:load-pkg-loader "smart-mode-line.el")
-(bj:load-pkg-loader "whitespace.el")
 (load "last-closed-files")
 
 
