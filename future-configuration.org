@@ -835,6 +835,19 @@ This option can also be set with on a per-file-basis with
 #+STARTUP: lognoterepeat
 #+end_src
 
+** Pager
+
+I've been using [[https://github.com/emacsorphanage/pager/blob/master/pager.el][pager.el]] for so long, don't know if "regular" Emacs has improved its scrolling since. The main selling point of this package was when doing a pg-up followed by a pg-down will return point to the original place.
+
+#+begin_src emacs-lisp
+(global-set-key "\C-v"    'pager-page-down)
+(global-set-key [next]    'pager-page-down)
+(global-set-key "\M-v"    'pager-page-up)
+(global-set-key [prior]   'pager-page-up)
+(global-set-key '[M-up]   'pager-row-up)
+(global-set-key '[M-down] 'pager-row-down)
+#+end_src
+
 ** Projectile
 
 #+begin_src emacs-lisp
