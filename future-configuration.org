@@ -294,7 +294,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       all-the-icons-dired
                       birds-of-paradise-plus-theme
                       color-theme-modern
-                      darkroom
                       darktooth-theme
                       dashboard
                       deft
@@ -691,6 +690,14 @@ Marginalia enriches the candidates list, in the minibuffer, with key binding and
 #+end_src
 
 ** Darkroom
+
+[[https://github.com/joaotavora/darkroom][Darkroom]] is a major mode which removes visual distractions like the mode line and minibuffer. Increases the margins and the font size.
+
+#+begin_src emacs-lisp
+(use-package darkroom
+  :ensure t)
+#+end_src
+
 ** Deft
 ** Detour
 
@@ -1539,13 +1546,12 @@ The following key-binginds are available globally.
 
 ~C-c a~ opens the agenda.
 
-~C-c c~ launches the capture template. I thought it might be useful but don't remember ever using this.
-
 ~C-c b~ open an existing org buffer.
 
 ~C-c l~ stores the current file path and point position and makes it accessible when inserting links in a org file with ~C-c C-l~.
 
 ~F6~ open the Dashboard.
+
 
 * Launch something after loading?
 
