@@ -48,19 +48,6 @@ Back in 2000's using the same files in Windows and Linux would often endup in EO
     (replace-match "\r\n")))
 #+end_src
 
-** bj:blackspace
-
-Eliminate whitespace at end of all lines in the buffer.
-
-#+begin_src emacs-lisp
-(defun bj:blackspace () (interactive)
-  "Eliminate whitespace at end of all lines in the buffer."
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "[ \t][ \t]*$" nil t)
-      (delete-region (match-beginning 0) (point)))))
-#+end_src
-
 ** bj:open-user-init-file
 
 Don't think it's very useful these days.
