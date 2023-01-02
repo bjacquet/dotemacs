@@ -27,7 +27,7 @@
  '(next-line-add-newlines nil)
  '(next-line-extends-end-of-buffer nil)
  '(package-selected-packages
-   '(all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio htmlize flychek jsx-mode flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe shrink-whitespace wn-mode winpoint smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess birds-of-paradise-plus-theme arbitools))
+   '(all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile deft goto-last-change json-mode detour golden-ratio htmlize flychek jsx-mode flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe wn-mode winpoint smart-mode-line rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess birds-of-paradise-plus-theme arbitools))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(scroll-step 1)
@@ -56,7 +56,6 @@
 (bj:load-pkg-loader "magit.el")
 (bj:load-pkg-loader "pager.el")
 (bj:load-pkg-loader "paredit.el")
-(bj:load-pkg-loader "shrink-whitespace.el")
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "spellings.el")
 (bj:load-pkg-loader "treemacs.el")

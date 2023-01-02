@@ -314,7 +314,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       rust-mode
                       selectrum
                       selectrum-prescient
-                      shrink-whitespace
                       slim-mode
                       smart-mode-line
                       sr-speedbar
