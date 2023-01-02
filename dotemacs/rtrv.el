@@ -53,7 +53,6 @@
 (bj:load-pkg-loader "goto-last-change.el")
 (bj:load-pkg-loader "htmlize.el")
 (bj:load-pkg-loader "javascript.el")
-(bj:load-pkg-loader "magit.el")
 (bj:load-pkg-loader "paredit.el")
 (bj:load-pkg-loader "smart-mode-line.el")
 (bj:load-pkg-loader "spellings.el")

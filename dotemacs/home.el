@@ -57,7 +57,6 @@
 ;;; Package's Configurations
 ;;;
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
-(bj:load-pkg-loader "magit.el")
 (bj:load-pkg-loader "paredit.el")
 (bj:load-pkg-loader "smart-mode-line.el")
 (load "last-closed-files")

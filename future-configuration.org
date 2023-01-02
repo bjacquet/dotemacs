@@ -697,6 +697,38 @@ Expand selection to the enclosed region with ~C-=~.
 #+end_src
 
 ** Flyspell
+** Magit
+
+[[https://github.com/magit/magit][Magit]] is the best Git interface.  Whenever visiting a (version controlled) file use ~C-x g~ to load the status buffer, Magit's equivalent of typing ~git status~ in a shell.
+
+
+#+begin_src emacs-lisp
+(use-package magit
+  :ensure t
+  :hook ((dired-load-hook . (lambda () (load "dired-x")))
+         (dired-mode-hook . (lambda ())))
+  :config
+  (autoload 'magit-status "magit" "Loads magit-mode" t))
+#+end_src
+
+On any magit screen we can see their specific keybings by typing ~?~.
+
+Skim through the [[https://emacsair.me/2017/09/01/magit-walk-through/][Magit's walk though]] for help.
+
+#+begin_src emacs-lisp
+(use-package forge
+  :ensure t
+  :after magit)
+
+(use-package magit-todos
+  :ensure t
+  :after magit
+  :init
+  (setq magit-todos-exclude-globs '("vendor/*"))
+  :config
+  (add-hook 'magit-status-mode-hook 'magit-todos-mode))
+#+end_src
+
 ** Multiple Cursors
 
 #+begin_src emacs-lisp
@@ -947,6 +979,7 @@ Customisation to the Whitespace mode `M-x whitespace-mode`
 
 (setq-default indicate-empty-lines t)
 #+end_src
+
 
 * Programming
 
