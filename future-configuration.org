@@ -950,7 +950,7 @@ This function is meant to be mapped to a key in `rg-mode-map'."
 
 ** Undo Tree
 
-Show undo history in a tree structure (~C-x u~).
+Show undo history in a tree structure (~C-x u~ or ~C-M-s u~).
 
 Don't display the lighter in mode line.
 #+BEGIN_SRC emacs-lisp
@@ -1364,10 +1364,32 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
 (global-set-key "\C-xO" 'previous-multiframe-window)
 (global-set-key "\C-x2" 'bj:split-window-vertically)
 (global-set-key "\C-x3" 'bj:split-window-horizontally)
-(global-set-key "\C-c|" 'bj:toggle-window-split)
 (global-set-key "\M-c"  'capitalize-dwim)
 (global-set-key "\M-l"  'downcase-dwim)
 (global-set-key "\M-u"  'upcase-dwim)
+#+end_src
+
+Experimental key-bindings.
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-M-s-q") 'ido-switch-buffer)
+(global-set-key (kbd "C-M-s-q") 'replace-string)
+
+(global-set-key (kbd "C-M-s-u") 'undo-tree-visualize)
+
+
+; (global-set-key (kbd "C-M-s-a") 'nil ) ; Reserved for Org-mode at work
+(global-set-key (kbd "C-M-s-s") 'sort-lines)
+(global-set-key (kbd "C-M-s-d") 'delete-trailing-whitespace)
+(global-set-key (kbd "C-M-s-f") 'cycle-spacing)
+(global-set-key (kbd "C-M-s-g") 'package-list-packages)
+
+(global-set-key (kbd "C-M-s-h") 'darkroom-mode)
+(global-set-key (kbd "C-M-s-j") 'bj:toggle-window-split)
+(global-set-key (kbd "C-M-s-k") 'ispell-region)
+(global-set-key (kbd "C-M-s-l") 'ispell-buffer)
+(global-set-key (kbd "C-M-s-;") 'whitespace-mode)
 #+end_src
 
 
@@ -1600,7 +1622,7 @@ The following key-binginds are available globally.
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cb" 'org-switchb)
   (global-set-key "\C-cl" 'org-store-link)
-  (global-set-key [f6]    'bj:open-dashboard))
+  (global-set-key (kbd "C-M-s-a") 'bj:open-dashboard))
 #+END_SRC
 
 ~C-c a~ opens the agenda.
@@ -1609,7 +1631,7 @@ The following key-binginds are available globally.
 
 ~C-c l~ stores the current file path and point position and makes it accessible when inserting links in a org file with ~C-c C-l~.
 
-~F6~ open the Dashboard.
+~C-M-s-a~ close all windows and open the Dashboard.
 
 
 * Launch something after loading?
