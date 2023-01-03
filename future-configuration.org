@@ -543,6 +543,19 @@ Tabs are evil.
 (setq-default indent-tabs-mode nil)
 #+end_src
 
+** Display the current time in modeline
+
+More and more often I'm running Emacs in fullscreen. I like to have a clock visible at all times and this displays one in the modeline.
+
+#+begin_src emacs-lisp
+(display-time-mode 1)
+#+end_src
+
+Apart from displaying time it also display load level and a mail flag—which I have never seen! I don't want to know about the load level.
+
+#+begin_src emacs-lisp
+(setq display-time-default-load-average nil)
+#+end_src
 
 * General configuration
 
