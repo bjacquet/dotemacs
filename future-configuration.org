@@ -966,7 +966,7 @@ Enable Undo Tree globally.
 Store all undo tree backups in a single directory.
 
 #+begin_src emacs-lisp
-(setq undo-tree-history-directory-alist '(("." . "~/.undo_tree")))
+(setq undo-tree-history-directory-alist '(("." . "~/.conf/emacs/cache/.undo_tree")))
 #+end_src
 
 ** Window Switching
