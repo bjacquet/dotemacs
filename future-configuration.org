@@ -1493,6 +1493,7 @@ Configurations specific to the workplace.
                          "lisplogo-alien.xpm"
                          "lisplogo-flag.xpm"
                          "police-box.xpm"
+                         "racing-car.xpm"
                          "robotnik.xpm"
                          "ruby.xpm"
                          "sourcerer.xpm"
