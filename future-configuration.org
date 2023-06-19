@@ -852,9 +852,17 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory (expand-file-name "~/Documents/Diary"))
-  (org-roam-dailies-directory "journal/")
+  (org-roam-capture-templates
+   '(("d" "default" plain "%?"
+      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n\n * ")
+      :unnarrowed t)
+     ("t" "tickets" plain "%?"
+      :if-new (file+head "tickets/${slug}.org" "#+title: ${title}\n")
+      :immediate-finish t
+      :unnarrowed t)))
   (org-roam-completion-everywhere t)
+  (org-roam-dailies-directory "journal/")
+  (org-roam-directory (expand-file-name "~/Documents/Diary"))
   :bind (("C-c d l" . org-roam-buffer-toggle)
          ("C-c d f" . org-roam-node-find)
          ("C-c d i" . org-roam-node-insert)
