@@ -1604,7 +1604,7 @@ Alternatively, ~C-c C-,~ will prompt for a type of block structure and insert th
 #+BEGIN_SRC emacs-lisp
 (setq org-todo-keywords
       '((sequence "TODO(t)" "|" "DONE(d)")
-        (sequence "WIP(w)" "HOLD(h)" "BLOCKED(b)"  "IN-REVIEW(r)" "IN-ACCEPTANCE(a)" "RTR" "|" "FIXED(f)" "SEP(s)")
+        (sequence "WIP(w)" "HOLD(h)" "BLOCKED(b)"  "IN-REVIEW(r)" "TO-LAUNCH(l)" "|" "FIXED(f)" "SEP(s)")
         (sequence "|" "CANCELED(c)")))
 #+END_SRC
 
@@ -1616,6 +1616,7 @@ Setting the colours of each keyword.
         ("WIP"       . (:foreground "black" :background "yellow" :weigth bold))
         ("BLOCKED"   . (:foreground "white" :background "firebrick" :weight bold))
         ("IN-REVIEW" . (:foreground "black" :background "goldenrod1"))
+        ("TO-LAUNCH" . (:foreground "black" :background "goldenrod1"))
         ("CANCELED"  . (:foreground "green" :background "black" :weight bold))))
 #+END_SRC
 
