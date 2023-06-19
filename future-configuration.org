@@ -1048,6 +1048,14 @@ Credo is a static code analysis tool for the Elixir language.
   (add-hook 'elixir-mode-hook 'mix-minor-mode))
 #+END_SRC
 
+** Protobuf
+
+#+begin_src emacs-lisp
+(use-package protobuf-mode
+  :ensure t)
+#+end_src
+
+
 ** Ruby
 
 #+begin_src emacs-lisp
