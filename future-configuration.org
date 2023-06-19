@@ -1380,12 +1380,11 @@ Experimental key-bindings.
 #+begin_src emacs-lisp
 
 (global-set-key (kbd "C-M-s-q") 'ido-switch-buffer)
-(global-set-key (kbd "C-M-s-q") 'replace-string)
+(global-set-key (kbd "C-M-s-w") 'replace-string)
 
 (global-set-key (kbd "C-M-s-u") 'undo-tree-visualize)
 
-
-; (global-set-key (kbd "C-M-s-a") 'nil ) ; Reserved for Org-mode at work
+(global-set-key (kbd "C-M-s-a") 'bj:open-dashboard) ; Repeated at Org-mode at work.
 (global-set-key (kbd "C-M-s-s") 'sort-lines)
 (global-set-key (kbd "C-M-s-d") 'delete-trailing-whitespace)
 (global-set-key (kbd "C-M-s-f") 'cycle-spacing)
