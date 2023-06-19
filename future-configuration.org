@@ -7,6 +7,7 @@
 # - https://github.com/munen/emacs.d/blob/master/configuration.org
 # - https://github.com/jamiecollinson/dotfiles/blob/master/config.org/
 # - http://pages.sachachua.com/.emacs.d/Sacha.html
+# - https://git.sr.ht/~protesilaos/dotfiles/tree/master/item/emacs/.emacs.d
 
 My Emacs configuration used to span across multiple files, one per major
 mode. My goal on this literate programming attempt is to make the configuration
@@ -410,7 +411,7 @@ Configurations for built-in Emacs features.
 (setq default-input-method "portuguese-prefix")
 #+end_src
 
-*** Wrap columns on 80 characters
+** Wrap columns on 80 characters
 
 #+begin_src emacs-lisp
 (setq fill-column 80)
@@ -422,7 +423,7 @@ Configurations for built-in Emacs features.
 (setq line-number-mode t)
 #+end_src
 
-*** Do not make backup files
+** Do not make backup files
 
 #+begin_src emacs-lisp
 (setq make-backup-files nil)
@@ -543,23 +544,117 @@ Tabs are evil.
 (setq-default indent-tabs-mode nil)
 #+end_src
 
-** Display the current time in modeline
+** Mode line
 
-More and more often I'm running Emacs in fullscreen. I like to have a clock
+More and more often I'm running Emacs in fullscreen.  I like to have a clock
 visible at all times and this displays one in the modeline.
-
 Apart from displaying time it also display load level and a mail flag—which I
-have never seen! I don't want to know about the load level.
+have never seen!
+
+Set the clock to display the date.
 
 #+begin_src emacs-lisp
-(setq display-time-default-load-average nil
-      display-time-day-and-date t)
+(setq display-time-day-and-date t
+      display-time-24hr-format t)
 #+end_src
 
-Enable it on startup.
+I don't want to know about the load level.
+
+#+begin_src emacs-lisp
+(setq display-time-default-load-average nil)
+#+end_src
+
+Enable it.
 
 #+begin_src emacs-lisp
 (display-time-mode 1)
+#+end_src
+
+A minimalist display for line and column number.
+
+#+begin_src emacs-lisp
+(setq mode-line-position-column-line-format '("%l,%c"))
+#+end_src
+
+I've never found the cursor's relative position in file to be relevant nor very
+useful.  It's informative but not needed.
+This removes it.
+
+#+begin_src emacs-lisp
+(setq mode-line-percent-position nil)
+#+end_src
+
+The next function was taken from Emacs 29.0 source code — yet to be released.
+It identifies if the current window is the selected one.
+
+#+begin_src emacs-lisp
+(defun bj:mode-line-window-selected-p ()
+  "Return non-nil if we're updating the mode line for the selected window.
+This function is meant to be called in `:eval' mode line
+constructs to allow altering the look of the mode line depending
+on whether the mode line belongs to the currently selected window
++or not."
+  (let ((window (selected-window)))
+    (or (eq window (old-selected-window))
+        (and (minibuffer-window-active-p (minibuffer-window))
+             (with-selected-window (minibuffer-window)
+               (eq window (minibuffer-selected-window)))))))
+#+end_src
+
+This allows for the next function to only display the clock under the selected
+frame, instead of displaying it under every frame.
+
+#+begin_src emacs-lisp
+(defvar bj:modeline-misc-info
+  '(:eval
+    (when (bj:mode-line-window-selected-p)
+      mode-line-misc-info))
+  "Mode line construct displaying `mode-line-misc-info'.
+Specific to the current window's mode line.")
+(put 'bj:modeline-misc-info 'risky-local-variable t)
+#+end_src
+
+Next function will align all following elements to the right.
+
+#+begin_src emacs-lisp
+(defvar bj:modeline-align-right
+  '(:eval (propertize
+           " "
+           'display
+           `((space :align-to
+                    (- (+ right right-fringe right-margin)
+                       ,(string-width
+                         (format-mode-line mode-line-misc-info)))))))
+  "Mode line construct to align following elements to the right.
+Read Info node `(elisp) Pixel Specification'.")
+(put 'bj:modeline-align-right 'risky-local-variable t)
+#+end_src
+
+One minor change to save two characters in the mode line.
+
+Definition of the mode line.
+
+#+begin_src emacs-lisp
+(setq-default mode-line-format
+              '("%e"
+                mode-line-front-space
+                mode-line-mule-info
+                " "
+                ; mode-line-client               ; I don't use emacsclient.
+                mode-line-modified
+                mode-line-remote
+                " "
+                ; mode-line-frame-identification ; I use one frame.
+                mode-line-buffer-identification
+                " "
+                mode-line-position
+                (vc-mode vc-mode)
+                " "
+                mode-line-modes
+                bj:modeline-align-right
+                bj:modeline-misc-info
+                ; mode-line-end-spaces           ; Not needed.
+                ))
 #+end_src
 
 
