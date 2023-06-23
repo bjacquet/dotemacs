@@ -949,11 +949,10 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   :custom
   (org-roam-capture-templates
    '(("d" "default" plain "%?"
-      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n\n * ")
+      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n * ")
       :unnarrowed t)
-     ("t" "tickets" plain "%?"
+     ("t" "tickets" plain "\n* TODO ${title} [/]\n  SCHEDULED: %t\n\n- [ ] %?"
       :if-new (file+head "tickets/${slug}.org" "#+title: ${title}\n")
-      :immediate-finish t
       :unnarrowed t)))
   (org-roam-completion-everywhere t)
   (org-roam-dailies-directory "journal/")
