@@ -783,9 +783,8 @@ Marginalia enriches the candidates list, in the minibuffer, with key binding and
 (use-package marginalia
   :ensure t
   :config
-  (progn
-    (marginalia-mode)
-    (marginalia-cycle)))
+  :init
+  (marginalia-mode))
 #+end_src
 
 ** Darkroom
