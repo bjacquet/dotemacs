@@ -1,0 +1,16 @@
+
+* ${title}
+
+When: %t
+Attendees:
+  - %?
+  - 
+
+* Topics
+
+
+
+* Action points
+
+- 
+- 

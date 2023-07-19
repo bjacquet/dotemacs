@@ -948,15 +948,24 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   (setq org-roam-v2-ack t)
   :custom
   (org-roam-capture-templates
-   '(("d" "default" plain "%?"
-      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n * ")
+   '(("n" "quick note" plain
+      "\n* %?"
+      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
-     ("t" "tickets" plain "\n* TODO ${title} [/]\n  SCHEDULED: %t\n\n- [ ] %?"
-      :if-new (file+head "tickets/${slug}.org" "#+title: ${title}\n")
+     ("t" "ticket" plain
+      (file "~/.config/emacs/roam-templates/ticket-document-platform.org")
+      :if-new (file+head "tickets/${slug}.org" "#+title: ${title}\n#+filetags: Ticket DocPlat")
+      :unnarrowed t)
+     ("m" "team meeting" plain
+      (file "~/.config/emacs/roam-templates/team-meeting.org")
+      :if-new (file+head "${slug}.org" "#+title: ${title}\n#+filetags: Meeting DocPlat")
       :unnarrowed t)))
   (org-roam-completion-everywhere t)
   (org-roam-dailies-directory "journal/")
   (org-roam-directory (expand-file-name "~/Documents/Diary"))
+  (org-roam-node-display-template
+      (concat "${title:*} "
+              (propertize "${tags}" 'face 'org-tag)))
   :bind (("C-c d l" . org-roam-buffer-toggle)
          ("C-c d f" . org-roam-node-find)
          ("C-c d i" . org-roam-node-insert)
