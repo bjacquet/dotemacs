@@ -1086,6 +1086,17 @@ Store all undo tree backups in a single directory.
 (setq undo-tree-history-directory-alist '(("." . "~/.config/emacs/cache/.undo_tree")))
 #+end_src
 
+** VTerm
+
+#+begin_src emacs-lisp
+(use-package vterm
+  :ensure t
+  :config
+  (setq vterm-always-compile-module t))
+
+(use-package multi-vterm :ensure t)
+#+end_src
+
 ** Window Switching
 
 Moves the cursor to the windown number /#/ with ~M-#~.
