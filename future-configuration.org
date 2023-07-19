@@ -573,7 +573,8 @@ Enable it.
 A minimalist display for line and column number.
 
 #+begin_src emacs-lisp
-(setq mode-line-position-column-line-format '("%l,%c"))
+(setq mode-line-position-column-line-format '("%l,%c")
+      mode-line-position-line-format '("%l"))
 #+end_src
 
 I've never found the cursor's relative position in file to be relevant nor very
