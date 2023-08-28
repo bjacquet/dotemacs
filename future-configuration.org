@@ -284,7 +284,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       color-theme-modern
                       darktooth-theme
                       dashboard
-                      deft
                       detour
                       dracula-theme
 		      elixir-mode
@@ -806,6 +805,22 @@ Marginalia enriches the candidates list, in the minibuffer, with key binding and
 #+end_src
 
 ** Deft
+
+[[https://jblevins.org/projects/deft/][Deft]] is an Emacs mode for quickly browsing, filtering, and editing
+directories of plain text files.
+
+#+begin_src emacs-lisp
+(use-package deft
+  :ensure t
+  :commands (deft)
+  :config
+  (setq deft-directory "~/Documents/Diary"
+        deft-extensions '("md" "org")
+        deft-use-filename-as-title t
+        deft-current-sort-method 'mtime
+        deft-recursive t))
+#+end_src
+
 ** Detour
 
 ** Expand Region
