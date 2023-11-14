@@ -1822,3 +1822,4 @@ Load the dashboard at work.
 #+begin_src emacs-lisp
 (and onfido (bj:open-dashboard))
 #+end_src
+
