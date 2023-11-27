@@ -660,7 +660,7 @@ Definition of the mode line.
                 mode-line-buffer-identification
                 " "
                 mode-line-position
-                (vc-mode vc-mode)
+                ; (vc-mode vc-mode)              ; Never used.
                 " "
                 mode-line-modes
                 bj:modeline-align-right
