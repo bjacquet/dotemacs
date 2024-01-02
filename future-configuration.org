@@ -1291,14 +1291,14 @@ Since I'm using *asdf* I'm not sure if I still need this.
 
 *** TIDE
 
-[TIDE](https://github.com/ananthakumaran/tide) stands for /TypeScript Interactive Development Environment for Emacs/, and appears to be the recomended package.
+[[https://github.com/ananthakumaran/tide][TIDE]] stands for /TypeScript Interactive Development Environment for Emacs/, and appears to be the recomended package.
 
 #+begin_src emacs-lisp
 (use-package tide
   :ensure t)
 #+end_src
 
-Configuration [proposed](https://github.com/ananthakumaran/tide#typescript) by the package:
+[[https://github.com/ananthakumaran/tide#typescript][Proposed]] configuration by the package:
 
 #+begin_src emacs-lisp
 (defun bj:setup-tide-mode ()
