@@ -1544,6 +1544,11 @@ Experimental key-bindings.
 
 #+begin_src emacs-lisp
 
+(global-set-key (kbd "C-M-s-1") 'delete-other-windows)
+(global-set-key (kbd "C-M-s-2") 'bj:split-window-vertically)
+(global-set-key (kbd "C-M-s-3") 'bj:split-window-horizontally)
+(global-set-key (kbd "C-M-s-4") 'ido-display-buffer)
+
 (global-set-key (kbd "C-M-s-q") 'ido-switch-buffer)
 (global-set-key (kbd "C-M-s-w") 'duplicate-dwim)
 (global-set-key (kbd "C-M-s-e") 'copy-from-above-command)
