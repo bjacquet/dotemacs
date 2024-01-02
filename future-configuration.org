@@ -1287,6 +1287,15 @@ Since I'm using *asdf* I'm not sure if I still need this.
 (use-package feature-mode :ensure t)
 #+end_src
 
+** Rust
+
+   [[https://github.com/rust-lang/rust-mode][Rust-mode]] is a major mode for editing Rust files.
+
+   #+begin_src emacs-lisp
+(use-package rust-mode
+  :ensure t)
+   #+end_src
+
 ** TypeScript
 
 *** TIDE
