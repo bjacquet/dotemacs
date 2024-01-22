@@ -18,6 +18,17 @@ packages; speedup loading time; and follow the steps of the great Donald Knuth.
 
 Functions that provided some utility throughout the years.
 
+** bj:align-non-space
+
+   Aligns non-space columns in given region.
+
+   #+begin_src emacs-lisp
+(defun bj:align-non-space (BEG END)
+  "Align non-space columns in region BEG END."
+  (interactive "r")
+  (align-regexp BEG END "\\(\\s-*\\)\\S-+" 1 1 t))
+   #+end_src
+
 ** bj:trim-string
 
 Trims leading and tailing whitespace from `str'.
