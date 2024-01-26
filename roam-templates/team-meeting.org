@@ -4,13 +4,32 @@
 When: %t
 Attendees:
   - %?
-  - 
-
-* Topics
+  -
 
 
 
-* Action points
+* Agenda
 
-- 
-- 
+  1.
+
+
+* Action items
+
+  -
+
+
+* Questions
+
+  -
+
+* Info/Insights
+
+  -
+
+* Takeaways
+
+  -
+
+* Notes
+
+  -
