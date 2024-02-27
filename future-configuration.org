@@ -994,17 +994,21 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   (setq org-roam-v2-ack t)
   :custom
   (org-roam-capture-templates
-   '(("n" "quick note" plain
+   '(("f" "friction log" plain
+      (file "~/.config/emacs/roam-templates/friction-log.org")
+      :if-new (file+head "fritction-logs/${slug}.org" "#+title: ${title}\n#+filetags: FrictionLog")
+      :unnarrowed t)
+     ("m" "team meeting" plain
+      (file "~/.config/emacs/roam-templates/team-meeting.org")
+      :if-new (file+head "${slug}.org" "#+title: ${title}\n#+filetags: Meeting DocPlat")
+      :unnarrowed t)
+     ("n" "quick note" plain
       "\n* %?"
       :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
      ("t" "ticket" plain
       (file "~/.config/emacs/roam-templates/ticket-document-platform.org")
       :if-new (file+head "tickets/${slug}.org" "#+title: ${title}\n#+filetags: Ticket DocPlat")
-      :unnarrowed t)
-     ("m" "team meeting" plain
-      (file "~/.config/emacs/roam-templates/team-meeting.org")
-      :if-new (file+head "${slug}.org" "#+title: ${title}\n#+filetags: Meeting DocPlat")
       :unnarrowed t)))
   (org-roam-completion-everywhere t)
   (org-roam-dailies-directory "journal/")

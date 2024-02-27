@@ -1,0 +1,28 @@
+* Friction Log: ${title}
+
+  Date: %t
+
+** Context
+
+  This describes the persona of the person reviewing the feature, as well as
+  what they were trying to accomplish.  Try to write the context by answering
+  the following questions:
+
+  - How experienced are you with the feature?
+  - What were you trying to build?
+  - Which parts of the feature is this friction log about?
+
+** Pros
+
+   - The parts of the feature or experience that you enjoyed.
+   - Or thought were useful.
+
+** Cons
+
+   - The parts that you think could be better.
+   - Or did not match your expectation of how the feature should work.
+
+** Stream of consciousness
+
+   Feedback without necessarily following a specific structure. Write it as you
+   are going through your experience trying to use the feature.
