@@ -996,7 +996,7 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   (org-roam-capture-templates
    '(("f" "friction log" plain
       (file "~/.config/emacs/roam-templates/friction-log.org")
-      :if-new (file+head "fritction-logs/${slug}.org" "#+title: ${title}\n#+filetags: FrictionLog")
+      :if-new (file+head "friction-logs/${slug}.org" "#+title: ${title}\n#+filetags: FrictionLog")
       :unnarrowed t)
      ("m" "team meeting" plain
       (file "~/.config/emacs/roam-templates/team-meeting.org")
