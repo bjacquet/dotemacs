@@ -1573,6 +1573,8 @@ Experimental key-bindings.
 (global-set-key (kbd "C-M-s-3") 'bj:split-window-horizontally)
 (global-set-key (kbd "C-M-s-4") 'ido-display-buffer)
 
+(global-set-key (kbd "C-M-s-0") 'delete-window)
+
 (global-set-key (kbd "C-M-s-q") 'ido-switch-buffer)
 (global-set-key (kbd "C-M-s-w") 'duplicate-dwim)
 (global-set-key (kbd "C-M-s-e") 'copy-from-above-command)
