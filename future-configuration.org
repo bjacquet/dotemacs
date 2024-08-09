@@ -166,6 +166,21 @@ will split against the root of windows.
   (recenter))
 #+end_src
 
+** bj:toggle-window-dedication
+
+   Taken from Mastering Emacs.
+
+   Toggles window dedication in the selected window.
+
+   #+begin_src emacs-lisp
+(defun bj:toggle-window-dedication ()
+  "Toggles window dedication in the selected window."
+  (interactive)
+  (set-window-dedicated-p (selected-window)
+     (not (window-dedicated-p (selected-window)))))
+   #+end_src
+
+
 ** bj:toggle-window-split
 
 Switch window split from horizontally to vertically, or vice versa.
