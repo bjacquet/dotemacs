@@ -1411,7 +1411,8 @@ I feel that using a different font every day prevents boredom.
                      "Victor Mono-15"
                      "iA Writer Mono S-15"
                      "Share Tech Mono-12"
-                     "Ubuntu Mono-12"))
+                     "Ubuntu Mono-12"
+                     "Departure Mono-14"))
         font)
     (setq font (nth (random (length fonts)) fonts))
     (set-frame-font font)
