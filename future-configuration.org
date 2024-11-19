@@ -1440,6 +1440,7 @@ Themes I like to use that aren't part of Emacs.
 (use-package color-theme-modern           :ensure t)
 (use-package darktooth-theme              :ensure t)
 (use-package dracula-theme                :ensure t)
+(use-package miasma-theme                 :ensure t)
 (use-package nord-theme                   :ensure t)
 (use-package panda-theme                  :ensure t)
 #+END_SRC
@@ -1466,6 +1467,7 @@ All themes I like to use.
     (birds-of-paradise-plus)
     (darktooth)
     (dracula)
+    (misasma)
     (nord)
     (panda)))
 #+END_SRC
