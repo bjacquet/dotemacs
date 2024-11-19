@@ -1191,6 +1191,30 @@ Customisation to the Whitespace mode `M-x whitespace-mode`
 
 Configuration specific to programming.
 
+** Eglot
+
+*** lsp-mode
+
+   #+begin_src emacs-lisp
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :commands (lsp lsp-deferred)
+;;   :init
+;;   (setq lsp-keymap-prefix "C-c p")
+;;   ;; :config
+;;   ;; (lsp-enable-which-key-integration t)
+;;   )
+   #+end_src
+
+*** eglot
+
+    #+begin_src emacs-lisp
+(require 'eglot)
+(add-to-list 'eglot-server-programs
+             '(elixir-mode (expand-file-name "~/.config/lsp-servers/elixir-ls/0.20.0/language_server.sh")))
+
+    #+end_src
+
 ** Elixir
 
 *** Flycheck-Credo
@@ -1214,7 +1238,8 @@ Credo is a static code analysis tool for the Elixir language.
 (use-package elixir-mode
   :ensure t
   :config
-  (add-hook 'elixir-mode-hook 'flycheck-mode))
+  (add-hook 'elixir-mode-hook 'flycheck-mode)
+  (add-hook 'elixir-mode-hook 'eglot-ensure))
 #+END_SRC
 
 *** Mix.el
@@ -1249,6 +1274,7 @@ Credo is a static code analysis tool for the Elixir language.
 #+begin_src emacs-lisp
 (use-package enh-ruby-mode
   :ensure t
+  ;; :hook (enh-ruby-mode . lsp-deferred)
   :config
   (add-to-list 'auto-mode-alist
                '("\\(?:\\.rb\\|arb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
