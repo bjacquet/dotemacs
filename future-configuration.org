@@ -151,7 +151,7 @@ will split against the root of windows.
 #+end_src
 
 ** bj:split-window-horizontally
-
+   
 Split window horizontally and move cursor to new window. With `C-u` it
 will split against the root of windows.
 
@@ -300,6 +300,7 @@ Some packages don't come through `use-pacakge`.
 
 ** Packages to be installed
 
+
 List all packages to install regardless of the system we are at. Additional package configuration is defined further down in this file.
 
 #+BEGIN_SRC emacs-lisp
@@ -364,9 +365,17 @@ List all packages to install regardless of the system we are at. Additional pack
 
 ** Global variables
 
+   If I separate my .emacs configuration from Emacs' generated files I no longer need to ignore untracked
+   files.
+
+#+BEGIN_SRC emacs-lisp
+(defvar *emacs-repo-dir* "~/.config/dotemacs/"
+  "My .Emacs repository directory.")
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp
 (defvar *emacs-dir* "~/.config/emacs/"
-  "The Emacs directory.")
+  "The .Emacs directory.")
 #+END_SRC
 
 ** Helper functions
@@ -1009,11 +1018,11 @@ Has I write this I'm reading its documentation and know about its discontinuatio
   :custom
   (org-roam-capture-templates
    '(("f" "friction log" plain
-      (file "~/.config/emacs/roam-templates/friction-log.org")
+      (file "~/.config/dotemacs/roam-templates/friction-log.org")
       :if-new (file+head "friction-logs/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: FrictionLog")
       :unnarrowed t)
      ("m" "team meeting" plain
-      (file "~/.config/emacs/roam-templates/team-meeting.org")
+      (file "~/.config/dotemacs/roam-templates/team-meeting.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Meeting DocPlat")
       :unnarrowed t)
      ("n" "quick note" plain
@@ -1021,7 +1030,7 @@ Has I write this I'm reading its documentation and know about its discontinuatio
       :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
      ("t" "ticket" plain
-      (file "~/.config/emacs/roam-templates/ticket-document-platform.org")
+      (file "~/.config/dotemacs/roam-templates/ticket-document-platform.org")
       :if-new (file+head "tickets/${slug}.org" "#+title: ${title}\n#+filetags: Ticket DocPlat")
       :unnarrowed t)))
   (org-roam-completion-everywhere t)
@@ -1492,7 +1501,7 @@ All themes I like to use.
     (birds-of-paradise-plus)
     (darktooth)
     (dracula)
-    (misasma)
+    (miasma)
     (nord)
     (panda)))
 #+END_SRC
@@ -1740,7 +1749,7 @@ Configurations specific to the workplace.
   (bj:random-elem
    (append (list 'official 3)
            (mapcar #'(lambda (file)
-                       (format "%scustom/%s" *emacs-dir* file))
+                       (format "%scustom/%s" *emacs-repo-dir* file))
                    (list "catppuccin.xpm"
                          "glider.xpm"
                          "lisplogo-alien.xpm"

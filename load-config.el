@@ -7,7 +7,7 @@
 (defun load-config()
   "Load the actual configuration in literate 'org-mode' elisp."
   (interactive)
-  (org-babel-load-file "~/.config/emacs/future-configuration.org"))
+  (org-babel-load-file "~/.config/dotemacs/future-configuration.org"))
 
 (load-config)
 
