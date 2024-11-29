@@ -46,7 +46,6 @@
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
 (bj:load-pkg-loader "javascript.el")
 (bj:load-pkg-loader "paredit.el")
-(bj:load-pkg-loader "spellings.el")
 (bj:load-pkg-loader "treemacs.el")
 (bj:load-pkg-loader "yasnippet.el")
 (load "last-closed-files")

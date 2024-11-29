@@ -314,7 +314,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       elixir-mode
                       expand-region
                       flycheck
-                      flyspell-popup
                       golden-ratio
                       handlebars-mode
                       handlebars-sgml-mode
@@ -875,8 +874,6 @@ Expand selection to the enclosed region with ~C-=~.
   :bind (("C-=" . er/expand-region)))
 #+end_src
 
-** Flyspell
-
 ** Htmlize
 
    This is something that got a lot of usage at SISCOG but not so much ever since (if any).  I think it was
@@ -1174,6 +1171,29 @@ This function is meant to be mapped to a key in `rg-mode-map'."
          ("M-n" . rg-next-file)
          ("M-p" . rg-prev-file)))
 #+END_SRC
+
+** Spellings
+
+   Flyspell mode is a minor mode that performs automatic spell-checking of the text you type as you type or
+   move over it.  When it finds a word that it does not recognize, it highlights that word.
+
+   Use ~M-x flyspell-mode~ to toggle Flyspell mode in the current buffer.
+
+   The following key-bindings are available globally.
+
+   ~C-M-s-k~ spellchecks a region.
+
+   ~C-M-s-l~ spellchecks a buffer.
+
+   #+begin_src emacs-lisp
+(use-package flyspell
+  :config
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  (add-hook 'text-mode-hook 'flyspell-mode))
+   #+end_src
+
+   See the [[info:emacs#Spelling][emacs#Spelling]] for more info.
+
 
 ** Undo Tree
 
