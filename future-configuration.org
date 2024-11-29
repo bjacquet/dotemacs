@@ -317,7 +317,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       flycheck
                       flyspell-popup
                       golden-ratio
-                      goto-last-change
                       handlebars-mode
                       handlebars-sgml-mode
                       haskell-mode
