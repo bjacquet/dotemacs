@@ -442,14 +442,14 @@ For text modes wrap columns after 80 characters.
 
 #+begin_src emacs-lisp
 (add-hook 'text-mode-hook
-          '(lambda () (setq-default fill-column 80)))
+          (lambda () (setq-default fill-column 80)))
 #+end_src
 
 But let's be audacious on programming modes and wrap on 110!
 
 #+begin_src emacs-lisp
 (add-hook 'prog-mode-hook
-          '(lambda () (setq-default fill-column 110)))
+          (lambda () (setq-default fill-column 110)))
 #+end_src
 
 This value will change on specific modes.
