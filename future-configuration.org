@@ -305,8 +305,6 @@ List all packages to install regardless of the system we are at. Additional pack
 
 #+BEGIN_SRC emacs-lisp
 (defvar my-packages '(ag
-                      all-the-icons
-                      all-the-icons-dired
                       birds-of-paradise-plus-theme
                       color-theme-modern
                       darktooth-theme
@@ -340,7 +338,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       selectrum
                       selectrum-prescient
                       slim-mode
-                      smart-mode-line
                       sr-speedbar
                       treemacs-icons-dired
                       treemacs-magit
@@ -1633,6 +1630,19 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 #+end_src
+
+
+** Smart Mode Line
+
+   [[https://github.com/Malabarba/smart-mode-line][Smart Mode Line]] is a "sexy" mode-line for Emacs.
+
+   #+begin_src emacs-lisp
+(use-package smart-mode-line
+  :ensure t
+  :config
+  (setq sml/no-confirm-load-theme t)
+  (sml/setup))
+   #+end_src
 
 
 * Key-bindings
