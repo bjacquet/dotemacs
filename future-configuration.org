@@ -390,8 +390,7 @@ Configurations change depending on which system I am at.
 (defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
 (defvar linux-p (or (eq window-system 'x)))
 (defvar puffin (zerop (or (string-match (system-name) "puffin.home") 1)))
-(defvar onfido (or (and mac-p (not puffin))
-                   linux-p))
+(defvar komodo (zerop (or (string-match (system-name) "komodo.local") 1)))
 #+end_src
 
 Change macOS modifier keys — to avoid muscle memory loss.
@@ -492,10 +491,8 @@ This value will change on specific modes.
 
 #+begin_src emacs-lisp
 (setq user-full-name "Bruno Jacquet")
-(setq user-mail-address (or (and onfido
-                                 (rot13-string "oehab.wnpdhrg@basvqb.pbz"))
-                            (rot13-string "oehawnpg@cebgbaznvy.pbz")))
 
+(bj:load-file "secret/user-mail-address.el")
 #+end_src
 
 ** Frame title
@@ -789,8 +786,7 @@ sub-directories.
 
 *** Ido Vertical
 
-ido-vertical-mode]] makes Ido display candidates vertically instead of
-horizontally.
+[[https://github.com/creichert/ido-vertical-mode.el][ido-vertical-mode]] makes Ido display candidates vertically instead of horizontally.
 
 #+begin_src emacs-lisp
 (use-package ido-vertical-mode
@@ -1964,7 +1960,7 @@ Setting the colours of each keyword.
 The following key-bindings are available globally.
 
 #+BEGIN_SRC emacs-lisp
-(when onfido
+(when komodo
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cb" 'org-switchb)
   (global-set-key "\C-cl" 'org-store-link)
@@ -1985,6 +1981,6 @@ The following key-bindings are available globally.
 Load the dashboard at work.
 
 #+begin_src emacs-lisp
-(and onfido (bj:open-dashboard))
+(and komodo (bj:open-dashboard))
 #+end_src
 
