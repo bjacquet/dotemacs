@@ -321,7 +321,6 @@ List all packages to install regardless of the system we are at. Additional pack
                       handlebars-mode
                       handlebars-sgml-mode
                       haskell-mode
-                      htmlize
                       ido-vertical-mode
                       js-react-redux-yasnippets
                       json-mode
@@ -880,6 +879,47 @@ Expand selection to the enclosed region with ~C-=~.
 #+end_src
 
 ** Flyspell
+
+** Htmlize
+
+   This is something that got a lot of usage at SISCOG but not so much ever since (if any).  I think it was
+   used on emails so that the code would have pretty colors.
+
+#+begin_src emacs-lisp
+(use-package htmlize
+  :ensure t)
+
+(defun lbo:export-buffer-to-html ()
+  "Provided by LBO."
+  (interactive)
+  (let ((themes custom-enabled-themes))
+    (mapc #'disable-theme themes)
+    (unwind-protect
+        (with-current-buffer (htmlize-buffer)
+          (let ((file (make-temp-file "htmlized-buffer-" nil ".html")))
+            (write-file file)
+            (browse-url file))
+          (kill-buffer))
+      (mapc #'enable-theme themes))))
+
+(defun lbo:export-region-to-html ()
+  "Provided by LBO."
+  (interactive)
+  (let ((themes custom-enabled-themes)
+        (transient-mark-mode-enabled transient-mark-mode))
+    (mapc #'disable-theme themes)
+    (transient-mark-mode -1)
+    (redisplay)
+    (unwind-protect
+         (with-current-buffer (htmlize-region (region-beginning) (region-end))
+           (let ((file (make-temp-file "htmlized-region-" nil ".html")))
+             (write-file file)
+             (browse-url file))
+           (kill-buffer))
+      (transient-mark-mode (if transient-mark-mode-enabled 1 -1))
+      (mapc #'enable-theme themes))))
+#+end_src
+
 ** Magit
 
 [[https://github.com/magit/magit][Magit]] is the best Git interface.  Whenever visiting a (version controlled) file use ~C-x g~ to load the status buffer, Magit's equivalent of typing ~git status~ in a shell.
