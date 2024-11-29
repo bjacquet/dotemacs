@@ -301,7 +301,8 @@ Some packages don't come through `use-pacakge`.
 ** Packages to be installed
 
 
-List all packages to install regardless of the system we are at. Additional package configuration is defined further down in this file.
+List all packages to install regardless of the system we are at. Additional package configuration is defined
+further down in this file.
 
 #+BEGIN_SRC emacs-lisp
 (defvar my-packages '(ag
@@ -547,7 +548,8 @@ Enable downcase-region (~C-x C-l~).
 
 ** ~dired-mode~
 
-Ability to use ~a~ to visit a new directory or file in dired instead of using ~RET~. ~RET~ works just fine, but it will create a new buffer for every interaction whereas ~a~ reuses the current buffer.
+Ability to use ~a~ to visit a new directory or file in dired instead of using ~RET~. ~RET~ works just fine,
+but it will create a new buffer for every interaction whereas ~a~ reuses the current buffer.
 
 #+begin_src emacs-lisp
 (put 'dired-find-alternate-file 'disabled nil)
@@ -697,7 +699,8 @@ Definition of the mode line.
 
 ** Calendar week start day
 
-By default on Emacs, weeks begin on Sunday.  To make them begin on Monday instead, set the variable ~calendar-week-start-day~ to ~1~.
+By default on Emacs, weeks begin on Sunday.  To make them begin on Monday instead, set the variable
+~calendar-week-start-day~ to ~1~.
 
 #+begin_src emacs-lisp
 (setq calendar-week-start-day 1)
@@ -727,13 +730,15 @@ Package configuration common to all systems.
 
 [[https://github.com/abo-abo/avy][Avy]] is one of the lesser known Emacs features and one which has proven, over time, to be a real [[https://karthinks.com/software/avy-can-do-anything/][powerhouse]].
 
-~C-;~ will call ~avy-goto-char-timer~. I prefer this function over ~avy-goto-char~ since it allows for several chars to be given as input.
+~C-;~ will call ~avy-goto-char-timer~. I prefer this function over ~avy-goto-char~ since it allows for several
+chars to be given as input.
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-;") 'avy-goto-char-timer)
 #+end_src
 
-I can also jump to a line with ~C-:~. When a number is given as input it switches to the ~goto-line~ command. Although ~M-g f~ is available by default, it's cumbersome to type.
+I can also jump to a line with ~C-:~. When a number is given as input it switches to the ~goto-line~
+command. Although ~M-g f~ is available by default, it's cumbersome to type.
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-:") 'avy-goto-line)
@@ -964,15 +969,14 @@ Skim through the [[https://emacsair.me/2017/09/01/magit-walk-through/][Magit's w
 
 ** NeoTree
 
-I mostly use Treemacs but sometimes I want to access a tree-like structure without having to define a new project.
+I mostly use Treemacs but sometimes I want to access a tree-like structure without having to define a new
+project.
 
 #+begin_src emacs-lisp
 (use-package neotree :ensure t)
 #+end_src
 
-*** Show or hide key-bindings
-
-Show or hide NeoTree (~C-c n~).
+Show, or hide, NeoTree (~C-c t~).
 
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-c t") 'neotree-toggle)
@@ -1200,6 +1204,125 @@ This function is meant to be mapped to a key in `rg-mode-map'."
 
    See the [[info:emacs#Spelling][emacs#Spelling]] for more info.
 
+** Treemacs
+
+   [[https://github.com/Alexander-Miller/treemacs][Treemacs]] is a tree layout project explorer.  It stores the location of projects and only displays its file
+   tree, rather than the complete file system.  This way codebases are easily accessible.
+
+   Load it with ~M-x treemacs~.
+
+   Add a project to the list, ~C-c C-p a~.
+
+   The folling configuration, and additional integrations, were blindly copied from the documentation.  I
+   don't think I've ever changed it.
+
+   #+begin_src emacs-lisp
+(use-package treemacs
+  :ensure t
+  :defer t
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :config
+  (progn
+    (setq treemacs-collapse-dirs              (if (executable-find "python") 3 0)
+          treemacs-deferred-git-apply-delay   0.5
+          treemacs-display-in-side-window     t
+          treemacs-file-event-delay           5000
+          treemacs-file-follow-delay          0.2
+          treemacs-follow-after-init          t
+          treemacs-follow-recenter-distance   0.1
+          treemacs-git-command-pipe           ""
+          treemacs-goto-tag-strategy          'refetch-index
+          treemacs-indentation                2
+          treemacs-indentation-string         " "
+          treemacs-is-never-other-window      nil
+          treemacs-max-git-entries            5000
+          treemacs-no-png-images              nil
+          treemacs-no-delete-other-windows    t
+          treemacs-project-follow-cleanup     nil
+          treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+          treemacs-recenter-after-file-follow nil
+          treemacs-recenter-after-tag-follow  nil
+          treemacs-show-cursor                nil
+          treemacs-show-hidden-files          t
+          treemacs-silent-filewatch           nil
+          treemacs-silent-refresh             nil
+          treemacs-sorting                    'alphabetic-asc
+          treemacs-space-between-root-nodes   t
+          treemacs-tag-follow-cleanup         t
+          treemacs-tag-follow-delay           1.5
+          treemacs-width                      35)
+
+    ;; The default width and height of the icons is 22 pixels. If you are
+    ;; using a Hi-DPI display, uncomment this to double the icon size.
+    ;;(treemacs-resize-icons 44)
+
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t)
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null (executable-find "python3"))))
+      (`(t . t)
+       (treemacs-git-mode 'deferred))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
+   #+end_src
+
+*** Default key-bindings
+
+Only in Treemacs buffer:
+
+- ~n~ next line, ~p~ previous line. Or, ~C-n~/~C-p~.
+- ~RET~ or ~TAB~ Open current item if it is a file. Fold/Unfold current item if it is a directory.
+- ~u~ Go up a directory
+- ~g~ Refresh
+- ~=~ Adjust treemacs width to content.
+- ~t h~ Toggle display hidden files
+- ~c f~ Create a file.
+- ~c d~ Create a directory.
+- ~d~ Delete a file or a directory.
+- ~R~ Rename a file or a directory.
+- ~m~ Move a file or a directory.
+
+*** Projectile
+
+    Allows to quickly add projectile projects to the treemacs workspace with ~M-x treemacs-projectile~.  I
+    don't remember ever using this.
+
+   #+begin_src emacs-lisp
+(use-package treemacs-projectile
+  :after (treemacs projectile)
+  :ensure t)
+   #+end_src
+
+*** Icons dired
+
+    Use treemacs icons in dired buffers.
+
+   #+begin_src emacs-lisp
+(use-package treemacs-icons-dired
+  :hook (dired-mode . treemacs-icons-dired-enable-once)
+  :ensure t)
+   #+end_src
+
+*** Magit
+
+    Files show with different colors depending on their (un)staged status.
+
+   #+begin_src emacs-lisp
+(use-package treemacs-magit
+  :after (treemacs magit)
+  :ensure t)
+   #+end_src
 
 ** Undo Tree
 
@@ -1638,7 +1761,8 @@ Reference: https://karthinks.com/software/batteries-included-with-emacs/
 
 *** All the icons
 
-This is an utility package to collect various Icon Fonts and propertize them within Emacs. It's mostly a dependency from *Treemacs* and *NeoTree* to have a more fancy appearance.
+This is an utility package to collect various Icon Fonts and propertize them within Emacs. It's mostly a
+dependency from *Treemacs* and *NeoTree* to have a more fancy appearance.
 
 #+begin_src emacs-lisp
 (use-package all-the-icons  :ensure t)
