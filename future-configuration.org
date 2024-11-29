@@ -295,11 +295,10 @@ If ~use-package~ isn't installed, install it.
 Some packages don't come through `use-pacakge`.
 
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'load-path (expand-file-name "~/.config/emacs/my-packages/"))
+(add-to-list 'load-path (expand-file-name "~/.config/dotemacs/packages/"))
 #+END_SRC
 
 ** Packages to be installed
-
 
 List all packages to install regardless of the system we are at. Additional package configuration is defined
 further down in this file.
