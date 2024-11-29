@@ -22,7 +22,7 @@
  '(next-line-add-newlines nil)
  '(next-line-extends-end-of-buffer nil)
  '(package-selected-packages
-   '(all-the-icons-dired all-the-icons dashboard react-snippets js-react-redux-yasnippets yasnippet-snippets yasnippet panda-theme ranger treemacs-magit treemacs-icons-dired treemacs-projectile json-mode detour golden-ratio flychek jsx-mode flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe wn-mode winpoint rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess birds-of-paradise-plus-theme arbitools))
+   '(all-the-icons-dired all-the-icons dashboard panda-theme ranger json-mode detour golden-ratio flychek jsx-mode flyspell-popup rinari ag handlebars-mode handlebars-sgml-mode slim-mode sr-speedbar robe wn-mode winpoint rust-mode paredit pager naquadah-theme multiple-cursors markdown-mode haskell-mode expand-region diminish darktooth-theme color-theme-modern chess birds-of-paradise-plus-theme arbitools))
  '(recentf-max-saved-items nil)
  '(recentf-mode t)
  '(scroll-step 1)
@@ -46,8 +46,6 @@
 (load-file (expand-file-name (concat emacs-dir "/pkg-config.el")))
 (bj:load-pkg-loader "javascript.el")
 (bj:load-pkg-loader "paredit.el")
-(bj:load-pkg-loader "treemacs.el")
-(bj:load-pkg-loader "yasnippet.el")
 (load "last-closed-files")
 
 ;;; rtrv.el ends here

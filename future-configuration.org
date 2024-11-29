@@ -320,7 +320,6 @@ further down in this file.
                       handlebars-sgml-mode
                       haskell-mode
                       ido-vertical-mode
-                      js-react-redux-yasnippets
                       json-mode
                       marginalia
                       markdown-mode
@@ -330,7 +329,6 @@ further down in this file.
                       panda-theme
                       paredit
                       ranger
-                      react-snippets
                       rinari
                       rjsx-mode
                       robe
@@ -1606,6 +1604,24 @@ Recomended configuration for **TSX** files:
 (use-package yaml-mode
   :ensure t)
 #+end_src
+
+** YASnippet
+
+   [[https://github.com/joaotavora/yasnippet][YASnippet]] is a template system.  It allows me to type an abbreviation and automatically expand it into
+   function templates.
+
+   #+begin_src emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :ensure t
+  :after yasnippet
+  :config
+  (yasnippet-snippets-initialize))
+   #+end_src
 
 
 * Appearance
