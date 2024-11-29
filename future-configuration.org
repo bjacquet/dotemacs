@@ -341,7 +341,6 @@ further down in this file.
                       treemacs-magit
                       treemacs-projectile
                       undo-tree
-                      winpoint
                       wn-mode
                       yasnippet
                       yasnippet-snippets))
