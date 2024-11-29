@@ -769,13 +769,18 @@ It uses the left fringe, and the mouse, to display, navigate, and manipulate (li
 
 ** Candidate Selection
 
-I used to use Ido, and Ivy before that, and Emacs before that! Tried out Selectrum for a couple of months and realized how much I missed Ido's recursive directory search.
+I used to use Ido, and Ivy before that, and Emacs before that! Tried out
+Selectrum for a couple of months and realized how much I missed Ido's recursive
+directory search.
 
-/Now/ I believe this configuration is how I can get Ido to work with ~C-x C-f~ and Selectrum with ~M-x~.
+/Now/ I believe this configuration is how I can get Ido to work with ~C-x C-f~
+and Selectrum with ~M-x~.
 
 *** Ido
 
-[Ido](https://www.gnu.org/software/emacs/manual/html_node/ido/index.html) is a package for interactive selection that is included in Emacs by default. It's the best package for file finding recursively across sub-directories.
+[[https://www.gnu.org/software/emacs/manual/html_node/ido/index.html][Ido]] is a package for interactive selection that is included in Emacs by
+default. It's the best package for file finding recursively across
+sub-directories.
 
 #+begin_src emacs-lisp
 (setq ido-enable-flex-matching t)
@@ -784,7 +789,8 @@ I used to use Ido, and Ivy before that, and Emacs before that! Tried out Selectr
 
 *** Ido Vertical
 
-[ido-vertical-mode](https://github.com/creichert/ido-vertical-mode.el) makes Ido display candidates vertically instead of horizontally.
+ido-vertical-mode]] makes Ido display candidates vertically instead of
+horizontally.
 
 #+begin_src emacs-lisp
 (use-package ido-vertical-mode
@@ -916,7 +922,9 @@ Expand selection to the enclosed region with ~C-=~.
 
 ** Magit
 
-[[https://github.com/magit/magit][Magit]] is the best Git interface.  Whenever visiting a (version controlled) file use ~C-x g~ to load the status buffer, Magit's equivalent of typing ~git status~ in a shell.
+[[https://github.com/magit/magit][Magit]] is the best Git interface.  Whenever visiting a (version controlled) file
+use ~C-x g~ to load the status buffer, Magit's equivalent of typing ~git status~
+in a shell.
 
 
 #+begin_src emacs-lisp
@@ -928,7 +936,7 @@ Expand selection to the enclosed region with ~C-=~.
   (autoload 'magit-status "magit" "Loads magit-mode" t))
 #+end_src
 
-On any magit screen we can see their specific keybings by typing ~?~.
+On any magit screen we can see their specific key-bindings by typing ~?~.
 
 Skim through the [[https://emacsair.me/2017/09/01/magit-walk-through/][Magit's walk though]] for help.
 
@@ -966,7 +974,7 @@ I mostly use Treemacs but sometimes I want to access a tree-like structure witho
 (use-package neotree :ensure t)
 #+end_src
 
-*** Show or hide keybiding
+*** Show or hide key-bindings
 
 Show or hide NeoTree (~C-c n~).
 
@@ -982,7 +990,7 @@ Display fancy icons. Requires the ~all-the-icons~ package.
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 #+end_src
 
-*** Default keybindings
+*** Default key-bindings
 
 Only in Neotree Buffer:
 
@@ -1129,7 +1137,9 @@ I've been using [[https://github.com/emacsorphanage/pager/blob/master/pager.el][
 
 ** RG (RipGrep)
 
-To use [ripgrep](https://github.com/BurntSushi/ripgrep) in Emacs. Ripgrep is a replacement for both grep like (search one file) and ag like (search many files) tools. It's fast and versatile and written in Rust.
+To use [[https://github.com/BurntSushi/ripgrep][ripgrep]] in Emacs. Ripgrep is a replacement for both grep like (search one
+file) and ag like (search many files) tools. It's fast and versatile and written
+in Rust.
 
 This configuration was taken from https://gitlab.com/protesilaos/dotfiles/.
 
@@ -1284,7 +1294,7 @@ Configuration specific to programming.
 
 *** Flycheck-Credo
 
-[Flycheck-credo](https://github.com/aaronjensen/flycheck-credo) adds support for [credo](https://github.com/rrrene/credo) to flycheck.
+[[https://github.com/aaronjensen/flycheck-credo][Flycheck-credo]] adds support for [[https://github.com/rrrene/credo][credo]] to flycheck.
 
 Credo is a static code analysis tool for the Elixir language.
 
@@ -1297,7 +1307,7 @@ Credo is a static code analysis tool for the Elixir language.
 
 *** Elixir-Mode
 
-[elixir-mode](https://github.com/elixir-editors/emacs-elixir) provides font-locking and indentation for Elixir.
+ [[https://github.com/elixir-editors/emacs-elixir][elixir-mode]] provides font-locking and indentation for Elixir.
 
 #+BEGIN_SRC emacs-lisp
 (use-package elixir-mode
@@ -1309,7 +1319,7 @@ Credo is a static code analysis tool for the Elixir language.
 
 *** Mix.el
 
-[mix.el](https://github.com/ayrat555/mix.el) is Emacs Minor Mode for Mix, a build tool that ships with Elixir.
+ [[https://github.com/ayrat555/mix.el][mix.el]] is an Emacs Minor Mode for Mix, a build tool that ships with Elixir.
 
 #+BEGIN_SRC emacs-lisp
 (use-package mix
@@ -1728,9 +1738,9 @@ Experimental key-bindings.
 * RSS
 
 I'm trying to use Emacs as a RSS reader.
-[Elfeed](https://github.com/skeeto/elfeed) seems to be the package for it.
+[[https://github.com/skeeto/elfeed][Elfeed]] seems to be the package for it.
 
-Elfeed is launched with this keybingind ~C-x w~, or with ~M-x bj:elfeed~.
+Elfeed is launched with this key-binding ~C-x w~, or with ~M-x bj:elfeed~.
 
 #+begin_src emacs-lisp
 (defun bj:elfeed ()
@@ -1743,7 +1753,9 @@ Elfeed is launched with this keybingind ~C-x w~, or with ~M-x bj:elfeed~.
 (global-set-key (kbd "C-x w") 'bj:elfeed)
 #+end_src
 
-From the search buffer there are a number of ways to interact with entries. You can select an single entry with the point, or multiple entries at once with a region, and interact with them.
+From the search buffer there are a number of ways to interact with entries. You
+can select an single entry with the point, or multiple entries at once with a
+region, and interact with them.
 
 - ~+~: add a specific tag to selected entries
 - ~-~: remove a specific tag from selected entries
@@ -1761,8 +1773,8 @@ From the search buffer there are a number of ways to interact with entries. You 
 
 *** Open links in the background
 
-This function, taken from [Álvaro Ramírez](https://xenodium.com/open-emacs-elfeed-links-in-background/),
-will load links in the browser without loosing focus on Emacs.
+This function, taken from [[https://xenodium.com/open-emacs-elfeed-links-in-background/][Álvaro Ramírez]], will load links in the browser without
+loosing focus on Emacs.
 
 #+begin_src emacs-lisp
 (defun bj:elfeed-search-browse-background-url ()
@@ -1949,7 +1961,7 @@ Setting the colours of each keyword.
 
 *** Key-bindings
 
-The following key-binginds are available globally.
+The following key-bindings are available globally.
 
 #+BEGIN_SRC emacs-lisp
 (when onfido
