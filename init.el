@@ -11,4 +11,4 @@
 
 (load-config)
 
-;;; load-config.el ends here
+;;; init.el ends here
