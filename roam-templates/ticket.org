@@ -1,4 +1,3 @@
-[[id:054cb194-e0ff-434f-bcef-08321d3fcaae][Document Platform Team]]
 [[id:55c6d16d-2daf-4e0a-a426-63c49156874b][Tickets]]
 
 * TODO %?${title} [/]
@@ -8,4 +7,4 @@
 
 ** Merge Requests
 
--  {🛂✅🚀🛰️}
+-  🛑🛂✅🚀🛰️

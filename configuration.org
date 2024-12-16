@@ -1061,15 +1061,15 @@ Has I write this I'm reading its documentation and know about its discontinuatio
       :unnarrowed t)
      ("m" "team meeting" plain
       (file "~/.config/dotemacs/roam-templates/team-meeting.org")
-      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Meeting DocPlat")
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Meeting")
       :unnarrowed t)
      ("n" "quick note" plain
       "\n* %?"
       :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
      ("t" "ticket" plain
-      (file "~/.config/dotemacs/roam-templates/ticket-document-platform.org")
-      :if-new (file+head "tickets/${slug}.org" "#+title: ${title}\n#+filetags: Ticket DocPlat")
+      (file "~/.config/dotemacs/roam-templates/ticket.org")
+      :if-new (file+head "tickets/${slug}.org" "#+title: ${title}\n#+filetags: Ticket")
       :unnarrowed t)))
   (org-roam-completion-everywhere t)
   (org-roam-dailies-directory "journal/")
