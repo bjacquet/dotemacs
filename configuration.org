@@ -373,9 +373,9 @@ further down in this file.
 ** Helper functions
 
 #+BEGIN_SRC emacs-lisp
-(defmacro bj:load-file (file-name)
-  `(and (file-exists-p (expand-file-name (concat *emacs-dir* ,file-name)))
-        (load-file (expand-file-name (concat *emacs-dir* ,file-name)))))
+(defmacro bj:load-file (dir file-name)
+  `(and (file-exists-p (expand-file-name (concat ,dir ,file-name)))
+        (load-file (expand-file-name (concat ,dir ,file-name)))))
 #+END_SRC
 
 
@@ -489,7 +489,7 @@ This value will change on specific modes.
 #+begin_src emacs-lisp
 (setq user-full-name "Bruno Jacquet")
 
-(bj:load-file "secret/user-mail-address.el")
+(bj:load-file *emacs-repo-dir* "secret/user-mail-address.el")
 #+end_src
 
 ** Frame title
@@ -1961,7 +1961,7 @@ I'll load my feeds from another file.
 
 #+BEGIN_SRC emacs-lisp
 (defun bj:load-rss-feeds ()
-  (bj:load-file "secret/rss-feeds.el"))
+  (bj:load-file *emacs-repo-dir* "secret/rss-feeds.el"))
 #+END_SRC
 
 
@@ -2055,7 +2055,7 @@ Used to use this extensively at SISCOG, where I had to clock my work time per is
 *** Load files outside source control
 
 #+begin_src emacs-lisp
-(bj:load-file "secret/org-agenda-files.el")
+(bj:load-file *emacs-repo-dir* "secret/org-agenda-files.el")
 #+end_src
 
 *** org-tempo
