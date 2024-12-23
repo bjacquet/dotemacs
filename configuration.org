@@ -1020,6 +1020,16 @@ Can't believe why this is ~nil~ by default! Whenever I changed code in a source 
 (setq org-src-preserve-indentation t)
 #+end_src
 
+*** org-org-image-actual-width
+
+    Don't show inline images at their full width, most likely they're too big to fit the window.
+
+    #+begin_src emacs-lisp
+(setq org-image-actual-width nil)
+    #+end_src
+
+    Place ~#+attr_org: :width 886~ before the image to set it to 886 pixels.
+
 *** org-startup-folded
 
 Open Org files in "overview" mode.
