@@ -1660,7 +1660,6 @@ I feel that using a different font every day prevents boredom.
 
   (let ((fonts (list "Martian Mono-13"
                      "Anonymous Pro-16"
-                     "Comic Mono-14"
                      "CozetteVector-19"
                      "Menlo-14"
                      "Monaco-14"
