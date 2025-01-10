@@ -394,10 +394,11 @@ Change macOS modifier keys — to avoid muscle memory loss.
 
 #+begin_src emacs-lisp
 (when mac-p
-  (setq mac-option-key-is-meta  nil)
-  (setq mac-command-key-is-meta t)
-  (setq mac-command-modifier    'meta)
-  (setq mac-option-modifier     nil))
+  (setq mac-command-modifier 'meta)    ; make Command key do Meta
+  (setq mac-option-modifier  'super)   ; make Option key do Super
+  (setq mac-control-modifier 'control) ; make Control key do Control
+  (setq ns-function-modifier 'hyper)   ; make Fn key do Hyper
+  )
 #+end_src
 
 
