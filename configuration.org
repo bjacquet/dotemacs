@@ -395,9 +395,9 @@ Change macOS modifier keys — to avoid muscle memory loss.
 #+begin_src emacs-lisp
 (when mac-p
   (setq mac-command-modifier 'meta)    ; make Command key do Meta
-  (setq mac-option-modifier  'super)   ; make Option key do Super
-  (setq mac-control-modifier 'control) ; make Control key do Control
-  (setq ns-function-modifier 'hyper)   ; make Fn key do Hyper
+  (setq mac-right-command-modifier 'meta)
+  (setq mac-right-option-modifier 'super)
+  ;; (setq ns-function-modifier 'hyper)   ; make Fn key do Hyper
   )
 #+end_src
 
@@ -1333,7 +1333,7 @@ Only in Treemacs buffer:
 
 ** Undo Tree
 
-Show undo history in a tree structure (~C-x u~ or ~C-M-s u~).
+Show undo history in a tree structure (~C-x u~ or ~C-s u~).
 
 Don't display the lighter in mode line.
 #+BEGIN_SRC emacs-lisp
@@ -1857,38 +1857,38 @@ Experimental key-bindings.
 
 #+begin_src emacs-lisp
 
-(global-set-key (kbd "C-M-s-1") 'delete-other-windows)
-(global-set-key (kbd "C-M-s-2") 'bj:split-window-vertically)
-(global-set-key (kbd "C-M-s-3") 'bj:split-window-horizontally)
-(global-set-key (kbd "C-M-s-4") 'ido-display-buffer)
+(global-set-key (kbd "C-s-1") 'delete-other-windows)
+(global-set-key (kbd "C-s-2") 'bj:split-window-vertically)
+(global-set-key (kbd "C-s-3") 'bj:split-window-horizontally)
+(global-set-key (kbd "C-s-4") 'ido-display-buffer)
 
-(global-set-key (kbd "C-M-s-0") 'delete-window)
+(global-set-key (kbd "C-s-0") 'delete-window)
 
-(global-set-key (kbd "C-M-s-q") 'ido-switch-buffer)
-(global-set-key (kbd "C-M-s-w") 'duplicate-dwim)
-(global-set-key (kbd "C-M-s-e") 'copy-from-above-command)
-(global-set-key (kbd "C-M-s-r") 'replace-string)
+(global-set-key (kbd "C-s-q") 'ido-switch-buffer)
+(global-set-key (kbd "C-s-w") 'duplicate-dwim)
+(global-set-key (kbd "C-s-e") 'copy-from-above-command)
+(global-set-key (kbd "C-s-r") 'replace-string)
 
-(global-set-key (kbd "C-M-s-u") 'undo-tree-visualize)
+(global-set-key (kbd "C-s-u") 'undo-tree-visualize)
 
-(global-set-key (kbd "C-M-s-a") 'bj:open-dashboard) ; Repeated at Org-mode at work.
-(global-set-key (kbd "C-M-s-s") 'sort-lines)
-(global-set-key (kbd "C-M-s-d") 'delete-trailing-whitespace)
-(global-set-key (kbd "C-M-s-f") 'cycle-spacing)
-(global-set-key (kbd "C-M-s-g") 'package-list-packages)
+(global-set-key (kbd "C-s-a") 'bj:open-dashboard) ; Repeated at Org-mode at work.
+(global-set-key (kbd "C-s-s") 'sort-lines)
+(global-set-key (kbd "C-s-d") 'delete-trailing-whitespace)
+(global-set-key (kbd "C-s-f") 'cycle-spacing)
+(global-set-key (kbd "C-s-g") 'package-list-packages)
 
-(global-set-key (kbd "C-M-s-h") 'darkroom-mode)
-(global-set-key (kbd "C-M-s-j") 'bj:toggle-window-split)
-(global-set-key (kbd "C-M-s-k") 'ispell-region)
-(global-set-key (kbd "C-M-s-l") 'ispell-buffer)
-(global-set-key (kbd "C-M-s-;") 'whitespace-mode)
+(global-set-key (kbd "C-s-h") 'darkroom-mode)
+(global-set-key (kbd "C-s-j") 'bj:toggle-window-split)
+(global-set-key (kbd "C-s-k") 'ispell-region)
+(global-set-key (kbd "C-s-l") 'ispell-buffer)
+(global-set-key (kbd "C-s-;") 'whitespace-mode)
 
-(global-set-key (kbd "C-M-s-z") 'deft)
-(global-set-key (kbd "C-M-s-x") 'kill-this-buffer)
-(global-set-key (kbd "C-M-s-v") 'revert-buffer)
-(global-set-key (kbd "C-M-s-b") 'bury-buffer)
+(global-set-key (kbd "C-s-z") 'deft)
+(global-set-key (kbd "C-s-x") 'kill-this-buffer)
+(global-set-key (kbd "C-s-v") 'revert-buffer)
+(global-set-key (kbd "C-s-b") 'bury-buffer)
 
-(global-set-key (kbd "C-M-s-n") 'ido-switch-buffer)
+(global-set-key (kbd "C-s-n") 'ido-switch-buffer)
 #+end_src
 
 
