@@ -318,6 +318,7 @@ further down in this file.
                       handlebars-mode
                       handlebars-sgml-mode
                       haskell-mode
+                      hledger-mode
                       ido-vertical-mode
                       json-mode
                       marginalia
@@ -877,6 +878,33 @@ Expand selection to the enclosed region with ~C-=~.
   :ensure t
   :bind (("C-=" . er/expand-region)))
 #+end_src
+
+** HLedger
+
+   #+begin_src emacs-lisp
+(use-package hledger-mode
+  :ensure t
+  :mode ("\\.journal\\'" "\\.hledger\\'")
+  :bind (("C-c j" . hledger-run-command)
+         :map hledger-mode-map
+         ("C-c e" . hledger-jentry)
+         ("M-p" . hledger/prev-entry)
+         ("M-n" . hledger/next-entry))
+  :preface
+  (defun hledger/next-entry ()
+    "Move to next entry and pulse."
+    (interactive)
+    (hledger-next-or-new-entry)
+    (hledger-pulse-momentary-current-entry))
+  (defun hledger/prev-entry ()
+    "Move to last entry and pulse."
+    (interactive)
+    (hledger-backward-entry)
+    (hledger-pulse-momentary-current-entry))
+  ;; :config
+  ;; (setq hledger-currency-string "$")
+  )
+   #+end_src
 
 ** Htmlize
 
