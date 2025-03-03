@@ -5,6 +5,15 @@
 
 - [ ]
 
+** Stand-up prep
+
+- *What happened so far?*
+  -
+- *What is going to happen?*
+  -
+- *What is the plan for finishing?*
+  -
+
 ** Merge Requests 📝🛂✅🚀🛰️
 
 -
