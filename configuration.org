@@ -2285,6 +2285,19 @@ The following key-bindings are available globally.
 
 ~C-M-s-a~ close all windows and open the Dashboard.
 
+** Aider
+
+   #+begin_src emacs-lisp
+(use-package aidermacs
+  :config
+  ; Enable minor mode for Aider files
+  (aidermacs-setup-minor-mode)
+  :custom
+  ; See the Configuration section below
+  (aidermacs-use-architect-mode t)
+  (aidermacs-default-model "smart"))
+   #+end_src
+
 
 * Launch something after loading?
 
