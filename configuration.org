@@ -311,7 +311,8 @@ further down in this file.
                       dashboard
                       detour
                       dracula-theme
-                      elixir-mode
+                      eldoc
+                      elixir-ts-mode
                       expand-region
                       flycheck
                       golden-ratio
@@ -321,6 +322,7 @@ further down in this file.
                       hledger-mode
                       ido-vertical-mode
                       json-mode
+                      lsp-mode
                       marginalia
                       markdown-mode
                       neotree
@@ -1420,31 +1422,106 @@ Customisation to the Whitespace mode `M-x whitespace-mode`
 
 Configuration specific to programming.
 
-** Eglot
+** Language Server Protocol (LSP)
 
 *** lsp-mode
 
-   #+begin_src emacs-lisp
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :commands (lsp lsp-deferred)
-;;   :init
-;;   (setq lsp-keymap-prefix "C-c p")
-;;   ;; :config
-;;   ;; (lsp-enable-which-key-integration t)
-;;   )
-   #+end_src
-
-*** eglot
+[[https://emacs-lsp.github.io/lsp-mode/][lsp-mode]] is a client/library for the LSP.
 
     #+begin_src emacs-lisp
-(require 'eglot)
-(add-to-list 'eglot-server-programs
-             '(elixir-mode (expand-file-name "~/.config/lsp-servers/elixir-ls/0.20.0/language_server.sh")))
+(use-package lsp-mode
+  :commands lsp
+  :ensure t
+  :diminish lsp-mode
+  :init
+  (setq lsp-enable-file-watchers t
+        lsp-enable-indentation t
+        lsp-enable-on-type-formatting t
+        lsp-enable-snippet t
+        lsp-file-watch-threshold nil
+        lsp-log-io t ;; M-x lsp-workspace-show-log
+  ))
+   #+end_src
 
+*** lsp-ui
+
+[[https://github.com/emacs-lsp/lsp-ui][lsp-ui]] is a collection of UI modules for lsp-mode.
+
+    #+begin_src emacs-lisp
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
     #+end_src
 
+*** Eglot
+
+[[https://www.gnu.org/software/emacs/manual/html_node/eglot/index.html][Eglot]] is Emacs's client for the LSP.  The name is an acronym that stands for “Emacs Polyglot”.
+
+    #+begin_src emacs-lisp
+(use-package eglot
+  :ensure t)
+    #+end_src
+
+** Tree Sitter
+
+[[https://emacs-tree-sitter.github.io/][tree-sitter]] is an Emacs binding for [[https://tree-sitter.github.io/tree-sitter/][Tree-sitter]], an incremental parsing system.
+
+   #+begin_src emacs-lisp
+(setq treesit-extra-load-path
+      (list (expand-file-name (concat *emacs-dir* "tree-sitter"))))
+   #+end_src
+
+   #+begin_src emacs-lisp
+(setq treesit-language-source-alist
+      '((bash       "https://github.com/tree-sitter/tree-sitter-bash")
+        (css        "https://github.com/tree-sitter/tree-sitter-css")
+        (dockerfile "https://github.com/camdencheek/tree-sitter-dockerfile")
+        (elisp      "https://github.com/Wilfred/tree-sitter-elisp")
+        (elixir     "https://github.com/elixir-lang/tree-sitter-elixir")
+        (heex       "https://github.com/phoenixframework/tree-sitter-heex")
+        (html       "https://github.com/tree-sitter/tree-sitter-html")
+        (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+        (json       "https://github.com/tree-sitter/tree-sitter-json")
+        (make       "https://github.com/alemuller/tree-sitter-make")
+        (markdown   "https://github.com/ikatyang/tree-sitter-markdown")
+        (org        "https://github.com/milisims/tree-sitter-org")
+        (ruby       "https://github.com/tree-sitter/tree-sitter-ruby")
+        (sql        "https://github.com/m-novikov/tree-sitter-sql")
+        (toml       "https://github.com/tree-sitter/tree-sitter-toml")
+        (tsx        "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+        (yaml       "https://github.com/ikatyang/tree-sitter-yaml")))
+     #+end_src
+
+   To install any of these language grammars do ~M-x treesit-install-language-grammar~ and select it.
+
+   Check if a grammar is working by calling the ~treesit-language-available-p~ function:
+
+   #+begin_src text
+ELISP> (treesit-language-available-p 'elixir)
+t
+ELISP> (treesit-language-available-p 'klingon)
+nil
+   #+end_src
+
+   Emacs will return ~t~ if it’s a known language and ~nil~ otherwise.
+
 ** Elixir
+
+*** Elixir-ts-mode
+
+[[https://github.com/wkirschbaum/elixir-ts-mode][Elixir-TS-mode]] provides font-locking, navigation and indentation for Elixir using Treesitter.
+
+    #+begin_src emacs-lisp
+(use-package elixir-ts-mode
+  :ensure t
+  :hook
+  ((elixir-ts-mode . eglot-ensure))
+  :init
+  (add-hook 'elixir-ts-mode-hook
+            (lambda ()
+              (add-hook 'after-save-hook 'eglot-format nil 'make-it-local))))
+    #+end_src
 
 *** Flycheck-Credo
 
@@ -1459,28 +1536,25 @@ Credo is a static code analysis tool for the Elixir language.
   (flycheck-credo-setup))
 #+END_SRC
 
-*** Elixir-Mode
-
- [[https://github.com/elixir-editors/emacs-elixir][elixir-mode]] provides font-locking and indentation for Elixir.
-
-#+BEGIN_SRC emacs-lisp
-(use-package elixir-mode
-  :ensure t
-  :config
-  (add-hook 'elixir-mode-hook 'flycheck-mode)
-  (add-hook 'elixir-mode-hook 'eglot-ensure))
-#+END_SRC
-
 *** Mix.el
 
- [[https://github.com/ayrat555/mix.el][mix.el]] is an Emacs Minor Mode for Mix, a build tool that ships with Elixir.
+[[https://github.com/ayrat555/mix.el][mix.el]] is an Emacs Minor Mode for Mix, a build tool that ships with Elixir.
 
 #+BEGIN_SRC emacs-lisp
 (use-package mix
   :config
-  (add-hook 'elixir-mode-hook 'mix-minor-mode))
+  (add-hook 'elixir-ts-mode-hook 'mix-minor-mode))
 #+END_SRC
 
+
+*** Heex-ts-mode
+
+[[https://github.com/wkirschbaum/heex-ts-mode][Heex-ts-mode]] is major mode using Treesitter for fontification, navigation and indentation.
+
+    #+begin_src emacs-lisp
+(use-package heex-ts-mode
+  :ensure t)
+    #+end_src
 
 ** Markdown
 
