@@ -151,7 +151,7 @@ will split against the root of windows.
 #+end_src
 
 ** bj:split-window-horizontally
-   
+
 Split window horizontally and move cursor to new window. With `C-u` it
 will split against the root of windows.
 
@@ -2324,4 +2324,3 @@ Load the dashboard at work.
 #+begin_src emacs-lisp
 (and komodo (bj:open-dashboard))
 #+end_src
-
