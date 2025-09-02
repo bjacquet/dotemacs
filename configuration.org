@@ -1018,7 +1018,9 @@ Skim through the [[https://emacsair.me/2017/09/01/magit-walk-through/][Magit's w
 #+begin_src emacs-lisp
 (use-package forge
   :ensure t
-  :after magit)
+  :after magit
+  :init
+  (setq auth-sources '("~/.authinfo")))
 
 (use-package magit-todos
   :ensure t
