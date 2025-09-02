@@ -710,20 +710,30 @@ By default on Emacs, weeks begin on Sunday.  To make them begin on Monday instea
 
 Package configuration common to all systems.
 
-** Auto-complete
+** Code completion
+
+*** Auto-complete
 
 #+begin_src emacs-lisp
-(use-package auto-complete
-  :ensure t
-  ;; :bind (("\t"   . ac-complete)
-  ;;        ("\r"   . nil)
-  ;;        ("\C-n" . ac-next)
-  ;;        ("\C-p" . ac-previous))
-  :init
-  (setq ac-auto-start 3)
-  (setq ac-dwim t)
-  (global-auto-complete-mode t))
+;; (use-package auto-complete
+;;   :ensure t
+;;   ;; :bind (("\t"   . ac-complete)
+;;   ;;        ("\r"   . nil)
+;;   ;;        ("\C-n" . ac-next)
+;;   ;;        ("\C-p" . ac-previous))
+;;   :init
+;;   (setq ac-auto-start 3)
+;;   (setq ac-dwim t)
+;;   (global-auto-complete-mode t))
 #+end_src
+
+*** Company
+
+    #+begin_src emacs-lisp
+(use-package company
+  :ensure t
+  )
+    #+end_src
 
 ** Avy
 
@@ -1617,9 +1627,9 @@ Credo is a static code analysis tool for the Elixir language.
 
 #+begin_src emacs-lisp
 ;;; auto-complete configuration
-(setq ac-ignore-case nil)
-(add-to-list 'ac-modes 'enh-ruby-mode)
-(add-to-list 'ac-modes 'web-mode)
+;; (setq ac-ignore-case nil)
+;; (add-to-list 'ac-modes 'enh-ruby-mode)
+;; (add-to-list 'ac-modes 'web-mode)
 #+end_src
 
 *** Enhanced Ruby Mode
