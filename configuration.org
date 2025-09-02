@@ -1190,12 +1190,25 @@ When marking repeating tasks as DONE, don't log the state change below the heade
 
 This option can also be set with on a per-file-basis with
 
-#+begin_src
+#+begin_src org
 #+STARTUP: nologrepeat
 #+STARTUP: logrepeat
 #+STARTUP: lognoterepeat
 #+end_src
 
+*** org-agenda-prefix-format
+
+    I don't need to know the filename when looking at the agenda.
+
+    #+begin_src emacs-lisp
+(setq org-agenda-prefix-format
+      '(
+        (dashboard-agenda . " %s ")
+        (agenda . " ")
+        (todo . " %i %-12:c")
+        (tags . " %i %-12:c")
+        (search . " %i %-12:c")))
+    #+end_src
 ** Pager
 
 I've been using [[https://github.com/emacsorphanage/pager/blob/master/pager.el][pager.el]] for so long, don't know if "regular" Emacs has improved its scrolling since. The main selling point of this package was when doing a pg-up followed by a pg-down will return point to the original place.
