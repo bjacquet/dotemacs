@@ -397,6 +397,7 @@ Change macOS modifier keys — to avoid muscle memory loss.
 (when mac-p
   (setq mac-command-modifier 'meta)    ; make Command key do Meta
   (setq mac-right-command-modifier 'meta)
+  (setq mac-option-modifier 'option)
   (setq mac-right-option-modifier 'super)
   ;; (setq ns-function-modifier 'hyper)   ; make Fn key do Hyper
   )
@@ -1264,9 +1265,9 @@ This function is meant to be mapped to a key in `rg-mode-map'."
 
    The following key-bindings are available globally.
 
-   ~C-M-s-k~ spellchecks a region.
+   ~C-s-k~ spellchecks a region.
 
-   ~C-M-s-l~ spellchecks a buffer.
+   ~C-s-l~ spellchecks a buffer.
 
    #+begin_src emacs-lisp
 (use-package flyspell
@@ -1982,7 +1983,7 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
 (global-set-key [S-f9]  'recentf-open-files)
 
 (global-set-key "\C-ci" 'indent-region)
-(global-set-key "\C-xk" 'kill-this-buffer)
+(global-set-key "\C-xk" 'kill-current-buffer)
 (global-set-key "\C-xO" 'previous-multiframe-window)
 (global-set-key "\C-x2" 'bj:split-window-vertically)
 (global-set-key "\C-x3" 'bj:split-window-horizontally)
@@ -2263,7 +2264,7 @@ The following key-bindings are available globally.
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cb" 'org-switchb)
   (global-set-key "\C-cl" 'org-store-link)
-  (global-set-key (kbd "C-M-s-a") 'bj:open-dashboard))
+  (global-set-key (kbd "C-s-a") 'bj:open-dashboard))
 #+END_SRC
 
 ~C-c a~ opens the agenda.
