@@ -335,8 +335,6 @@ further down in this file.
                       rjsx-mode
                       robe
                       rust-mode
-                      selectrum
-                      selectrum-prescient
                       slim-mode
                       sr-speedbar
                       treemacs-icons-dired
@@ -812,23 +810,61 @@ sub-directories.
 
 *** Selectrum
 
-Selectrum proposes to be a better solution for incremental narrowing in Emacs, replacing Helm, Ivy, and IDO.
+I'm replacing Selectrum with [[Vertico]].
+
+
+*** Vertico
+
+Selectrum is no longer maintained and their authors suggest using Vertico instead.
+
+    #+begin_src emacs-lisp
+(use-package vertico
+  :ensure t
+  :custom
+  ;; (vertico-scroll-margin 0) ;; Different scroll margin
+  ;; (vertico-count 20) ;; Show more candidates
+  (vertico-resize t)
+  (vertico-cycle nil)
+  :init
+  (vertico-mode))
+    #+end_src
+
+*** Savehist
+
+Required for Vertico to consider previously used commands, between Emacs restarts.
 
 #+begin_src emacs-lisp
-(use-package selectrum
+(use-package savehist
   :ensure t
-  :config (selectrum-mode 1))
+  :init
+  (savehist-mode))
 #+end_src
 
+*** Orderless
+
+[[https://github.com/oantolin/orderless][Orderless]] provides an /orderless completion style/ that divides the pattern into space-separated components,
+and matches candidates that match all of the components in any order.
+
 #+begin_src emacs-lisp
-(use-package selectrum-prescient
+(use-package orderless
   :ensure t
-  :config
-  (progn
-    (selectrum-prescient-mode 1)
-    (prescient-persist-mode 1)
-    (setq prescient-filter-method '(fuzzy))
-    (setq prescient-sort-full-matches-first t)))
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-defaults nil)
+  (completion-category-overrides
+   '((file (styles basic-remote ; For `tramp' hostname completion with `vertico'
+                   orderless))))
+  (orderless-matching-styles
+   '(orderless-literal
+     orderless-prefixes
+     orderless-initialism
+     orderless-regexp
+     orderless-flex
+     ;; orderless-strict-leading-initialism
+     ;; orderless-strict-initialism
+     ;; orderless-strict-full-initialism
+     ;; orderless-without-literal          ; Recommended for dispatches instead
+     )))
 #+end_src
 
 *** Marginalia
