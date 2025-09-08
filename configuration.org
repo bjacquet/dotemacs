@@ -1731,6 +1731,14 @@ Since I'm using *asdf* I'm not sure if I still need this.
   :ensure t)
    #+end_src
 
+** Terraform
+
+   #+begin_src emacs-lisp
+(use-package terraform-mode
+  :ensure t
+  :defer t)
+   #+end_src
+
 ** TypeScript
 
 *** TIDE
