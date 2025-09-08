@@ -180,7 +180,6 @@ will split against the root of windows.
      (not (window-dedicated-p (selected-window)))))
    #+end_src
 
-
 ** bj:toggle-window-split
 
 Switch window split from horizontally to vertically, or vice versa.
@@ -2316,6 +2315,87 @@ The following key-bindings are available globally.
   (aidermacs-default-model "smart"))
    #+end_src
 
+** Jira
+
+I also use Jira at work. =/
+
+Setup the credentials.
+
+   #+begin_src emacs-lisp
+(when komodo
+  (bj:load-file *emacs-repo-dir* "secret/jira.el"))
+   #+end_src
+
+   [[https://github.com/nyyManni/jiralib2][Jiralib2]] provides many functions to interact with Jira's REST API.
+
+   #+begin_src emacs-lisp
+(when komodo
+  (use-package jiralib2
+    :ensure t
+    :defer t
+    :init
+    (setq jiralib2-auth            'token
+          jiralib2-token           bj/jira-api-token
+          jiralib2-url             bj/jira-url
+          jiralib2-user-login-name bj/jira-username))
+
+  (defun bj:get-jira-ticket-title (ticket-number)
+    "Fetch the title/summary of a Jira ticket with TICKET-NUMBER.
+TICKET-NUMBER should be a string like \"FM-9081\"."
+    (require 'jiralib2)
+    (let* ((issue   (jiralib2-get-issue ticket-number))
+           (summary (and issue (cdr (assoc 'summary (cdr (assoc 'fields issue)))))))
+      (or summary
+          (message "Failed to fetch ticket %s" ticket-number))))
+
+  (defun bj:get-jira-ticket-url (ticket-number)
+    "Fetch the URL of a Jira ticket with TICKET-NUMBER.
+TICKET-NUMBER should be a string like \"FM-9081\"."
+    (require 'jiralib2)
+
+    (let* ((issue (jiralib2-get-issue ticket-number))
+           (url   (and issue
+                       (format "%s/browse/%s" jiralib2-url ticket-number))))
+      (or url
+          (message "Failed to fetch ticket %s" ticket-number))))}
+   #+end_src
+
+*** bj:insert-org-jira-url
+
+Given a ticket number returns its URL.
+
+   #+begin_src emacs-lisp
+(when komodo
+  (defun bj:insert-org-jira-url (ticket-number)
+    "Returns the URL of a Jira ticket with TICKET-NUMBER.
+TICKET-NUMBER should be a string like \"fm 9081\"."
+    (interactive
+     (list (if (use-region-p)
+               (buffer-substring-no-properties (region-beginning) (region-end))
+             (read-string "Enter Jira ticket number: "))))
+    (let* ((ticket-number (upcase (string-trim ticket-number)))
+           (issue-key     (replace-regexp-in-string " " "-" ticket-number))
+           (jira-url      (bj:get-jira-ticket-url issue-key)))
+      (org-insert-link nil jira-url ticket-number))))
+   #+end_src
+
+*** bj:create-org-roam-ticket
+
+    Given a ticket number creates an org file using the /ticket/ template.  Uses the
+    ticket title for filename and ticket title, which fetches from Jira.
+
+    #+begin_src emacs-lisp
+(when komodo
+  (defun bj:create-org-roam-ticket (ticket-number)
+    "Returns the title of a Jira ticket with TICKET-NUMBER.
+TICKET-NUMBER should be a string like \"fm 9081\"."
+    (interactive "sEnter Jira ticket number: ")
+    (let* ((ticket-number (upcase (string-trim ticket-number)))
+           (issue-key     (replace-regexp-in-string " " "-" ticket-number))
+           (issue-summary (get-jira-ticket-title issue-key))
+           (node-title    (format "%s %s" ticket-number issue-summary)))
+      (org-roam-node-find :initial-input node-title))))
+   #+end_src
 
 * Launch something after loading?
 
