@@ -2367,7 +2367,7 @@ TICKET-NUMBER should be a string like \"FM-9081\"."
            (url   (and issue
                        (format "%s/browse/%s" jiralib2-url ticket-number))))
       (or url
-          (message "Failed to fetch ticket %s" ticket-number))))}
+          (message "Failed to fetch ticket %s" ticket-number)))))
    #+end_src
 
 *** bj:insert-org-jira-url
@@ -2402,10 +2402,56 @@ TICKET-NUMBER should be a string like \"fm 9081\"."
     (interactive "sEnter Jira ticket number: ")
     (let* ((ticket-number (upcase (string-trim ticket-number)))
            (issue-key     (replace-regexp-in-string " " "-" ticket-number))
-           (issue-summary (get-jira-ticket-title issue-key))
+           (issue-summary (bj:get-jira-ticket-title issue-key))
            (node-title    (format "%s %s" ticket-number issue-summary)))
       (org-roam-node-find :initial-input node-title))))
    #+end_src
+
+*** bj:slack-discuss-ticket
+
+Given a ticket number creates a text message to start a ticket discussion in
+Slack.
+
+    #+begin_src emacs-lisp
+(defun bj:slack-discuss-ticket (ticket-number)
+  "Opens a buffer with a slack message template to discuss a ticket.
+TICKET-NUMBER should be a string like \"FM-9081\"."
+  (interactive "sEnter Jira ticket number: ")
+  (let* ((ticket-number (upcase (string-trim ticket-number)))
+         (issue-key     (replace-regexp-in-string " " "-" ticket-number))
+         (issue-title   (bj:get-jira-ticket-title issue-key))
+         (issue-url     (bj:get-jira-ticket-url issue-key))
+         (temp-buffer   (format "*slack-discuss-\s*" ticket-number)))
+    (with-current-buffer (get-buffer-create temp-buffer)
+      (insert (format "`%s %s`\n%s\n*Relevant to*: "
+                      ticket-number
+                      issue-title
+                      issue-url))
+      (switch-to-buffer temp-buffer))))
+    #+end_src
+
+*** bj:slack-pr-review
+
+Given a ticket number creates a text message to request a pull request review in
+Slack.
+
+    #+begin_src emacs-lisp
+(defun bj:slack-pr-review (ticket-number)
+  "Opens a buffer with a slack message template to review a pull request.
+TICKET-NUMBER should be a string like \"FM-9081\"."
+  (interactive "sEnter Jira ticket number: ")
+  (let* ((ticket-number (upcase (string-trim ticket-number)))
+         (issue-key     (replace-regexp-in-string " " "-" ticket-number))
+         (issue-title   (bj:get-jira-ticket-title issue-key))
+         (issue-url     (bj:get-jira-ticket-url issue-key))
+         (temp-buffer   (format "*slack-pr-review-\s*" ticket-number)))
+    (with-current-buffer (get-buffer-create temp-buffer)
+      (insert (format "`%s %s`\n*Ticket*: %s\nCan someone review this PR? :point_right::skin-tone-3: "
+                      ticket-number
+                      issue-title
+                      issue-url))
+      (switch-to-buffer temp-buffer))))
+    #+end_src
 
 * Launch something after loading?
 
