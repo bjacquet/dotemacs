@@ -1522,8 +1522,45 @@ Configuration specific to programming.
 
     #+begin_src emacs-lisp
 (use-package eglot
-  :ensure t)
+  :ensure t
+  :hook ((eglot . eldoc-mode))
+  :bind (:map eglot-mode-map
+         ("C-c c a" . eglot-code-actions)
+         ("C-c c o" . eglot-code-action-organize-imports)
+         ("C-c c r" . eglot-rename)
+         ("C-c c f" . eglot-format)))
     #+end_src
+
+The most advanced LSP for Elixir is [[https://expert-lsp.org/][Expert]].  It also takes some /expertise/ to
+configure it correctly.
+
+    #+begin_src emacs-lisp
+(with-eval-after-load 'eglot
+  (when komodo
+    (let ((elixir-lsp-alternatives '(("~/.local/bin/expert" "--stdio") "elixir-ls")))
+      (add-to-list 'eglot-server-programs
+                   `((elixir-mode elixir-ts-mode) . ,(eglot-alternatives elixir-lsp-alternatives))))))
+    #+end_src
+
+**** Flymake
+
+[[https://www.gnu.org/software/emacs/manual/html_node/flymake/index.html][Flymake]] is a syntax-checker and provides on-the-fly diagnostic annotations.
+This defines key-bindings:
+
+- ~C-c ! h~ Explain error at point.
+- ~C-c ! n~ Go to next error.
+- ~C-c ! p~ Go to previous error.
+- ~C-c ! l~ List all errors.
+
+     #+begin_src emacs-lisp
+(use-package flymake
+  :hook (eglot-mode . flymake-mode)
+  :bind (("C-c ! h" . display-local-help)
+         :map flymake-mode-map
+         ("C-c ! n" . flymake-goto-next-error)
+         ("C-c ! p" . flymake-goto-prev-error)
+         ("C-c ! l" . flymake-show-diagnostics-buffer)))
+     #+end_src
 
 ** Tree Sitter
 
@@ -1609,7 +1646,6 @@ Credo is a static code analysis tool for the Elixir language.
   (add-hook 'elixir-ts-mode-hook 'mix-minor-mode))
 #+END_SRC
 
-
 *** Heex-ts-mode
 
 [[https://github.com/wkirschbaum/heex-ts-mode][Heex-ts-mode]] is major mode using Treesitter for fontification, navigation and indentation.
@@ -1637,7 +1673,6 @@ Credo is a static code analysis tool for the Elixir language.
 (use-package protobuf-mode
   :ensure t)
 #+end_src
-
 
 ** Ruby
 
@@ -2452,6 +2487,7 @@ TICKET-NUMBER should be a string like \"FM-9081\"."
                       issue-url))
       (switch-to-buffer temp-buffer))))
     #+end_src
+
 
 * Launch something after loading?
 
