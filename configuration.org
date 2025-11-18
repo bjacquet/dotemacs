@@ -1867,18 +1867,19 @@ I feel that using a different font every day prevents boredom.
   "Changes the current session font with a random one."
   (interactive)
 
-  (let ((fonts (list "Martian Mono-13"
-                     "Anonymous Pro-16"
+  (let ((fonts (list "Anonymous Pro-16"
+                     "Aporetic Serif Mono-14"
                      "CozetteVector-19"
+                     "Departure Mono-14"
+                     "Martian Mono-13"
                      "Menlo-14"
                      "Monaco-14"
+                     "Myna-16"
                      "NovaMono-15"
-                     "Victor Mono-15"
-                     "iA Writer Mono S-15"
                      "Share Tech Mono-12"
                      "Ubuntu Mono-12"
-                     "Departure Mono-14"
-                     "Aporetic Serif Mono-14"))
+                     "Victor Mono-15"
+                     "iA Writer Mono S-15"))
         font)
     (setq font (nth (random (length fonts)) fonts))
     (set-frame-font font)
