@@ -2093,7 +2093,8 @@ Experimental key-bindings.
 (global-set-key (kbd "C-s-;") 'whitespace-mode)
 
 (global-set-key (kbd "C-s-z") 'deft)
-(global-set-key (kbd "C-s-x") 'kill-this-buffer)
+(global-set-key (kbd "C-s-x") 'kill-current-buffer)
+(global-set-key (kbd "C-s-c") 'avy-goto-char-timer)
 (global-set-key (kbd "C-s-v") 'revert-buffer)
 (global-set-key (kbd "C-s-b") 'bury-buffer)
 
