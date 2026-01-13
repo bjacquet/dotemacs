@@ -820,18 +820,18 @@ sub-directories.
 
 *** Selectrum
 
-I'm replacing Selectrum with [[Vertico]].
+Selectrum is no longer maintained and their authors suggest using [[Vertico]] instead.
 
 
 *** Vertico
 
-Selectrum is no longer maintained and their authors suggest using Vertico instead.
+[[https://github.com/minad/vertico][Vertico]] provides a performant and minimalistic vertical completion UI based on the default completion system.
 
     #+begin_src emacs-lisp
 (use-package vertico
   :ensure t
   :custom
-  ;; (vertico-scroll-margin 0) ;; Different scroll margin
+  (vertico-scroll-margin 0) ;; Avoid confusion when scrolling back up
   ;; (vertico-count 20) ;; Show more candidates
   (vertico-resize t)
   (vertico-cycle nil)
@@ -862,8 +862,7 @@ and matches candidates that match all of the components in any order.
   (completion-styles '(orderless))
   (completion-category-defaults nil)
   (completion-category-overrides
-   '((file (styles basic-remote ; For `tramp' hostname completion with `vertico'
-                   orderless))))
+   '((file (styles flex))))
   (orderless-matching-styles
    '(orderless-literal
      orderless-prefixes
