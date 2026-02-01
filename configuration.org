@@ -387,6 +387,7 @@ Configurations change depending on which system I am at.
 (defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
 (defvar linux-p (or (eq window-system 'x)))
 (defvar puffin (zerop (or (string-match (system-name) "puffin.home") 1)))
+(defvar plover (zerop (or (string-match (system-name) "plover") 1)))
 (defvar komodo (zerop (or (string-match (system-name) "komodo.local") 1)))
 #+end_src
 
@@ -1531,11 +1532,14 @@ Configuration specific to programming.
     #+end_src
 
 The most advanced LSP for Elixir is [[https://expert-lsp.org/][Expert]].  It also takes some /expertise/ to
-configure it correctly.
+configure it correctly:
+1. Download the binary from https://github.com/elixir-lang/expert/releases
+2. Save it as ~~/.local/bin/expert~.
+3. Make it executable ~chmod +x ~/.local/bin/expert~.
 
     #+begin_src emacs-lisp
 (with-eval-after-load 'eglot
-  (when komodo
+  (when (or komodo plover)
     (let ((elixir-lsp-alternatives '(("~/.local/bin/expert" "--stdio") "elixir-ls")))
       (add-to-list 'eglot-server-programs
                    `((elixir-mode elixir-ts-mode) . ,(eglot-alternatives elixir-lsp-alternatives))))))
