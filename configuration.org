@@ -2250,7 +2250,7 @@ Configurations specific to the workplace.
   (dashboard-setup-startup-hook)
   (add-to-list 'dashboard-items '(agenda) t)
   (setq dashboard-items '((agenda . 10)
-                          (projects . 5)
+                          (projects . 10)
                           (recents  . 5)
                           (bookmarks . 5)
                           (registers . 5)))
