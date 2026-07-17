@@ -919,6 +919,19 @@ directories of plain text files.
 
 ** Detour
 
+** Edit in Emacs
+
+With [[https://github.com/KarimAziev/chrome-emacs][Chrome-Emacs]] installed in the browser I can edit any input field in Emacs.
+
+   #+begin_src emacs-lisp
+(use-package atomic-chrome
+  :demand t
+  :commands (atomic-chrome-start-server)
+  :config
+  (setq-default atomic-chrome-extension-type-list '(atomic-chrome))
+  (atomic-chrome-start-server))
+   #+end_src
+
 ** Expand Region
 
 Expand selection to the enclosed region with ~C-=~.
