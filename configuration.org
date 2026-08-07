@@ -2258,7 +2258,14 @@ Configurations specific to the workplace.
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-startup-banner (bj:random-dashboard-startup-banner))
-  (setq dashboard-agenda-sort-strategy '(time-up)))
+  (setq dashboard-agenda-sort-strategy '(time-up))
+  (setq dashboard-projects-backend 'project-el))
+
+(setq project-switch-commands
+      '((project-find-file "Find file")
+        (project-find-regexp "Find regexp")
+        (magit-status "Magit status" "m")
+        (vterm "VTerm" "v")))
 
 (defun bj:open-dashboard ()
   "Open the *dashboard* buffer and jump to the first widget."
