@@ -388,7 +388,7 @@ Configurations change depending on which system I am at.
 (defvar linux-p (or (eq window-system 'x)))
 (defvar puffin (zerop (or (string-match (system-name) "puffin.home") 1)))
 (defvar plover (zerop (or (string-match (system-name) "plover") 1)))
-(defvar komodo (zerop (or (string-match (system-name) "komodo.local") 1)))
+(defvar work-pc-p (zerop (or (string-match (system-name) "tama.local") 1)))
 #+end_src
 
 Change macOS modifier keys — to avoid muscle memory loss.
@@ -1839,7 +1839,7 @@ Recomended configuration for **TSX** files:
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (bj:setup-tide-mode))))
 ;; enable typescript-tslint checker
-(flycheck-add-mode 'typescript-tslint 'web-mode)
+;; (flycheck-add-mode 'typescript-tslint 'web-mode)
 #+end_src
 
 ** Yaml
@@ -1896,24 +1896,24 @@ I feel that using a different font every day prevents boredom.
                               "Ubuntu Mono-12"
                               "Victor Mono-15"
                               "iA Writer Mono S-15"))
-         (fonts-komodo (list "Anonymous Pro-16"
-                             "Aporetic Serif Mono-14"
-                             "CozetteVector-19"
-                             "Departure Mono-14"
-                             "Martian Mono-13"
-                             "Menlo-14"
-                             "Monaco-14"
-                             "Myna-16"
-                             "NovaMono-15"
-                             "Share Tech Mono-14"
-                             "Ubuntu Mono-12"
-                             "Victor Mono-15"
-                             "iA Writer Mono S-15"))
-         (fonts (if komodo fonts-komodo default-fonts))
+         (fonts-work-pc-p (list "Anonymous Pro-16"
+                                "Aporetic Serif Mono-14"
+                                "CozetteVector-19"
+                                "Departure Mono-14"
+                                "Martian Mono-13"
+                                "Menlo-14"
+                                "Monaco-14"
+                                "Myna-16"
+                                "NovaMono-15"
+                                "Share Tech Mono-14"
+                                "Ubuntu Mono-12"
+                                "Victor Mono-15"
+                                "iA Writer Mono S-15"))
+         (fonts (if work-pc-p fonts-work-pc-p default-fonts))
          font)
-         (setq font (nth (random (length fonts)) fonts))
-         (set-frame-font font)
-         (message (format "Random font: %s" font))))
+    (setq font (nth (random (length fonts)) fonts))
+    (set-frame-font font)
+    (message (format "Random font: %s" font))))
 #+END_SRC
 
 Chose a random font at the start of the session.
@@ -2369,7 +2369,7 @@ Setting the colours of each keyword.
 The following key-bindings are available globally.
 
 #+BEGIN_SRC emacs-lisp
-(when komodo
+(when work-pc-p
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cb" 'org-switchb)
   (global-set-key "\C-cl" 'org-store-link)
@@ -2406,14 +2406,14 @@ I also use Jira at work. =/
 Setup the credentials.
 
    #+begin_src emacs-lisp
-(when komodo
+(when work-pc-p
   (bj:load-file *emacs-repo-dir* "secret/jira.el"))
    #+end_src
 
    [[https://github.com/nyyManni/jiralib2][Jiralib2]] provides many functions to interact with Jira's REST API.
 
    #+begin_src emacs-lisp
-(when komodo
+(when work-pc-p
   (use-package jiralib2
     :ensure t
     :defer t
@@ -2449,7 +2449,7 @@ TICKET-NUMBER should be a string like \"FM-9081\"."
 Given a ticket number returns its URL.
 
    #+begin_src emacs-lisp
-(when komodo
+(when work-pc-p
   (defun bj:insert-org-jira-url (ticket-number)
     "Returns the URL of a Jira ticket with TICKET-NUMBER.
 TICKET-NUMBER should be a string like \"fm 9081\"."
@@ -2469,7 +2469,7 @@ TICKET-NUMBER should be a string like \"fm 9081\"."
     ticket title for filename and ticket title, which fetches from Jira.
 
     #+begin_src emacs-lisp
-(when komodo
+(when work-pc-p
   (defun bj:create-org-roam-ticket (ticket-number)
     "Returns the title of a Jira ticket with TICKET-NUMBER.
 TICKET-NUMBER should be a string like \"fm 9081\"."
@@ -2533,5 +2533,5 @@ TICKET-NUMBER should be a string like \"FM-9081\"."
 Load the dashboard at work.
 
 #+begin_src emacs-lisp
-(and komodo (bj:open-dashboard))
+(and work-pc-p (bj:open-dashboard))
 #+end_src
