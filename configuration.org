@@ -2384,21 +2384,6 @@ The following key-bindings are available globally.
 
 ~C-M-s-a~ close all windows and open the Dashboard.
 
-** Aider
-
-   #+begin_src emacs-lisp
-(use-package aidermacs
-  :ensure t
-  :defer t
-  :config
-  ; Enable minor mode for Aider files
-  (aidermacs-setup-minor-mode)
-  :custom
-  ; See the Configuration section below
-  (aidermacs-default-chat-mode "code")
-  (aidermacs-default-model "smart"))
-   #+end_src
-
 ** Jira
 
 I also use Jira at work. =/
