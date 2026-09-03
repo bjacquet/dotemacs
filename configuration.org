@@ -1552,7 +1552,7 @@ configure it correctly:
 
     #+begin_src emacs-lisp
 (with-eval-after-load 'eglot
-  (when (or komodo plover)
+  (when (or work-pc-p plover)
     (let ((elixir-lsp-alternatives '(("~/.local/bin/expert" "--stdio") "elixir-ls")))
       (add-to-list 'eglot-server-programs
                    `((elixir-mode elixir-ts-mode) . ,(eglot-alternatives elixir-lsp-alternatives))))))
