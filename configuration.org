@@ -2404,9 +2404,9 @@ Setup the credentials.
     :defer t
     :init
     (setq jiralib2-auth            'token
-          jiralib2-token           bj/jira-api-token
-          jiralib2-url             bj/jira-url
-          jiralib2-user-login-name bj/jira-username))
+          jiralib2-token           'bj/jira-api-token
+          jiralib2-url             'bj/jira-url
+          jiralib2-user-login-name 'bj/jira-username))
 
   (defun bj:get-jira-ticket-title (ticket-number)
     "Fetch the title/summary of a Jira ticket with TICKET-NUMBER.
