@@ -1601,6 +1601,7 @@ This defines key-bindings:
         (make       "https://github.com/alemuller/tree-sitter-make")
         (markdown   "https://github.com/ikatyang/tree-sitter-markdown")
         (org        "https://github.com/milisims/tree-sitter-org")
+        (python     "https://github.com/tree-sitter/py-tree-sitter")
         (ruby       "https://github.com/tree-sitter/tree-sitter-ruby")
         (rust       "https://github.com/tree-sitter/tree-sitter-rust")
         (sql        "https://github.com/m-novikov/tree-sitter-sql")
@@ -1690,6 +1691,28 @@ Credo is a static code analysis tool for the Elixir language.
 (use-package protobuf-mode
   :ensure t)
 #+end_src
+
+** Python
+
+*** LSP
+
+Install the LSP server, [[https://docs.astral.sh/ty/installation/#installing-globally-with-mise][ty]], with
+
+#+begin_src shell
+mise install ty
+mise use --global ty
+#+end_src
+
+The [[https://docs.astral.sh/ty/editors/#emacs][configuration]] for Eglot:
+
+#+begin_src emacs_lisp
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '((python-base-mode :language-id "python") . ("ty" "server"))))
+
+(add-hook 'python-base-mode-hook 'eglot-ensure)
+#+end_src
+
 
 ** Ruby
 
