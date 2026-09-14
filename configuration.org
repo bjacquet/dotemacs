@@ -1749,10 +1749,17 @@ Credo is a static code analysis tool for the Elixir language.
 #+end_src
 
 
+*** LSP sever
 
+Install the LSP server, [[https://shopify.github.io/ruby-lsp/#with-other-editors][ruby-lsp]], with:
 
+#+begin_src shell
+gem install ruby-lsp
+#+end_src
 
 #+begin_src emacs-lisp
+(with-eval-after-load 'eglot
+ (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
 #+end_src
 
 ** Rust
