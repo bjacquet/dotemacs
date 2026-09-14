@@ -1602,6 +1602,7 @@ This defines key-bindings:
         (markdown   "https://github.com/ikatyang/tree-sitter-markdown")
         (org        "https://github.com/milisims/tree-sitter-org")
         (ruby       "https://github.com/tree-sitter/tree-sitter-ruby")
+        (rust       "https://github.com/tree-sitter/tree-sitter-rust")
         (sql        "https://github.com/m-novikov/tree-sitter-sql")
         (toml       "https://github.com/tree-sitter/tree-sitter-toml")
         (tsx        "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
@@ -1777,9 +1778,17 @@ Since I'm using *asdf* I'm not sure if I still need this.
 
    [[https://github.com/rust-lang/rust-mode][Rust-mode]] is a major mode for editing Rust files.
 
+   Install the LSP server, ~rust-analyzer~, with:
+
+   #+begin_src shell
+rustup component add rust-analyzer.
+   #+end_src
+
    #+begin_src emacs-lisp
 (use-package rust-mode
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'rust-mode-hook 'eglot-ensure))
    #+end_src
 
 ** Terraform
