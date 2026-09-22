@@ -98,6 +98,26 @@ If keep-list has buffers don't kill them."
     (setq list (cdr list))))
 #+end_src
 
+** bj:insert-pull-request-link
+
+Insert an org-mode link to the pull/merge request at URL.  The link description is built as ~REPO!NUMBER~.
+
+   #+begin_src emacs-lisp
+(defun bj:insert-pull-request-link (url)
+  "Insert an org-mode link to the pull/merge request at URL.
+
+The link description is built as REPO!NUMBER."
+  (interactive "sURL: ")
+  (let ((url-regexp
+         "/\\([^/]+\\)/\\(?:-/\\)?\\(?:pull\\|pulls\\|pull-requests\\|merge_requests\\|merge-requests\\)/\\([0-9]+\\)")
+        ;; Change this to use a different separator, e.g. "#" or " #".
+        (separator "!"))
+    (if (string-match url-regexp url)
+        (let ((repo (match-string 1 url))
+              (number (match-string 2 url)))
+          (insert (format "[[%s][%s%s%s]]" url repo separator number)))
+      (user-error "Not a valid pull/merge request URL: %s" url))))
+   #+end_src
 ** bj:insert-todays-date
 
 Can't remember why I needed this.
