@@ -1575,7 +1575,7 @@ This defines key-bindings:
         (make       "https://github.com/alemuller/tree-sitter-make")
         (markdown   "https://github.com/ikatyang/tree-sitter-markdown")
         (org        "https://github.com/milisims/tree-sitter-org")
-        (python     "https://github.com/tree-sitter/py-tree-sitter")
+        (python     "https://github.com/tree-sitter/tree-sitter-python")
         (ruby       "https://github.com/tree-sitter/tree-sitter-ruby")
         (rust       "https://github.com/tree-sitter/tree-sitter-rust")
         (sql        "https://github.com/m-novikov/tree-sitter-sql")
@@ -1679,7 +1679,7 @@ mise use --global ty
 
 The [[https://docs.astral.sh/ty/editors/#emacs][configuration]] for Eglot:
 
-#+begin_src emacs_lisp
+#+begin_src emacs-lisp
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
                '((python-base-mode :language-id "python") . ("ty" "server"))))
