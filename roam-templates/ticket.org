@@ -16,3 +16,23 @@
 ** Merge Requests 📝🛂✅🚀🛰️
 
 -
+
+
+* Symptoms
+** Expected
+
+
+** Observed
+
+
+** Reproduction
+
+
+
+* Evidence
+** E-01
+
+* Hypotheses
+** H-01
+
+* Field Notes
