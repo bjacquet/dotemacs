@@ -920,6 +920,17 @@ directories of plain text files.
 
 ** Detour
 
+** Dired-x
+
+Load [[info:dired-x#Top][Dired-X]] the first time Dired loads.  It adds extras like ~dired-omit-mode~, to hide uninteresting files,
+and better guesses for shell commands run with ~!~.
+
+#+begin_src emacs-lisp
+(use-package dired-x
+  :ensure nil
+  :after dired)
+#+end_src
+
 ** Edit in Emacs
 
 With [[https://github.com/KarimAziev/chrome-emacs][Chrome-Emacs]] installed in the browser I can edit any input field in Emacs.
@@ -1020,15 +1031,13 @@ in a shell.
 #+begin_src emacs-lisp
 (use-package magit
   :ensure t
-  :hook ((dired-load-hook . (lambda () (load "dired-x")))
-         (dired-mode-hook . (lambda ())))
   :config
   (autoload 'magit-status "magit" "Loads magit-mode" t))
 #+end_src
 
 On any magit screen we can see their specific key-bindings by typing ~?~.
 
-Skim through the [[https://emacsair.me/2017/09/01/magit-walk-through/][Magit's walk though]] for help.
+Skim through the [[https://emacsair.me/2017/09/01/magit-walk-through/][Magit's walk through]] for help.
 
 #+begin_src emacs-lisp
 (use-package forge
