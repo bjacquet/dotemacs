@@ -341,7 +341,6 @@ further down in this file.
                       hledger-mode
                       ido-vertical-mode
                       json-mode
-                      lsp-mode
                       marginalia
                       markdown-mode
                       neotree
@@ -1500,38 +1499,7 @@ Customisation to the Whitespace mode `M-x whitespace-mode`
 
 Configuration specific to programming.
 
-** Language Server Protocol (LSP)
-
-*** lsp-mode
-
-[[https://emacs-lsp.github.io/lsp-mode/][lsp-mode]] is a client/library for the LSP.
-
-    #+begin_src emacs-lisp
-(use-package lsp-mode
-  :commands lsp
-  :ensure t
-  :diminish lsp-mode
-  :init
-  (setq lsp-enable-file-watchers t
-        lsp-enable-indentation t
-        lsp-enable-on-type-formatting t
-        lsp-enable-snippet t
-        lsp-file-watch-threshold nil
-        lsp-log-io t ;; M-x lsp-workspace-show-log
-  ))
-   #+end_src
-
-*** lsp-ui
-
-[[https://github.com/emacs-lsp/lsp-ui][lsp-ui]] is a collection of UI modules for lsp-mode.
-
-    #+begin_src emacs-lisp
-(use-package lsp-ui
-  :ensure t
-  :commands lsp-ui-mode)
-    #+end_src
-
-*** Eglot
+** Eglot
 
 [[https://www.gnu.org/software/emacs/manual/html_node/eglot/index.html][Eglot]] is Emacs's client for the LSP.  The name is an acronym that stands for “Emacs Polyglot”.
 
