@@ -79,23 +79,23 @@ Kill all buffers silently if unmodified, otherwise ask. If keep-list has buffers
   "Kill all buffers silently if unmodified, otherwise ask.
 If keep-list has buffers don't kill them."
   (interactive)
-  (setq list (buffer-list))
-  (dolist (el keep-list)
-    (setq list (delq el list)))
-  (while list
-    (let* ((buffer (car list))
-	   (name (buffer-name buffer)))
-      (and (not (string-equal name ""))
-	   (not (string-equal name "*Messages*"))
-	   (not (string-equal name "*Shell Command Output*"))
-	   (not (string-equal name "*scratch*"))
-	   (/= (aref name 0) ? )
-	   (if (buffer-modified-p buffer)
-	       (if (y-or-n-p
-		    (format "Buffer %s has been edited. Kill? " name))
-		   (kill-buffer buffer))
-	     (kill-buffer buffer))))
-    (setq list (cdr list))))
+  (let ((list (buffer-list)))
+    (dolist (el keep-list)
+      (setq list (delq el list)))
+    (while list
+      (let* ((buffer (car list))
+             (name (buffer-name buffer)))
+        (and (not (string-equal name ""))
+             (not (string-equal name "*Messages*"))
+             (not (string-equal name "*Shell Command Output*"))
+             (not (string-equal name "*scratch*"))
+             (/= (aref name 0) ? )
+             (if (buffer-modified-p buffer)
+                 (if (y-or-n-p
+                      (format "Buffer %s has been edited. Kill? " name))
+                     (kill-buffer buffer))
+               (kill-buffer buffer))))
+      (setq list (cdr list)))))
 #+end_src
 
 ** bj:insert-pull-request-link
@@ -350,7 +350,6 @@ further down in this file.
                       panda-theme
                       paredit
                       ranger
-                      rinari
                       rjsx-mode
                       robe
                       rust-mode
@@ -530,7 +529,7 @@ Set the frame tile to filename and path or buffer name.
 This is a favorable shorthand.
 
 #+begin_src emacs-lisp
-(fset 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)
 #+end_src
 
 ** Enable Narrow To Region
@@ -2279,7 +2278,6 @@ Configurations specific to the workplace.
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (add-to-list 'dashboard-items '(agenda) t)
   (setq dashboard-items '((agenda . 10)
                           (projects . 10)
                           (recents  . 5)
@@ -2425,7 +2423,7 @@ The following key-bindings are available globally.
 
 ~C-c l~ stores the current file path and point position and makes it accessible when inserting links in a org file with ~C-c C-l~.
 
-~C-M-s-a~ close all windows and open the Dashboard.
+~C-s-a~ close all windows and open the Dashboard.
 
 ** Jira
 
