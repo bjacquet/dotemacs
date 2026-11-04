@@ -1805,8 +1805,12 @@ rustup component add rust-analyzer.
    #+begin_src emacs-lisp
 (use-package rust-mode
   :ensure t
+  :hook
+  ((rust-mode . eglot-ensure))
   :config
-  (add-hook 'rust-mode-hook 'eglot-ensure))
+  (add-hook 'rust-mode-hook
+            (lambda ()
+              (add-hook 'after-save-hook 'eglot-format nil 'make-it-local))))
    #+end_src
 
 ** Terraform
