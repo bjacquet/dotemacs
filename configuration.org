@@ -1712,18 +1712,31 @@ The [[https://docs.astral.sh/ty/editors/#emacs][configuration]] for Eglot:
 
 *** Enhanced Ruby Mode
 
+# #+begin_src emacs-lisp
+# (use-package enh-ruby-mode
+#   :ensure t
+#   :hook (enh-ruby-mode . lsp)
+#   :config
+#   (add-to-list 'auto-mode-alist
+#                '("\\(?:\\.rb\\|arb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+#   (add-hook 'enh-ruby-mode-hook 'robe-mode)
+#   ;; (add-hook 'enh-ruby-mode-hook 'yard-mode)
+#   (add-hook 'enh-ruby-mode 'smartparens-minor-mode)
+#   (add-hook 'enh-ruby-mode 'projectile-rails-mode)
+#   (setq enh-ruby-add-encoding-comment-on-save nil))
+# #+end_src
+
 #+begin_src emacs-lisp
 (use-package enh-ruby-mode
   :ensure t
-  :hook (enh-ruby-mode . lsp)
+  :mode "\\(?:\\.rb\\|arb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'"
+  :hook ((enh-ruby-mode . eglot-ensure)
+         (enh-ruby-mode . robe-mode))
   :config
-  (add-to-list 'auto-mode-alist
-               '("\\(?:\\.rb\\|arb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
-  (add-hook 'enh-ruby-mode-hook 'robe-mode)
-  ;; (add-hook 'enh-ruby-mode-hook 'yard-mode)
-  (add-hook 'enh-ruby-mode 'smartparens-minor-mode)
-  (add-hook 'enh-ruby-mode 'projectile-rails-mode)
-  (setq enh-ruby-add-encoding-comment-on-save nil))
+  (setq enh-ruby-add-encoding-comment-on-save nil)
+  (add-hook 'enh-ruby-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'eglot-format nil 'make-it-local))))
 #+end_src
 
 *** Robe
