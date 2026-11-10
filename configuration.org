@@ -131,6 +131,33 @@ Can't remember why I needed this.
               (format-time-string "%B %-d, %Y"))))
 #+end_src
 
+** bj:last-closed-files
+
+An alternative to ~recentf-open-files~.  Use it with ~F9~.
+
+#+begin_src emacs-lisp
+(defun bj:last-closed-files ()
+  "Lists the previous closed files."
+  (interactive)
+  (find-file (ido-completing-read "Last closed: " bj:closed-files)))
+#+end_src
+
+Auxiliary functionality to keep track of closed files.
+
+#+begin_src emacs-lisp
+(defvar bj:closed-files (list)
+  "Files whose buffers were killed.")
+
+(defun bj:track-closed-file ()
+  "Remember the file of the buffer being killed."
+  (when buffer-file-name
+    (message buffer-file-name)
+    (delete buffer-file-name bj:closed-files)
+    (add-to-list 'bj:closed-files buffer-file-name)))
+
+(add-hook 'kill-buffer-hook 'bj:track-closed-file)
+#+end_src
+
 ** bj:reading-time
 
 Time to read the buffer or region.
@@ -2102,7 +2129,7 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
 (global-set-key [f5]    'comment-region)
 (global-set-key [S-f5]  'uncomment-region)
 (global-set-key [f8]    'find-file-at-point)
-(global-set-key [f9]    'last-closed-files)
+(global-set-key [f9]    'bj:last-closed-files)
 (global-set-key [S-f9]  'recentf-open-files)
 
 (global-set-key "\C-ci" 'indent-region)
