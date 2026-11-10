@@ -563,21 +563,6 @@ Enable downcase-region (~C-x C-l~).
 (put 'downcase-region 'disabled nil)
 #+end_src
 
-** ~dired-mode~
-
-Ability to use ~a~ to visit a new directory or file in dired instead of using ~RET~. ~RET~ works just fine,
-but it will create a new buffer for every interaction whereas ~a~ reuses the current buffer.
-
-#+begin_src emacs-lisp
-(put 'dired-find-alternate-file 'disabled nil)
-#+end_src
-
-Human readable units
-
-#+begin_src emacs-lisp
-(setq-default dired-listing-switches "-alh")
-#+end_src
-
 ** Ediff
 
 I dislike pop-up windows and so I prefer that Ediff uses the same frame.
@@ -920,16 +905,44 @@ directories of plain text files.
 
 ** Detour
 
-** Dired-x
+** Dired
 
-Load [[info:dired-x#Top][Dired-X]] the first time Dired loads.  It adds extras like ~dired-omit-mode~, to hide uninteresting files,
-and better guesses for shell commands run with ~!~.
+[[info:emacs#dired][Dired]] is Emacs' built-in file manager.
+
+#+begin_src emacs-lisp
+(use-package dired
+  :ensure nil
+  :custom
+  (dired-recursive-copies 'always)
+  (dired-listing-switches "-alh --group-directories-first")
+  :config
+  ;; macOS ls doesn't support --group-directories-first; use coreutils gls if present
+  (when (and mac-p
+             (executable-find "gls"))
+    (setq dired-listing-switches "-alh --group-directories-first"
+          insert-directory-program "gls")))
+#+end_src
+
+This allows the use of ~a~ to visit directories or files.  It behaves like ~RET~
+but won't create a new buffer to visit them.
+
+#+begin_src emacs-lisp
+(put 'dired-find-alternate-file 'disabled nil)
+#+end_src
+
+** Dired-Extra
+
+[[info:dired-x#Top][Dired-Extra]] adds extras like ~dired-omit-mode~, to hide uninteresting files, and
+better guesses for shell commands run with ~!~.
 
 #+begin_src emacs-lisp
 (use-package dired-x
   :ensure nil
   :after dired)
 #+end_src
+
+Use ~C-x M-o~ to toggle the display of uninteresting files, and ~* o~ to mark
+uninteresting files.
 
 ** Edit in Emacs
 
