@@ -323,8 +323,7 @@ List all packages to install regardless of the system we are at. Additional pack
 further down in this file.
 
 #+BEGIN_SRC emacs-lisp
-(defvar my-packages '(ag
-                      birds-of-paradise-plus-theme
+(defvar my-packages '(birds-of-paradise-plus-theme
                       color-theme-modern
                       darktooth-theme
                       dashboard
@@ -1747,14 +1746,6 @@ The [[https://docs.astral.sh/ty/editors/#emacs][configuration]] for Eglot:
   (sp-with-modes '(rhtml-mode)
                   (sp-local-pair "<" ">")
                   (sp-local-pair "<%" "%>")))
-#+end_src
-
-*** AG
-
-#+begin_src emacs-lisp
-(use-package ag
-  :ensure t
-  :config (setq ag-executable "/usr/local/bin/ag"))
 #+end_src
 
 *** Projectile Rails
