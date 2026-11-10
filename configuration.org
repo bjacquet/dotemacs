@@ -183,7 +183,7 @@ Time to read the buffer or region.
 
 ** bj:split-window-vertically
 
-Split window vertically and move cursor to new window. With `C-u` it
+Split window vertically and move cursor to new window. With ~C-u~ it
 will split against the root of windows.
 
 #+begin_src emacs-lisp
@@ -428,11 +428,11 @@ further down in this file.
 Configurations change depending on which system I am at.
 
 #+begin_src emacs-lisp
-(defvar mac-p (or (eq window-system 'ns) (eq window-system 'mac)))
-(defvar linux-p (or (eq window-system 'x)))
-(defvar puffin (zerop (or (string-match (system-name) "puffin.home") 1)))
-(defvar plover (zerop (or (string-match (system-name) "plover") 1)))
-(defvar work-pc-p (zerop (or (string-match (system-name) "tama.local") 1)))
+(defvar mac-p (eq system-type 'darwin))
+(defvar linux-p (eq system-type 'gnu/linux))
+(defvar puffin (string= (system-name) "puffin.home"))
+(defvar plover (string= (system-name) "plover"))
+(defvar work-pc-p (string= (system-name) "tama.local"))
 #+end_src
 
 Change macOS modifier keys — to avoid muscle memory loss.
@@ -518,11 +518,10 @@ This value will change on specific modes.
 (setq require-final-newline t)
 #+end_src
 
-** Replace audible bell with visible bell
+** Silence the ring bell
 
 #+begin_src emacs-lisp
 (setq ring-bell-function 'ignore)
-(setq visible-bell t)
 #+end_src
 
 ** Do not show the tool bar
@@ -821,13 +820,13 @@ sub-directories.
   (setq ido-vertical-define-keys 'C-n-and-C-p-only)
   (setq ido-use-faces t)
   (set-face-attribute 'ido-vertical-first-match-face nil
-                      :background nil
+                      :background 'unspecified
                       :foreground "orange")
   (set-face-attribute 'ido-vertical-only-match-face nil
-                      :background nil
-                      :foreground nil)
+                      :background 'unspecified
+                      :foreground 'unspecified)
   (set-face-attribute 'ido-vertical-match-face nil
-                      :foreground nil)
+                      :foreground 'unspecified)
   (ido-vertical-mode 1))
 #+end_src
 
@@ -999,7 +998,7 @@ Expand selection to the enclosed region with ~C-=~.
 (use-package hledger-mode
   :ensure t
   :mode ("\\.journal\\'" "\\.hledger\\'")
-  :bind (("C-c j" . hledger-run-command)
+  :bind (("C-c h" . hledger-run-command)
          :map hledger-mode-map
          ("C-c e" . hledger-jentry)
          ("M-p" . hledger/prev-entry)
@@ -1804,6 +1803,11 @@ Install the LSP server, [[https://shopify.github.io/ruby-lsp/#with-other-editors
 gem install ruby-lsp
 #+end_src
 
+# #+begin_src emacs-lisp
+# (with-eval-after-load 'eglot
+#   (add-to-list 'eglot-server-programs '((ruby-mode ruby-ts-mode) "ruby-lsp")))
+# #+end_src
+
 #+begin_src emacs-lisp
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
@@ -1879,14 +1883,12 @@ Recomended configuration for **TSX** files:
 
 #+begin_src emacs-lisp
 (use-package web-mode
-  :ensure t)
+  :ensure t
+  :mode "\\.tsx\\'"
+  :hook (web-mode . (lambda ()
+                      (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                        (bj:setup-tide-mode)))))
 
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-(add-hook 'web-mode-hook
-          (lambda ()
-            (when (string-equal "tsx" (file-name-extension buffer-file-name))
-              (bj:setup-tide-mode))))
 ;; enable typescript-tslint checker
 ;; (flycheck-add-mode 'typescript-tslint 'web-mode)
 #+end_src
@@ -2134,7 +2136,7 @@ This won't work out of the box. One needs to install fonts ~M-x all-the-icons-in
 
 (global-set-key "\C-ci" 'indent-region)
 (global-set-key "\C-xk" 'kill-current-buffer)
-(global-set-key "\C-xO" 'previous-multiframe-window)
+(global-set-key "\C-xO" 'previous-window-any-frame)
 (global-set-key "\C-x2" 'bj:split-window-vertically)
 (global-set-key "\C-x3" 'bj:split-window-horizontally)
 (global-set-key "\M-c"  'capitalize-dwim)
