@@ -2368,8 +2368,8 @@ Configurations specific to the workplace.
 Used to use this extensively at SISCOG, where I had to clock my work time per issue. This would automatically start/end a clock.
 
 #+BEGIN_SRC emacs-lisp
-(use-package org-pomodoro
-  :ensure t)
+;; (use-package org-pomodoro
+;;   :ensure t)
 #+END_SRC
 
 *** Load files outside source control
