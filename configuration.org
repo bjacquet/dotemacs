@@ -1957,7 +1957,7 @@ I feel that using a different font every day prevents boredom.
                                 "Myna-16"
                                 "NovaMono-15"
                                 "Share Tech Mono-14"
-                                "Ubuntu Mono-12"
+                                "Ubuntu Mono-14"
                                 "Victor Mono-15"
                                 "iA Writer Mono S-15"))
          (fonts (if work-pc-p fonts-work-pc-p default-fonts))
